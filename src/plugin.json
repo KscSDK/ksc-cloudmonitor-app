@@ -1,0 +1,41 @@
+{
+  "type": "app",
+  "name": "Ksyun Cloud Monitor",
+  "id": "ksc-cloudmonitor-app",
+  "executable": "datasource/ksc-monitor-app-backend",
+  "info": {
+    "description": "Ksyun Cloud Monitor App for Grafana",
+    "author": {
+      "name": "Ksyun Cloud Monitor"
+    },
+    "keywords": ["ksyuncloud", "ksyuncloudmonitor", "grafana", "plugins"],
+    "version": "1.0.1",
+    "updated": "2022-02-28",
+    "logos": {
+      "small": "img/logo.png",
+      "large": "img/logo.png"
+    },
+    "screenshots": [
+      { "name": "dashbord example", "path": "img/dashboard-test.png" },
+      { "name": "config datasource", "path": "img/datasource-config.png" },
+      { "name": "query example", "path": "img/variable-panel-query.png" },
+      { "name": "ksyun variable example", "path": "img/variable-region-config.png" }
+    ]
+  },
+  "includes": [
+    {
+      "type": "dashboard",
+      "name": "【预设】test",
+      "path": "dashboards/test.json"
+    },
+    {
+      "type": "datasource",
+      "name": "Ksyun Cloud Monitor DataSource"
+    }
+  ],
+  "dependencies": {
+    "grafanaDependency": ">=7.0.0",
+    "grafanaVersion": "7.0.0",
+    "plugins": []
+  }
+}
