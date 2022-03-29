@@ -1,0 +1,98 @@
+/* .gf-form-select-box__control {
+  width: 280px;
+  margin-right: 0px;
+}
+.gf-form-input {
+  width: auto;
+} */
+.gf-form-input {
+  width: 280px;
+  min-width: fit-content;
+}
+.gf-form-input-query {
+  width: 100%;
+}
+.upper-flex-content>div {
+  /* flex-basis: fit-content !important; */
+  width: calc(100% - 130px);
+}
+.flex-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .custom-select-style div {
+  display: inline-flex;
+} */
+.desc {
+  margin-left: 8px;
+}
+.common-content {
+  margin-top: 8px;
+}
+.common-content .form-field {
+  margin-bottom: 8px;
+}
+.common-content .gf-form .gf-form-label {
+  width: 112px;
+}
+.common-content .gf-form div {
+  margin: 0px 8px;
+}
+.inline-content {
+  display: inline-block;
+}
+.inline-input {
+  display: inline-flex;
+  margin: 8px;
+}
+.inline-icon {
+  display: inline-block;
+  margin-left: 8px;
+  height: auto;
+}
+.inline-button-add {
+  display: inline-block;
+  margin-left: 16px;
+}
+.filter-cart {
+  display: block;
+}
+/* 过滤条件内容部分 */
+.filter-content {
+  /* padding: 24px; */
+  padding-left: 0px;
+}
+
+/* 详情查询instance content */
+.detail-content-desc {
+  padding: 16px;
+  background-color: rgb(34, 37, 43);
+}
+.detail-content-desc a {
+  text-align: right;
+  color: cornflowerblue;
+  margin-left: 8px;
+}
+/* 帮助文档 */
+.help-content a {
+  text-align: right;
+  color: cornflowerblue;
+  margin-left: 8px;
+}
+.detail-content-fileds {
+  margin-top: 8px;
+  padding-top: 0px;
+  background-color: #181b20;
+  padding: 8px;
+}
+
+.repeat-field {
+  padding-bottom: 8px;
+}
+/* select 宽度*/
+.gf-form-select-box__value-container, .gf-form-select-box__value-container>div {
+  display: inline-block;
+}
+.gf-form-select-box__control {
+  overflow: unset;
+}

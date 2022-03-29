@@ -1,0 +1,82 @@
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"net/http"
+
+	"github.com/grafana/grafana-plugin-sdk-go/backend"
+	"github.com/grafana/grafana-plugin-sdk-go/backend/datasource"
+	"github.com/grafana/grafana-plugin-sdk-go/backend/instancemgmt"
+	"github.com/grafana/grafana-plugin-sdk-go/backend/log"
+)
+
+var logger = log.New()
+
+// newDatasource returns datasource.ServeOpts.
+func newDatasource() datasource.ServeOpts {
+	// creates a instance manager for your plugin. The function passed
+	// into `NewInstanceManger` is called when the instance is created
+	// for the first time or when a datasource configuration changed.
+	im := datasource.NewInstanceManager(newDataSourceInstance)
+	ds := &cloudMonitorDatasource{
+		im: im,
+	}
+
+	return datasource.ServeOpts{
+		CheckHealthHandler:  ds,
+		CallResourceHandler: newResourceHandler(ds),
+	}
+}
+
+var _ backend.CheckHealthHandler = (*cloudMonitorDatasource)(nil)
+
+type cloudMonitorDatasource struct {
+	// The instance manager can help with lifecycle management
+	// of datasource instances in plugins. It's not a requirements
+	// but a best practice that we recommend that you follow.
+	im instancemgmt.InstanceManager
+}
+
+func (td *cloudMonitorDatasource) CheckHealth(ctx context.Context, req *backend.CheckHealthRequest) (*backend.CheckHealthResult, error) {
+	return &backend.CheckHealthResult{
+		Status:  backend.HealthStatusOk,
+		Message: "ok",
+	}, nil
+}
+
+type apiOpts struct {
+	SecretId  string `json:"secretId"`
+	SecretKey string `json:"secretKey"`
+	Token     string
+	Intranet  bool
+}
+
+func getInsSetting(instanceSettings backend.DataSourceInstanceSettings) (opts apiOpts) {
+
+	jsonData := map[string]interface{}{}
+	_ = json.Unmarshal(instanceSettings.JSONData, &jsonData)
+
+	opts = apiOpts{
+		SecretId:  jsonData["AccessKey"].(string),
+		SecretKey: instanceSettings.DecryptedSecureJSONData["secretKey"],
+	}
+
+	if intranet, ok := jsonData["intranet"]; ok {
+		if isIntranet, ok := intranet.(bool); ok {
+			opts.Intranet = isIntranet
+		}
+	}
+
+	return
+}
+
+type instanceSettings struct {
+	httpClient *http.Client
+}
+
+func newDataSourceInstance(setting backend.DataSourceInstanceSettings) (instancemgmt.Instance, error) {
+	return &instanceSettings{
+		httpClient: &http.Client{},
+	}, nil
+}
