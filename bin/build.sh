@@ -3,7 +3,7 @@
 set -eu
 
 # build frontend
-yarn build
+yarn dev
 
 # build backend
 mage -v
