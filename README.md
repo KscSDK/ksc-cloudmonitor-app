@@ -17,19 +17,18 @@
 
 ## 1、直接安装云监控grafana数据源
     a. 直接 从release 页面 https://github.com/KscSDK/ksc-cloudmonitor-app/releases 里面下载 ksc-cloudmonitor-app-1.0.1.zip
-    b. 下载到 grafan的plugin目录中，解压缩 	unzip ksc-cloudmonitor-app-1.0.1.zip
-    c. 修改 conf/defaults.ini 允许未签名插件运行
-        allow_loading_unsigned_plugins = ksc-cloudmonitor-app
+    b. 下载到 grafan的plugin目录中，解压缩 unzip ksc-cloudmonitor-app-1.0.1.zip
+    c. 修改 grafana.ini 允许未签名插件运行
+        allow_loading_unsigned_plugins = ksc-cloudmonitor-app,ksc-cloudmonitor-datasource
     d. 重启grafana
 
 ## 2、源代码安装
     a. 编译
         进入ksc-cloudmonitor-app目录下,执行bin/build.sh
 		生成 ksc-cloudmonitor-app-1.0.1.zip
-
- 		下载到 grafan的plugin目录中，解压缩 	unzip ksc-cloudmonitor-app-1.0.1.zip
-    c. 修改 conf/defaults.ini 允许未签名插件运行
-        allow_loading_unsigned_plugins = ksc-cloudmonitor-app
+ 	b. 下载到 grafan的plugin目录中，解压缩 unzip ksc-cloudmonitor-app-1.0.1.zip
+    c. 修改 grafana.ini 允许未签名插件运行
+        allow_loading_unsigned_plugins = ksc-cloudmonitor-app,ksc-cloudmonitor-datasource
     d. 重启grafana
 
 
