@@ -30,8 +30,8 @@ const config: InstanceConfig = {
   },
   PEER: {
     InstanceId: 'VpcPeeringConnectionId',
-    InstanceName: 'PeeringName',
-    InstanceIp: 'VpcPeeringConnectionId',
+    InstanceName: 'PeeringName_VpcPeeringConnectionType',
+    InstanceIp: 'NatIpSet[0].NatIp',
   },
   KRDS: {
     InstanceId: 'DBInstanceIdentifier',
@@ -157,6 +157,14 @@ export const GenerageInstanceOptions: any = {
             ? item?.NetworkInterfaceAttributeSet[0].PrivateIpAddress
             : item[config.EPC[instanceType]],
         value: item['HostId'],
+      }));
+    },
+  },
+  PGS: {
+    options: (data: any, instanceType: string) => {
+      return data?.Data?.Instances.map((item: any) => ({
+        label: item[config.PGS[instanceType]],
+        value: item['DBInstanceIdentifier'],
       }));
     },
   },
