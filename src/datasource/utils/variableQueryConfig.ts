@@ -40,11 +40,11 @@ export const variableConfig: any = {
     DescribeAddresses: {
       version: '2016-03-04',
       getDataKey: 'AddressesSet',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.PublicIp,
           value: i.AllocationId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.PublicIp,
+          text: i.PublicIp,
         }));
       },
     },
@@ -58,11 +58,11 @@ export const variableConfig: any = {
     DescribeNats: {
       version: '2016-03-04',
       getDataKey: 'NatSet',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.NatName,
           value: i.NatId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.NatName,
+          text: i.NatName,
         }));
       },
     },
@@ -77,12 +77,12 @@ export const variableConfig: any = {
       version: '2016-07-01',
       getDataKey: 'Data',
       // 取值Data.list
-      backDataFn: (Data: any, InstanceAlias?: string) => {
+      backDataFn: (Data: any) => {
         const list: any[] = Data?.list || [];
         return list.map((i) => ({
           label: i.name,
           value: i.cacheId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.name,
+          text: i.name,
         }));
       },
     },
@@ -96,12 +96,12 @@ export const variableConfig: any = {
     DescribeDBInstances: {
       version: '2016-07-01',
       getDataKey: 'Data',
-      backDataFn: (Data: any, InstanceAlias?: string) => {
+      backDataFn: (Data: any) => {
         const list: any[] = Data?.Instances || [];
         return list.map((i) => ({
           label: i.DBInstanceName,
           value: i.DBInstanceIdentifier,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.DBInstanceName,
+          text: i.DBInstanceName,
         }));
       },
     },
@@ -115,11 +115,11 @@ export const variableConfig: any = {
     DescribeLoadBalancers: {
       version: '2016-03-04',
       getDataKey: 'LoadBalancerDescriptions',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.LoadBalancerName,
           value: i.LoadBalancerId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.LoadBalancerName,
+          text: i.LoadBalancerName,
         }));
       },
     },
@@ -133,11 +133,11 @@ export const variableConfig: any = {
     DescribeListeners: {
       version: '2016-03-04',
       getDataKey: 'ListenerSet',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.ListenerName,
           value: i.ListenerId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.ListenerName,
+          text: i.ListenerName,
         }));
       },
     },
@@ -151,11 +151,11 @@ export const variableConfig: any = {
     DescribeVpcPeeringConnections: {
       version: '2016-03-04',
       getDataKey: 'VpcPeeringConnectionSet',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.PeeringName,
           value: i.VpcPeeringConnectionId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.PeeringName,
+          text: i.PeeringName,
         }));
       },
     },
@@ -168,11 +168,11 @@ export const variableConfig: any = {
     DescribeBandWidthShares: {
       version: '2016-03-04',
       getDataKey: 'BandWidthShareSet',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.InstanceName,
           value: i.InstanceId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.InstanceName,
+          text: i.InstanceName,
         }));
       },
     },
@@ -186,11 +186,11 @@ export const variableConfig: any = {
     DescribeEpcs: {
       version: '2015-11-01',
       getDataKey: 'HostSet',
-      backDataFn: (list: any[], InstanceAlias?: string) => {
+      backDataFn: (list: any[]) => {
         return list.map((i) => ({
           label: i.HostName,
           value: i.HostId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.HostName,
+          text: i.HostName,
         }));
       },
     },
@@ -202,12 +202,12 @@ export const variableConfig: any = {
     ListMetrics: {
       version: '2010-05-25',
       getDataKey: 'listMetricsResult',
-      backDataFn: (Data: any, InstanceAlias?: string) => {
+      backDataFn: (Data: any) => {
         const metricList = Data.metrics.member;
         return metricList.map((i: any) => ({
           label: i.metricName,
           value: i.metricName,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.metricName,
+          text: i.metricName,
         }));
       },
     },
@@ -219,12 +219,31 @@ export const variableConfig: any = {
     GetAccountAllProjectList: {
       version: '2015-11-01',
       getDataKey: 'ListProjectResult',
-      backDataFn: (Data: any, InstanceAlias?: string) => {
+      backDataFn: (Data: any) => {
         const metricList = Data.ProjectList;
         return metricList.map((i: any) => ({
           label: i.ProjectName,
           value: i.ProjectId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.ProjectName,
+          text: i.ProjectName,
+        }));
+      },
+    },
+  },
+  PGS: {
+    service: 'postgresql',
+    label: '云数据库PostgreSQL（PGS）',
+    namespace: 'PGS',
+    href: 'https://www.ksyun.com/nv/product/PostgreSQL.html',
+    instanceAction: 'DescribeDBInstances',
+    DescribeDBInstances: {
+      version: '2018-12-25',
+      getDataKey: 'Data',
+      backDataFn: (Data: any) => {
+        const list: any[] = Data?.Instances || [];
+        return list.map((i) => ({
+          label: i.DBInstanceName,
+          value: i.DBInstanceIdentifier,
+          text: i.DBInstanceName,
         }));
       },
     },
@@ -232,4 +251,4 @@ export const variableConfig: any = {
 };
 
 // without region
-export const withoutRegions = ['iam'];
+export const withoutRegions = ['monitor', 'iam'];
