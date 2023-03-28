@@ -32,6 +32,7 @@ import {
   QueryVpc,
   QueryKrds,
   Querykec,
+  QueryPGS,
 } from '../services';
 const { Select } = LegacyForms;
 const AggregateOptions = [
@@ -85,7 +86,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     if (!projectList || !projectList?.length || !namespace) {
       return '';
     }
-    if (namespace === 'KRDS') {
+    if (namespace === 'KRDS' || namespace === 'PGS') {
       return;
     }
     let queryString = '';
@@ -177,6 +178,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         return <QueryKrds onChange={_.debounce(handleChange, 500)} />;
       case 'PEER':
         return <QueryPeering onChange={_.debounce(handleChange, 500)} />;
+      case 'PGS':
+        return <QueryPGS onChange={_.debounce(handleChange, 500)} />;
       default:
         return null;
     }
