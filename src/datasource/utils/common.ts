@@ -30,8 +30,8 @@ const config: InstanceConfig = {
   },
   PEER: {
     InstanceId: 'VpcPeeringConnectionId',
-    InstanceName: 'PeeringName_VpcPeeringConnectionType',
-    InstanceIp: 'NatIpSet[0].NatIp',
+    InstanceName: 'PeeringName',
+    InstanceIp: 'VpcPeeringConnectionId',
   },
   KRDS: {
     InstanceId: 'DBInstanceIdentifier',
@@ -62,7 +62,7 @@ const config: InstanceConfig = {
     InstanceId: 'DBInstanceIdentifier',
     InstanceName: 'DBInstanceName',
     InstanceIp: 'Vip',
-  }
+  },
 };
 // 处理不同类型service生成instance options
 export const GenerageInstanceOptions: any = {
@@ -225,8 +225,8 @@ export const ParseQueryResult = (response: any, targetItem: any) => {
           instanceItem?.current?.text || instanceItem?.label || Instance
         }]`,
         datapoints: pointsData,
+      });
     });
-  });
   });
   return result;
 };
