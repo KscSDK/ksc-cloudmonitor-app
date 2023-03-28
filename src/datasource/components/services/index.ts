@@ -9,3 +9,4 @@ export { default as QueryKrds } from './QueryKrds';
 export { default as QueryListener } from './QueryListener';
 export { default as QueryPeering } from './QueryPeering';
 export { default as Querykec } from './Querykex';
+export { default as QueryPGS } from './QueryPGS';

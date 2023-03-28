@@ -229,6 +229,25 @@ export const variableConfig: any = {
       },
     },
   },
+  PGS: {
+    service: 'postgresql',
+    label: '云数据库PostgreSQL（PGS）',
+    namespace: 'PGS',
+    href: 'https://www.ksyun.com/nv/product/PostgreSQL.html',
+    instanceAction: 'DescribeDBInstances',
+    DescribeDBInstances: {
+      version: '2018-12-25',
+      getDataKey: 'Data',
+      backDataFn: (Data: any, InstanceAlias?: string) => {
+        const list: any[] = Data?.Instances || [];
+        return list.map((i) => ({
+          label: i.DBInstanceName,
+          value: i.DBInstanceIdentifier,
+          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.DBInstanceName,
+        }));
+      },
+    },
+  },
 };
 
 // without region

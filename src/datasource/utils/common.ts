@@ -58,6 +58,11 @@ const config: InstanceConfig = {
     InstanceName: 'HostName',
     InstanceIp: 'NetworkInterfaceAttributeSet[0].PrivateIpAddress',
   },
+  PGS: {
+    InstanceId: 'DBInstanceIdentifier',
+    InstanceName: 'DBInstanceName',
+    InstanceIp: 'Vip',
+  }
 };
 // 处理不同类型service生成instance options
 export const GenerageInstanceOptions: any = {
@@ -212,8 +217,8 @@ export const ParseQueryResult = (response: any, targetItem: any) => {
           instanceItem?.current?.text || instanceItem?.label || Instance
         }]`,
         datapoints: pointsData,
-      });
     });
+  });
   });
   return result;
 };

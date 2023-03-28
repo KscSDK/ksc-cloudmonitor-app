@@ -1159,6 +1159,66 @@
       ]
     },
     {
+      "path": "postgresql/eu-east-1",
+      "url": "http://postgresql.eu-east-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-hongkong-2",
+      "url": "http://postgresql.cn-hongkong-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/ap-singapore-1",
+      "url": "http://postgresql.ap-singapore-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-beijing-6",
+      "url": "http://postgresql.cn-beijing-6.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-guangzhou-1",
+      "url": "http://postgresql.cn-guangzhou-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-shanghai-2",
+      "url": "http://postgresql.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "monitor",
       "url": "https://monitor.api.ksyun.com",
       "headers": [
@@ -1215,7 +1275,7 @@
     "updated": "%TODAY%"
   },
   "dependencies": {
-    "grafanaDependency": ">=8.0.0",
+    "grafanaDependency": ">=7.0.0",
     "plugins": []
   }
 }
