@@ -37,6 +37,7 @@ export const MonitorServices = [
     label: '云服务器(KEC)',
     namespace: 'KEC',
     href: 'https://www.ksyun.com/nv/product/KEC.html',
+    apihref: 'https://docs.ksyun.com/documents/816',
     instanceAction: 'DescribeInstances',
   },
   {
@@ -44,6 +45,7 @@ export const MonitorServices = [
     label: '弹性IP (EIP)',
     namespace: 'EIP',
     href: 'https://www.ksyun.com/nv/product/EIP.html',
+    apihref: 'https://docs.ksyun.com/documents/691',
     instanceAction: 'DescribeAddresses',
   },
   {
@@ -51,6 +53,7 @@ export const MonitorServices = [
     label: '网络地址转换NAT',
     namespace: 'NAT',
     href: 'https://www.ksyun.com/nv/product/NAT.html',
+    apihref: 'https://docs.ksyun.com/documents/115',
     instanceAction: 'DescribeNats',
   },
   {
@@ -58,6 +61,7 @@ export const MonitorServices = [
     label: '云数据库Redis',
     namespace: 'KCS',
     href: 'https://www.ksyun.com/nv/product/Redis.html',
+    apihref: 'https://docs.ksyun.com/documents/1031',
     instanceAction: 'DescribeCacheClusters',
   },
   {
@@ -65,6 +69,7 @@ export const MonitorServices = [
     label: '关系型数据库 (KRDS)',
     namespace: 'KRDS',
     href: 'https://www.ksyun.com/nv/product/KRDS.html',
+    apihref: 'https://docs.ksyun.com/documents/330',
     instanceAction: 'DescribeDBInstances',
   },
   {
@@ -72,6 +77,7 @@ export const MonitorServices = [
     label: '负载均衡（SLB）',
     namespace: 'SLB',
     href: 'https://www.ksyun.com/nv/product/SLB.html',
+    apihref: 'https://docs.ksyun.com/documents/1168',
     instanceAction: 'DescribeLoadBalancers',
   },
   {
@@ -79,6 +85,7 @@ export const MonitorServices = [
     label: '监听器（Listener）',
     namespace: 'Listener',
     href: 'https://www.ksyun.com/nv/product/SLB.html',
+    apihref: 'https://docs.ksyun.com/documents/1172',
     instanceAction: 'DescribeListeners',
   },
   {
@@ -86,12 +93,14 @@ export const MonitorServices = [
     label: '对等连接（Peering）',
     namespace: 'PEER',
     href: 'https://www.ksyun.com/nv/product/Peering.html',
+    apihref: 'https://docs.ksyun.com/documents/2613',
     instanceAction: 'DescribeVpcPeeringConnections',
   },
   {
     service: 'bws',
     label: '共享带宽（BWS）',
     namespace: 'BWS',
+    apihref: 'https://docs.ksyun.com/documents/432',
     instanceAction: 'DescribeBandWidthShares',
   },
   {
@@ -99,6 +108,7 @@ export const MonitorServices = [
     label: '裸金属服务器（EPC）',
     namespace: 'EPC',
     href: 'https://www.ksyun.com/nv/product/EPC.html',
+    apihref: 'https://docs.ksyun.com/documents/627',
     instanceAction: 'DescribeEpcs',
   },
   {
@@ -106,6 +116,7 @@ export const MonitorServices = [
     label: 'GPU裸金属服务器(GEPC)',
     namespace: 'GEPC',
     href: 'https://www.ksyun.com/nv/product/GPU.html',
+    apihref: 'https://docs.ksyun.com/documents/627',
     instanceAction: 'DescribeEpcs',
   },
   {
@@ -113,6 +124,7 @@ export const MonitorServices = [
     label: '云数据库PostgreSQL（PGS）',
     namespace: 'PGS',
     href: 'https://www.ksyun.com/nv/product/PostgreSQL.html',
+    apihref: '',
     instanceAction: 'DescribeDBInstances',
   },
 ];
@@ -126,6 +138,7 @@ const serviceRegionConfig = {
   slb: { version: '2016-03-04', servicename: 'slb' },
   bws: { version: '2016-03-04', servicename: 'bws' },
   epc: { version: '2015-11-01', servicename: 'epc' },
+  monitor: { version: '2010-05-25', servicename: 'monitor' },
   postgresql: { version: '2018-12-25', servicename: 'postgresql' },
 };
 // 非region相关配置
@@ -150,27 +163,21 @@ const generageServiceConfig = (defaultConfig: any, normalConfig: any) => {
 };
 
 export const ServiceConfig = generageServiceConfig(serviceRegionConfig, mormalServiceConfig);
-console.log('ServiceConfig', ServiceConfig);
 export const ServiceMap = new Map(Object.entries(ServiceConfig));
 
 // 获取设置的service，生成namespace
 export const generageCheckedNamespace = (datasource: any) => {
   const {
     instanceSetting: {
-      jsonData: { allChecked, namespace },
+      jsonData: { service },
     },
   } = datasource;
-  if (allChecked) {
-    return MonitorServices.map((item) => ({
-      label: item.label,
-      value: item.namespace,
-      service: item.service,
-    }));
-  }
-  const serviceMap = new Map(Object.entries(namespace || {}));
+
+  const serviceMap = new Map(Object.entries(service || {}));
   return MonitorServices.filter((el) => serviceMap.has(el.namespace)).map((item) => ({
     label: item.label,
     value: item.namespace,
     service: item.service,
+    href: item.href,
   }));
 };
