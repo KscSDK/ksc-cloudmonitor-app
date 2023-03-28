@@ -1,4 +1,4 @@
-# 金山云云监控插件 @ Grafana
+# 金山云云监控插件 @ Grafana 
 
 > 注意：该插件的最低运行要求为 Grafana 8.0 或更高的版本上。请优先安装 Grafana 环境，详情参考 [Grafana 安装文档](https://grafana.com/grafana/download)。
 
