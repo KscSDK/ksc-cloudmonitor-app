@@ -119,6 +119,14 @@ export const MonitorServices = [
     apihref: 'https://docs.ksyun.com/documents/627',
     instanceAction: 'DescribeEpcs',
   },
+  {
+    service: 'postgresql',
+    label: '云数据库PostgreSQL（PGS）',
+    namespace: 'PGS',
+    href: 'https://www.ksyun.com/nv/product/PostgreSQL.html',
+    apihref: '',
+    instanceAction: 'DescribeDBInstances',
+  },
 ];
 // 各个产品线请求实例配置
 const serviceRegionConfig = {
@@ -131,6 +139,7 @@ const serviceRegionConfig = {
   bws: { version: '2016-03-04', servicename: 'bws' },
   epc: { version: '2015-11-01', servicename: 'epc' },
   monitor: { version: '2010-05-25', servicename: 'monitor' },
+  postgresql: { version: '2018-12-25', servicename: 'postgresql' },
 };
 // 非region相关配置
 const mormalServiceConfig = {
