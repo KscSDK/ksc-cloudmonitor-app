@@ -58,6 +58,11 @@ const config: InstanceConfig = {
     InstanceName: 'HostName',
     InstanceIp: 'NetworkInterfaceAttributeSet[0].PrivateIpAddress',
   },
+  PGS: {
+    InstanceId: 'DBInstanceIdentifier',
+    InstanceName: 'DBInstanceName',
+    InstanceIp: 'Vip',
+  },
 };
 // 处理不同类型service生成instance options
 export const GenerageInstanceOptions: any = {
@@ -152,6 +157,14 @@ export const GenerageInstanceOptions: any = {
             ? item?.NetworkInterfaceAttributeSet[0].PrivateIpAddress
             : item[config.EPC[instanceType]],
         value: item['HostId'],
+      }));
+    },
+  },
+  PGS: {
+    options: (data: any, instanceType: string) => {
+      return data?.Data?.Instances.map((item: any) => ({
+        label: item[config.PGS[instanceType]],
+        value: item['DBInstanceIdentifier'],
       }));
     },
   },
