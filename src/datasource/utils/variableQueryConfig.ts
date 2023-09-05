@@ -1,3 +1,19 @@
+/**
+ * 按别名显示变量
+ * @param InstanceAlias 别名
+ * @param data 接口返回每条数据
+ * @returns 需要显示的字符串内容
+ */
+const generateAliasText = (InstanceAlias: string, data: { [keyName: string]: any }) => {
+  if (!InstanceAlias.includes(',')) return data[InstanceAlias];
+  let showText: string = '';
+  const aliasNames = InstanceAlias.split(',');
+  aliasNames.forEach((i: string) => {
+    showText += showText === '' ? data?.[i] : `,${data?.[i]}`;
+  });
+  return showText;
+};
+
 // namespace 维度
 export const variableConfig: any = {
   KEC: {
@@ -14,7 +30,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.InstanceName,
           value: i.InstanceId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.InstanceName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.InstanceName,
         }));
       },
     },
@@ -26,7 +42,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i?.RegionName,
           value: i?.Region,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.RegionName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.RegionName,
         }));
       },
     },
@@ -44,7 +60,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.PublicIp,
           value: i.AllocationId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.PublicIp,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.PublicIp,
         }));
       },
     },
@@ -62,7 +78,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.NatName,
           value: i.NatId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.NatName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.NatName,
         }));
       },
     },
@@ -82,7 +98,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.name,
           value: i.cacheId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.name,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.name,
         }));
       },
     },
@@ -101,7 +117,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.DBInstanceName,
           value: i.DBInstanceIdentifier,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.DBInstanceName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.DBInstanceName,
         }));
       },
     },
@@ -119,7 +135,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.LoadBalancerName,
           value: i.LoadBalancerId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.LoadBalancerName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.LoadBalancerName,
         }));
       },
     },
@@ -137,7 +153,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.ListenerName,
           value: i.ListenerId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.ListenerName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.ListenerName,
         }));
       },
     },
@@ -155,7 +171,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.PeeringName,
           value: i.VpcPeeringConnectionId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.PeeringName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.PeeringName,
         }));
       },
     },
@@ -172,7 +188,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.InstanceName,
           value: i.InstanceId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.InstanceName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.InstanceName,
         }));
       },
     },
@@ -190,7 +206,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.HostName,
           value: i.HostId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.HostName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.HostName,
         }));
       },
     },
@@ -207,7 +223,7 @@ export const variableConfig: any = {
         return metricList.map((i: any) => ({
           label: i.metricName,
           value: i.metricName,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.metricName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.metricName,
         }));
       },
     },
@@ -224,7 +240,7 @@ export const variableConfig: any = {
         return metricList.map((i: any) => ({
           label: i.ProjectName,
           value: i.ProjectId,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.ProjectName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.ProjectName,
         }));
       },
     },
@@ -243,7 +259,7 @@ export const variableConfig: any = {
         return list.map((i) => ({
           label: i.DBInstanceName,
           value: i.DBInstanceIdentifier,
-          text: InstanceAlias && i[InstanceAlias] ? i[InstanceAlias] : i.DBInstanceName,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.DBInstanceName,
         }));
       },
     },

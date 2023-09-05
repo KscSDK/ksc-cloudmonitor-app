@@ -14,6 +14,10 @@ import _ from 'lodash';
 const moment = require('moment');
 
 // quer界面需要解析的参数
+// Region 区域
+// Action 产品线接口参数
+// ServiceName 产品线名称
+// Instancealias Query变量显示别名
 const filterQueryKeys = ['Region', 'Action', 'ServiceName', 'Instancealias'];
 
 export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {

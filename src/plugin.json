@@ -25,8 +25,13 @@
   "includes": [
     {
       "type": "dashboard",
-      "name": "【预设】test",
-      "path": "dashboards/test.json"
+      "name": "【预设】云服务器KEC-默认项目",
+      "path": "dashboards/kec.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "【预设】负载均衡SLB-默认项目",
+      "path": "dashboards/slb.json"
     },
     {
       "type": "datasource",
