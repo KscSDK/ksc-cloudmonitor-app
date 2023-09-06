@@ -3,6 +3,22 @@ import { getTemplateSrv, getAppEvents } from '@grafana/runtime';
 import { AppEvents } from '@grafana/data';
 import _ from 'lodash';
 
+interface queryResultItem {
+  target: string;
+  datapoints: any[];
+}
+
+interface targetItemProps {
+  Aggregate?: string; // 值类型，对应查询字段均值、最大值、最小值
+  InstanceID: string[]; // 对应查询字段实例ID
+  Alias?: string; // 别名，对应Metric alias
+}
+
+interface variableItemProps {
+  current: { [keyName: string]: any; text: any; value: any };
+  options?: { [keyName: string]: any }[];
+}
+
 const events: any = getAppEvents();
 
 export const withoutIpServices = ['Listener', 'PEER', 'BWS'];
@@ -193,16 +209,81 @@ export const InstanceTypes = [
 ];
 
 /**
- * 处理面板query返回数据结构
+ * 获取query 变量中设置的显示text
+ * @param variables query 变量数组
+ * @param Instance 当前数据单条线实例id
+ * @returns
  */
+const getVariableItem = (variables: variableItemProps[], Instance: string) => {
+  if (!variables || !variables?.length) return '';
+  let variableString = '';
+  variables.forEach((item: variableItemProps) => {
+    const {
+      current: { value, text },
+      options,
+    } = item;
+    if (value === Instance) {
+      variableString = text;
+    } else if (Array.isArray(value) && value.includes(Instance)) {
+      const variableItem = options && options.find((vItem: any) => vItem.value === Instance);
+      variableString = variableItem ? variableItem.text : '';
+    }
+  });
+  return variableString;
+};
 
-export const ParseQueryResult = (response: any, targetItem: any) => {
-  const { Aggregate, InstanceID, Alias } = targetItem;
+// targets按模板处理默认规则: "tcp.count{p0=1b4aaa4d-1381-4f34-b312-ed353c6b45d9,p1=test123,p2=1b4aaa4d-1381-4f34-b312-ed353c6b45d9,agg=average}"
+/**
+ * 处理生成dashboard 图例显示
+ * @param targetItem 查询面板参数
+ * @param variables 全局变量数组
+ * @param Instance 接口返回实例ID
+ * @param label 接口返回实例label
+ * @param aggItem 值类型
+ */
+const generateTarget = (
+  targetItem: targetItemProps,
+  variables: any[],
+  Instance: string,
+  label: string,
+  aggItem: string
+) => {
+  const { Alias } = targetItem;
+  const variableLabel = getVariableItem(variables, Instance);
+  // 默认显示legend string
+  let defaultLegend = `${label}{${Instance},${variableLabel},${aggItem}}`;
+  if (Alias) {
+    // 解析alias 生成对应targets
+    const liasName = replaceRealValue(Alias, true);
+    let replaceString = liasName.replace('{{agg}}', aggItem).replace('{{p0}}', Instance);
+    if (variableLabel && variableLabel.includes(',')) {
+      const variabelLists = variableLabel.split(',');
+      variabelLists.forEach((varItem: string, index: number) => {
+        const replaceIndexItem = `{{p${index + 1}}}`;
+        if (replaceString.includes(replaceIndexItem)) {
+          replaceString = replaceString.replace(replaceIndexItem, varItem);
+        }
+      });
+    }
+    defaultLegend = replaceString;
+  }
+  return defaultLegend;
+};
+
+/**
+ * 处理面板query返回数据结构,生成面板图表数据
+ * @param response // 接口返回数据
+ * @param targetItem
+ * @returns
+ */
+export const ParseQueryResult = (response: any, targetItem: targetItemProps): queryResultItem[] => {
+  const { Aggregate } = targetItem;
   const aggregate = Array.isArray(Aggregate) ? Aggregate.map((i: any) => i.value) : ['Average'];
   // 变量类型需从variable中的current 获取 text 为实际显示值
   const templateSrv: any = getTemplateSrv();
+  // 获取所有图表变量
   const variables = templateSrv.variables;
-  let result: any[] = [];
+  let result: queryResultItem[] = [];
   if (!Array.isArray(response) || !response.length) {
     return [];
   }
@@ -213,17 +294,14 @@ export const ParseQueryResult = (response: any, targetItem: any) => {
       datapoints: { member },
     } = resItem;
     aggregate.forEach((aggregateItem: any) => {
-      const pointsData = member.map((item: any) => [Number(item[aggregateItem.toLowerCase()]), item.unixTimestamp]);
-      let instanceItem = InstanceID.find((item: any) => item.value === Instance);
-      if (!instanceItem && variables?.length) {
-        instanceItem = variables.find((item: any) => item.current.value === Instance);
-      }
-      let showLabel = Alias ? replaceRealValue(Alias) : `${label}`;
-
+      // 线值类型 min | max | average
+      const aggItem = aggregateItem.toLowerCase();
+      // 线数据
+      const pointsData = member.map((item: any) => [Number(item[aggItem]), item.unixTimestamp]);
+      // 处理生成target -> dashboard 显示图例
+      const targetItemText = generateTarget(targetItem, variables, Instance, label, aggItem);
       result.push({
-        target: `${showLabel} ${aggregateItem.toLowerCase()} [${
-          instanceItem?.current?.text || instanceItem?.label || Instance
-        }]`,
+        target: `${targetItemText}`,
         datapoints: pointsData,
       });
     });
@@ -315,8 +393,10 @@ export function ParseMetricQuery(query = '') {
 }
 
 /**处理变量类型数据 */
-export const replaceRealValue = (sourceValue: string) => {
+export const replaceRealValue = (sourceValue: string, onlyString?: boolean) => {
   const realValue = getTemplateSrv().replace(sourceValue);
+  // 只获取字符串
+  if (onlyString) return realValue;
   // 多选项返回多值{***,****....}，处理
   if (realValue.includes('{') && realValue.includes('}')) {
     return realValue.replace('{', '').replace('}', '');
