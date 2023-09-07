@@ -19,6 +19,7 @@ import {
   alertError,
   withoutIpServices,
   GenerageInstanceOptions,
+  ClusterTypes,
 } from '../../utils';
 import {
   QueryPeering,
@@ -40,6 +41,7 @@ const AggregateOptions = [
   { label: '最大值', value: 'Max' },
   { label: '最小值', value: 'Min' },
 ];
+
 type Props = QueryEditorProps<DataSource, MyQuery, MyDataSourceOptions>;
 
 export const DatasourceContext = React.createContext({ projectOptions: [] });
@@ -209,7 +211,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
 
   // 实例chage
   const onInstanceChange = (instanceId: any) => {
-    onChange({ ...query, InstanceID: instanceId });
+    onChange({ ...query, InstanceID: Array.isArray(instanceId) ? instanceId : [instanceId] });
   };
   // 指标change
   const onMetricChange = (metric: any) => {
@@ -287,26 +289,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     [query, datasource.instanceSetting, extenInstanceQuery, projectQueryString, serviceItem]
   );
 
-  // 请求指标接口
-  const getMetricNames = async () => {
-    // 变量多选值，获取需根据，分割
-    const instanceIdItem = query.InstanceID?.[0]?.value || '';
-    const instanceid = replaceRealValue(instanceIdItem).split(',')[0];
-    const namespace = query.Namespace.value;
-    if (!instanceid) {
-      return;
-    }
-    const metricNamesData: any = await request(datasource.instanceSetting, `monitor`, {
-      action: 'ListMetrics',
-      version: '2010-05-25',
-      extenQuery: `&InstanceID=${instanceid}&Namespace=${namespace}&PageIndex=1`,
-      region: replaceRealValue(query.Region.value),
-    });
-    if (metricNamesData?.status !== 200) {
-      alertError(metricNamesData?.data?.Error?.Message || metricNamesData?.data?.error?.message);
-      return;
-    }
-    const metricsList = metricNamesData?.data?.listMetricsResult?.metrics?.member;
+  // 生成metric options
+  const generateMetricOptions = (metricsList: any[]) => {
     metricMap.current = generageMetricOptions(metricsList);
     const metricMapKeys = Array.from(metricMap.current.keys());
     const metricsOptions = metricMapKeys.map((item: any) => {
@@ -321,23 +305,36 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     });
     setMetricOptions(metricsOptions);
   };
-  return (
+
+  // 请求指标接口
+  const getMetricNames = async () => {
+    // 变量多选值，获取需根据，分割
+    const instanceIdItem = query.InstanceID?.[0]?.value || '';
+    const instanceid = replaceRealValue(instanceIdItem).split(',')[0];
+    const namespace = query.Namespace.value;
+    if (!instanceid) {
+      return;
+    }
+    let defaultExtenQuery = `&InstanceID=${instanceid}&Namespace=${namespace}&PageIndex=1`;
+    if (namespace === 'KCE') {
+      defaultExtenQuery = `&Dimensions.0.Name=ClusterId&Dimensions.0.Value=${instanceid}&Namespace=${namespace}&PageIndex=1`;
+    }
+    const metricNamesData: any = await request(datasource.instanceSetting, `monitor`, {
+      action: 'ListMetrics',
+      version: '2010-05-25',
+      extenQuery: defaultExtenQuery,
+      region: replaceRealValue(query.Region.value),
+    });
+    if (metricNamesData?.status !== 200) {
+      alertError(metricNamesData?.data?.Error?.Message || metricNamesData?.data?.error?.message);
+      return;
+    }
+    const metricsList = metricNamesData?.data?.listMetricsResult?.metrics?.member;
+    generateMetricOptions(metricsList);
+  };
+  // 显示Instance ID 产品线
+  const NormalInstanceField = (
     <>
-      <InlineField labelWidth={18} label="Namespace">
-        <Select width={180} options={NameSpaceOptions} value={query.Namespace} onChange={onNamespaceChange} />
-      </InlineField>
-      <InlineField labelWidth={18} label="Region">
-        <Select
-          allowCustomValue={true}
-          isSearchable={true}
-          isClearable={true}
-          width={180}
-          options={regionOptions}
-          value={query.Region}
-          onChange={onRegionChange}
-          placeholder=" "
-        />
-      </InlineField>
       <InlineField labelWidth={18} label="InstanceID">
         <div className="flex-content">
           <Select
@@ -375,6 +372,69 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
           />
         </div>
       </InlineField>
+    </>
+  );
+  // KCE 获取集群表单项
+  const KecInstanceField = (
+    <>
+      <InlineField labelWidth={18} label="ClusterID">
+        <div className="flex-content">
+          <Select
+            width={180}
+            options={ClusterTypes}
+            defaultValue={{}}
+            value={query.InstanceType ? query.InstanceType : defaultQuery.InstanceType}
+            onChange={(instanceType) => {
+              onChange({ ...query, InstanceType: instanceType, InstanceID: [] });
+            }}
+            isSearchable={true}
+            placeholder=" "
+          />
+          <Select
+            width={40}
+            options={[...instanceOptions, ...customOptions.current]}
+            defaultValue={query.InstanceID?.[0]}
+            value={query.InstanceID?.[0]}
+            onChange={onInstanceChange}
+            onOpenMenu={getInstanceIds}
+            onBlur={() => {
+              if (query?.MetricName && query?.MetricName.value) {
+                onRunQuery();
+              }
+            }}
+            closeMenuOnSelect={false}
+            allowCustomValue={true}
+            isSearchable={true}
+            placeholder=" "
+            onCreateOption={(v: any) => {
+              const customValue = { value: v, label: v };
+              customOptions.current = [...customOptions.current, customValue];
+              onChange({ ...query, InstanceID: [customValue] });
+            }}
+          />
+        </div>
+      </InlineField>
+    </>
+  );
+
+  return (
+    <>
+      <InlineField labelWidth={18} label="Namespace">
+        <Select width={180} options={NameSpaceOptions} value={query.Namespace} onChange={onNamespaceChange} />
+      </InlineField>
+      <InlineField labelWidth={18} label="Region">
+        <Select
+          allowCustomValue={true}
+          isSearchable={true}
+          isClearable={true}
+          width={180}
+          options={regionOptions}
+          value={query.Region}
+          onChange={onRegionChange}
+          placeholder=" "
+        />
+      </InlineField>
+      {query?.Namespace?.value === 'KCE' ? KecInstanceField : NormalInstanceField}
       <InlineField labelWidth={18} label="MetricName" className="upper-flex-content">
         <div className="flex-content">
           <Select

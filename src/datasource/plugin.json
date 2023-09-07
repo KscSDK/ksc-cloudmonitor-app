@@ -597,7 +597,7 @@
           "content": "application/json"
         }
       ]
-    },    
+    },
     {
       "path": "kec/eu-east-1",
       "url": "http://kec.eu-east-1.api.ksyun.com",
@@ -1211,6 +1211,66 @@
     {
       "path": "postgresql/cn-shanghai-2",
       "url": "http://postgresql.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/eu-east-1",
+      "url": "http://kce.eu-east-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-hongkong-2",
+      "url": "http://kce.cn-hongkong-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/ap-singapore-1",
+      "url": "http://kce.ap-singapore-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-beijing-6",
+      "url": "http://kce.cn-beijing-6.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-guangzhou-1",
+      "url": "http://kce.cn-guangzhou-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-shanghai-2",
+      "url": "http://kce.cn-shanghai-2.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",

@@ -127,6 +127,14 @@ export const MonitorServices = [
     apihref: '',
     instanceAction: 'DescribeDBInstances',
   },
+  {
+    service: 'kce',
+    label: '容器引擎（KCE）',
+    namespace: 'KCE',
+    href: 'https://docs.ksyun.com/documents/6715',
+    apihref: '',
+    instanceAction: 'DescribeCluster',
+  },
 ];
 // 各个产品线请求实例配置
 const serviceRegionConfig = {
@@ -140,6 +148,7 @@ const serviceRegionConfig = {
   epc: { version: '2015-11-01', servicename: 'epc' },
   monitor: { version: '2010-05-25', servicename: 'monitor' },
   postgresql: { version: '2018-12-25', servicename: 'postgresql' },
+  kce: { version: '2019-08-06', servicename: 'kce' },
 };
 // 非region相关配置
 const mormalServiceConfig = {

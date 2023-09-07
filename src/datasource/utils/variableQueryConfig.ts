@@ -264,6 +264,25 @@ export const variableConfig: any = {
       },
     },
   },
+  KCE: {
+    service: 'kce',
+    label: '容器引擎（KCE）',
+    namespace: 'KCE',
+    href: 'https://www.ksyun.com/nv/product/Kce.html',
+    instanceAction: 'DescribeCluster',
+    DescribeCluster: {
+      version: '2019-08-06',
+      getDataKey: 'ClusterSet',
+      backDataFn: (ClusterSetList: any, InstanceAlias?: string) => {
+        return ClusterSetList.map((i: any) => ({
+          label: i.ClusterName,
+          value: i.ClusterId,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.ClusterName,
+        }));
+      },
+    },
+    
+  },
 };
 
 // without region

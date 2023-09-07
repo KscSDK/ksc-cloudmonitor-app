@@ -4,7 +4,7 @@ import { replaceRealValue } from './common';
 import _ from 'lodash';
 
 const moment = require('moment');
-const __backendSrv = getBackendSrv();
+const __backendSrv: any = getBackendSrv();
 // 根据sign_v3接口返回签名生成拼接url
 export const generateSignUrl = (authorization: string) => {
   const signSplice = authorization.split(',');
@@ -84,6 +84,7 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
   const dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}${extenQuery ? `${extenQuery}` : ''}`;
   const time = utcTime.format();
   const dealTime = time.replaceAll(':', '').replaceAll('-', '');
+  console.log('reqOptions', dealUrl);
   const reqOptions = {
     url: dealUrl,
     method,
@@ -100,8 +101,8 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
   return new Promise((resolve, reject) => {
     __backendSrv
       .datasourceRequest(reqOptions)
-      .then((res) => resolve(res))
-      .catch((err) => {
+      .then((res: any) => resolve(res))
+      .catch((err: any) => {
         resolve(err);
       });
   });

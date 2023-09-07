@@ -79,6 +79,11 @@ const config: InstanceConfig = {
     InstanceName: 'DBInstanceName',
     InstanceIp: 'Vip',
   },
+  KCE: {
+    InstanceId: 'ClusterId',
+    InstanceName: 'ClusterName',
+    InstanceIp: 'PrivateIpAddress',
+  },
 };
 // 处理不同类型service生成instance options
 export const GenerageInstanceOptions: any = {
@@ -184,6 +189,16 @@ export const GenerageInstanceOptions: any = {
       }));
     },
   },
+  KCE: {
+    options: (data: any, instanceType: string) => {
+      return Array.isArray(data?.ClusterSet)
+        ? data.ClusterSet.map((item: any) => ({
+            label: item[config.KCE[instanceType]],
+            value: item['ClusterId'],
+          }))
+        : [];
+    },
+  },
 };
 export const InstanceMapByservice = new Map(Object.entries(config));
 
@@ -206,6 +221,12 @@ export const InstanceTypes = [
   { value: 'InstanceId', label: 'As InstanceId' },
   { value: 'InstanceName', label: 'As InstanceName' },
   { value: 'InstanceIp', label: 'As InstanceIp' },
+];
+
+// query 面板cluster ID 选择类型
+export const ClusterTypes = [
+  { value: 'InstanceId', label: 'As ClusterId' },
+  { value: 'InstanceName', label: 'As ClusterName' },
 ];
 
 /**
@@ -271,22 +292,38 @@ const generateTarget = (
 };
 
 /**
- * 处理面板query返回数据结构,生成面板图表数据
- * @param response // 接口返回数据
- * @param targetItem
- * @returns
+ * 处理对象类型数据
  */
-export const ParseQueryResult = (response: any, targetItem: targetItemProps): queryResultItem[] => {
-  const { Aggregate } = targetItem;
-  const aggregate = Array.isArray(Aggregate) ? Aggregate.map((i: any) => i.value) : ['Average'];
-  // 变量类型需从variable中的current 获取 text 为实际显示值
-  const templateSrv: any = getTemplateSrv();
-  // 获取所有图表变量
-  const variables = templateSrv.variables;
+const dealObjectItemDataPoints = (response: any, aggregate: string[], targetItem: any, variables: any) => {
   let result: queryResultItem[] = [];
-  if (!Array.isArray(response) || !response.length) {
-    return [];
-  }
+  const member = response?.datapoints?.member;
+  const label = response?.label;
+  aggregate.forEach((aggregateItem: any) => {
+    // 线值类型 min | max | average
+    const aggItem = aggregateItem.toLowerCase();
+    // 线数据
+    const pointsData = member.map((item: any) => [Number(item[aggItem]), item.unixTimestamp]);
+    // 处理生成target -> dashboard 显示图例
+    const targetItemText = generateTarget(targetItem, variables, '', label, aggItem);
+
+    result.push({
+      target: `${targetItemText}`,
+      datapoints: pointsData,
+    });
+  });
+  return result;
+};
+
+/**
+ * 处理数组类型返回数据
+ * @param response [{member: pointitem[]}]
+ * @param aggregate [min, max, average]
+ * @param targetItem []
+ * @param variables
+ * @returns 图表[]
+ */
+const dealArrayDataPoints = (response: any, aggregate: string[], targetItem: any, variables: any) => {
+  let result: queryResultItem[] = [];
   response.forEach((resItem: any) => {
     const {
       Instance = '',
@@ -306,6 +343,28 @@ export const ParseQueryResult = (response: any, targetItem: targetItemProps): qu
       });
     });
   });
+  return result;
+};
+
+/**
+ * 处理面板query返回数据结构,生成面板图表数据
+ * @param response // 接口返回数据
+ * @param targetItem
+ * @returns
+ */
+export const ParseQueryResult = (response: any, targetItem: targetItemProps): queryResultItem[] => {
+  const { Aggregate } = targetItem;
+  const aggregate = Array.isArray(Aggregate) ? Aggregate.map((i: any) => i.value) : ['Average'];
+  // 变量类型需从variable中的current 获取 text 为实际显示值
+  const templateSrv: any = getTemplateSrv();
+  // 获取所有图表变量
+  const variables = templateSrv.variables;
+  let result: queryResultItem[] = [];
+  if (Array.isArray(response) && response.length) {
+    result = dealArrayDataPoints(response, aggregate, targetItem, variables);
+  } else if (Array.isArray(response?.datapoints?.member)) {
+    result = dealObjectItemDataPoints(response, aggregate, targetItem, variables);
+  }
   return result;
 };
 

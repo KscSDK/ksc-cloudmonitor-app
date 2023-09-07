@@ -11,6 +11,7 @@ import {
 } from './utils';
 import { MetricListItem } from './utils/interface';
 import _ from 'lodash';
+import { statisMetric, statisMetricBatch } from './services';
 const moment = require('moment');
 
 // quer界面需要解析的参数
@@ -19,6 +20,17 @@ const moment = require('moment');
 // ServiceName 产品线名称
 // Instancealias Query变量显示别名
 const filterQueryKeys = ['Region', 'Action', 'ServiceName', 'Instancealias'];
+
+// 生成get请求参数
+const generateExtenQuery = (queryResult: { [key: string]: any }) => {
+  let otherUrl = '';
+  for (const key in queryResult) {
+    if (!filterQueryKeys.includes(key)) {
+      otherUrl += `&${key}=${queryResult[key]}`;
+    }
+  }
+  return otherUrl;
+};
 
 export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   instanceSetting: any;
@@ -57,10 +69,10 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     if (!requestTargets.length) {
       return { data: [] };
     }
-
     const queryResult = await Promise.allSettled(
       requestTargets.map((item) => {
         const { InstanceID, MetricName, Namespace, Period, Aggregate, Region } = item;
+        const NameSpace = Namespace?.value;
         const aggregateValues = Aggregate ? Aggregate : defaultQuery.Aggregate;
         const aggregates = aggregateValues.map((i: any) => i.value);
         let dealId = [];
@@ -71,28 +83,43 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
         }
         const dealMetricName = replaceRealValue(MetricName?.value);
         const dealRegion = replaceRealValue(Region.value);
+        const { action, version, method } = NameSpace === 'KCE' ? statisMetric : statisMetricBatch;
         const queryDataparams = {
-          Namespace: Namespace?.value,
+          Namespace: NameSpace,
           Aggregate: aggregates?.length ? aggregates : ['Average'],
           StartTime,
           EndTime,
-          Metrics: dealId.map((instanceItem: any) => ({
-            InstanceID: instanceItem,
-            MetricName: dealMetricName,
-          })),
         };
         if (Period?.value) {
           const dealPeriod = replaceRealValue(String(Period?.value));
           _.set(queryDataparams, 'Period', Number(dealPeriod));
         }
-
-        return request(this.instanceSetting, `monitor`, {
-          action: 'GetMetricStatisticsBatch',
-          version: '2018-11-14',
-          postParams: { ...queryDataparams },
-          method: 'POST',
-          region: dealRegion,
-        });
+        if (NameSpace === 'KCE') {
+          const extenUrl = generateExtenQuery(queryDataparams);
+          return request(this.instanceSetting, `monitor`, {
+            action,
+            version,
+            extenQuery: `${extenUrl}&MetricName=${dealMetricName}&Dimensions.0.Name=ClusterId&Dimensions.0.Value=${dealId[0]}`,
+            method,
+            region: dealRegion,
+          });
+        } else {
+          _.set(
+            queryDataparams,
+            'Metrics',
+            dealId.map((instanceItem: any) => ({
+              InstanceID: instanceItem,
+              MetricName: dealMetricName,
+            }))
+          );
+          return request(this.instanceSetting, `monitor`, {
+            action,
+            version,
+            postParams: { ...queryDataparams },
+            method,
+            region: dealRegion,
+          });
+        }
       })
     ).then((res: any[]) => {
       const fulfilledRes = res.filter((i: any) => i.status === 'fulfilled');
@@ -100,7 +127,8 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
         if (item?.value?.data?.errorMessage || item.value.data?.error) {
           errorlist.push(item?.value?.data?.errorMessage || item.value.data?.error?.message);
         }
-        return ParseQueryResult(item.value.data?.getMetricStatisticsBatchResults, requestTargets[index]);
+        const dealData = item.value.data?.getMetricStatisticsBatchResults || item.value.data?.getMetricStatisticsResult;
+        return ParseQueryResult(dealData, requestTargets[index]);
       });
       return { data: _.flatten(result) };
     });
@@ -136,18 +164,12 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     const proxyKey = withoutRegions.includes(service)
       ? replaceRealValue(service)
       : `${replaceRealValue(service)}/${replaceRealValue(Region)}`;
-    let otherUrl = '';
-    for (const key in queryResult) {
-      if (!filterQueryKeys.includes(key)) {
-        otherUrl += `&${key}=${queryResult[key]}`;
-      }
-    }
 
     const doQueryResult: any = await request(this.instanceSetting, proxyKey, {
       action: Action,
       version: currentMap?.version,
       region: replaceRealValue(Region),
-      extenQuery: otherUrl,
+      extenQuery: generateExtenQuery(queryResult),
     });
     const resList: any[] = doQueryResult?.data[currentMap?.getDataKey] || [];
     const dealResList: MetricListItem[] = currentMap.backDataFn(resList, Instancealias);
