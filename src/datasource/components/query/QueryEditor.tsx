@@ -34,6 +34,7 @@ import {
   QueryKrds,
   Querykec,
   QueryPGS,
+  QueryKce,
 } from '../services';
 const { Select } = LegacyForms;
 const AggregateOptions = [
@@ -182,6 +183,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         return <QueryPeering onChange={_.debounce(handleChange, 500)} />;
       case 'PGS':
         return <QueryPGS onChange={_.debounce(handleChange, 500)} />;
+      case 'KCE':
+        return <QueryKce onChange={_.debounce(handleChange, 500)} />;
       default:
         return null;
     }
@@ -383,7 +386,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
             width={180}
             options={ClusterTypes}
             defaultValue={{}}
-            value={query.InstanceType ? query.InstanceType : defaultQuery.InstanceType}
+            value={query.InstanceType ? query.InstanceType : 'InstanceId'}
             onChange={(instanceType) => {
               onChange({ ...query, InstanceType: instanceType, InstanceID: [] });
             }}
@@ -511,6 +514,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
               style={{ color: 'cornflowerblue' }}
               onClick={() => {
                 const hrefItem = MonitorServices.find((i: any) => i.namespace === query?.Namespace?.value);
+                console.log('hrefItem', hrefItem);
                 if (hrefItem && hrefItem?.apihref) {
                   window.open(hrefItem?.apihref);
                 }

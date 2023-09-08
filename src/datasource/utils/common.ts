@@ -10,7 +10,7 @@ interface queryResultItem {
 
 interface targetItemProps {
   Aggregate?: string; // 值类型，对应查询字段均值、最大值、最小值
-  InstanceID: string[]; // 对应查询字段实例ID
+  InstanceID: { label: string; value: string }[]; // 对应查询字段实例ID
   Alias?: string; // 别名，对应Metric alias
 }
 
@@ -272,7 +272,7 @@ const generateTarget = (
   const { Alias } = targetItem;
   const variableLabel = getVariableItem(variables, Instance);
   // 默认显示legend string
-  let defaultLegend = `${label}{${Instance},${variableLabel},${aggItem}}`;
+  let defaultLegend = `${label}{${Instance}${variableLabel ? ',' + variableLabel : ''}${aggItem ? ',' + aggItem : ''}}`;
   if (Alias) {
     // 解析alias 生成对应targets
     const liasName = replaceRealValue(Alias, true);
@@ -298,13 +298,15 @@ const dealObjectItemDataPoints = (response: any, aggregate: string[], targetItem
   let result: queryResultItem[] = [];
   const member = response?.datapoints?.member;
   const label = response?.label;
+  const InstanceID = response?.datapoints?.Instance || targetItem?.InstanceID[0].value;
+  const Instance = replaceRealValue(InstanceID);
   aggregate.forEach((aggregateItem: any) => {
     // 线值类型 min | max | average
     const aggItem = aggregateItem.toLowerCase();
     // 线数据
     const pointsData = member.map((item: any) => [Number(item[aggItem]), item.unixTimestamp]);
     // 处理生成target -> dashboard 显示图例
-    const targetItemText = generateTarget(targetItem, variables, '', label, aggItem);
+    const targetItemText = generateTarget(targetItem, variables, Instance, label, aggItem);
 
     result.push({
       target: `${targetItemText}`,
@@ -322,7 +324,7 @@ const dealObjectItemDataPoints = (response: any, aggregate: string[], targetItem
  * @param variables
  * @returns 图表[]
  */
-const dealArrayDataPoints = (response: any, aggregate: string[], targetItem: any, variables: any) => {
+const dealArrayDataPoints = (response: any, aggregate: string[], targetItem: targetItemProps, variables: any) => {
   let result: queryResultItem[] = [];
   response.forEach((resItem: any) => {
     const {

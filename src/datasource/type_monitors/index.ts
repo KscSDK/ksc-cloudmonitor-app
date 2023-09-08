@@ -131,8 +131,8 @@ export const MonitorServices = [
     service: 'kce',
     label: '容器引擎（KCE）',
     namespace: 'KCE',
-    href: 'https://docs.ksyun.com/documents/6715',
-    apihref: '',
+    href: 'https://www.ksyun.com/nv/product/KCE.html',
+    apihref: 'https://docs.ksyun.com/documents/6715',
     instanceAction: 'DescribeCluster',
   },
 ];

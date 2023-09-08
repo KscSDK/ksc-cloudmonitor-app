@@ -84,7 +84,6 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
   const dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}${extenQuery ? `${extenQuery}` : ''}`;
   const time = utcTime.format();
   const dealTime = time.replaceAll(':', '').replaceAll('-', '');
-  console.log('reqOptions', dealUrl);
   const reqOptions = {
     url: dealUrl,
     method,
