@@ -1,5 +1,10 @@
-import { DataQueryRequest, DataQueryResponse, DataSourceApi, MetricFindValue } from '@grafana/data';
-import { MyQuery, MyDataSourceOptions, defaultQuery } from './types';
+import {
+  DataQueryRequest,
+  DataQueryResponse,
+  DataSourceApi,
+  MetricFindValue,
+} from "@grafana/data";
+import { MyQuery, MyDataSourceOptions, defaultQuery } from "./types";
 import {
   request,
   ParseQueryResult,
@@ -8,22 +13,22 @@ import {
   replaceRealValue,
   withoutRegions,
   alertError,
-} from './utils';
-import { MetricListItem } from './utils/interface';
-import _ from 'lodash';
-import { statisMetric, statisMetricBatch } from './services';
-const moment = require('moment');
+} from "./utils";
+import { MetricListItem } from "./utils/interface";
+import _ from "lodash";
+import { statisMetric, statisMetricBatch } from "./services";
+const moment = require("moment");
 
 // quer界面需要解析的参数
 // Region 区域
 // Action 产品线接口参数
 // ServiceName 产品线名称
 // Instancealias Query变量显示别名
-const filterQueryKeys = ['Region', 'Action', 'ServiceName', 'Instancealias'];
+const filterQueryKeys = ["Region", "Action", "ServiceName", "Instancealias"];
 
 // 生成get请求参数
 const generateExtenQuery = (queryResult: { [key: string]: any }) => {
-  let otherUrl = '';
+  let otherUrl = "";
   for (const key in queryResult) {
     if (!filterQueryKeys.includes(key)) {
       otherUrl += `&${key}=${queryResult[key]}`;
@@ -71,30 +76,36 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     }
     const queryResult = await Promise.allSettled(
       requestTargets.map((item) => {
-        const { InstanceID, MetricName, Namespace, Period, Aggregate, Region } = item;
+        const { InstanceID, MetricName, Namespace, Period, Aggregate, Region } =
+          item;
         const NameSpace = Namespace?.value;
         const aggregateValues = Aggregate ? Aggregate : defaultQuery.Aggregate;
         const aggregates = aggregateValues.map((i: any) => i.value);
         let dealId = [];
         if (InstanceID?.length > 1) {
-          dealId = Array.isArray(InstanceID) ? InstanceID.map((i: any) => replaceRealValue(i?.value)) : [];
+          dealId = Array.isArray(InstanceID)
+            ? InstanceID.map((i: any) => replaceRealValue(i?.value))
+            : [];
         } else {
-          dealId = Array.isArray(InstanceID) ? replaceRealValue(InstanceID[0]?.value).split(',') : [];
+          dealId = Array.isArray(InstanceID)
+            ? replaceRealValue(InstanceID[0]?.value).split(",")
+            : [];
         }
         const dealMetricName = replaceRealValue(MetricName?.value);
         const dealRegion = replaceRealValue(Region.value);
-        const { action, version, method } = NameSpace === 'KCE' ? statisMetric : statisMetricBatch;
+        const { action, version, method } =
+          NameSpace === "KCE" ? statisMetric : statisMetricBatch;
         const queryDataparams = {
           Namespace: NameSpace,
-          Aggregate: aggregates?.length ? aggregates : ['Average'],
+          Aggregate: aggregates?.length ? aggregates : ["Average"],
           StartTime,
           EndTime,
         };
         if (Period?.value) {
           const dealPeriod = replaceRealValue(String(Period?.value));
-          _.set(queryDataparams, 'Period', Number(dealPeriod));
+          _.set(queryDataparams, "Period", Number(dealPeriod));
         }
-        if (NameSpace === 'KCE') {
+        if (NameSpace === "KCE") {
           const extenUrl = generateExtenQuery(queryDataparams);
           return request(this.instanceSetting, `monitor`, {
             action,
@@ -106,7 +117,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
         } else {
           _.set(
             queryDataparams,
-            'Metrics',
+            "Metrics",
             dealId.map((instanceItem: any) => ({
               InstanceID: instanceItem,
               MetricName: dealMetricName,
@@ -122,18 +133,22 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
         }
       })
     ).then((res: any[]) => {
-      const fulfilledRes = res.filter((i: any) => i.status === 'fulfilled');
+      const fulfilledRes = res.filter((i: any) => i.status === "fulfilled");
       const result = fulfilledRes.map((item: any, index: number) => {
         if (item?.value?.data?.errorMessage || item.value.data?.error) {
-          errorlist.push(item?.value?.data?.errorMessage || item.value.data?.error?.message);
+          errorlist.push(
+            item?.value?.data?.errorMessage || item.value.data?.error?.message
+          );
         }
-        const dealData = item.value.data?.getMetricStatisticsBatchResults || item.value.data?.getMetricStatisticsResult;
+        const dealData =
+          item.value.data?.getMetricStatisticsBatchResults ||
+          item.value.data?.getMetricStatisticsResult;
         return ParseQueryResult(dealData, requestTargets[index]);
       });
       return { data: _.flatten(result) };
     });
     if (errorlist && errorlist?.length > 0) {
-      const errorMessage = _.flatten(errorlist).join(',');
+      const errorMessage = _.flatten(errorlist).join(",");
       alertError(errorMessage);
     }
     return queryResult;
@@ -144,22 +159,32 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     const testRegion: any = await this.getRegions();
     if (testRegion?.status === 200) {
       return {
-        status: 'success',
-        message: 'test success',
+        status: "success",
+        message: "test success",
       };
     } else {
       return {
-        status: 'error',
+        status: "error",
         message: `数据源测试失败${testRegion?.data?.Error.Message}`,
       };
     }
   }
 
   // 自定义变量回调函数
-  async metricFindQuery(query: string, options?: any): Promise<MetricFindValue[]> {
+  async metricFindQuery(
+    query: string,
+    options?: any
+  ): Promise<MetricFindValue[]> {
     const queryResult = ParseMetricQuery(query);
-    const { Region, Action, Instancealias = undefined, ServiceName } = queryResult;
-    const service = variableConfig[ServiceName] ? variableConfig[ServiceName].service : undefined;
+    const {
+      Region,
+      Action,
+      Instancealias = undefined,
+      ServiceName,
+    } = queryResult;
+    const service = variableConfig[ServiceName]
+      ? variableConfig[ServiceName].service
+      : undefined;
     const currentMap = variableConfig[ServiceName][Action];
     const proxyKey = withoutRegions.includes(service)
       ? replaceRealValue(service)
@@ -172,24 +197,27 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
       extenQuery: generateExtenQuery(queryResult),
     });
     const resList: any[] = doQueryResult?.data[currentMap?.getDataKey] || [];
-    const dealResList: MetricListItem[] = currentMap.backDataFn(resList, Instancealias);
+    const dealResList: MetricListItem[] = currentMap.backDataFn(
+      resList,
+      Instancealias
+    );
     return dealResList;
   }
 
   getVariable(metric?: string) {
-    const rs = this.templateSrv.replace((metric || '').trim());
+    const rs = this.templateSrv.replace((metric || "").trim());
     const valStr = rs.match(/\{([\w-,]+)\}/);
     // 判断是否为多选
     if (valStr) {
-      return valStr[1].split(',');
+      return valStr[1].split(",");
     }
     return rs;
   }
   // 获取region
   async getRegions() {
-    return request(this.instanceSetting, 'kec', {
-      action: 'DescribeRegions',
-      version: '2016-03-04',
+    return request(this.instanceSetting, "kec", {
+      action: "DescribeRegions",
+      version: "2016-03-04",
     });
   }
 }
