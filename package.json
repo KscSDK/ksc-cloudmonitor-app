@@ -1,0 +1,28 @@
+{
+  "name": "ksc-cloudmonitor-app",
+  "private": false,
+  "version": "1.0.0",
+  "author": "Ksyun Cloud",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KscSDK/ksc-cloudmonitor-app.git"
+  },
+  "devDependencies": {
+    "@grafana/runtime": "^8.4.3",
+    "@grafana/toolkit": "^8.4.2",
+    "@grafana/ui": "^8.4.3",
+    "crypto-js": "^4.1.1",
+    "emotion": "^11.0.0",
+    "moment": "^2.29.1"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
