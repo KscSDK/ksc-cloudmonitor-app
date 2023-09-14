@@ -9715,9 +9715,9 @@ var VariableQueryEditor = function VariableQueryEditor(_a) {
       color: "cornflowerblue"
     },
     onClick: function onClick() {
-      window.open("https://docs.ksyun.com/documents/41703");
+      window.open("https://docs.ksyun.com/documents/41740?type=3");
     }
-  }, "https://docs.ksyun.com/documents/41703")));
+  }, "https://docs.ksyun.com/documents/41740?type=3")));
 };
 
 /***/ }),

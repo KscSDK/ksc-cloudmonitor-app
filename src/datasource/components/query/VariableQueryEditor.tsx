@@ -38,10 +38,10 @@ export const VariableQueryEditor: React.FC<VariableQueryProps> = ({
         <a
           style={{ color: "cornflowerblue" }}
           onClick={() => {
-            window.open("https://docs.ksyun.com/documents/41703");
+            window.open("https://docs.ksyun.com/documents/41740?type=3");
           }}
         >
-          https://docs.ksyun.com/documents/41703
+          https://docs.ksyun.com/documents/41740?type=3
         </a>
       </div>
     </>
