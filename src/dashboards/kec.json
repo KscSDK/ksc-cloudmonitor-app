@@ -40,7 +40,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -147,7 +147,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             }
@@ -158,7 +158,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -264,7 +264,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             }
@@ -289,7 +289,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -391,7 +391,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             }
@@ -402,7 +402,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -507,7 +507,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             },
@@ -545,7 +545,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "hide": false,
               "refId": "B"
@@ -574,7 +574,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -675,7 +675,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -686,7 +686,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -787,7 +787,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -798,7 +798,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -911,7 +911,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -956,7 +956,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -968,7 +968,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1080,7 +1080,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1124,7 +1124,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1136,7 +1136,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1248,7 +1248,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1292,7 +1292,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1304,7 +1304,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1416,7 +1416,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1460,7 +1460,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1472,7 +1472,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1584,7 +1584,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1628,7 +1628,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1640,7 +1640,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1751,7 +1751,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1794,7 +1794,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1819,7 +1819,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1932,7 +1932,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1977,7 +1977,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": true,
           "refId": "B"
@@ -1989,7 +1989,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -2101,7 +2101,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2145,7 +2145,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -2157,7 +2157,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -2268,7 +2268,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2312,7 +2312,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -2337,7 +2337,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -2441,7 +2441,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2464,7 +2464,7 @@
         },
         "datasource": {
           "type": "ksc-cloudmonitor-datasource",
-          "uid": "rkDQlBy7k"
+          "uid": ""
         },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
@@ -2491,7 +2491,7 @@
         },
         "datasource": {
           "type": "ksc-cloudmonitor-datasource",
-          "uid": "rkDQlBy7k"
+          "uid": ""
         },
         "definition": "ServiceName=KEC&Action=DescribeInstances&Region=cn-beijing-6&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
         "hide": 0,
