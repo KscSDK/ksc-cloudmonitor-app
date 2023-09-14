@@ -45,7 +45,7 @@ export const getSign = async (
   timestamp: number
 ) => {
   const proxyConfig: any = ServiceMap.get(proxyKey);
-  const { host, servicename } = proxyConfig;
+  const { host, servicename } = proxyConfig || {};
   const signResult = await __backendSrv.datasourceRequest({
     url: `/api/datasources/${pluginId}/resources/sign_v3`,
     method: "post",

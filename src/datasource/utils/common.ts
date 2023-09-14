@@ -281,14 +281,18 @@ const generateTarget = (
   let defaultLegend = `${label}{${Instance}${
     variableLabel ? "," + variableLabel : ""
   }${aggItem ? "," + aggItem : ""}}`;
+  console.log("variableLabel", variableLabel);
+  console.log("Alias", Alias);
   if (Alias) {
     // 解析alias 生成对应targets
     const liasName = replaceRealValue(Alias, true);
     let replaceString = liasName
       .replace("{{agg}}", aggItem)
       .replace("{{p0}}", Instance);
-    if (variableLabel && variableLabel.includes(",")) {
-      const variabelLists = variableLabel.split(",");
+    if (variableLabel) {
+      const variabelLists = variableLabel.includes(",")
+        ? variableLabel.split(",")
+        : [variableLabel];
       variabelLists.forEach((varItem: string, index: number) => {
         const replaceIndexItem = `{{p${index + 1}}}`;
         if (replaceString.includes(replaceIndexItem)) {
@@ -332,7 +336,6 @@ const dealObjectItemDataPoints = (
       label,
       aggItem
     );
-
     result.push({
       target: `${targetItemText}`,
       datapoints: pointsData,

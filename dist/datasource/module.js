@@ -12472,14 +12472,16 @@ var generateTarget = function generateTarget(targetItem, variables, Instance, la
   var variableLabel = getVariableItem(variables, Instance); // 默认显示legend string
 
   var defaultLegend = label + "{" + Instance + (variableLabel ? "," + variableLabel : "") + (aggItem ? "," + aggItem : "") + "}";
+  console.log("variableLabel", variableLabel);
+  console.log("Alias", Alias);
 
   if (Alias) {
     // 解析alias 生成对应targets
     var liasName = replaceRealValue(Alias, true);
     var replaceString_1 = liasName.replace("{{agg}}", aggItem).replace("{{p0}}", Instance);
 
-    if (variableLabel && variableLabel.includes(",")) {
-      var variabelLists = variableLabel.split(",");
+    if (variableLabel) {
+      var variabelLists = variableLabel.includes(",") ? variableLabel.split(",") : [variableLabel];
       variabelLists.forEach(function (varItem, index) {
         var replaceIndexItem = "{{p" + (index + 1) + "}}";
 
@@ -12910,12 +12912,13 @@ var getSign = function getSign(pluginId, proxyKey, _a, timestamp) {
       _g = _a.postParams,
       postParams = _g === void 0 ? {} : _g;
   return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var proxyConfig, host, servicename, signResult;
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_h) {
-      switch (_h.label) {
+    var proxyConfig, _h, host, servicename, signResult;
+
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_j) {
+      switch (_j.label) {
         case 0:
           proxyConfig = _type_monitors__WEBPACK_IMPORTED_MODULE_2__["ServiceMap"].get(proxyKey);
-          host = proxyConfig.host, servicename = proxyConfig.servicename;
+          _h = proxyConfig || {}, host = _h.host, servicename = _h.servicename;
           return [4
           /*yield*/
           , __backendSrv.datasourceRequest({
@@ -12940,7 +12943,7 @@ var getSign = function getSign(pluginId, proxyKey, _a, timestamp) {
           })];
 
         case 1:
-          signResult = _h.sent();
+          signResult = _j.sent();
           return [2
           /*return*/
           , signResult || undefined];
