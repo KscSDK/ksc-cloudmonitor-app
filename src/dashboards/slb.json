@@ -1152,10 +1152,6 @@
           "text": "华北1（北京）",
           "value": "cn-beijing-6"
         },
-        "datasource": {
-          "type": "ksc-cloudmonitor-datasource",
-          "uid": ""
-        },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
         "includeAll": false,
@@ -1176,18 +1172,14 @@
           "text": ["kmr-pool,47788a81-8c14-492a-abd4-aaa0271604ca"],
           "value": ["47788a81-8c14-492a-abd4-aaa0271604ca"]
         },
-        "datasource": {
-          "type": "ksc-cloudmonitor-datasource",
-          "uid": ""
-        },
-        "definition": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=cn-beijing-6&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
+        "definition": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=$region&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
         "hide": 0,
         "includeAll": false,
         "label": "实例",
         "multi": true,
         "name": "InstanceId",
         "options": [],
-        "query": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=cn-beijing-6&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
+        "query": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=$region&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

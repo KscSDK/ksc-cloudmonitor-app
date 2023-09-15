@@ -2462,10 +2462,6 @@
           "text": "华北1（北京）",
           "value": "cn-beijing-6"
         },
-        "datasource": {
-          "type": "ksc-cloudmonitor-datasource",
-          "uid": ""
-        },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
         "includeAll": false,
@@ -2487,20 +2483,19 @@
             "test123,1b4aaa4d-1381-4f34-b312-ed353c6b45d9",
             "compute.inventorychecker,470d384e-9df9-4b63-aa22-f60bc97e6502"
           ],
-          "value": ["1b4aaa4d-1381-4f34-b312-ed353c6b45d9", "470d384e-9df9-4b63-aa22-f60bc97e6502"]
+          "value": [
+            "1b4aaa4d-1381-4f34-b312-ed353c6b45d9",
+            "470d384e-9df9-4b63-aa22-f60bc97e6502"
+          ]
         },
-        "datasource": {
-          "type": "ksc-cloudmonitor-datasource",
-          "uid": ""
-        },
-        "definition": "ServiceName=KEC&Action=DescribeInstances&Region=cn-beijing-6&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
+        "definition": "ServiceName=KEC&Action=DescribeInstances&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
         "hide": 0,
         "includeAll": false,
         "label": "实例",
         "multi": true,
         "name": "InstanceId",
         "options": [],
-        "query": "ServiceName=KEC&Action=DescribeInstances&Region=cn-beijing-6&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
+        "query": "ServiceName=KEC&Action=DescribeInstances&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
