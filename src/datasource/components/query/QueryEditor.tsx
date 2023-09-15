@@ -487,7 +487,7 @@ const QueryEditor: FC<Props> = ({
           />
           <Select
             width={40}
-            options={[...instanceOptions, ...customOptions.current]}
+            options={[...instanceOptions]}
             defaultValue={query.InstanceID?.[0]}
             value={query.InstanceID?.[0]}
             onChange={onInstanceChange}
@@ -503,7 +503,6 @@ const QueryEditor: FC<Props> = ({
             placeholder=" "
             onCreateOption={(v: any) => {
               const customValue = { value: v, label: v };
-              customOptions.current = [...customOptions.current, customValue];
               onChange({ ...query, InstanceID: [customValue] });
             }}
           />

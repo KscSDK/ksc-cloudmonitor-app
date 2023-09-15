@@ -37,6 +37,24 @@ const generateExtenQuery = (queryResult: { [key: string]: any }) => {
   return otherUrl;
 };
 
+// 生成请求实例ID
+const generateInstanceIdList = (InstanceID: any[]) => {
+  let dealId = [];
+  if (InstanceID?.length > 1) {
+    dealId = Array.isArray(InstanceID)
+      ? InstanceID.map((i: any) => replaceRealValue(i?.value))
+      : [];
+  } else {
+    dealId = Array.isArray(InstanceID)
+      ? replaceRealValue(InstanceID[0]?.value).split(",")
+      : [];
+  }
+  dealId = dealId.filter(
+    (instanceItem: string) => instanceItem && instanceItem !== ""
+  );
+  return dealId;
+};
+
 export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   instanceSetting: any;
   backendSrv: any;
@@ -81,16 +99,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
         const NameSpace = Namespace?.value;
         const aggregateValues = Aggregate ? Aggregate : defaultQuery.Aggregate;
         const aggregates = aggregateValues.map((i: any) => i.value);
-        let dealId = [];
-        if (InstanceID?.length > 1) {
-          dealId = Array.isArray(InstanceID)
-            ? InstanceID.map((i: any) => replaceRealValue(i?.value))
-            : [];
-        } else {
-          dealId = Array.isArray(InstanceID)
-            ? replaceRealValue(InstanceID[0]?.value).split(",")
-            : [];
-        }
+        const dealId = generateInstanceIdList(InstanceID);
         const dealMetricName = replaceRealValue(MetricName?.value);
         const dealRegion = replaceRealValue(Region.value);
         const { action, version, method } =
@@ -101,6 +110,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
           StartTime,
           EndTime,
         };
+        if (!dealId?.length) return {};
         if (Period?.value) {
           const dealPeriod = replaceRealValue(String(Period?.value));
           _.set(queryDataparams, "Period", Number(dealPeriod));

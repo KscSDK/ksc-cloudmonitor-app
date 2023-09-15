@@ -9504,7 +9504,7 @@ var QueryEditor = function QueryEditor(_a) {
     placeholder: " "
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Select, {
     width: 40,
-    options: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(instanceOptions), false), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(customOptions.current), false),
+    options: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(instanceOptions), false),
     defaultValue: (_c = query.InstanceID) === null || _c === void 0 ? void 0 : _c[0],
     value: (_d = query.InstanceID) === null || _d === void 0 ? void 0 : _d[0],
     onChange: onInstanceChange,
@@ -9523,7 +9523,6 @@ var QueryEditor = function QueryEditor(_a) {
         value: v,
         label: v
       };
-      customOptions.current = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(customOptions.current), false), [customValue], false);
 
       _onChange(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, query), {
         InstanceID: [customValue]
@@ -11536,6 +11535,26 @@ var generateExtenQuery = function generateExtenQuery(queryResult) {
   }
 
   return otherUrl;
+}; // 生成请求实例ID
+
+
+var generateInstanceIdList = function generateInstanceIdList(InstanceID) {
+  var _a;
+
+  var dealId = [];
+
+  if ((InstanceID === null || InstanceID === void 0 ? void 0 : InstanceID.length) > 1) {
+    dealId = Array.isArray(InstanceID) ? InstanceID.map(function (i) {
+      return Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(i === null || i === void 0 ? void 0 : i.value);
+    }) : [];
+  } else {
+    dealId = Array.isArray(InstanceID) ? Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])((_a = InstanceID[0]) === null || _a === void 0 ? void 0 : _a.value).split(",") : [];
+  }
+
+  dealId = dealId.filter(function (instanceItem) {
+    return instanceItem && instanceItem !== "";
+  });
+  return dealId;
 };
 
 var DataSource =
@@ -11587,8 +11606,6 @@ function (_super) {
             return [4
             /*yield*/
             , Promise.allSettled(requestTargets.map(function (item) {
-              var _a;
-
               var InstanceID = item.InstanceID,
                   MetricName = item.MetricName,
                   Namespace = item.Namespace,
@@ -11600,23 +11617,14 @@ function (_super) {
               var aggregates = aggregateValues.map(function (i) {
                 return i.value;
               });
-              var dealId = [];
-
-              if ((InstanceID === null || InstanceID === void 0 ? void 0 : InstanceID.length) > 1) {
-                dealId = Array.isArray(InstanceID) ? InstanceID.map(function (i) {
-                  return Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(i === null || i === void 0 ? void 0 : i.value);
-                }) : [];
-              } else {
-                dealId = Array.isArray(InstanceID) ? Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])((_a = InstanceID[0]) === null || _a === void 0 ? void 0 : _a.value).split(",") : [];
-              }
-
+              var dealId = generateInstanceIdList(InstanceID);
               var dealMetricName = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(MetricName === null || MetricName === void 0 ? void 0 : MetricName.value);
               var dealRegion = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(Region.value);
 
-              var _b = NameSpace === "KCE" ? _services__WEBPACK_IMPORTED_MODULE_5__["statisMetric"] : _services__WEBPACK_IMPORTED_MODULE_5__["statisMetricBatch"],
-                  action = _b.action,
-                  version = _b.version,
-                  method = _b.method;
+              var _a = NameSpace === "KCE" ? _services__WEBPACK_IMPORTED_MODULE_5__["statisMetric"] : _services__WEBPACK_IMPORTED_MODULE_5__["statisMetricBatch"],
+                  action = _a.action,
+                  version = _a.version,
+                  method = _a.method;
 
               var queryDataparams = {
                 Namespace: NameSpace,
@@ -11624,6 +11632,7 @@ function (_super) {
                 StartTime: StartTime,
                 EndTime: EndTime
               };
+              if (!(dealId === null || dealId === void 0 ? void 0 : dealId.length)) return {};
 
               if (Period === null || Period === void 0 ? void 0 : Period.value) {
                 var dealPeriod = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(String(Period === null || Period === void 0 ? void 0 : Period.value));
@@ -12472,8 +12481,6 @@ var generateTarget = function generateTarget(targetItem, variables, Instance, la
   var variableLabel = getVariableItem(variables, Instance); // 默认显示legend string
 
   var defaultLegend = label + "{" + Instance + (variableLabel ? "," + variableLabel : "") + (aggItem ? "," + aggItem : "") + "}";
-  console.log("variableLabel", variableLabel);
-  console.log("Alias", Alias);
 
   if (Alias) {
     // 解析alias 生成对应targets

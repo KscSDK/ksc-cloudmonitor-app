@@ -102,7 +102,7 @@
       },
       "targets": [
         {
-          "Alias": "入向",
+          "Alias": "入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -137,7 +137,7 @@
           "refId": "A"
         },
         {
-          "Alias": "出向",
+          "Alias": "出向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -252,7 +252,7 @@
       },
       "targets": [
         {
-          "Alias": "入向",
+          "Alias": "入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -287,7 +287,7 @@
           "refId": "A"
         },
         {
-          "Alias": "出向",
+          "Alias": "出向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -402,7 +402,7 @@
       },
       "targets": [
         {
-          "Alias": "丢弃入流量",
+          "Alias": "丢弃入流量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -437,7 +437,7 @@
           "refId": "A"
         },
         {
-          "Alias": "丢弃出流量",
+          "Alias": "丢弃出流量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -473,7 +473,7 @@
           "refId": "B"
         },
         {
-          "Alias": "ACL丢弃流量",
+          "Alias": "ACL丢弃流量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -588,7 +588,7 @@
       },
       "targets": [
         {
-          "Alias": "丢弃流入数据包",
+          "Alias": "丢弃流入数据包  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -623,7 +623,7 @@
           "refId": "A"
         },
         {
-          "Alias": "丢弃流出数据包",
+          "Alias": "丢弃流出数据包  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -659,7 +659,7 @@
           "refId": "B"
         },
         {
-          "Alias": "ACL丢弃数据包",
+          "Alias": "ACL丢弃数据包  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -773,7 +773,7 @@
       },
       "targets": [
         {
-          "Alias": "未开启的RS数量",
+          "Alias": "未开启的RS数量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -808,7 +808,7 @@
           "refId": "A"
         },
         {
-          "Alias": "健康的RS数量",
+          "Alias": "健康的RS数量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -844,7 +844,7 @@
           "refId": "B"
         },
         {
-          "Alias": "不健康的RS数量",
+          "Alias": "不健康的RS数量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -880,7 +880,7 @@
           "refId": "C"
         },
         {
-          "Alias": "检查未完成的RS数量",
+          "Alias": "检查未完成的RS数量  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -994,7 +994,7 @@
       },
       "targets": [
         {
-          "Alias": "并发连接数",
+          "Alias": "并发连接数  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1029,7 +1029,7 @@
           "refId": "A"
         },
         {
-          "Alias": "活跃连接数",
+          "Alias": "活跃连接数  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1065,7 +1065,7 @@
           "refId": "B"
         },
         {
-          "Alias": "不活跃连接数",
+          "Alias": "不活跃连接数  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1101,7 +1101,7 @@
           "refId": "C"
         },
         {
-          "Alias": "每秒新建连接数",
+          "Alias": "每秒新建连接数  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",

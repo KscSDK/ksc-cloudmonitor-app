@@ -281,8 +281,6 @@ const generateTarget = (
   let defaultLegend = `${label}{${Instance}${
     variableLabel ? "," + variableLabel : ""
   }${aggItem ? "," + aggItem : ""}}`;
-  console.log("variableLabel", variableLabel);
-  console.log("Alias", Alias);
   if (Alias) {
     // 解析alias 生成对应targets
     const liasName = replaceRealValue(Alias, true);

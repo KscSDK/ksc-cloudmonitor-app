@@ -118,6 +118,7 @@
                   "value": "Average"
                 }
               ],
+              "Alias": "CPU利用率 {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -230,7 +231,7 @@
           },
           "targets": [
             {
-              "Alias": "CPU5分钟平均负载",
+              "Alias": "CPU5分钟平均负载  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -361,7 +362,7 @@
           },
           "targets": [
             {
-              "Alias": "内存利用率",
+              "Alias": "内存利用率  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -474,7 +475,7 @@
           },
           "targets": [
             {
-              "Alias": "总内存（/proc/meminfo的MemTotal）",
+              "Alias": "总内存（/proc/meminfo的MemTotal）  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -512,7 +513,7 @@
               "refId": "A"
             },
             {
-              "Alias": "总内存（/proc/meminfo的MemTotal）",
+              "Alias": "总内存（/proc/meminfo的MemTotal）  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -646,6 +647,7 @@
       },
       "targets": [
         {
+          "Alias": "tcp.count {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -758,6 +760,7 @@
       },
       "targets": [
         {
+          "Alias": " agent.ping {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -877,7 +880,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "网卡入向流量eth0",
+          "Alias": "网卡入向流量eth0  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -922,7 +925,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "网卡出向流量eth0",
+          "Alias": "网卡出向流量eth0  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1047,6 +1050,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "网卡入向包速率 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1091,6 +1095,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "网卡出向包速率 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1215,7 +1220,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT入向",
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1259,7 +1264,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT入向",
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1383,7 +1388,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT出向",
+          "Alias": "NAT出向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1427,7 +1432,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT入向",
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1551,7 +1556,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "Peer入向",
+          "Alias": "Peer入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1595,7 +1600,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "Peer出向",
+          "Alias": "Peer出向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1719,6 +1724,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "NET入向 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1762,6 +1768,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "NET出向 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1898,7 +1905,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "/",
+          "Alias": "/  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1943,7 +1950,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "/data",
+          "Alias": "/data  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2068,7 +2075,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "读带宽vda",
+          "Alias": "读带宽vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2112,7 +2119,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "写带宽vda",
+          "Alias": "写带宽vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2235,7 +2242,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "读IO vda",
+          "Alias": "读IO vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2279,7 +2286,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "写IO vda",
+          "Alias": "写IO vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2409,6 +2416,7 @@
       },
       "targets": [
         {
+          "Alias": "proc.num {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
