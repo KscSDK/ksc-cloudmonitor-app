@@ -1,0 +1,2525 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1693904843654,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 20,
+      "panels": [
+        {
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 4,
+          "options": {
+            "legend": {
+              "calcs": ["max", "min", "mean", "lastNotNull"],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "Aggregate": [
+                {
+                  "label": "均值",
+                  "value": "Average"
+                }
+              ],
+              "Alias": "CPU利用率 {{p1}}[{{p0}}]",
+              "InstanceID": [
+                {
+                  "label": "$InstanceId",
+                  "value": "$InstanceId"
+                }
+              ],
+              "MetricName": {
+                "interval": "60",
+                "label": "cpu.utilizition.total",
+                "unit": "%",
+                "value": "cpu.utilizition.total"
+              },
+              "Namespace": {
+                "href": "https://www.ksyun.com/nv/product/KEC.html",
+                "label": "云服务器(KEC)",
+                "service": "kec",
+                "value": "KEC"
+              },
+              "Period": {
+                "label": 60,
+                "value": 60
+              },
+              "Region": {
+                "__isNew__": true,
+                "label": "$region",
+                "value": "$region"
+              },
+              "datasource": {
+                "type": "ksc-cloudmonitor-datasource",
+                "uid": ""
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "CPU利用率",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 1
+          },
+          "id": 8,
+          "options": {
+            "legend": {
+              "calcs": ["max", "min", "mean", "lastNotNull"],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "Alias": "CPU5分钟平均负载  {{p1}}[{{p0}}]",
+              "InstanceID": [
+                {
+                  "label": "$InstanceId",
+                  "value": "$InstanceId"
+                }
+              ],
+              "MetricName": {
+                "interval": "60",
+                "label": "system.cpu.load",
+                "metricSubChose": {
+                  "0": ["all", "all", "all", "percpu", "percpu", "percpu"],
+                  "1": ["avg1", "avg5", "avg15", "avg1", "avg5", "avg15"]
+                },
+                "unit": "",
+                "value": "system.cpu.load[all,avg5]"
+              },
+              "Namespace": {
+                "href": "https://www.ksyun.com/nv/product/KEC.html",
+                "label": "云服务器(KEC)",
+                "service": "kec",
+                "value": "KEC"
+              },
+              "Period": {
+                "label": 60,
+                "value": 60
+              },
+              "Region": {
+                "__isNew__": true,
+                "label": "$region",
+                "value": "$region"
+              },
+              "datasource": {
+                "type": "ksc-cloudmonitor-datasource",
+                "uid": ""
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "CPU平均负载",
+          "type": "timeseries"
+        }
+      ],
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 18,
+      "panels": [
+        {
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 10
+          },
+          "id": 22,
+          "options": {
+            "legend": {
+              "calcs": ["max", "min", "mean", "lastNotNull"],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "Alias": "内存利用率  {{p1}}[{{p0}}]",
+              "InstanceID": [
+                {
+                  "label": "$InstanceId",
+                  "value": "$InstanceId"
+                }
+              ],
+              "MetricName": {
+                "interval": "60",
+                "label": "memory.utilizition.total",
+                "unit": "%",
+                "value": "memory.utilizition.total"
+              },
+              "Namespace": {
+                "href": "https://www.ksyun.com/nv/product/KEC.html",
+                "label": "云服务器(KEC)",
+                "service": "kec",
+                "value": "KEC"
+              },
+              "Period": {
+                "label": 60,
+                "value": 60
+              },
+              "Region": {
+                "__isNew__": true,
+                "label": "$region",
+                "value": "$region"
+              },
+              "datasource": {
+                "type": "ksc-cloudmonitor-datasource",
+                "uid": ""
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "内存利用率",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 10
+          },
+          "id": 24,
+          "options": {
+            "legend": {
+              "calcs": ["max", "min", "mean", "lastNotNull"],
+              "displayMode": "table",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "Alias": "总内存（/proc/meminfo的MemTotal）  {{p1}}[{{p0}}]",
+              "InstanceID": [
+                {
+                  "label": "$InstanceId",
+                  "value": "$InstanceId"
+                }
+              ],
+              "MetricName": {
+                "interval": "60",
+                "label": "vm.memory.size",
+                "metricSubChose": {
+                  "0": ["available", "pavailable", "total", "used"]
+                },
+                "unit": "B",
+                "value": "vm.memory.size[total]"
+              },
+              "Namespace": {
+                "href": "https://www.ksyun.com/nv/product/KEC.html",
+                "label": "云服务器(KEC)",
+                "service": "kec",
+                "value": "KEC"
+              },
+              "Period": {
+                "label": 60,
+                "value": 60
+              },
+              "Region": {
+                "__isNew__": true,
+                "label": "$region",
+                "value": "$region"
+              },
+              "datasource": {
+                "type": "ksc-cloudmonitor-datasource",
+                "uid": ""
+              },
+              "refId": "A"
+            },
+            {
+              "Alias": "总内存（/proc/meminfo的MemTotal）  {{p1}}[{{p0}}]",
+              "InstanceID": [
+                {
+                  "label": "$InstanceId",
+                  "value": "$InstanceId"
+                }
+              ],
+              "MetricName": {
+                "interval": "60",
+                "label": "vm.memory.size",
+                "metricSubChose": {
+                  "0": ["available", "pavailable", "total", "used"]
+                },
+                "unit": "B",
+                "value": "vm.memory.size[available]"
+              },
+              "Namespace": {
+                "href": "https://www.ksyun.com/nv/product/KEC.html",
+                "label": "云服务器(KEC)",
+                "service": "kec",
+                "value": "KEC"
+              },
+              "Period": {
+                "label": 60,
+                "value": 60
+              },
+              "Region": {
+                "__isNew__": true,
+                "label": "$region",
+                "value": "$region"
+              },
+              "datasource": {
+                "type": "ksc-cloudmonitor-datasource",
+                "uid": ""
+              },
+              "hide": false,
+              "refId": "B"
+            }
+          ],
+          "title": "内存使用情况",
+          "type": "timeseries"
+        }
+      ],
+      "title": "内存",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 16,
+      "panels": [],
+      "title": "网络",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 3
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "tcp.count {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "tcp.count",
+            "unit": "个",
+            "value": "tcp.count"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "TCP连接数",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 3
+      },
+      "id": 28,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": " agent.ping {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "20",
+            "label": "agent.ping",
+            "unit": "",
+            "value": "agent.ping"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "连通性",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 11
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "网卡入向流量eth0  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.in",
+            "metricSubChose": {
+              "0": ["eth0", "eth0"],
+              "1": ["packets"]
+            },
+            "unit": "bps",
+            "value": "net.if.in"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "网卡出向流量eth0  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.out",
+            "metricSubChose": {
+              "0": ["eth0", "eth0"],
+              "1": ["packets"]
+            },
+            "unit": "bps",
+            "value": "net.if.out"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "网卡出入流量",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 11
+      },
+      "id": 32,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "网卡入向包速率 {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.in",
+            "metricSubChose": {
+              "0": ["eth0", "eth0"],
+              "1": ["packets"]
+            },
+            "unit": "bps",
+            "value": "net.if.in[eth0,packets]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "网卡出向包速率 {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.out",
+            "metricSubChose": {
+              "0": ["eth0", "eth0"],
+              "1": ["packets"]
+            },
+            "unit": "bps",
+            "value": "net.if.out[eth0,packets]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "网卡出入包速率",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.nat.in.bps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "bps",
+            "value": "net.if.nat.in.bps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.nat.out.bps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "bps",
+            "value": "net.if.nat.out.bps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "NAT流量",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "id": 42,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "NAT出向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.nat.in.pps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "pps",
+            "value": "net.if.nat.in.pps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.nat.out.pps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "pps",
+            "value": "net.if.nat.out.pps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "NAT包速率",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "id": 43,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "Peer入向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.peering.in.bps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "bps",
+            "value": "net.if.peering.in.bps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "Peer出向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.peering.out.bps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "bps",
+            "value": "net.if.peering.out.bps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Peer流量",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 27
+      },
+      "id": 44,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "NET入向 {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.peering.in.pps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "pps",
+            "value": "net.if.peering.in.pps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "NET出向 {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "net.if.peering.out.bps",
+            "metricSubChose": {
+              "0": ["fa:16:3e:1a:83:55"]
+            },
+            "unit": "bps",
+            "value": "net.if.peering.out.bps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Peer包速率",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 14,
+      "panels": [],
+      "title": "磁盘",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 45,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "/  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "vfs.fs.size",
+            "metricSubChose": {
+              "0": ["/"],
+              "1": ["pused"]
+            },
+            "unit": "%",
+            "value": "vfs.fs.size"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "/data  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "vfs.fs.size",
+            "metricSubChose": {
+              "0": ["/"],
+              "1": ["pused"]
+            },
+            "unit": "%",
+            "value": "vfs.fs.size"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": true,
+          "refId": "B"
+        }
+      ],
+      "title": "磁盘空间利用率",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 46,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "读带宽vda  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "disk.read.Bps",
+            "metricSubChose": {
+              "0": ["vda"]
+            },
+            "unit": "Bps",
+            "value": "disk.read.Bps[vda]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "写带宽vda  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "disk.write.Bps",
+            "metricSubChose": {
+              "0": ["vda"]
+            },
+            "unit": "Bps",
+            "value": "disk.write.Bps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "磁盘读写带宽",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 44
+      },
+      "id": 47,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "读IO vda  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "disk.read.ops",
+            "metricSubChose": {
+              "0": ["vda"]
+            },
+            "unit": "Ops",
+            "value": "disk.read.ops"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "写IO vda  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "disk.write.ops",
+            "metricSubChose": {
+              "0": ["vda"]
+            },
+            "unit": "Ops",
+            "value": "disk.write.ops"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "磁盘读写IO",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 52
+      },
+      "id": 12,
+      "panels": [],
+      "title": "进程",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 53
+      },
+      "id": 48,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "proc.num {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "proc.num",
+            "metricSubChose": {
+              "0": [""]
+            },
+            "unit": "个",
+            "value": "proc.num[]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/KEC.html",
+            "label": "云服务器(KEC)",
+            "service": "kec",
+            "value": "KEC"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "进程数量",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 34,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "华北1（北京）",
+          "value": "cn-beijing-6"
+        },
+        "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+        "hide": 0,
+        "includeAll": false,
+        "label": "区域",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "test123,1b4aaa4d-1381-4f34-b312-ed353c6b45d9",
+            "compute.inventorychecker,470d384e-9df9-4b63-aa22-f60bc97e6502"
+          ],
+          "value": [
+            "1b4aaa4d-1381-4f34-b312-ed353c6b45d9",
+            "470d384e-9df9-4b63-aa22-f60bc97e6502"
+          ]
+        },
+        "definition": "ServiceName=KEC&Action=DescribeInstances&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
+        "hide": 0,
+        "includeAll": false,
+        "label": "实例",
+        "multi": true,
+        "name": "InstanceId",
+        "options": [],
+        "query": "ServiceName=KEC&Action=DescribeInstances&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "【预设】云服务器KCE-默认项目",
+  "uid": "",
+  "version": 2,
+  "weekStart": ""
+}
