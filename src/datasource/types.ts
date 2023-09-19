@@ -1,4 +1,4 @@
-import { DataQuery, DataSourceJsonData } from '@grafana/data';
+import { DataQuery, DataSourceJsonData } from "@grafana/data";
 
 export interface MyQuery extends DataQuery {
   Namespace: any;
@@ -13,8 +13,8 @@ export interface MyQuery extends DataQuery {
 
 export const defaultQuery: Partial<MyQuery> = {
   Period: { label: 60, value: 60 },
-  Aggregate: [{ label: '均值', value: 'Average' }],
-  InstanceType: { value: 'InstanceId', label: 'As InstanceId' },
+  Aggregate: [{ label: "均值", value: "Average" }],
+  InstanceType: { value: "InstanceId", label: "As InstanceId" },
 };
 
 /**

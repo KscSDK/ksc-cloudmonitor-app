@@ -9,8 +9,8 @@
       "name": "Ksyun Cloud Monitor"
     },
     "keywords": ["ksyuncloud", "ksyuncloudmonitor", "grafana", "plugins"],
-    "version": "1.1.1",
-    "updated": "2023-03-29",
+    "version": "1.1.2",
+    "updated": "2023-09-19",
     "logos": {
       "small": "img/logo.png",
       "large": "img/logo.png"
@@ -19,7 +19,10 @@
       { "name": "dashbord example", "path": "img/dashboard-test.png" },
       { "name": "config datasource", "path": "img/datasource-config.png" },
       { "name": "query example", "path": "img/variable-panel-query.png" },
-      { "name": "ksyun variable example", "path": "img/variable-region-config.png" }
+      {
+        "name": "ksyun variable example",
+        "path": "img/variable-region-config.png"
+      }
     ]
   },
   "includes": [
@@ -32,6 +35,11 @@
       "type": "dashboard",
       "name": "【预设】负载均衡SLB-默认项目",
       "path": "dashboards/slb.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "【预设】容器服务KCE-默认项目",
+      "path": "dashboards/kce.json"
     },
     {
       "type": "datasource",

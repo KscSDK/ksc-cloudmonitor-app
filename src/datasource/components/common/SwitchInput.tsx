@@ -1,6 +1,6 @@
-import React, { FC, useState, useContext } from 'react';
-import { InlineSwitch, Input, InlineField, MultiSelect } from '@grafana/ui';
-import { DatasourceContext } from '../../components/query/QueryEditor';
+import React, { FC, useState, useContext } from "react";
+import { InlineSwitch, Input, InlineField, MultiSelect } from "@grafana/ui";
+import { DatasourceContext } from "../../components/query/QueryEditor";
 
 interface OwnProps {
   label?: string;
@@ -13,7 +13,10 @@ const SwitchInput: FC<OwnProps> = ({ label, onChange, tooltip }) => {
   const [innerValue, setInnerValue] = useState<string>();
 
   const dataSourceData = useContext(DatasourceContext);
-  const list = dataSourceData && dataSourceData?.projectOptions ? dataSourceData?.projectOptions : [];
+  const list =
+    dataSourceData && dataSourceData?.projectOptions
+      ? dataSourceData?.projectOptions
+      : [];
   const dealInputChange = (event: any) => {
     const target = event.target as HTMLTextAreaElement;
     setInnerValue(target.value);
@@ -21,14 +24,18 @@ const SwitchInput: FC<OwnProps> = ({ label, onChange, tooltip }) => {
   };
   return (
     <>
-      <InlineField label={label} labelWidth={24} tooltip={tooltip ? tooltip : undefined}>
+      <InlineField
+        label={label}
+        labelWidth={24}
+        tooltip={tooltip ? tooltip : undefined}
+      >
         <InlineSwitch
           className="switch"
           value={inputState}
           onChange={(v: { target: any }) => {
             if (!v.target.checked) {
-              setInnerValue('');
-              label === 'ProjectId' ? onChange([]) : onChange('');
+              setInnerValue("");
+              label === "ProjectId" ? onChange([]) : onChange("");
             }
             setInputState(v.target.checked);
           }}
@@ -36,12 +43,21 @@ const SwitchInput: FC<OwnProps> = ({ label, onChange, tooltip }) => {
       </InlineField>
       {inputState ? (
         <>
-          {label !== 'ProjectId' ? (
-            <Input className="inline-input" value={innerValue} width={20} placeholder=" " onChange={dealInputChange} />
+          {label !== "ProjectId" ? (
+            <Input
+              className="inline-input"
+              value={innerValue}
+              width={20}
+              placeholder=" "
+              onChange={dealInputChange}
+            />
           ) : (
             <MultiSelect
               width={80}
-              options={list.map((i: any) => ({ label: i.ProjectName, value: i.ProjectId }))}
+              options={list.map((i: any) => ({
+                label: i.ProjectName,
+                value: i.ProjectId,
+              }))}
               onChange={(v: any) => {
                 const projectIds = v.map((i: any) => i.value);
                 onChange && onChange(projectIds);
