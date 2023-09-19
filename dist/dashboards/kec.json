@@ -40,7 +40,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -118,6 +118,7 @@
                   "value": "Average"
                 }
               ],
+              "Alias": "CPU利用率 {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -147,7 +148,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             }
@@ -158,7 +159,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -230,7 +231,7 @@
           },
           "targets": [
             {
-              "Alias": "CPU5分钟平均负载",
+              "Alias": "CPU5分钟平均负载  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -264,7 +265,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             }
@@ -289,7 +290,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -361,7 +362,7 @@
           },
           "targets": [
             {
-              "Alias": "内存利用率",
+              "Alias": "内存利用率  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -391,7 +392,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             }
@@ -402,7 +403,7 @@
         {
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "fieldConfig": {
             "defaults": {
@@ -474,7 +475,7 @@
           },
           "targets": [
             {
-              "Alias": "总内存（/proc/meminfo的MemTotal）",
+              "Alias": "总内存（/proc/meminfo的MemTotal）  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -507,12 +508,12 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "refId": "A"
             },
             {
-              "Alias": "总内存（/proc/meminfo的MemTotal）",
+              "Alias": "总内存（/proc/meminfo的MemTotal）  {{p1}}[{{p0}}]",
               "InstanceID": [
                 {
                   "label": "$InstanceId",
@@ -545,7 +546,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "rkDQlBy7k"
+                "uid": ""
               },
               "hide": false,
               "refId": "B"
@@ -574,7 +575,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -646,6 +647,7 @@
       },
       "targets": [
         {
+          "Alias": "tcp.count {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -675,7 +677,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -686,7 +688,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -758,6 +760,7 @@
       },
       "targets": [
         {
+          "Alias": " agent.ping {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -787,7 +790,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -798,7 +801,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -877,7 +880,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "网卡入向流量eth0",
+          "Alias": "网卡入向流量eth0  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -911,7 +914,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -922,7 +925,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "网卡出向流量eth0",
+          "Alias": "网卡出向流量eth0  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -956,7 +959,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -968,7 +971,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1047,6 +1050,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "网卡入向包速率 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1080,7 +1084,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1091,6 +1095,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "网卡出向包速率 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1124,7 +1129,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1136,7 +1141,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1215,7 +1220,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT入向",
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1248,7 +1253,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1259,7 +1264,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT入向",
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1292,7 +1297,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1304,7 +1309,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1383,7 +1388,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT出向",
+          "Alias": "NAT出向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1416,7 +1421,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1427,7 +1432,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "NAT入向",
+          "Alias": "NAT入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1460,7 +1465,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1472,7 +1477,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1551,7 +1556,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "Peer入向",
+          "Alias": "Peer入向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1584,7 +1589,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1595,7 +1600,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "Peer出向",
+          "Alias": "Peer出向  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1628,7 +1633,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1640,7 +1645,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1719,6 +1724,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "NET入向 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1751,7 +1757,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1762,6 +1768,7 @@
               "value": "Max"
             }
           ],
+          "Alias": "NET出向 {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1794,7 +1801,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -1819,7 +1826,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -1898,7 +1905,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "/",
+          "Alias": "/  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1932,7 +1939,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -1943,7 +1950,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "/data",
+          "Alias": "/data  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -1977,7 +1984,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": true,
           "refId": "B"
@@ -1989,7 +1996,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -2068,7 +2075,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "读带宽vda",
+          "Alias": "读带宽vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2101,7 +2108,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2112,7 +2119,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "写带宽vda",
+          "Alias": "写带宽vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2145,7 +2152,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -2157,7 +2164,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -2235,7 +2242,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "读IO vda",
+          "Alias": "读IO vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2268,7 +2275,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2279,7 +2286,7 @@
               "value": "Max"
             }
           ],
-          "Alias": "写IO vda",
+          "Alias": "写IO vda  {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2312,7 +2319,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -2337,7 +2344,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": "rkDQlBy7k"
+        "uid": ""
       },
       "fieldConfig": {
         "defaults": {
@@ -2409,6 +2416,7 @@
       },
       "targets": [
         {
+          "Alias": "proc.num {{p1}}[{{p0}}]",
           "InstanceID": [
             {
               "label": "$InstanceId",
@@ -2441,7 +2449,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "rkDQlBy7k"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2461,10 +2469,6 @@
           "selected": true,
           "text": "华北1（北京）",
           "value": "cn-beijing-6"
-        },
-        "datasource": {
-          "type": "ksc-cloudmonitor-datasource",
-          "uid": "rkDQlBy7k"
         },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
@@ -2487,20 +2491,19 @@
             "test123,1b4aaa4d-1381-4f34-b312-ed353c6b45d9",
             "compute.inventorychecker,470d384e-9df9-4b63-aa22-f60bc97e6502"
           ],
-          "value": ["1b4aaa4d-1381-4f34-b312-ed353c6b45d9", "470d384e-9df9-4b63-aa22-f60bc97e6502"]
+          "value": [
+            "1b4aaa4d-1381-4f34-b312-ed353c6b45d9",
+            "470d384e-9df9-4b63-aa22-f60bc97e6502"
+          ]
         },
-        "datasource": {
-          "type": "ksc-cloudmonitor-datasource",
-          "uid": "rkDQlBy7k"
-        },
-        "definition": "ServiceName=KEC&Action=DescribeInstances&Region=cn-beijing-6&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
+        "definition": "ServiceName=KEC&Action=DescribeInstances&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
         "hide": 0,
         "includeAll": false,
         "label": "实例",
         "multi": true,
         "name": "InstanceId",
         "options": [],
-        "query": "ServiceName=KEC&Action=DescribeInstances&Region=cn-beijing-6&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
+        "query": "ServiceName=KEC&Action=DescribeInstances&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=InstanceName,InstanceId",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

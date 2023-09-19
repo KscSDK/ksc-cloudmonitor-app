@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
-import { LegacyForms } from '@grafana/ui';
-import SwitchInput from '../common/SwitchInput';
-import _ from 'lodash';
+import React, { FC, useState, useEffect } from "react";
+import { LegacyForms } from "@grafana/ui";
+import SwitchInput from "../common/SwitchInput";
+import _ from "lodash";
 const { FormField } = LegacyForms;
 
 interface KceProps {
@@ -23,7 +23,9 @@ const Querykce: FC<any> = ({ onChange }) => {
           labelWidth={10}
           inputWidth={20}
           placeholder="可输入值范围：0~20"
-          onChange={(e) => setKceQuery((state) => ({ ...state, MaxResults: e.target.value }))}
+          onChange={(e) =>
+            setKceQuery((state) => ({ ...state, MaxResults: e.target.value }))
+          }
         />
       </div>
       <div className="form-field">
@@ -34,14 +36,18 @@ const Querykce: FC<any> = ({ onChange }) => {
           inputWidth={20}
           defaultValue={0}
           placeholder="Marker"
-          onChange={(e) => setKceQuery((state) => ({ ...state, Marker: e.target.value }))}
+          onChange={(e) =>
+            setKceQuery((state) => ({ ...state, Marker: e.target.value }))
+          }
         />
       </div>
 
       <SwitchInput
         label="Search"
         tooltip="模糊匹配，可匹配如下字段：集群名称(ClusterName)。"
-        onChange={(value: any) => setKceQuery((state) => ({ ...state, Search: value }))}
+        onChange={(value: any) =>
+          setKceQuery((state) => ({ ...state, Search: value }))
+        }
       />
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
-import SwitchIncrement from '../common/SwtichIncrement';
-import CustomIncrement from '../common/CustomIncrement';
-import { InlineSwitch, InlineField } from '@grafana/ui';
+import React, { FC, useState, useEffect } from "react";
+import SwitchIncrement from "../common/SwtichIncrement";
+import CustomIncrement from "../common/CustomIncrement";
+import { InlineSwitch, InlineField } from "@grafana/ui";
 
 const QueryBws: FC<any> = ({ onChange }) => {
   const [filterState, setFilterState] = useState(false);
@@ -14,14 +14,18 @@ const QueryBws: FC<any> = ({ onChange }) => {
       <SwitchIncrement
         label="BandWidthShareId"
         tooltip="默认: 查询region下所有的共享带宽的ID"
-        datasource={['']}
-        onChange={(value) => setBws((state) => ({ ...state, BandWidthShareId: value }))}
+        datasource={[""]}
+        onChange={(value) =>
+          setBws((state) => ({ ...state, BandWidthShareId: value }))
+        }
       />
       <SwitchIncrement
         label="ProjectId"
         tooltip="缺省值: 默认项目"
-        datasource={['']}
-        onChange={(value) => setBws((state) => ({ ...state, ProjectId: value }))}
+        datasource={[""]}
+        onChange={(value) =>
+          setBws((state) => ({ ...state, ProjectId: value }))
+        }
       />
       <InlineField labelWidth={24} label="Filter">
         <InlineSwitch
@@ -38,8 +42,13 @@ const QueryBws: FC<any> = ({ onChange }) => {
         <CustomIncrement
           label="allocation-id"
           tooltip="弹性IP的ID"
-          datasource={['']}
-          onValueChange={(value: any) => setBws((state) => ({ ...state, Filter: { ['allocation-id']: value } }))}
+          datasource={[""]}
+          onValueChange={(value: any) =>
+            setBws((state) => ({
+              ...state,
+              Filter: { ["allocation-id"]: value },
+            }))
+          }
         />
       ) : null}
     </div>
