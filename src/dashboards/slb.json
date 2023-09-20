@@ -1,0 +1,1201 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1693914306943,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "入向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.bps.in",
+            "unit": "bps",
+            "value": "slb.bps.in"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Alias": "出向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.bps.out",
+            "unit": "bps",
+            "value": "slb.bps.out"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "SLB流量",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "入向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.pps.in",
+            "unit": "个",
+            "value": "slb.pps.in"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Alias": "出向  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.pps.out",
+            "unit": "个",
+            "value": "slb.pps.out"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "SLB包速率",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "丢弃入流量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.drop.bps.in",
+            "unit": "bps",
+            "value": "slb.drop.bps.in"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Alias": "丢弃出流量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.drop.bps.out",
+            "unit": "bps",
+            "value": "slb.drop.bps.out"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Alias": "ACL丢弃流量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.drop.bps.acl",
+            "unit": "bps",
+            "value": "slb.drop.bps.acl"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "丢弃流量",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": ["min", "max", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "丢弃流入数据包  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.pps.in",
+            "unit": "个",
+            "value": "slb.pps.in"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Alias": "丢弃流出数据包  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.pps.out",
+            "unit": "个",
+            "value": "slb.pps.out"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Alias": "ACL丢弃数据包  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.drop.pps.acl",
+            "unit": "pps",
+            "value": "slb.drop.pps.acl"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "丢弃包速率",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "未开启的RS数量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.rs_disable",
+            "unit": "个",
+            "value": "slb.rs_disable"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Alias": "健康的RS数量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.rs_up",
+            "unit": "个",
+            "value": "slb.rs_up"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Alias": "不健康的RS数量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.rs_down",
+            "unit": "个",
+            "value": "slb.rs_down"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "Alias": "检查未完成的RS数量  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.rs_init",
+            "unit": "个",
+            "value": "slb.rs_init"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "D"
+        }
+      ],
+      "title": "健康检查",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": ""
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "并发连接数  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.concurrentconn",
+            "unit": "个",
+            "value": "slb.concurrentconn"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Alias": "活跃连接数  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.activeconn",
+            "unit": "个",
+            "value": "slb.activeconn"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Alias": "不活跃连接数  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.inactiveconn",
+            "unit": "个",
+            "value": "slb.inactiveconn"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "Alias": "每秒新建连接数  {{p1}}[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$InstanceId",
+              "value": "$InstanceId"
+            }
+          ],
+          "MetricName": {
+            "interval": "30",
+            "label": "slb.cps",
+            "unit": "个",
+            "value": "slb.cps"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/SLB.html",
+            "label": "负载均衡（SLB）",
+            "service": "slb",
+            "value": "SLB"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "D"
+        }
+      ],
+      "title": "连接数",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 34,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "华北1（北京）",
+          "value": "cn-beijing-6"
+        },
+        "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+        "hide": 0,
+        "includeAll": false,
+        "label": "区域",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": ["kmr-pool,47788a81-8c14-492a-abd4-aaa0271604ca"],
+          "value": ["47788a81-8c14-492a-abd4-aaa0271604ca"]
+        },
+        "definition": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=$region&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
+        "hide": 0,
+        "includeAll": false,
+        "label": "实例",
+        "multi": true,
+        "name": "InstanceId",
+        "options": [],
+        "query": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=$region&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "【预设】负载均衡SLB-默认项目",
+  "uid": "Mgo_dLzSz",
+  "version": 1,
+  "weekStart": ""
+}

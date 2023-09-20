@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
-import { InlineLabel, InlineSwitch, LegacyForms } from '@grafana/ui';
-import SwitchInput from '../common/SwitchInput';
-import CustomInput from '../common/CustomInput';
+import React, { FC, useState, useEffect } from "react";
+import { InlineLabel, InlineSwitch, LegacyForms } from "@grafana/ui";
+import SwitchInput from "../common/SwitchInput";
+import CustomInput from "../common/CustomInput";
 
 const { FormField } = LegacyForms;
 
@@ -23,7 +23,9 @@ const QueryVpc: FC<any> = ({ onChange }) => {
           labelWidth={10}
           inputWidth={20}
           placeholder="可输入值范围：5~1000"
-          onChange={(e) => setVpcQuery((state) => ({ ...state, MaxResults: e.target.value }))}
+          onChange={(e) =>
+            setVpcQuery((state) => ({ ...state, MaxResults: e.target.value }))
+          }
         />
       </div>
       <div className="form-field">
@@ -32,21 +34,29 @@ const QueryVpc: FC<any> = ({ onChange }) => {
           label="NextToken"
           labelWidth={10}
           inputWidth={20}
-          onChange={(e) => setVpcQuery((state) => ({ ...state, NextToken: e.target.value }))}
+          onChange={(e) =>
+            setVpcQuery((state) => ({ ...state, NextToken: e.target.value }))
+          }
         />
       </div>
       <SwitchInput
         label="ProjectId"
-        onChange={(value: any) => setVpcQuery((state) => ({ ...state, ProjectId: value }))}
+        onChange={(value: any) =>
+          setVpcQuery((state) => ({ ...state, ProjectId: value }))
+        }
       />
       <SwitchInput
         tooltip="对等连接的ID"
         label="VpcPeeringConnectionId"
-        onChange={(value: any) => setVpcQuery((state) => ({ ...state, VpcPeeringConnectionId: value }))}
+        onChange={(value: any) =>
+          setVpcQuery((state) => ({ ...state, VpcPeeringConnectionId: value }))
+        }
       />
       <SwitchInput
         label="Filter"
-        onChange={(value: any) => setVpcQuery((state) => ({ ...state, ['vpc-id']: value }))}
+        onChange={(value: any) =>
+          setVpcQuery((state) => ({ ...state, ["vpc-id"]: value }))
+        }
       />
       <div className="gf-form">
         <InlineLabel width={24}>Filter</InlineLabel>
@@ -68,7 +78,7 @@ const QueryVpc: FC<any> = ({ onChange }) => {
             <CustomInput
               onChange={(value: any) => {
                 const Filter = vpcquery?.Filter || {};
-                Filter['vpc-id'] = value;
+                Filter["vpc-id"] = value;
                 setVpcQuery((state) => ({ ...state, Filter }));
               }}
             />
@@ -80,7 +90,7 @@ const QueryVpc: FC<any> = ({ onChange }) => {
             <CustomInput
               onChange={(value: any) => {
                 const Filter = vpcquery?.Filter || {};
-                Filter['accept-vpc-id'] = value;
+                Filter["accept-vpc-id"] = value;
                 setVpcQuery((state) => ({ ...state, Filter }));
               }}
             />
@@ -95,7 +105,7 @@ const QueryVpc: FC<any> = ({ onChange }) => {
             <CustomInput
               onChange={(value: any) => {
                 const Filter = vpcquery?.Filter || {};
-                Filter['state'] = value;
+                Filter["state"] = value;
                 setVpcQuery((state) => ({ ...state, Filter }));
               }}
             />
