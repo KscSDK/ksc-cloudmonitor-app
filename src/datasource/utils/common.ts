@@ -173,7 +173,7 @@ export const GenerageInstanceOptions: any = {
       }));
     },
   },
-  GEPC: {
+  EPCGPU: {
     options: (data: any, instanceType: string) => {
       return data?.HostSet.map((item: any) => ({
         label:
@@ -454,9 +454,11 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
 
       if (subChoseArray?.length) {
         subChoseArray.forEach((el, index) => {
-          newSetMap.metricSubChose[index] = (
-            newSetMap.metricSubChose[index] || []
-          ).concat([el]);
+          if (Array.isArray(newSetMap.metricSubChose)) {
+            newSetMap.metricSubChose[index] = (
+              newSetMap.metricSubChose?.[index] || []
+            ).concat([el]);
+          }       
         });
       }
       metricMap.set(metricMainName, newSetMap);

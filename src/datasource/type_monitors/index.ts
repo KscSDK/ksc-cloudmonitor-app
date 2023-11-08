@@ -114,7 +114,7 @@ export const MonitorServices = [
   {
     service: "epc",
     label: "GPU裸金属服务器(GEPC)",
-    namespace: "GEPC",
+    namespace: "EPCGPU",
     href: "https://www.ksyun.com/nv/product/GPU.html",
     apihref: "https://docs.ksyun.com/documents/627",
     instanceAction: "DescribeEpcs",

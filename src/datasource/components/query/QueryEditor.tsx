@@ -204,7 +204,7 @@ const QueryEditor: FC<Props> = ({
       case "BWS":
         return <QueryBws onChange={_.debounce(handleChange, 500)} />;
       case "EPC":
-      case "GEPC":
+      case "EPCGPU":
         return <QueryEpc onChange={_.debounce(handleChange, 500)} />;
       case "KCS":
         return <QueryKcs onChange={_.debounce(handleChange, 500)} />;
