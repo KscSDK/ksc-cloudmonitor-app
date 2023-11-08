@@ -58,6 +58,7 @@ const AggregateOptions = [
   { label: "均值", value: "Average" },
   { label: "最大值", value: "Max" },
   { label: "最小值", value: "Min" },
+  { label: "求和", value: "sum" },
 ];
 
 type Props = QueryEditorProps<DataSource, MyQuery, MyDataSourceOptions>;
