@@ -454,11 +454,10 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
 
       if (subChoseArray?.length) {
         subChoseArray.forEach((el, index) => {
-          if (Array.isArray(newSetMap.metricSubChose)) {
-            newSetMap.metricSubChose[index] = (
-              newSetMap.metricSubChose?.[index] || []
-            ).concat([el]);
-          }       
+          _.isObject(newSetMap.metricSubChose) ? 
+          newSetMap.metricSubChose[index] = (
+            newSetMap.metricSubChose?.[index] || []
+          ).concat([el]) : newSetMap.metricSubChose = {};
         });
       }
       metricMap.set(metricMainName, newSetMap);
