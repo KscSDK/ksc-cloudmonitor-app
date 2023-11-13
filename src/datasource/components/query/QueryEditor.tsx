@@ -621,7 +621,6 @@ const QueryEditor: FC<Props> = ({
                 const hrefItem = MonitorServices.find(
                   (i: any) => i.namespace === query?.Namespace?.value
                 );
-                console.log("hrefItem", hrefItem);
                 if (hrefItem && hrefItem?.apihref) {
                   window.open(hrefItem?.apihref);
                 }
