@@ -37,7 +37,7 @@ export const MonitorServices = [
     label: "云服务器(KEC)",
     namespace: "KEC",
     href: "https://www.ksyun.com/nv/product/KEC.html",
-    apihref: "https://docs.ksyun.com/documents/816",
+    apihref: "https://docs.ksyun.com/documents/1527?type=6",
     instanceAction: "DescribeInstances",
   },
   {
