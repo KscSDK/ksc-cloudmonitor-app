@@ -353,7 +353,6 @@ const QueryEditor: FC<Props> = ({
     [
       query,
       datasource.instanceSetting,
-      extenInstanceQuery,
       projectQueryString
     ]
   );
