@@ -97,8 +97,6 @@ const QueryEditor: FC<Props> = ({
     return InstanceTypes;
   }, [query, onChange]);
 
-  console.log('render')
-
   const { value: projectList } = useAsync(async () => {
     const resData: any = await request(datasource.instanceSetting, "iam", {
       action: "GetAccountAllProjectList",
