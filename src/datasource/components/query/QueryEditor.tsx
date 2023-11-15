@@ -2,7 +2,6 @@ import React, {
   FC,
   useMemo,
   useState,
-  useCallback,
   useRef,
   useEffect,
 } from "react";
@@ -77,22 +76,42 @@ const QueryEditor: FC<Props> = ({
   }, [queries?.length, onRunQuery]);
 
   const metricMap = useRef<Map<any, any>>();
-  // 当前namespace
-  const serviceItem = useMemo(() => {
-    return query?.Namespace?.value
-      ? MonitorServices.find(
-          (item) => item.namespace === query?.Namespace?.value
-        )
-      : undefined;
-  }, [query]);
-
-  // instance可查询类型根据Namespace设置options
+  // 详情显示状态
+  const [detailState, setDetail] = useState(false);
+  // InstanceList
+  const [instanceOptions, setInstanceOptions] = useState<any[]>([]);
+  // 指标下拉options
+  const [metricOptions, setMetricOptions] = useState<any[]>([]);
+  // interval下拉options
+  const [periodOptions, setPerionOptions] = useState<any[]>(
+    query?.MetricName?.interval
+      ? generatePeriodOptions(query.MetricName.interval)
+      : []
+  );
+  const [isLoading, setLoading] = useState<boolean>(false)
+  // 获取数据其他查询条件
+  const [extenInstanceQuery, setExtenQuery] = useState<string>("");
+  const customOptions = useRef<any[]>(query?.InstanceID || []);
+  
+    // 获取region
+  const { value: regionOptions } = useAsync(async () => {
+      const regionRes: any = await request(datasource.instanceSetting, "kec", {
+        action: "DescribeRegions",
+        version: "2016-03-04",
+      });
+      const regionSet = regionRes?.data?.RegionSet || [];
+      return regionSet.map((item: RegionSet) => ({
+        label: `${item?.RegionName}`,
+        value: item?.Region,
+      }));
+    }, []);
+      // instance可查询类型根据Namespace设置options
   const instanceTypeOptions = useMemo(() => {
     if (withoutIpServices.includes(query?.Namespace?.value)) {
       const filterOptions = InstanceTypes.filter(
         (item: any) => item.value !== "InstanceIp"
       );
-      if (query?.InstanceType && query?.InstanceType.value === "InstanceIp") {
+    if (query?.InstanceType && query?.InstanceType.value === "InstanceIp") {
         onChange &&
           onChange({
             ...query,
@@ -102,7 +121,13 @@ const QueryEditor: FC<Props> = ({
       return filterOptions;
     }
     return InstanceTypes;
-  }, [query, onChange]);
+  }, [query]);
+  // 生成namespace 下拉选项
+  const NameSpaceOptions = useMemo(
+    () => generageCheckedNamespace(datasource),
+    [datasource]
+  );
+
 
   const { value: projectList } = useAsync(async () => {
     const resData: any = await request(datasource.instanceSetting, "iam", {
@@ -131,48 +156,12 @@ const QueryEditor: FC<Props> = ({
     });
     return queryString;
   }, [projectList, query.Namespace]);
-
-  // 详情显示状态
-  const [detailState, setDetail] = useState(false);
-  // 生成namespace 下拉选项
-  const NameSpaceOptions = useMemo(
-    () => generageCheckedNamespace(datasource),
-    [datasource]
-  );
-  // InstanceList
-  const [instanceOptions, setInstanceOptions] = useState<any[]>([]);
-  // 指标下拉options
-  const [metricOptions, setMetricOptions] = useState<any[]>([]);
-  // interval下拉options
-  const [periodOptions, setPerionOptions] = useState<any[]>(
-    query?.MetricName?.interval
-      ? generatePeriodOptions(query.MetricName.interval)
-      : []
-  );
-  // 获取数据其他查询条件
-  const [extenInstanceQuery, setExtenQuery] = useState<string>("");
-
-  const customOptions = useRef<any[]>(query?.InstanceID || []);
-
-  // 获取region
-  const { value: regionOptions } = useAsync(async () => {
-    const regionRes: any = await request(datasource.instanceSetting, "kec", {
-      action: "DescribeRegions",
-      version: "2016-03-04",
-    });
-    const regionSet = regionRes?.data?.RegionSet || [];
-    return regionSet.map((item: RegionSet) => ({
-      label: `${item?.RegionName}`,
-      value: item?.Region,
-    }));
-  }, []);
-
   // 不同service change后触发，filter
-  const handleChange = useCallback((query: QueryType) => {
+  const handleChange = (queryParams: QueryType) => {
     let extenParams = "";
-    for (const key in query) {
-      if (Object.prototype.hasOwnProperty.call(query, key)) {
-        const element = query[key];
+    for (const key in queryParams) {
+      if (Object.prototype.hasOwnProperty.call(queryParams, key)) {
+        const element = queryParams[key];
         if (
           (typeof element === "string" || typeof element === "number") &&
           element !== ""
@@ -185,7 +174,7 @@ const QueryEditor: FC<Props> = ({
             }
           });
         } else if (key === "Filter") {
-          const filterString = dealQueryFilter(query[key]);
+          const filterString = dealQueryFilter(queryParams[key]);
           extenParams += `&${filterString}`;
         } else {
           extenParams += "";
@@ -193,7 +182,7 @@ const QueryEditor: FC<Props> = ({
       }
     }
     setExtenQuery(extenParams ? extenParams : "");
-  }, []);
+  };
 
   // 渲染不同service的可选项
   const renderByService = (service: string) => {
@@ -229,7 +218,7 @@ const QueryEditor: FC<Props> = ({
         return null;
     }
   };
-
+  
   // namespace变更
   const onNamespaceChange = (namespace: any) => {
     // name space change 其他select 值重置
@@ -297,67 +286,65 @@ const QueryEditor: FC<Props> = ({
   /** 请求实例列表接口
    * namespace： 业务线
    */
-  const getInstanceIds = useCallback(
-    async (extenQuery?: string) => {
-      const service = query.Namespace.service;
-      if (!query.Region || !serviceItem) {
-        return console.error(`ServiceConfig 中未找到${service}或region为空`);
-      }
-      setMetricOptions([]);
-      setInstanceOptions([]);
-      customOptions.current = [];
+  const getInstanceIds = async (extraParams?: string) => {
+    setLoading(true)
+    const service = query.Namespace.service;
+    const serviceItem =  query?.Namespace?.value
+      ? MonitorServices.find(
+          (item) => item.namespace === query?.Namespace?.value
+        )
+      : undefined;
+    if (!query.Region || !serviceItem) {
+      return console.error(`ServiceConfig 中未找到${service}或region为空`);
+    }
+    setMetricOptions([]);
+    setInstanceOptions([]);
+    customOptions.current = [];
 
-      // const namespace = query.Namespace.value;
-      const extendQuery =
-        !extenQuery || typeof extenQuery !== "string" ? extenQuery : "";
-      const projectQuery = `${projectQueryString ? projectQueryString : ""}`;
-      // 根据filter 是否含有project 判断query string 是否将project 过滤
-      const filterProjectQuery =
-        extenInstanceQuery && extenInstanceQuery.includes("ProjectId")
-          ? extenInstanceQuery
-          : (extenInstanceQuery ? extenInstanceQuery : "") + projectQuery;
-      // 替换region 如果是变量
-      const dealRegion = replaceRealValue(query.Region.value);
-      // ProjectId.1=104139, 101606
-      const currentService = ServiceMap.get(
-        `${query.Namespace.service}/${dealRegion}`
-      );
-      const instanceIdRes: any = await request(
-        datasource.instanceSetting,
-        `${query.Namespace.service}/${dealRegion}`,
-        {
-          action: serviceItem?.instanceAction || "",
-          version: currentService?.version || "",
-          extenQuery: extendQuery
-            ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ""}`
-            : `${filterProjectQuery ? filterProjectQuery : ""}`,
-          region: dealRegion,
-        }
-      );
-      if (instanceIdRes?.status !== 200) {
-        alertError(instanceIdRes?.data?.Error?.Message);
-        return;
-      }
-      if (instanceIdRes && instanceIdRes?.data) {
-        const opsItem = GenerageInstanceOptions[
-          query?.Namespace?.value
-        ].options(
-          instanceIdRes?.data,
-          query.InstanceType?.value || "InstanceId"
-        );
-        // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
-        // const instanceOptions = dealInstanceByService(namespace, instanceData, query.InstanceType?.value);
-        setInstanceOptions([...opsItem]);
-      }
-    },
-    [
-      query,
+    // const namespace = query.Namespace.value;
+    const extendQuery =
+      !extraParams || typeof extraParams !== "string" ? extraParams : "";
+    const projectQuery = `${projectQueryString ? projectQueryString : ""}`;
+    // 根据filter 是否含有project 判断query string 是否将project 过滤
+    const filterProjectQuery =
+      extraParams && extraParams.includes("ProjectId")
+            ? extraParams
+            : (extraParams ? extraParams : "") + projectQuery;
+    // 替换region 如果是变量
+    const dealRegion = replaceRealValue(query.Region.value);
+    // ProjectId.1=104139, 101606
+    const currentService = ServiceMap.get(
+      `${query.Namespace.service}/${dealRegion}`
+    );
+    const instanceIdRes: any = await request(
       datasource.instanceSetting,
-      extenInstanceQuery,
-      projectQueryString,
-      serviceItem,
-    ]
-  );
+      `${query.Namespace.service}/${dealRegion}`,
+      {
+        action: serviceItem?.instanceAction || "",
+        version: currentService?.version || "",
+        extenQuery: extendQuery
+          ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ""}`
+          : `${filterProjectQuery ? filterProjectQuery : ""}`,
+        region: dealRegion,
+      }
+    );
+    if (instanceIdRes?.status !== 200) {
+      alertError(instanceIdRes?.data?.Error?.Message);
+      return;
+    }
+    if (instanceIdRes && instanceIdRes?.data) {
+      const opsItem = GenerageInstanceOptions[
+        query?.Namespace?.value
+      ].options(
+        instanceIdRes?.data,
+        query.InstanceType?.value || "InstanceId"
+      );
+      // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
+      // const instanceOptions = dealInstanceByService(namespace, instanceData, query.InstanceType?.value);
+      setInstanceOptions([...opsItem]);
+      setLoading(false)
+    }
+  }
 
   // 生成metric options
   const generateMetricOptions = (metricsList: any[]) => {
@@ -446,12 +433,13 @@ const QueryEditor: FC<Props> = ({
             defaultValue={query.InstanceID}
             value={query.InstanceID}
             onChange={onInstanceChange}
-            onOpenMenu={getInstanceIds}
+            onOpenMenu={() => getInstanceIds(extenInstanceQuery)}
             onBlur={() => {
               if (query?.MetricName && query?.MetricName.value) {
                 onRunQuery();
               }
             }}
+            isLoading={isLoading}
             closeMenuOnSelect={false}
             allowCustomValue={true}
             isSearchable={true}
@@ -492,7 +480,7 @@ const QueryEditor: FC<Props> = ({
             defaultValue={query.InstanceID?.[0]}
             value={query.InstanceID?.[0]}
             onChange={onInstanceChange}
-            onOpenMenu={getInstanceIds}
+            onOpenMenu={() => getInstanceIds(extenInstanceQuery)}
             onBlur={() => {
               if (query?.MetricName && query?.MetricName.value) {
                 onRunQuery();
@@ -634,10 +622,10 @@ const QueryEditor: FC<Props> = ({
       </InlineField>
       {/* 渲染不同service 的可选query */}
       <DatasourceContext.Provider value={{ projectOptions: projectList }}>
-        {detailState ? (
+         {detailState ? (
           <>
             <div className="detail-content-fileds">
-              {renderByService(query.Namespace?.value)}
+            {renderByService(query.Namespace?.value)}
             </div>
           </>
         ) : null}
