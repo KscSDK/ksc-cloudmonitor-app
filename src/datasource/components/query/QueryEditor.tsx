@@ -2,7 +2,7 @@ import React, {
   FC,
   useMemo,
   useState,
-useCallback,
+  useCallback,
   useRef,
   useEffect,
 } from "react";
@@ -96,6 +96,8 @@ const QueryEditor: FC<Props> = ({
     }
     return InstanceTypes;
   }, [query, onChange]);
+
+  console.log('render')
 
   const { value: projectList } = useAsync(async () => {
     const resData: any = await request(datasource.instanceSetting, "iam", {
@@ -291,8 +293,8 @@ const QueryEditor: FC<Props> = ({
    * namespace： 业务线
    */
   const getInstanceIds = useCallback(
-    async (extraParams?: string) => {
-        const service = query.Namespace.service;
+    async (extraParams?: string) => {    
+    const service = query.Namespace.service;
     const serviceItem =  query?.Namespace?.value
       ? MonitorServices.find(
           (item) => item.namespace === query?.Namespace?.value
