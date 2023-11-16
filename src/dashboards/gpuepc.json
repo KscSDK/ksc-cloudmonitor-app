@@ -23,7 +23,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1699585519011,
+  "iteration": 1700119549216,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -735,7 +735,7 @@
               },
               {
                 "color": "red",
-                "value": 80
+                "value": 70
               }
             ]
           },
@@ -6663,6 +6663,26 @@
       {
         "current": {
           "selected": false,
+          "text": "测试专用项目",
+          "value": "104139"
+        },
+        "definition": "ServiceName=IAM&Action=GetAccountAllProjectList",
+        "hide": 0,
+        "includeAll": false,
+        "label": "项目",
+        "multi": false,
+        "name": "pid",
+        "options": [],
+        "query": "ServiceName=IAM&Action=GetAccountAllProjectList",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
           "text": "华北1（北京）",
           "value": "cn-beijing-6"
         },
@@ -6683,79 +6703,22 @@
       {
         "current": {
           "selected": false,
-          "text": "testepc,dbe8b2b1-38c8-4d60-a40a-1b3d43522cbe",
-          "value": "dbe8b2b1-38c8-4d60-a40a-1b3d43522cbe"
+          "text": ["monitor-test,5fa6809c-369a-4e33-9a70-ab271374ee72"],
+          "value": ["5fa6809c-369a-4e33-9a70-ab271374ee72"]
         },
-        "definition": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=HostName,HostId",
+        "definition": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=$pid&Instancealias=HostName,HostId",
         "hide": 0,
         "includeAll": false,
         "label": "实例",
         "multi": true,
         "name": "uuid",
         "options": [],
-        "query": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=0&Instancealias=HostName,HostId",
+        "query": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=$pid&Instancealias=HostName,HostId",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "0",
-          "value": "0"
-        },
-        "hide": 2,
-        "includeAll": false,
-        "label": "index",
-        "multi": false,
-        "name": "index",
-        "options": [
-          {
-            "selected": true,
-            "text": "0",
-            "value": "0"
-          },
-          {
-            "selected": false,
-            "text": "1",
-            "value": "1"
-          },
-          {
-            "selected": false,
-            "text": "2",
-            "value": "2"
-          },
-          {
-            "selected": false,
-            "text": "3",
-            "value": "3"
-          },
-          {
-            "selected": false,
-            "text": "4",
-            "value": "4"
-          },
-          {
-            "selected": false,
-            "text": "5",
-            "value": "5"
-          },
-          {
-            "selected": false,
-            "text": "6",
-            "value": "6"
-          },
-          {
-            "selected": false,
-            "text": "7",
-            "value": "7"
-          }
-        ],
-        "query": "0,1,,2,3,4,5,6,7",
-        "skipUrlSync": false,
-        "type": "custom"
       }
     ]
   },
@@ -6765,8 +6728,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "【预设】GPU裸金属服务器EPC-默认项目",
+  "title": "【预设】GPU裸金属服务器EPC",
   "uid": "",
-  "version": 56,
+  "version": 63,
   "weekStart": ""
 }

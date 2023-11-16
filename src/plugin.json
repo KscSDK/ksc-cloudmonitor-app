@@ -48,7 +48,7 @@
     },
     {
       "type": "dashboard",
-      "name": "【预设】GPU裸金属服务器EPC-默认项目",
+      "name": "【预设】GPU裸金属服务器EPC",
       "path": "dashboards/gpuepc.json"
     },
     {
