@@ -89,6 +89,46 @@
       ]
     },
     {
+      "path": "kec/cn-north-vip1-internal",
+      "url": "http://kec.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-northwest-3-internal",
+      "url": "http://kec.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-northwest-2-internal",
+      "url": "http://kec.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-northwest-1-internal",
+      "url": "http://kec.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "eip/eu-east-1-internal",
       "url": "http://eip.eu-east-1.internal.api.ksyun.com",
       "headers": [
@@ -159,6 +199,46 @@
       ]
     },
     {
+      "path": "eip/cn-north-vip1-internal",
+      "url": "http://eip.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "eip/cn-northwest-3-internal",
+      "url": "http://eip.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "eip/cn-northwest-2-internal",
+      "url": "http://eip.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "eip/cn-northwest-1-internal",
+      "url": "http://eip.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "vpc/eu-east-1-internal",
       "url": "http://vpc.eu-east-1.internal.api.ksyun.com",
       "headers": [
@@ -221,6 +301,46 @@
     {
       "path": "vpc/cn-shanghai-2-internal",
       "url": "http://vpc.cn-shanghai-2.internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-north-vip1-internal",
+      "url": "http://vpc.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-northwest-3-internal",
+      "url": "http://vpc.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-northwest-2-internal",
+      "url": "http://vpc.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-northwest-1-internal",
+      "url": "http://vpc.cn-northwest-1-internal.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -309,6 +429,46 @@
       ]
     },
     {
+      "path": "kcs/cn-north-vip1-internal",
+      "url": "http://kcs.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kcs/cn-northwest-3-internal",
+      "url": "http://kcs.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kcs/cn-northwest-2-internal",
+      "url": "http://kcs.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kcs/cn-northwest-1-internal",
+      "url": "http://kcs.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "krds/cn-hongkong-2-internal",
       "url": "http://krds.cn-hongkong-2.internal.api.ksyun.com",
       "headers": [
@@ -361,6 +521,46 @@
     {
       "path": "krds/cn-shanghai-2-internal",
       "url": "http://krds.cn-shanghai-2.internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-north-vip1-internal",
+      "url": "http://krds.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-northwest-3-internal",
+      "url": "http://krds.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-northwest-2-internal",
+      "url": "http://krds.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-northwest-1-internal",
+      "url": "http://krds.cn-northwest-1-internal.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -439,6 +639,46 @@
       ]
     },
     {
+      "path": "slb/cn-north-vip1-internal",
+      "url": "http://slb.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "slb/cn-northwest-3-internal",
+      "url": "http://slb.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "slb/cn-northwest-2-internal",
+      "url": "http://slb.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "slb/cn-northwest-1-internal",
+      "url": "http://slb.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "bws/eu-east-1-internal",
       "url": "http://bws.eu-east-1.internal.api.ksyun.com",
       "headers": [
@@ -501,6 +741,46 @@
     {
       "path": "bws/cn-shanghai-2-internal",
       "url": "http://bws.cn-shanghai-2.internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-north-vip1-internal",
+      "url": "http://bws.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-northwest-3-internal",
+      "url": "http://bws.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-northwest-2-internal",
+      "url": "http://bws.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-northwest-1-internal",
+      "url": "http://bws.cn-northwest-1-internal.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -579,6 +859,246 @@
       ]
     },
     {
+      "path": "epc/cn-north-vip1-internal",
+      "url": "http://epc.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "epc/cn-northwest-3-internal",
+      "url": "http://epc.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "epc/cn-northwest-2-internal",
+      "url": "http://epc.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "epc/cn-northwest-1-internal",
+      "url": "http://epc.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/eu-east-1-internal",
+      "url": "http://postgresql.eu-east-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-hongkong-2-internal",
+      "url": "http://postgresql.cn-hongkong-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/ap-singapore-1-internal",
+      "url": "http://postgresql.ap-singapore-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-beijing-6-internal",
+      "url": "http://postgresql.cn-beijing-6-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-guangzhou-1-internal",
+      "url": "http://postgresql.cn-guangzhou-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-shanghai-2-internal",
+      "url": "http://postgresql.cn-shanghai-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-north-vip1-internal",
+      "url": "http://postgresql.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-northwest-3-internal",
+      "url": "http://postgresql.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-northwest-2-internal",
+      "url": "http://postgresql.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-northwest-1-internal",
+      "url": "http://postgresql.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/eu-east-1-internal",
+      "url": "http://kce.eu-east-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-hongkong-2-internal",
+      "url": "http://kce.cn-hongkong-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/ap-singapore-1-internal",
+      "url": "http://kce.ap-singapore-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-beijing-6-internal",
+      "url": "http://kce.cn-beijing-6-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-guangzhou-1-internal",
+      "url": "http://kce.cn-guangzhou-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-shanghai-2-internal",
+      "url": "http://kce.cn-shanghai-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-north-vip1-internal",
+      "url": "http://kce.cn-north-vip1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-northwest-3-internal",
+      "url": "http://kce.cn-northwest-3-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-northwest-2-internal",
+      "url": "http://kce.cn-northwest-2-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-northwest-1-internal",
+      "url": "http://kce.cn-northwest-1-internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "iam-internal",
       "url": "https://iam.internal.api.ksyun.com",
       "headers": [
@@ -601,6 +1121,46 @@
     {
       "path": "kec/eu-east-1",
       "url": "http://kec.eu-east-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-north-vip1",
+      "url": "http://kec.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-northwest-3",
+      "url": "http://kec.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-northwest-2",
+      "url": "http://kec.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kec/cn-northwest-1",
+      "url": "http://kec.cn-northwest-1.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -739,6 +1299,46 @@
       ]
     },
     {
+      "path": "eip/cn-north-vip1",
+      "url": "http://eip.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "eip/cn-northwest-3",
+      "url": "http://eip.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "eip/cn-northwest-2",
+      "url": "http://eip.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "eip/cn-northwest-1",
+      "url": "http://eip.cn-northwest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "vpc/eu-east-1",
       "url": "http://vpc.eu-east-1.api.ksyun.com",
       "headers": [
@@ -801,6 +1401,46 @@
     {
       "path": "vpc/cn-shanghai-2",
       "url": "http://vpc.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-north-vip1",
+      "url": "http://vpc.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-northwest-3",
+      "url": "http://vpc.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-northwest-2",
+      "url": "http://vpc.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "vpc/cn-northwest-1",
+      "url": "http://vpc.cn-northwest-1.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -879,6 +1519,46 @@
       ]
     },
     {
+      "path": "kcs/cn-north-vip1",
+      "url": "http://kcs.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kcs/cn-northwest-3",
+      "url": "http://kcs.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kcs/cn-northwest-2",
+      "url": "http://kcs.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kcs/cn-northwest-1",
+      "url": "http://kcs.cn-northwest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "krds/eu-east-1",
       "url": "http://krds.eu-east-1.api.ksyun.com",
       "headers": [
@@ -941,6 +1621,46 @@
     {
       "path": "krds/cn-shanghai-2",
       "url": "http://krds.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-north-vip1",
+      "url": "http://krds.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-northwest-3",
+      "url": "http://krds.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-northwest-2",
+      "url": "http://krds.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "krds/cn-northwest-1",
+      "url": "http://krds.cn-northwest-1.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -1019,6 +1739,46 @@
       ]
     },
     {
+      "path": "slb/cn-north-vip1",
+      "url": "http://slb.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "slb/cn-northwest-3",
+      "url": "http://slb.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "slb/cn-northwest-2",
+      "url": "http://slb.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "slb/cn-northwest-1",
+      "url": "http://slb.cn-northwest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "bws/eu-east-1",
       "url": "http://bws.eu-east-1.api.ksyun.com",
       "headers": [
@@ -1081,6 +1841,46 @@
     {
       "path": "bws/cn-shanghai-2",
       "url": "http://bws.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-north-vip1",
+      "url": "http://bws.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-northwest-3",
+      "url": "http://bws.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-northwest-2",
+      "url": "http://bws.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "bws/cn-northwest-1",
+      "url": "http://bws.cn-northwest-1.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -1159,6 +1959,46 @@
       ]
     },
     {
+      "path": "epc/cn-north-vip1",
+      "url": "http://epc.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "epc/cn-northwest-3",
+      "url": "http://epc.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "epc/cn-northwest-2",
+      "url": "http://epc.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "epc/cn-northwest-1",
+      "url": "http://epc.cn-northwest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "postgresql/eu-east-1",
       "url": "http://postgresql.eu-east-1.api.ksyun.com",
       "headers": [
@@ -1219,6 +2059,46 @@
       ]
     },
     {
+      "path": "postgresql/cn-north-vip1",
+      "url": "http://postgresql.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-northwest-3",
+      "url": "http://postgresql.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-northwest-2",
+      "url": "http://postgresql.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "postgresql/cn-northwest-1",
+      "url": "http://postgresql.cn-northwest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "kce/eu-east-1",
       "url": "http://kce.eu-east-1.api.ksyun.com",
       "headers": [
@@ -1271,6 +2151,46 @@
     {
       "path": "kce/cn-shanghai-2",
       "url": "http://kce.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-north-vip1",
+      "url": "http://kce.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-northwest-3",
+      "url": "http://kce.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-northwest-2",
+      "url": "http://kce.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "kce/cn-northwest-1",
+      "url": "http://kce.cn-northwest-1.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
