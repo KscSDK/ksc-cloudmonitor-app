@@ -37,7 +37,7 @@ export const MonitorServices = [
     label: "云服务器(KEC)",
     namespace: "KEC",
     href: "https://www.ksyun.com/nv/product/KEC.html",
-    apihref: "https://docs.ksyun.com/documents/816",
+    apihref: "https://docs.ksyun.com/documents/1527?type=6",
     instanceAction: "DescribeInstances",
   },
   {
@@ -114,7 +114,7 @@ export const MonitorServices = [
   {
     service: "epc",
     label: "GPU裸金属服务器(GEPC)",
-    namespace: "GEPC",
+    namespace: "EPCGPU",
     href: "https://www.ksyun.com/nv/product/GPU.html",
     apihref: "https://docs.ksyun.com/documents/627",
     instanceAction: "DescribeEpcs",

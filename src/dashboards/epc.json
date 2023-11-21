@@ -1,0 +1,1620 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "",
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": null,
+    "iteration": 1699873963078,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 68,
+        "panels": [],
+        "title": "总览",
+        "type": "row"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 3,
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 0,
+          "y": 1
+        },
+        "id": 51,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.4.2",
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "均值",
+                "value": "Average"
+              }
+            ],
+            "Alias": "CPU利用率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "cpu.utilizition.total",
+              "unit": "%",
+              "value": "cpu.utilizition.total"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "CPU利用率",
+        "type": "gauge"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 6,
+          "y": 1
+        },
+        "id": 54,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.4.2",
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "均值",
+                "value": "Average"
+              }
+            ],
+            "Alias": "CPU利用率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "vm.memory.util",
+              "unit": "%",
+              "value": "vm.memory.util"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "内存利用率",
+        "type": "gauge"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "bytes"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 12,
+          "y": 1
+        },
+        "id": 50,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.4.2",
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "最大值",
+                "value": "Max"
+              }
+            ],
+            "Alias": "总内存 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "vm.memory.size",
+              "unit": "B",
+              "value": "vm.memory.size"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": true,
+            "refId": "A"
+          },
+          {
+            "Aggregate": [
+              {
+                "label": "最大值",
+                "value": "Max"
+              }
+            ],
+            "Alias": "可用内存 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "vm.memory.free",
+              "unit": "B",
+              "value": "vm.memory.free"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "B"
+          }
+        ],
+        "title": "可用内存总量",
+        "type": "stat"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "green",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 18,
+          "y": 1
+        },
+        "id": 94,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.4.2",
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "最大值",
+                "value": "Max"
+              }
+            ],
+            "Alias": "进程数 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "proc.num",
+              "metricSubChose": {},
+              "unit": "",
+              "value": "proc.num"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "进程数",
+        "type": "stat"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 6
+        },
+        "id": 96,
+        "panels": [],
+        "title": "CPU",
+        "type": "row"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [
+            {
+              "__systemRef": "hideSeriesFrom",
+              "matcher": {
+                "id": "byNames",
+                "options": {
+                  "mode": "exclude",
+                  "names": [
+                    "CPU利用率 monitor-test[5fa6809c-369a-4e33-9a70-ab271374ee72]"
+                  ],
+                  "prefix": "All except:",
+                  "readOnly": true
+                }
+              },
+              "properties": [
+                {
+                  "id": "custom.hideFrom",
+                  "value": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 0,
+          "y": 7
+        },
+        "id": 61,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "均值",
+                "value": "Average"
+              }
+            ],
+            "Alias": "CPU利用率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "cpu.utilizition.total",
+              "unit": "%",
+              "value": "cpu.utilizition.total"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "CPU利用率",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 12,
+          "y": 7
+        },
+        "id": 97,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "均值",
+                "value": "Average"
+              }
+            ],
+            "Alias": "1min {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "load.1min",
+              "unit": "",
+              "value": "load.1min"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          },
+          {
+            "Aggregate": [
+              {
+                "label": "均值",
+                "value": "Average"
+              }
+            ],
+            "Alias": "5min {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "load.5min",
+              "unit": "",
+              "value": "load.5min"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "B"
+          }
+        ],
+        "title": "系统负载",
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 17
+        },
+        "id": 72,
+        "panels": [],
+        "title": "网卡",
+        "type": "row"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "bps"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 18
+        },
+        "id": 65,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "入向流量 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "net.if.in_bps",
+              "metricSubChose": {
+                "0": [
+                  "bond0",
+                  "bond1",
+                  "eth0",
+                  "eth1",
+                  "eth0",
+                  "eth1"
+                ]
+              },
+              "unit": "bps",
+              "value": "net.if.in_bps"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          },
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "出向流量 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "net.if.out_bps",
+              "metricSubChose": {
+                "0": [
+                  "bond0",
+                  "bond1",
+                  "eth0",
+                  "eth1",
+                  "eth1",
+                  "eth0"
+                ]
+              },
+              "unit": "bps",
+              "value": "net.if.out_bps"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "B"
+          }
+        ],
+        "title": "网卡出入向总流量",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "pps"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 18
+        },
+        "id": 93,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "入向包速率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "net.if.in_pps",
+              "metricSubChose": {
+                "0": [
+                  "bond0",
+                  "bond1",
+                  "eth0",
+                  "eth1",
+                  "eth0",
+                  "eth1"
+                ]
+              },
+              "unit": "pps",
+              "value": "net.if.in_pps"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "B"
+          },
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "出向包速率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "net.if.out_pps",
+              "metricSubChose": {
+                "0": [
+                  "bond0",
+                  "bond1",
+                  "eth0",
+                  "eth1",
+                  "eth0",
+                  "eth1"
+                ]
+              },
+              "unit": "pps",
+              "value": "net.if.out_pps"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "A"
+          }
+        ],
+        "title": "网卡出向总包速率",
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 26
+        },
+        "id": 87,
+        "panels": [],
+        "title": "磁盘",
+        "type": "row"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "Bps"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 27
+        },
+        "id": 88,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "写速率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "disk.write.Bps",
+              "metricSubChose": {
+                "0": [
+                  "sda3",
+                  "sdb",
+                  "sda",
+                  "sda2",
+                  "sda1",
+                  "sda",
+                  "sdb"
+                ]
+              },
+              "unit": "Bps",
+              "value": "disk.write.Bps"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          },
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "读速率 {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "disk.read.Bps",
+              "metricSubChose": {
+                "0": [
+                  "sda1",
+                  "sda3",
+                  "sda2",
+                  "sda",
+                  "sdb",
+                  "sda",
+                  "sdb"
+                ]
+              },
+              "unit": "Bps",
+              "value": "disk.read.Bps"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "B"
+          }
+        ],
+        "title": "磁盘读写总速率",
+        "type": "timeseries"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 27
+        },
+        "id": 91,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "写IO {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "disk.write.ops",
+              "metricSubChose": {
+                "0": [
+                  "sdb",
+                  "sda1",
+                  "sda2",
+                  "sda",
+                  "sda",
+                  "sdb",
+                  "sda3"
+                ]
+              },
+              "unit": "Ops",
+              "value": "disk.write.ops"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "refId": "A"
+          },
+          {
+            "Aggregate": [
+              {
+                "label": "求和",
+                "value": "sum"
+              }
+            ],
+            "Alias": "读IO {{p1}}[{{p0}}]",
+            "InstanceID": [
+              {
+                "label": "$uuid",
+                "value": "$uuid"
+              }
+            ],
+            "MetricName": {
+              "interval": "60",
+              "label": "disk.read.ops",
+              "metricSubChose": {
+                "0": [
+                  "sda2",
+                  "sdb",
+                  "sda1",
+                  "sda",
+                  "sda3",
+                  "sda",
+                  "sdb"
+                ]
+              },
+              "unit": "Ops",
+              "value": "disk.read.ops"
+            },
+            "Namespace": {
+              "href": "https://www.ksyun.com/nv/product/GPU.html",
+              "label": "GPU裸金属服务器(GEPC)",
+              "service": "epc",
+              "value": "EPCGPU"
+            },
+            "Period": {
+              "label": 60,
+              "value": 60
+            },
+            "Region": {
+              "__isNew__": true,
+              "label": "$region",
+              "value": "$region"
+            },
+            "datasource": {
+              "type": "ksc-cloudmonitor-datasource",
+              "uid": ""
+            },
+            "hide": false,
+            "refId": "B"
+          }
+        ],
+        "title": "磁盘读写总IO",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 35,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "测试专用项目",
+            "value": "104139"
+          },
+          "definition": "ServiceName=IAM&Action=GetAccountAllProjectList",
+          "hide": 0,
+          "includeAll": false,
+          "label": "项目",
+          "multi": false,
+          "name": "pid",
+          "options": [],
+          "query": "ServiceName=IAM&Action=GetAccountAllProjectList",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "current": {
+            "selected": false,
+            "text": "华北1（北京）",
+            "value": "cn-beijing-6"
+          },
+          "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+          "hide": 0,
+          "includeAll": false,
+          "label": "区域",
+          "multi": false,
+          "name": "region",
+          "options": [],
+          "query": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "current": {
+            "selected": false,
+            "text": "monitor-test,5fa6809c-369a-4e33-9a70-ab271374ee72",
+            "value": "5fa6809c-369a-4e33-9a70-ab271374ee72"
+          },
+          "definition": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=$pid&Instancealias=HostName,HostId",
+          "hide": 0,
+          "includeAll": false,
+          "label": "实例",
+          "multi": true,
+          "name": "uuid",
+          "options": [],
+          "query": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=$pid&Instancealias=HostName,HostId",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "【预设】裸金属服务器EPC-默认项目",
+    "uid": "",
+    "version": 3,
+    "weekStart": ""
+  }

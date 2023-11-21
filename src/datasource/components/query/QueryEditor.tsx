@@ -58,6 +58,7 @@ const AggregateOptions = [
   { label: "均值", value: "Average" },
   { label: "最大值", value: "Max" },
   { label: "最小值", value: "Min" },
+  { label: "求和", value: "sum" },
 ];
 
 type Props = QueryEditorProps<DataSource, MyQuery, MyDataSourceOptions>;
@@ -76,22 +77,15 @@ const QueryEditor: FC<Props> = ({
   }, [queries?.length, onRunQuery]);
 
   const metricMap = useRef<Map<any, any>>();
-  // 当前namespace
-  const serviceItem = useMemo(() => {
-    return query?.Namespace?.value
-      ? MonitorServices.find(
-          (item) => item.namespace === query?.Namespace?.value
-        )
-      : undefined;
-  }, [query]);
+  const [isLoading, setLoading] = useState<boolean>(false)
 
-  // instance可查询类型根据Namespace设置options
+      // instance可查询类型根据Namespace设置options
   const instanceTypeOptions = useMemo(() => {
     if (withoutIpServices.includes(query?.Namespace?.value)) {
       const filterOptions = InstanceTypes.filter(
         (item: any) => item.value !== "InstanceIp"
       );
-      if (query?.InstanceType && query?.InstanceType.value === "InstanceIp") {
+    if (query?.InstanceType && query?.InstanceType.value === "InstanceIp") {
         onChange &&
           onChange({
             ...query,
@@ -167,11 +161,11 @@ const QueryEditor: FC<Props> = ({
   }, []);
 
   // 不同service change后触发，filter
-  const handleChange = useCallback((query: QueryType) => {
+  const handleChange = useCallback((queryParams: QueryType) => {
     let extenParams = "";
-    for (const key in query) {
-      if (Object.prototype.hasOwnProperty.call(query, key)) {
-        const element = query[key];
+    for (const key in queryParams) {
+      if (Object.prototype.hasOwnProperty.call(queryParams, key)) {
+        const element = queryParams[key];
         if (
           (typeof element === "string" || typeof element === "number") &&
           element !== ""
@@ -184,7 +178,7 @@ const QueryEditor: FC<Props> = ({
             }
           });
         } else if (key === "Filter") {
-          const filterString = dealQueryFilter(query[key]);
+          const filterString = dealQueryFilter(queryParams[key]);
           extenParams += `&${filterString}`;
         } else {
           extenParams += "";
@@ -204,7 +198,7 @@ const QueryEditor: FC<Props> = ({
       case "BWS":
         return <QueryBws onChange={_.debounce(handleChange, 500)} />;
       case "EPC":
-      case "GEPC":
+      case "EPCGPU":
         return <QueryEpc onChange={_.debounce(handleChange, 500)} />;
       case "KCS":
         return <QueryKcs onChange={_.debounce(handleChange, 500)} />;
@@ -228,7 +222,7 @@ const QueryEditor: FC<Props> = ({
         return null;
     }
   };
-
+  
   // namespace变更
   const onNamespaceChange = (namespace: any) => {
     // name space change 其他select 值重置
@@ -297,64 +291,69 @@ const QueryEditor: FC<Props> = ({
    * namespace： 业务线
    */
   const getInstanceIds = useCallback(
-    async (extenQuery?: string) => {
-      const service = query.Namespace.service;
-      if (!query.Region || !serviceItem) {
-        return console.error(`ServiceConfig 中未找到${service}或region为空`);
-      }
-      setMetricOptions([]);
-      setInstanceOptions([]);
-      customOptions.current = [];
+    async (extraParams?: string) => {    
+    const service = query.Namespace.service;
+    const serviceItem =  query?.Namespace?.value
+      ? MonitorServices.find(
+          (item) => item.namespace === query?.Namespace?.value
+        )
+      : undefined;
+    if (!query.Region || !serviceItem) {
+      return console.error(`ServiceConfig 中未找到${service}或region为空`);
+    }
+    setMetricOptions([]);
+    setInstanceOptions([]);
+    customOptions.current = [];
 
-      // const namespace = query.Namespace.value;
-      const extendQuery =
-        !extenQuery || typeof extenQuery !== "string" ? extenQuery : "";
-      const projectQuery = `${projectQueryString ? projectQueryString : ""}`;
-      // 根据filter 是否含有project 判断query string 是否将project 过滤
-      const filterProjectQuery =
-        extenInstanceQuery && extenInstanceQuery.includes("ProjectId")
-          ? extenInstanceQuery
-          : (extenInstanceQuery ? extenInstanceQuery : "") + projectQuery;
-      // 替换region 如果是变量
-      const dealRegion = replaceRealValue(query.Region.value);
-      // ProjectId.1=104139, 101606
-      const currentService = ServiceMap.get(
-        `${query.Namespace.service}/${dealRegion}`
-      );
-      const instanceIdRes: any = await request(
-        datasource.instanceSetting,
-        `${query.Namespace.service}/${dealRegion}`,
-        {
-          action: serviceItem?.instanceAction || "",
-          version: currentService?.version || "",
-          extenQuery: extendQuery
-            ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ""}`
-            : `${filterProjectQuery ? filterProjectQuery : ""}`,
-          region: dealRegion,
-        }
-      );
-      if (instanceIdRes?.status !== 200) {
-        alertError(instanceIdRes?.data?.Error?.Message);
-        return;
+    // const namespace = query.Namespace.value;
+    const extendQuery =
+      !extraParams || typeof extraParams !== "string" ? extraParams : "";
+    const projectQuery = `${projectQueryString ? projectQueryString : ""}`;
+    // 根据filter 是否含有project 判断query string 是否将project 过滤
+    const filterProjectQuery =
+      extraParams && extraParams.includes("ProjectId")
+            ? extraParams
+            : (extraParams ? extraParams : "") + projectQuery;
+    // 替换region 如果是变量
+    const dealRegion = replaceRealValue(query.Region.value);
+    // ProjectId.1=104139, 101606
+    const currentService = ServiceMap.get(
+      `${query.Namespace.service}/${dealRegion}`
+    );
+    setLoading(true)
+    const instanceIdRes: any = await request(
+      datasource.instanceSetting,
+      `${query.Namespace.service}/${dealRegion}`,
+      {
+        action: serviceItem?.instanceAction || "",
+        version: currentService?.version || "",
+        extenQuery: extendQuery
+          ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ""}`
+          : `${filterProjectQuery ? filterProjectQuery : ""}`,
+        region: dealRegion,
       }
-      if (instanceIdRes && instanceIdRes?.data) {
-        const opsItem = GenerageInstanceOptions[
-          query?.Namespace?.value
-        ].options(
-          instanceIdRes?.data,
-          query.InstanceType?.value || "InstanceId"
-        );
-        // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
-        // const instanceOptions = dealInstanceByService(namespace, instanceData, query.InstanceType?.value);
-        setInstanceOptions([...opsItem]);
+    );
+    setLoading(false)
+    if (instanceIdRes?.status !== 200) {
+      alertError(instanceIdRes?.data?.Error?.Message);
+      return;
+    }
+    if (instanceIdRes && instanceIdRes?.data) {
+      const opsItem = GenerageInstanceOptions[
+        query?.Namespace?.value
+      ].options(
+        instanceIdRes?.data,
+        query.InstanceType?.value || "InstanceId"
+      );
+      // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
+      // const instanceOptions = dealInstanceByService(namespace, instanceData, query.InstanceType?.value);
+      setInstanceOptions([...opsItem]);
       }
     },
     [
       query,
       datasource.instanceSetting,
-      extenInstanceQuery,
-      projectQueryString,
-      serviceItem,
+      projectQueryString
     ]
   );
 
@@ -445,12 +444,13 @@ const QueryEditor: FC<Props> = ({
             defaultValue={query.InstanceID}
             value={query.InstanceID}
             onChange={onInstanceChange}
-            onOpenMenu={getInstanceIds}
+            onOpenMenu={() => getInstanceIds(extenInstanceQuery)}
             onBlur={() => {
               if (query?.MetricName && query?.MetricName.value) {
                 onRunQuery();
               }
             }}
+            isLoading={isLoading}
             closeMenuOnSelect={false}
             allowCustomValue={true}
             isSearchable={true}
@@ -491,7 +491,7 @@ const QueryEditor: FC<Props> = ({
             defaultValue={query.InstanceID?.[0]}
             value={query.InstanceID?.[0]}
             onChange={onInstanceChange}
-            onOpenMenu={getInstanceIds}
+            onOpenMenu={() => getInstanceIds(extenInstanceQuery)}
             onBlur={() => {
               if (query?.MetricName && query?.MetricName.value) {
                 onRunQuery();
@@ -620,7 +620,6 @@ const QueryEditor: FC<Props> = ({
                 const hrefItem = MonitorServices.find(
                   (i: any) => i.namespace === query?.Namespace?.value
                 );
-                console.log("hrefItem", hrefItem);
                 if (hrefItem && hrefItem?.apihref) {
                   window.open(hrefItem?.apihref);
                 }
@@ -634,10 +633,10 @@ const QueryEditor: FC<Props> = ({
       </InlineField>
       {/* 渲染不同service 的可选query */}
       <DatasourceContext.Provider value={{ projectOptions: projectList }}>
-        {detailState ? (
+         {detailState ? (
           <>
             <div className="detail-content-fileds">
-              {renderByService(query.Namespace?.value)}
+            {renderByService(query.Namespace?.value)}
             </div>
           </>
         ) : null}

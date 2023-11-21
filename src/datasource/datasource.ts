@@ -31,7 +31,8 @@ const generateExtenQuery = (queryResult: { [key: string]: any }) => {
   let otherUrl = "";
   for (const key in queryResult) {
     if (!filterQueryKeys.includes(key)) {
-      otherUrl += `&${key}=${queryResult[key]}`;
+      const queryValue = replaceRealValue(queryResult[key])
+      otherUrl += `&${key}=${queryValue}`;
     }
   }
   return otherUrl;
