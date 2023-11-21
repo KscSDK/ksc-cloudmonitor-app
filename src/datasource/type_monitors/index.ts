@@ -29,6 +29,22 @@ const regionSet = [
     Region: "cn-shanghai-2",
     RegionName: "华东1（上海）",
   },
+  {
+    Region: "cn-northwest-1",
+    RegionName: "西北1(庆阳)",
+  },
+  {
+    Region: "cn-northwest-2",
+    RegionName: "西北2(自用)",
+  },
+  {
+    Region: "cn-northwest-3",
+    RegionName: "西北3(宁夏)",
+  },
+  {
+    Region: "cn-north-vip1",
+    RegionName: "华北专属1区 (天津-小米)",
+  },
 ];
 
 export const MonitorServices = [
