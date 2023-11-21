@@ -23,7 +23,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1700119549216,
+  "iteration": 1700565365907,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -84,7 +84,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -174,7 +174,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -264,7 +264,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -397,7 +397,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -488,7 +488,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -579,7 +579,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -670,7 +670,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -760,7 +760,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -1168,7 +1168,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -1257,7 +1257,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "8.4.2",
+      "pluginVersion": "8.4.0-pre",
       "targets": [
         {
           "Aggregate": [
@@ -1703,7 +1703,7 @@
                 "value": {
                   "legend": false,
                   "tooltip": false,
-                  "viz": true
+                  "viz": false
                 }
               }
             ]
@@ -6655,7 +6655,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 35,
+  "schemaVersion": 34,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -6702,7 +6702,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": ["monitor-test,5fa6809c-369a-4e33-9a70-ab271374ee72"],
           "value": ["5fa6809c-369a-4e33-9a70-ab271374ee72"]
         },
@@ -6730,6 +6730,6 @@
   "timezone": "",
   "title": "【预设】GPU裸金属服务器EPC",
   "uid": "",
-  "version": 63,
+  "version": 1,
   "weekStart": ""
 }
