@@ -22,11 +22,9 @@ const MetricSubSelect: FC<OwnProps> = ({
   useEffect(() => {
     subSeletValues.current = [];
     setSubValues([]);
-    console.log("subchosed", subChosed);
   }, [subChosed]);
 
   useEffect(() => {
-    console.log("defaultValue", defaultValue);
     if (
       defaultValue &&
       defaultValue.includes("[") &&

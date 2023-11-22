@@ -173,7 +173,7 @@ export const GenerageInstanceOptions: any = {
       }));
     },
   },
-  GEPC: {
+  EPCGPU: {
     options: (data: any, instanceType: string) => {
       return data?.HostSet.map((item: any) => ({
         label:
@@ -454,9 +454,10 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
 
       if (subChoseArray?.length) {
         subChoseArray.forEach((el, index) => {
+          _.isObject(newSetMap.metricSubChose) ? 
           newSetMap.metricSubChose[index] = (
-            newSetMap.metricSubChose[index] || []
-          ).concat([el]);
+            newSetMap.metricSubChose?.[index] || []
+          ).concat([el]) : newSetMap.metricSubChose = {};
         });
       }
       metricMap.set(metricMainName, newSetMap);
@@ -512,16 +513,21 @@ export function ParseMetricQuery(query = "") {
 
 /**处理变量类型数据 */
 export const replaceRealValue = (sourceValue: string, onlyString?: boolean) => {
-  const realValue = getTemplateSrv().replace(sourceValue);
-  // 只获取字符串
-  if (onlyString) {
+  try {
+    const realValue = getTemplateSrv().replace(sourceValue);
+    // 只获取字符串
+    if (onlyString) {
+      return realValue;
+    }
+    // 多选项返回多值{***,****....}，处理
+    if (realValue.includes("{") && realValue.includes("}")) {
+      return realValue.replace("{", "").replace("}", "");
+    }
     return realValue;
+  } catch (error) {
+    return sourceValue
   }
-  // 多选项返回多值{***,****....}，处理
-  if (realValue.includes("{") && realValue.includes("}")) {
-    return realValue.replace("{", "").replace("}", "");
-  }
-  return realValue;
+ 
 };
 
 /**处理错误信息 */

@@ -29,6 +29,22 @@ const regionSet = [
     Region: "cn-shanghai-2",
     RegionName: "华东1（上海）",
   },
+  {
+    Region: "cn-northwest-1",
+    RegionName: "西北1(庆阳)",
+  },
+  {
+    Region: "cn-northwest-2",
+    RegionName: "西北2(自用)",
+  },
+  {
+    Region: "cn-northwest-3",
+    RegionName: "西北3(宁夏)",
+  },
+  {
+    Region: "cn-north-vip1",
+    RegionName: "华北专属1区 (天津-小米)",
+  },
 ];
 
 export const MonitorServices = [
@@ -37,7 +53,7 @@ export const MonitorServices = [
     label: "云服务器(KEC)",
     namespace: "KEC",
     href: "https://www.ksyun.com/nv/product/KEC.html",
-    apihref: "https://docs.ksyun.com/documents/816",
+    apihref: "https://docs.ksyun.com/documents/1527?type=6",
     instanceAction: "DescribeInstances",
   },
   {
@@ -114,7 +130,7 @@ export const MonitorServices = [
   {
     service: "epc",
     label: "GPU裸金属服务器(GEPC)",
-    namespace: "GEPC",
+    namespace: "EPCGPU",
     href: "https://www.ksyun.com/nv/product/GPU.html",
     apihref: "https://docs.ksyun.com/documents/627",
     instanceAction: "DescribeEpcs",
