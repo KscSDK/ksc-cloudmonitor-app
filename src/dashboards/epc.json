@@ -23,7 +23,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1700565314578,
+  "iteration": 1703562424528,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -84,7 +84,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -113,8 +113,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -174,7 +175,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -203,8 +204,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -264,7 +266,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -293,8 +295,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -335,8 +338,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -397,7 +401,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -429,8 +433,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -581,8 +586,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -697,8 +703,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -738,8 +745,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -844,8 +852,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "入向流量 {{p1}}[{{p0}}]",
@@ -871,8 +879,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -888,8 +897,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "出向流量 {{p1}}[{{p0}}]",
@@ -915,8 +924,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1008,8 +1018,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "入向包速率 {{p1}}[{{p0}}]",
@@ -1035,8 +1045,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1053,8 +1064,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "出向包速率 {{p1}}[{{p0}}]",
@@ -1080,8 +1091,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1186,8 +1198,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "写速率 {{p1}}[{{p0}}]",
@@ -1213,8 +1225,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1230,8 +1243,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "读速率 {{p1}}[{{p0}}]",
@@ -1257,8 +1270,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1350,8 +1364,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "写IO {{p1}}[{{p0}}]",
@@ -1377,8 +1391,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1394,8 +1409,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "读IO {{p1}}[{{p0}}]",
@@ -1421,8 +1436,9 @@
             "value": "EPC"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1442,7 +1458,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 34,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1469,9 +1485,9 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": "华北专属1区（天津-小米）",
-          "value": "cn-north-vip1"
+          "selected": false,
+          "text": "华北1（北京）",
+          "value": "cn-beijing-6"
         },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
@@ -1490,8 +1506,8 @@
       {
         "current": {
           "selected": false,
-          "text": "test-epc,50f12205-e3a2-49c3-86f7-8faa866a1a68",
-          "value": "50f12205-e3a2-49c3-86f7-8faa866a1a68"
+          "text": ["monitor-test,5fa6809c-369a-4e33-9a70-ab271374ee72"],
+          "value": ["5fa6809c-369a-4e33-9a70-ab271374ee72"]
         },
         "definition": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=$pid&Instancealias=HostName,HostId",
         "hide": 0,
@@ -1506,6 +1522,54 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "60",
+          "value": "60"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "周期",
+        "multi": false,
+        "name": "period",
+        "options": [
+          {
+            "selected": true,
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "selected": false,
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "selected": false,
+            "text": "240",
+            "value": "240"
+          },
+          {
+            "selected": false,
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "selected": false,
+            "text": "1800",
+            "value": "1800"
+          },
+          {
+            "selected": false,
+            "text": "3600",
+            "value": "3600"
+          }
+        ],
+        "query": "60,120,240,300,1800,3600",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
       }
     ]
   },
