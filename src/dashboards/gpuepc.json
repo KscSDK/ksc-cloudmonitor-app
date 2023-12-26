@@ -23,7 +23,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1700565365907,
+  "iteration": 1703498476192,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -84,7 +84,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -113,8 +113,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -128,7 +129,7 @@
           "refId": "A"
         }
       ],
-      "title": "CPU利用率",
+      "title": "CPU平均利用率",
       "type": "gauge"
     },
     {
@@ -174,7 +175,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -203,8 +204,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -218,7 +220,7 @@
           "refId": "A"
         }
       ],
-      "title": "内存利用率",
+      "title": "内存平均利用率",
       "type": "gauge"
     },
     {
@@ -264,55 +266,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
             {
-              "label": "最大值",
-              "value": "Max"
-            }
-          ],
-          "Alias": "总内存 {{p1}}[{{p0}}]",
-          "InstanceID": [
-            {
-              "label": "$uuid",
-              "value": "$uuid"
-            }
-          ],
-          "MetricName": {
-            "interval": "60",
-            "label": "vm.memory.size",
-            "unit": "B",
-            "value": "vm.memory.size"
-          },
-          "Namespace": {
-            "href": "https://www.ksyun.com/nv/product/GPU.html",
-            "label": "GPU裸金属服务器(GEPC)",
-            "service": "epc",
-            "value": "EPCGPU"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "hide": true,
-          "refId": "A"
-        },
-        {
-          "Aggregate": [
-            {
-              "label": "最大值",
-              "value": "Max"
+              "label": "均值",
+              "value": "Average"
             }
           ],
           "Alias": "可用内存 {{p1}}[{{p0}}]",
@@ -335,8 +295,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -351,7 +312,7 @@
           "refId": "B"
         }
       ],
-      "title": "可用内存总量",
+      "title": "可用内存总量（均值）",
       "type": "stat"
     },
     {
@@ -397,7 +358,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -427,8 +388,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -488,7 +450,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -518,8 +480,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -533,7 +496,7 @@
           "refId": "A"
         }
       ],
-      "title": "GPU显存利用率（带宽）",
+      "title": "GPU平均显存利用率（带宽）",
       "type": "gauge"
     },
     {
@@ -579,7 +542,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -609,8 +572,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -624,7 +588,7 @@
           "refId": "A"
         }
       ],
-      "title": "GPU显存使用率（容量）",
+      "title": "GPU平均显存使用率（容量）",
       "type": "gauge"
     },
     {
@@ -670,7 +634,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -700,8 +664,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -715,7 +680,7 @@
           "refId": "A"
         }
       ],
-      "title": "GPU利用率",
+      "title": "GPU平均利用率",
       "type": "gauge"
     },
     {
@@ -760,7 +725,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
@@ -792,8 +757,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -836,8 +802,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -881,8 +848,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -926,8 +894,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -971,8 +940,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1016,8 +986,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1061,8 +1032,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1106,8 +1078,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1136,12 +1109,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
-                "value": null
-              },
-              {
                 "color": "green",
-                "value": 0
+                "value": null
               }
             ]
           },
@@ -1155,29 +1124,28 @@
         "x": 0,
         "y": 12
       },
-      "id": 60,
+      "id": 98,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
+        "displayMode": "basic",
+        "orientation": "horizontal",
         "reduceOptions": {
           "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
-          "Alias": "GPU可用显存 {{p1}}[{{p0}}]",
+          "Alias": "0",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -1187,9 +1155,11 @@
           "MetricName": {
             "interval": "60",
             "label": "gpu.memory.free",
-            "metricSubChose": {},
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
             "unit": "MB",
-            "value": "gpu.memory.free"
+            "value": "gpu.memory.free[0]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -1198,8 +1168,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1211,10 +1182,332 @@
             "uid": ""
           },
           "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "1",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[1]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "2",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[2]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "3",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[3]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "D"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "4",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[4]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "E"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "5",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[5]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "F"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "6",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[6]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "G"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "最大值",
+              "value": "Max"
+            }
+          ],
+          "Alias": "7",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.free",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.free[7]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "H"
         }
       ],
-      "title": "GPU可用显存总量",
-      "type": "stat"
+      "title": "GPU可用显存",
+      "type": "bargauge"
     },
     {
       "fieldConfig": {
@@ -1257,13 +1550,13 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "8.4.0-pre",
+      "pluginVersion": "8.4.2",
       "targets": [
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "0",
@@ -1289,8 +1582,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1306,8 +1600,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "1",
@@ -1333,8 +1627,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1351,8 +1646,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "2",
@@ -1378,8 +1673,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1396,8 +1692,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "3",
@@ -1423,8 +1719,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1441,8 +1738,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "0",
@@ -1468,8 +1765,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1486,8 +1784,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "0",
@@ -1513,8 +1811,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1531,8 +1830,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "0",
@@ -1558,8 +1857,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1576,8 +1876,8 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "最大值",
+              "value": "Max"
             }
           ],
           "Alias": "0",
@@ -1603,8 +1903,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1756,8 +2057,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1872,8 +2174,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -1913,8 +2216,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2046,8 +2350,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2090,8 +2395,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2135,8 +2441,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2180,8 +2487,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2225,8 +2533,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2270,8 +2579,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2315,8 +2625,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2360,8 +2671,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2482,8 +2794,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2526,8 +2839,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2571,8 +2885,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2616,8 +2931,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2661,8 +2977,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2706,8 +3023,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2751,8 +3069,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2796,8 +3115,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2916,8 +3236,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -2960,8 +3281,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3005,8 +3327,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3050,8 +3373,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3095,8 +3419,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3140,8 +3465,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3185,8 +3511,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3230,8 +3557,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3327,7 +3655,7 @@
               "value": "Average"
             }
           ],
-          "Alias": "已用显存 {{p1}}[{{p0}}]",
+          "Alias": "已用显存 {{p1}}[{{p0}}] 0",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -3337,9 +3665,11 @@
           "MetricName": {
             "interval": "60",
             "label": "gpu.memory.used",
-            "metricSubChose": {},
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
             "unit": "MB",
-            "value": "gpu.memory.used"
+            "value": "gpu.memory.used[0]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -3348,8 +3678,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3360,7 +3691,330 @@
             "type": "ksc-cloudmonitor-datasource",
             "uid": ""
           },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 1",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[1]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 2",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[2]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
           "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 3",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[3]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "D"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 4",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[4]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "E"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 5",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[5]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "F"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 6",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[6]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "G"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "已用显存 {{p1}}[{{p0}}] 7",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "gpu.memory.used",
+            "metricSubChose": {
+              "0": ["7", "6", "5", "4", "3", "2", "1", "0", "0", "2", "1", "3"]
+            },
+            "unit": "MB",
+            "value": "gpu.memory.used[7]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "H"
         }
       ],
       "title": "GPU已用显存",
@@ -3467,8 +4121,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3511,8 +4166,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3556,8 +4212,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3601,8 +4258,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3646,8 +4304,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3691,8 +4350,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3736,8 +4396,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3781,8 +4442,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3901,8 +4563,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3945,8 +4608,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -3990,8 +4654,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4035,8 +4700,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4080,8 +4746,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4125,8 +4792,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4170,8 +4838,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4215,8 +4884,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4335,8 +5005,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4379,8 +5050,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4424,8 +5096,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4469,8 +5142,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4514,8 +5188,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4559,8 +5234,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4604,8 +5280,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4649,8 +5326,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4769,8 +5447,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4813,8 +5492,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4858,8 +5538,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4903,8 +5584,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4948,8 +5630,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -4993,8 +5676,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5038,8 +5722,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5083,8 +5768,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5203,8 +5889,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5247,8 +5934,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5292,8 +5980,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5337,8 +6026,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5382,8 +6072,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5427,8 +6118,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5472,8 +6164,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5517,8 +6210,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5637,8 +6331,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5681,8 +6376,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5726,8 +6422,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5771,8 +6468,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5816,8 +6514,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5861,8 +6560,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5906,8 +6606,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -5951,8 +6652,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6041,7 +6743,7 @@
         "x": 0,
         "y": 71
       },
-      "id": 65,
+      "id": 99,
       "options": {
         "legend": {
           "calcs": ["max", "min", "mean", "lastNotNull"],
@@ -6057,11 +6759,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "入向流量 {{p1}}[{{p0}}]",
+          "Alias": "入向流量 {{p1}}[{{p0}}]  eth0",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6075,7 +6777,7 @@
               "0": ["bond0", "bond1", "eth0", "eth1", "eth0", "eth1"]
             },
             "unit": "bps",
-            "value": "net.if.in_bps"
+            "value": "net.if.in_bps[eth0]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6084,8 +6786,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6101,11 +6804,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "出向流量 {{p1}}[{{p0}}]",
+          "Alias": "出向流量 {{p1}}[{{p0}}]  eth0",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6119,7 +6822,7 @@
               "0": ["bond0", "bond1", "eth0", "eth1", "eth1", "eth0"]
             },
             "unit": "bps",
-            "value": "net.if.out_bps"
+            "value": "net.if.out_bps[eth0]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6128,8 +6831,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6144,7 +6848,7 @@
           "refId": "B"
         }
       ],
-      "title": "网卡出入向总流量",
+      "title": "网卡出入向总流量 eth0",
       "type": "timeseries"
     },
     {
@@ -6221,11 +6925,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "入向包速率 {{p1}}[{{p0}}]",
+          "Alias": "入向包速率 {{p1}}[{{p0}}] eth0",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6239,7 +6943,7 @@
               "0": ["bond0", "bond1", "eth0", "eth1", "eth0", "eth1"]
             },
             "unit": "pps",
-            "value": "net.if.in_pps"
+            "value": "net.if.in_pps[eth0]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6248,8 +6952,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6266,11 +6971,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "出向包速率 {{p1}}[{{p0}}]",
+          "Alias": "出向包速率 {{p1}}[{{p0}}] eth0",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6284,7 +6989,7 @@
               "0": ["bond0", "bond1", "eth0", "eth1", "eth0", "eth1"]
             },
             "unit": "pps",
-            "value": "net.if.out_pps"
+            "value": "net.if.out_pps[eth0]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6293,8 +6998,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6309,7 +7015,340 @@
           "refId": "A"
         }
       ],
-      "title": "网卡出向总包速率",
+      "title": "网卡出向总包速率 eth0",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 79
+      },
+      "id": 100,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "入向流量 {{p1}}[{{p0}}]  eth1",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "net.if.in_bps",
+            "metricSubChose": {
+              "0": ["bond0", "bond1", "eth0", "eth1", "eth0", "eth1"]
+            },
+            "unit": "bps",
+            "value": "net.if.in_bps[eth1]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "出向流量 {{p1}}[{{p0}}]  eth1",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "net.if.out_bps",
+            "metricSubChose": {
+              "0": ["bond0", "bond1", "eth0", "eth1", "eth1", "eth0"]
+            },
+            "unit": "bps",
+            "value": "net.if.out_bps[eth1]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "网卡出入向总流量 eth1",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 79
+      },
+      "id": 101,
+      "options": {
+        "legend": {
+          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "入向包速率 {{p1}}[{{p0}}] eth0",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "net.if.in_pps",
+            "metricSubChose": {
+              "0": ["bond0", "bond1", "eth0", "eth1", "eth0", "eth1"]
+            },
+            "unit": "pps",
+            "value": "net.if.in_pps[eth1]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "出向包速率 {{p1}}[{{p0}}] eth0",
+          "InstanceID": [
+            {
+              "label": "$uuid",
+              "value": "$uuid"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "net.if.out_pps",
+            "metricSubChose": {
+              "0": ["bond0", "bond1", "eth0", "eth1", "eth0", "eth1"]
+            },
+            "unit": "pps",
+            "value": "net.if.out_pps[eth1]"
+          },
+          "Namespace": {
+            "href": "https://www.ksyun.com/nv/product/GPU.html",
+            "label": "GPU裸金属服务器(GEPC)",
+            "service": "epc",
+            "value": "EPCGPU"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "A"
+        }
+      ],
+      "title": "网卡出向总包速率 eth1",
       "type": "timeseries"
     },
     {
@@ -6318,7 +7357,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 79
+        "y": 87
       },
       "id": 87,
       "panels": [],
@@ -6381,7 +7420,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 80
+        "y": 88
       },
       "id": 88,
       "options": {
@@ -6399,11 +7438,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "写速率 {{p1}}[{{p0}}]",
+          "Alias": "写速率 {{p1}}[{{p0}}] sda",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6417,7 +7456,7 @@
               "0": ["sda3", "sdb", "sda", "sda2", "sda1", "sda", "sdb"]
             },
             "unit": "Bps",
-            "value": "disk.write.Bps"
+            "value": "disk.write.Bps[sda]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6426,8 +7465,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6443,11 +7483,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "读速率 {{p1}}[{{p0}}]",
+          "Alias": "读速率 {{p1}}[{{p0}}] sda",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6461,7 +7501,7 @@
               "0": ["sda1", "sda3", "sda2", "sda", "sdb", "sda", "sdb"]
             },
             "unit": "Bps",
-            "value": "disk.read.Bps"
+            "value": "disk.read.Bps[sda]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6470,8 +7510,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6486,7 +7527,7 @@
           "refId": "B"
         }
       ],
-      "title": "磁盘读写总速率",
+      "title": "磁盘读写总速率 sda",
       "type": "timeseries"
     },
     {
@@ -6545,7 +7586,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 80
+        "y": 88
       },
       "id": 91,
       "options": {
@@ -6563,11 +7604,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "写IO {{p1}}[{{p0}}]",
+          "Alias": "写IO {{p1}}[{{p0}}] sda",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6581,7 +7622,7 @@
               "0": ["sdb", "sda1", "sda2", "sda", "sda", "sdb", "sda3"]
             },
             "unit": "Ops",
-            "value": "disk.write.ops"
+            "value": "disk.write.ops[sda]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6590,8 +7631,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6607,11 +7649,11 @@
         {
           "Aggregate": [
             {
-              "label": "求和",
-              "value": "sum"
+              "label": "均值",
+              "value": "Average"
             }
           ],
-          "Alias": "读IO {{p1}}[{{p0}}]",
+          "Alias": "读IO {{p1}}[{{p0}}] sda",
           "InstanceID": [
             {
               "label": "$uuid",
@@ -6625,7 +7667,7 @@
               "0": ["sda2", "sdb", "sda1", "sda", "sda3", "sda", "sdb"]
             },
             "unit": "Ops",
-            "value": "disk.read.ops"
+            "value": "disk.read.ops[sda]"
           },
           "Namespace": {
             "href": "https://www.ksyun.com/nv/product/GPU.html",
@@ -6634,8 +7676,9 @@
             "value": "EPCGPU"
           },
           "Period": {
-            "label": 60,
-            "value": 60
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
           },
           "Region": {
             "__isNew__": true,
@@ -6650,12 +7693,12 @@
           "refId": "B"
         }
       ],
-      "title": "磁盘读写总IO",
+      "title": "磁盘读写总IO sda",
       "type": "timeseries"
     }
   ],
   "refresh": false,
-  "schemaVersion": 34,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -6719,17 +7762,60 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "300",
+          "value": "300"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "周期",
+        "multi": false,
+        "name": "period",
+        "options": [
+          {
+            "selected": false,
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "selected": false,
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "selected": false,
+            "text": "240",
+            "value": "240"
+          },
+          {
+            "selected": true,
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "selected": false,
+            "text": "3600",
+            "value": "3600"
+          }
+        ],
+        "query": "60,120,240,300,3600",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
       }
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "【预设】GPU裸金属服务器EPC",
   "uid": "",
-  "version": 1,
+  "version": 30,
   "weekStart": ""
 }
