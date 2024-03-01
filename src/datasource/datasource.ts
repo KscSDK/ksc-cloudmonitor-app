@@ -138,6 +138,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
           }
           const dealData =
             item.value.data?.getMetricStatisticsBatchResults || item.value.data?.getMetricStatisticsResult;
+          console.log('requestTargets[index]', requestTargets[index])
           return ParseQueryResult(dealData, requestTargets[index]);
         });
         return { data: _.flatten(result) };

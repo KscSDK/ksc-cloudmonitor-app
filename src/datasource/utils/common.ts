@@ -293,6 +293,7 @@ const generateTarget = (
         : [variableLabel];
       variabelLists.forEach((varItem: string, index: number) => {
         const replaceIndexItem = `{{p${index + 1}}}`;
+        console.log('replaceIndexItem', replaceIndexItem)
         if (replaceString.includes(replaceIndexItem)) {
           replaceString = replaceString.replace(replaceIndexItem, varItem);
         }
