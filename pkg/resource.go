@@ -2,11 +2,12 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/grafana/grafana-plugin-sdk-go/backend"
-	"github.com/grafana/grafana-plugin-sdk-go/backend/resource/httpadapter"
 	"io"
 	"net/http"
 	"strings"
+
+	"github.com/grafana/grafana-plugin-sdk-go/backend"
+	"github.com/grafana/grafana-plugin-sdk-go/backend/resource/httpadapter"
 )
 
 type SignResultV3 struct {
@@ -31,6 +32,7 @@ func newResourceHandler(ds *cloudMonitorDatasource) backend.CallResourceHandler 
 	// register route
 	mux.HandleFunc("/sign_v2", ds.SignApi("simple"))
 	mux.HandleFunc("/sign_v3", ds.SignApi("aws"))
+	mux.HandleFunc("/sign_ks3", ds.SignApi("ks3"))
 
 	return httpadapter.New(mux)
 }
@@ -83,7 +85,12 @@ func (ds *cloudMonitorDatasource) getSigned(sign_type string, req *http.Request)
 		query.Method = "GET"
 	}
 	if query.Host == "" {
-		query.Host = query.Service + ".api.ksyun.com"
+		if sign_type == "ks3" {
+			query.Host = query.Service + ".ksyuncs.com"
+		} else {
+			query.Host = query.Service + ".api.ksyun.com"
+		}
+
 	}
 
 	if err != nil {
@@ -103,6 +110,17 @@ func (ds *cloudMonitorDatasource) getSigned(sign_type string, req *http.Request)
 		}, nil
 	}
 
+	if sign_type == "ks3" {
+		signed := signKs3(query, apiOpts)
+		return &SignResultV3{
+			Authorization: signed,
+			Token:         apiOpts.Token,
+			Host:          query.Host,
+			Intranet:      shouldUseIntranet,
+		}, nil
+	}
+
+	//TODO 确认ks3 这部分应该写在哪里
 	if apiOpts.Intranet {
 		slice := strings.Split(query.Host, "api.ksyun.com")
 		query.Host = slice[0] + "internal.api.ksyun.com"
