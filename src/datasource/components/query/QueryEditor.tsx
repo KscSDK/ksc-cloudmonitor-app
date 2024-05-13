@@ -20,6 +20,7 @@ import {
   withoutIpServices,
   GenerageInstanceOptions,
   ClusterTypes,
+  requestKs3,
 } from '../../utils';
 import {
   QueryPeering,
@@ -44,7 +45,7 @@ const AggregateOptions = [
   { label: '求和', value: 'sum' },
 ];
 
-const ks3Regions = [
+export const ks3Regions = [
   { label: '北京', value: 'cn-beijing' },
   { label: '上海', value: 'cn-shanghai' },
   { label: '广州', value: 'cn-guangzhou' },
@@ -103,6 +104,9 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     }
     let queryString = '';
     let projectKey = namespace !== 'KCS' ? 'ProjectId' : 'iamProjectId';
+    if (namespace === 'KS3') {
+      return `projectIds=${projectList.map((item: any, index: number) => item.ProjectId).join(',')}`;
+    }
     projectList.forEach((item: any, index: number) => {
       queryString += `&${projectKey}.${index + 1}=${item.ProjectId}`;
     });
@@ -321,6 +325,51 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     [query, datasource.instanceSetting, projectQueryString]
   );
 
+  const getKs3Buckets = useCallback(
+    async (extraParams?: string) => {
+      if (!query.Region) {
+        return console.error('region为空');
+      }
+      setMetricOptions([]);
+      setInstanceOptions([]);
+      customOptions.current = [];
+      const extendQuery = !extraParams || typeof extraParams !== 'string' ? extraParams : '';
+      const projectQuery = `${projectQueryString ? projectQueryString : ''}`;
+      // 根据filter 是否含有project 判断query string 是否将project 过滤
+      const filterProjectQuery =
+        extraParams && extraParams.includes('ProjectId')
+          ? extraParams
+          : (extraParams ? extraParams : '') + projectQuery;
+      // 替换region 如果是变量
+      const dealRegion = replaceRealValue(query.Region.value);
+      // ProjectId.1=104139, 101606
+      setLoading(true);
+      const instanceIdRes: any = await requestKs3(
+        datasource.instanceSetting,
+        `${query.Namespace.service}/${dealRegion}`,
+        {
+          extenQuery: extendQuery
+            ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ''}`
+            : `${filterProjectQuery ? filterProjectQuery : ''}`,
+          region: dealRegion,
+        }
+      );
+      setLoading(false);
+      if (instanceIdRes?.status !== 200) {
+        alertError(instanceIdRes?.data?.Error?.Message);
+        return;
+      }
+      if (instanceIdRes && instanceIdRes?.data) {
+        const opsItem = GenerageInstanceOptions[query?.Namespace?.value].options(
+          instanceIdRes?.data,
+          query.InstanceType?.value || 'InstanceId'
+        );
+        setInstanceOptions([...opsItem]);
+      }
+    },
+    [query, datasource.instanceSetting, projectQueryString]
+  );
+
   // 生成metric options
   const generateMetricOptions = (metricsList: any[]) => {
     metricMap.current = generageMetricOptions(metricsList);
@@ -458,8 +507,34 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     </>
   );
   const KS3InstanceField = (
-    <></>
-  )
+    <>
+      <InlineField labelWidth={18} label="Bucket">
+        <MultiSelect
+          width={35}
+          options={[...instanceOptions, ...customOptions.current]}
+          defaultValue={query.InstanceID}
+          value={query.InstanceID}
+          onChange={onInstanceChange}
+          onOpenMenu={() => getKs3Buckets(extenInstanceQuery)}
+          onBlur={() => {
+            if (query?.MetricName && query?.MetricName.value) {
+              onRunQuery();
+            }
+          }}
+          isLoading={isLoading}
+          closeMenuOnSelect={false}
+          allowCustomValue={true}
+          isSearchable={true}
+          placeholder=" "
+          onCreateOption={(v: any) => {
+            const customValue = { value: v, label: v };
+            customOptions.current = [...customOptions.current, customValue];
+            onChange({ ...query, InstanceID: [customValue] });
+          }}
+        />
+      </InlineField>
+    </>
+  );
   // 根据nameSpace 渲染不同InstanceID Field
   const renderInstanceField = (namespace: string) => {
     if (namespace === 'KCE') return KecInstanceField;
