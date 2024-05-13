@@ -13,7 +13,11 @@ func hashedCanonicalRequestKs3V4(request *http.Request, meta *metadata) string {
 
 	payload := readAndReplaceBody(request)
 	payloadHash := hashSHA256(payload)
-	request.Header.Set("X-kss-Content-Sha256", payloadHash)
+	if len(payload) == 0 {
+		payloadHash = "UNSIGNED-PAYLOAD"
+	}
+
+	request.Header.Set("X-Kss-Content-Sha256", payloadHash)
 
 	// Set this in header values to make it appear in the range of headers to sign
 	request.Header.Set("Host", request.Host)
@@ -104,13 +108,18 @@ func signKs3(opts signOpts, apiOpts apiOpts) string {
 
 	authorization := buildAuthHeaderV4(signature, meta, keys)
 
-	curl := fmt.Sprintf(`curl -X POST "https://%s%s?%s"\
+	curl := fmt.Sprintf(`curl -X %s "https://%s%s?%s"\
  -H "Authorization: %s"\
- -H "Content-Type: %s"\
  -H "Host: %s" \
- -H "X-Kss-Date: %s"\
- -d '%s'`, host, opts.Uri, opts.Query, authorization, opts.Headers["content-type"],
-		host, requestTs, opts.Body)
+ -H "X-Kss-Date: %s"`, opts.Method, host, opts.Uri, opts.Query, authorization,
+		host, requestTs)
+
+	for k, v := range opts.Headers {
+		curl += " \\\n" + fmt.Sprintf(` -H "%s: %s"`, k, v)
+	}
+	if opts.Body != "" {
+		curl += " \\\n" + fmt.Sprintf(`-d '%s'`, opts.Body)
+	}
 
 	logger.Info("ks3 v4 string to curl: \n", curl+"\n")
 
