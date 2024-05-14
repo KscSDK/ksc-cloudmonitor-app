@@ -8294,7 +8294,7 @@ var CustomIncrement = function CustomIncrement(_a) {
     sourceList[index] = value;
     setIncrement(sourceList);
     var filterEmptyList = sourceList.filter(function (item) {
-      return item !== "";
+      return item !== '';
     });
     onValueChange && onValueChange(filterEmptyList);
   };
@@ -8306,7 +8306,7 @@ var CustomIncrement = function CustomIncrement(_a) {
 
     var addArrays = lodash__WEBPACK_IMPORTED_MODULE_4___default.a.cloneDeep(incrementData);
 
-    var addArr = addArrays.concat([""]);
+    var addArr = addArrays.concat(['']);
     setIncrement(addArr);
     onAdd && onAdd(addArr);
   }; // delete
@@ -8324,7 +8324,7 @@ var CustomIncrement = function CustomIncrement(_a) {
     });
     setIncrement(delArr);
     var filterEmptyList = delArr.filter(function (item) {
-      return item !== "";
+      return item !== '';
     });
     onValueChange && onValueChange(filterEmptyList);
   };
@@ -8402,8 +8402,8 @@ var CustomInput = function CustomInput(_a) {
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, label ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["InlineLabel"], {
     width: 24,
-    tooltip: tooltip ? tooltip : ""
-  }, label) : null, label === "ProjectId" ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["Select"], {
+    tooltip: tooltip ? tooltip : ''
+  }, label) : null, label === 'ProjectId' ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["Select"], {
     width: 30,
     value: list.map(function (i) {
       return {
@@ -8468,13 +8468,10 @@ var MetricSubSelect = function MetricSubSelect(_a) {
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     subSeletValues.current = [];
     setSubValues([]);
-    console.log("subchosed", subChosed);
   }, [subChosed]);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    console.log("defaultValue", defaultValue);
-
-    if (defaultValue && defaultValue.includes("[") && defaultValue.includes("]")) {
-      var subChoseArray = defaultValue.split("[")[1].split("]")[0].split(",");
+    if (defaultValue && defaultValue.includes('[') && defaultValue.includes(']')) {
+      var subChoseArray = defaultValue.split('[')[1].split(']')[0].split(',');
       var defaultSubValue = subChoseArray.map(function (i) {
         return {
           label: i,
@@ -8516,7 +8513,7 @@ var MetricSubSelect = function MetricSubSelect(_a) {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
       key: item + index + subValues[index]
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Select, {
-      width: "auto",
+      width: 'auto',
       value: subValues[index],
       options: subChosedOptions,
       allowCustomValue: true,
@@ -8584,13 +8581,13 @@ var SwitchInput = function SwitchInput(_a) {
     value: inputState,
     onChange: function onChange(v) {
       if (!v.target.checked) {
-        setInnerValue("");
-        label === "ProjectId" ? _onChange([]) : _onChange("");
+        setInnerValue('');
+        label === 'ProjectId' ? _onChange([]) : _onChange('');
       }
 
       setInputState(v.target.checked);
     }
-  })), inputState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, label !== "ProjectId" ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+  })), inputState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, label !== 'ProjectId' ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["Input"], {
     className: "inline-input",
     value: innerValue,
     width: 20,
@@ -8660,14 +8657,14 @@ var SwtichIncrement = function SwtichIncrement(_a) {
     value: canIncrement,
     onChange: function onChange(v) {
       if (!v.target.checked) {
-        _onChange && _onChange([""]);
+        _onChange && _onChange(['']);
       }
 
       setCanIncrement(v.target.checked);
     }
-  })), canIncrement ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, label === "ProjectId" ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  })), canIncrement ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, label === 'ProjectId' ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     style: {
-      padding: "8px"
+      padding: '8px'
     }
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["MultiSelect"], {
     width: 80,
@@ -8767,7 +8764,7 @@ var ConfigEditor = function ConfigEditor(_a) {
         secretKey: false
       }),
       secureJsonData: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options.secureJsonData), {
-        secretKey: ""
+        secretKey: ''
       })
     }));
   };
@@ -8846,7 +8843,7 @@ var ConfigEditor = function ConfigEditor(_a) {
     labelWidth: 8,
     inputWidth: 20,
     onChange: onAccessKeyChange,
-    value: jsonData.AccessKey || "",
+    value: jsonData.AccessKey || '',
     placeholder: "json field returned to frontend"
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "gf-form-inline"
@@ -8854,7 +8851,7 @@ var ConfigEditor = function ConfigEditor(_a) {
     className: "gf-form"
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SecretFormField, {
     isConfigured: secureJsonFields && secureJsonFields.secretKey,
-    value: (secureJsonData === null || secureJsonData === void 0 ? void 0 : secureJsonData.secretKey) || "",
+    value: (secureJsonData === null || secureJsonData === void 0 ? void 0 : secureJsonData.secretKey) || '',
     label: "SecretAccessKey",
     placeholder: "secure json field (backend only)",
     labelWidth: 8,
@@ -8869,7 +8866,7 @@ var ConfigEditor = function ConfigEditor(_a) {
     onChange: onIntranetChange
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
     style: {
-      marginTop: "32px"
+      marginTop: '32px'
     },
     className: "page-heading"
   }, "Monitor Services"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -8913,11 +8910,12 @@ var ConfigEditor = function ConfigEditor(_a) {
 /*!*****************************************************!*\
   !*** ./datasource/components/query/QueryEditor.tsx ***!
   \*****************************************************/
-/*! exports provided: DatasourceContext, default */
+/*! exports provided: ks3Regions, DatasourceContext, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ks3Regions", function() { return ks3Regions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatasourceContext", function() { return DatasourceContext; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
@@ -8947,14 +8945,36 @@ __webpack_require__.r(__webpack_exports__);
 
 var Select = _grafana_ui__WEBPACK_IMPORTED_MODULE_4__["LegacyForms"].Select;
 var AggregateOptions = [{
-  label: "均值",
-  value: "Average"
+  label: '均值',
+  value: 'Average'
 }, {
-  label: "最大值",
-  value: "Max"
+  label: '最大值',
+  value: 'Max'
 }, {
-  label: "最小值",
-  value: "Min"
+  label: '最小值',
+  value: 'Min'
+}, {
+  label: '求和',
+  value: 'sum'
+}];
+var ks3Regions = [{
+  label: '北京',
+  value: 'cn-beijing'
+}, {
+  label: '上海',
+  value: 'cn-shanghai'
+}, {
+  label: '广州',
+  value: 'cn-guangzhou'
+}, {
+  label: '香港',
+  value: 'cn-hk-1'
+}, {
+  label: '金融专区（北京）',
+  value: 'jr-beijing'
+}, {
+  label: '金融专区（上海）',
+  value: 'jr-shanghai'
 }];
 var DatasourceContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.createContext({
   projectOptions: []
@@ -8971,31 +8991,26 @@ var QueryEditor = function QueryEditor(_a) {
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     onRunQuery();
   }, [queries === null || queries === void 0 ? void 0 : queries.length, onRunQuery]);
-  var metricMap = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(); // 当前namespace
+  var metricMap = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
 
-  var serviceItem = Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])(function () {
-    var _a;
+  var _j = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false), 2),
+      isLoading = _j[0],
+      setLoading = _j[1]; // instance可查询类型根据Namespace设置options
 
-    return ((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value) ? _type_monitors__WEBPACK_IMPORTED_MODULE_8__["MonitorServices"].find(function (item) {
-      var _a;
-
-      return item.namespace === ((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value);
-    }) : undefined;
-  }, [query]); // instance可查询类型根据Namespace设置options
 
   var instanceTypeOptions = Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])(function () {
     var _a;
 
     if (_utils__WEBPACK_IMPORTED_MODULE_9__["withoutIpServices"].includes((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value)) {
       var filterOptions = _utils__WEBPACK_IMPORTED_MODULE_9__["InstanceTypes"].filter(function (item) {
-        return item.value !== "InstanceIp";
+        return item.value !== 'InstanceIp';
       });
 
-      if ((query === null || query === void 0 ? void 0 : query.InstanceType) && (query === null || query === void 0 ? void 0 : query.InstanceType.value) === "InstanceIp") {
+      if ((query === null || query === void 0 ? void 0 : query.InstanceType) && (query === null || query === void 0 ? void 0 : query.InstanceType.value) === 'InstanceIp') {
         _onChange && _onChange(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, query), {
           InstanceType: {
-            value: "InstanceId",
-            label: "As InstanceId"
+            value: 'InstanceId',
+            label: 'As InstanceId'
           }
         }));
       }
@@ -9013,9 +9028,9 @@ var QueryEditor = function QueryEditor(_a) {
           case 0:
             return [4
             /*yield*/
-            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, "iam", {
-              action: "GetAccountAllProjectList",
-              version: "2015-11-01"
+            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, 'iam', {
+              action: 'GetAccountAllProjectList',
+              version: '2015-11-01'
             })];
 
           case 1:
@@ -9039,48 +9054,55 @@ var QueryEditor = function QueryEditor(_a) {
     var namespace = (query === null || query === void 0 ? void 0 : query.Namespace) && ((_a = query.Namespace) === null || _a === void 0 ? void 0 : _a.value);
 
     if (!projectList || !(projectList === null || projectList === void 0 ? void 0 : projectList.length) || !namespace) {
-      return "";
+      return '';
     }
 
-    if (namespace === "KRDS" || namespace === "PGS") {
+    if (namespace === 'KRDS' || namespace === 'PGS') {
       return;
     }
 
-    var queryString = "";
-    var projectKey = namespace !== "KCS" ? "ProjectId" : "iamProjectId";
+    var queryString = '';
+    var projectKey = namespace !== 'KCS' ? 'ProjectId' : 'iamProjectId';
+
+    if (namespace === 'KS3') {
+      return "projectIds=" + projectList.map(function (item, index) {
+        return item.ProjectId;
+      }).join(',');
+    }
+
     projectList.forEach(function (item, index) {
       queryString += "&" + projectKey + "." + (index + 1) + "=" + item.ProjectId;
     });
     return queryString;
   }, [projectList, query.Namespace]); // 详情显示状态
 
-  var _j = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false), 2),
-      detailState = _j[0],
-      setDetail = _j[1]; // 生成namespace 下拉选项
+  var _k = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false), 2),
+      detailState = _k[0],
+      setDetail = _k[1]; // 生成namespace 下拉选项
 
 
   var NameSpaceOptions = Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])(function () {
     return Object(_type_monitors__WEBPACK_IMPORTED_MODULE_8__["generageCheckedNamespace"])(datasource);
   }, [datasource]); // InstanceList
 
-  var _k = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]), 2),
-      instanceOptions = _k[0],
-      setInstanceOptions = _k[1]; // 指标下拉options
-
-
   var _l = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]), 2),
-      metricOptions = _l[0],
-      setMetricOptions = _l[1]; // interval下拉options
+      instanceOptions = _l[0],
+      setInstanceOptions = _l[1]; // 指标下拉options
 
 
-  var _m = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(((_b = query === null || query === void 0 ? void 0 : query.MetricName) === null || _b === void 0 ? void 0 : _b.interval) ? Object(_utils__WEBPACK_IMPORTED_MODULE_9__["generatePeriodOptions"])(query.MetricName.interval) : []), 2),
-      periodOptions = _m[0],
-      setPerionOptions = _m[1]; // 获取数据其他查询条件
+  var _m = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]), 2),
+      metricOptions = _m[0],
+      setMetricOptions = _m[1]; // interval下拉options
 
 
-  var _o = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""), 2),
-      extenInstanceQuery = _o[0],
-      setExtenQuery = _o[1];
+  var _o = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(((_b = query === null || query === void 0 ? void 0 : query.MetricName) === null || _b === void 0 ? void 0 : _b.interval) ? Object(_utils__WEBPACK_IMPORTED_MODULE_9__["generatePeriodOptions"])(query.MetricName.interval) : []), 2),
+      periodOptions = _o[0],
+      setPerionOptions = _o[1]; // 获取数据其他查询条件
+
+
+  var _p = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''), 2),
+      extenInstanceQuery = _p[0],
+      setExtenQuery = _p[1];
 
   var customOptions = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])((query === null || query === void 0 ? void 0 : query.InstanceID) || []); // 获取region
 
@@ -9088,21 +9110,27 @@ var QueryEditor = function QueryEditor(_a) {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
       var regionRes, regionSet;
 
-      var _a;
+      var _a, _b;
 
-      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
-        switch (_b.label) {
+      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_c) {
+        switch (_c.label) {
           case 0:
+            if (((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value) === 'KS3') {
+              return [2
+              /*return*/
+              , ks3Regions];
+            }
+
             return [4
             /*yield*/
-            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, "kec", {
-              action: "DescribeRegions",
-              version: "2016-03-04"
+            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, 'kec', {
+              action: 'DescribeRegions',
+              version: '2016-03-04'
             })];
 
           case 1:
-            regionRes = _b.sent();
-            regionSet = ((_a = regionRes === null || regionRes === void 0 ? void 0 : regionRes.data) === null || _a === void 0 ? void 0 : _a.RegionSet) || [];
+            regionRes = _c.sent();
+            regionSet = ((_b = regionRes === null || regionRes === void 0 ? void 0 : regionRes.data) === null || _b === void 0 ? void 0 : _b.RegionSet) || [];
             return [2
             /*return*/
             , regionSet.map(function (item) {
@@ -9114,103 +9142,103 @@ var QueryEditor = function QueryEditor(_a) {
         }
       });
     });
-  }, []).value; // 不同service change后触发，filter
+  }, [query.Namespace]).value; // 不同service change后触发，filter
 
-  var handleChange = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (query) {
-    var extenParams = "";
+  var handleChange = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (queryParams) {
+    var extenParams = '';
 
     var _loop_1 = function _loop_1(key) {
-      if (Object.prototype.hasOwnProperty.call(query, key)) {
-        var element = query[key];
+      if (Object.prototype.hasOwnProperty.call(queryParams, key)) {
+        var element = queryParams[key];
 
-        if ((typeof element === "string" || typeof element === "number") && element !== "") {
+        if ((typeof element === 'string' || typeof element === 'number') && element !== '') {
           extenParams += "&" + key + "=" + element;
         } else if (Array.isArray(element)) {
           element.forEach(function (el, index) {
-            if (el !== "") {
+            if (el !== '') {
               extenParams += "&" + key + "." + (index + 1) + "=" + el;
             }
           });
-        } else if (key === "Filter") {
-          var filterString = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["dealQueryFilter"])(query[key]);
+        } else if (key === 'Filter') {
+          var filterString = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["dealQueryFilter"])(queryParams[key]);
           extenParams += "&" + filterString;
         } else {
-          extenParams += "";
+          extenParams += '';
         }
       }
     };
 
-    for (var key in query) {
+    for (var key in queryParams) {
       _loop_1(key);
     }
 
-    setExtenQuery(extenParams ? extenParams : "");
+    setExtenQuery(extenParams ? extenParams : '');
   }, []); // 渲染不同service的可选项
 
   var renderByService = function renderByService(service) {
     switch (service) {
-      case "KEC":
+      case 'KEC':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["Querykec"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "EIP":
+      case 'EIP':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryIp"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "BWS":
+      case 'BWS':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryBws"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "EPC":
-      case "GEPC":
+      case 'EPC':
+      case 'EPCGPU':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryEpc"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "KCS":
+      case 'KCS':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryKcs"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "NAT":
+      case 'NAT':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryNat"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "SLB":
+      case 'SLB':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QuerySlb"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "Listener":
+      case 'Listener':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryListener"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "VPC":
+      case 'VPC':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryVpc"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "KRDS":
+      case 'KRDS':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryKrds"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "PEER":
+      case 'PEER':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryPeering"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "PGS":
+      case 'PGS':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryPGS"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
-      case "KCE":
+      case 'KCE':
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryKce"], {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
@@ -9223,7 +9251,7 @@ var QueryEditor = function QueryEditor(_a) {
 
   var onNamespaceChange = function onNamespaceChange(namespace) {
     // name space change 其他select 值重置
-    setExtenQuery("");
+    setExtenQuery('');
     setInstanceOptions([]);
     setMetricOptions([]);
 
@@ -9247,7 +9275,7 @@ var QueryEditor = function QueryEditor(_a) {
     }));
 
     try {
-      (region === null || region === void 0 ? void 0 : region.value) && localStorage.setItem("region", region === null || region === void 0 ? void 0 : region.value);
+      (region === null || region === void 0 ? void 0 : region.value) && localStorage.setItem('region', region === null || region === void 0 ? void 0 : region.value);
     } catch (error) {
       console.error(error);
     }
@@ -9281,7 +9309,7 @@ var QueryEditor = function QueryEditor(_a) {
   };
 
   var onMetricSubSeletChange = function onMetricSubSeletChange(concat) {
-    var behandName = query.MetricName.value.split("[")[0];
+    var behandName = query.MetricName.value.split('[')[0];
     var allMetricName = behandName + "[" + concat + "]";
 
     _onChange(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, query), {
@@ -9306,16 +9334,21 @@ var QueryEditor = function QueryEditor(_a) {
    */
 
 
-  var getInstanceIds = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (extenQuery) {
+  var getInstanceIds = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (extraParams) {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-      var service, extendQuery, projectQuery, filterProjectQuery, dealRegion, currentService, instanceIdRes, opsItem;
+      var service, serviceItem, extendQuery, projectQuery, filterProjectQuery, dealRegion, currentService, instanceIdRes, opsItem;
 
-      var _a, _b, _c, _d;
+      var _a, _b, _c, _d, _e;
 
-      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_e) {
-        switch (_e.label) {
+      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_f) {
+        switch (_f.label) {
           case 0:
             service = query.Namespace.service;
+            serviceItem = ((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value) ? _type_monitors__WEBPACK_IMPORTED_MODULE_8__["MonitorServices"].find(function (item) {
+              var _a;
+
+              return item.namespace === ((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value);
+            }) : undefined;
 
             if (!query.Region || !serviceItem) {
               return [2
@@ -9326,32 +9359,34 @@ var QueryEditor = function QueryEditor(_a) {
             setMetricOptions([]);
             setInstanceOptions([]);
             customOptions.current = [];
-            extendQuery = !extenQuery || typeof extenQuery !== "string" ? extenQuery : "";
-            projectQuery = "" + (projectQueryString ? projectQueryString : "");
-            filterProjectQuery = extenInstanceQuery && extenInstanceQuery.includes("ProjectId") ? extenInstanceQuery : (extenInstanceQuery ? extenInstanceQuery : "") + projectQuery;
+            extendQuery = !extraParams || typeof extraParams !== 'string' ? extraParams : '';
+            projectQuery = "" + (projectQueryString ? projectQueryString : '');
+            filterProjectQuery = extraParams && extraParams.includes('ProjectId') ? extraParams : (extraParams ? extraParams : '') + projectQuery;
             dealRegion = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(query.Region.value);
             currentService = _type_monitors__WEBPACK_IMPORTED_MODULE_8__["ServiceMap"].get(query.Namespace.service + "/" + dealRegion);
+            setLoading(true);
             return [4
             /*yield*/
             , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, query.Namespace.service + "/" + dealRegion, {
-              action: (serviceItem === null || serviceItem === void 0 ? void 0 : serviceItem.instanceAction) || "",
-              version: (currentService === null || currentService === void 0 ? void 0 : currentService.version) || "",
-              extenQuery: extendQuery ? extendQuery + ("" + (filterProjectQuery ? filterProjectQuery : "")) : "" + (filterProjectQuery ? filterProjectQuery : ""),
+              action: (serviceItem === null || serviceItem === void 0 ? void 0 : serviceItem.instanceAction) || '',
+              version: (currentService === null || currentService === void 0 ? void 0 : currentService.version) || '',
+              extenQuery: extendQuery ? extendQuery + ("" + (filterProjectQuery ? filterProjectQuery : '')) : "" + (filterProjectQuery ? filterProjectQuery : ''),
               region: dealRegion
             })];
 
           case 1:
-            instanceIdRes = _e.sent();
+            instanceIdRes = _f.sent();
+            setLoading(false);
 
             if ((instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.status) !== 200) {
-              Object(_utils__WEBPACK_IMPORTED_MODULE_9__["alertError"])((_b = (_a = instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data) === null || _a === void 0 ? void 0 : _a.Error) === null || _b === void 0 ? void 0 : _b.Message);
+              Object(_utils__WEBPACK_IMPORTED_MODULE_9__["alertError"])((_c = (_b = instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data) === null || _b === void 0 ? void 0 : _b.Error) === null || _c === void 0 ? void 0 : _c.Message);
               return [2
               /*return*/
               ];
             }
 
             if (instanceIdRes && (instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data)) {
-              opsItem = _utils__WEBPACK_IMPORTED_MODULE_9__["GenerageInstanceOptions"][(_c = query === null || query === void 0 ? void 0 : query.Namespace) === null || _c === void 0 ? void 0 : _c.value].options(instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data, ((_d = query.InstanceType) === null || _d === void 0 ? void 0 : _d.value) || "InstanceId"); // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
+              opsItem = _utils__WEBPACK_IMPORTED_MODULE_9__["GenerageInstanceOptions"][(_d = query === null || query === void 0 ? void 0 : query.Namespace) === null || _d === void 0 ? void 0 : _d.value].options(instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data, ((_e = query.InstanceType) === null || _e === void 0 ? void 0 : _e.value) || 'InstanceId'); // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
               // const instanceOptions = dealInstanceByService(namespace, instanceData, query.InstanceType?.value);
 
               setInstanceOptions(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(opsItem), false));
@@ -9363,7 +9398,61 @@ var QueryEditor = function QueryEditor(_a) {
         }
       });
     });
-  }, [query, datasource.instanceSetting, extenInstanceQuery, projectQueryString, serviceItem]); // 生成metric options
+  }, [query, datasource.instanceSetting, projectQueryString]);
+  var getKs3Buckets = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (extraParams) {
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
+      var extendQuery, projectQuery, filterProjectQuery, dealRegion, instanceIdRes, opsItem;
+
+      var _a, _b, _c, _d;
+
+      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_e) {
+        switch (_e.label) {
+          case 0:
+            if (!query.Region) {
+              return [2
+              /*return*/
+              , console.error('region为空')];
+            }
+
+            setMetricOptions([]);
+            setInstanceOptions([]);
+            customOptions.current = [];
+            extendQuery = !extraParams || typeof extraParams !== 'string' ? extraParams : '';
+            projectQuery = "" + (projectQueryString ? projectQueryString : '');
+            filterProjectQuery = extraParams && extraParams.includes('ProjectId') ? extraParams : (extraParams ? extraParams : '') + projectQuery;
+            dealRegion = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(query.Region.value); // ProjectId.1=104139, 101606
+
+            setLoading(true);
+            return [4
+            /*yield*/
+            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["requestKs3"])(datasource.instanceSetting, query.Namespace.service + "/" + dealRegion, {
+              extenQuery: extendQuery ? extendQuery + ("" + (filterProjectQuery ? filterProjectQuery : '')) : "" + (filterProjectQuery ? filterProjectQuery : ''),
+              region: dealRegion
+            })];
+
+          case 1:
+            instanceIdRes = _e.sent();
+            setLoading(false);
+
+            if ((instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.status) !== 200) {
+              Object(_utils__WEBPACK_IMPORTED_MODULE_9__["alertError"])((_b = (_a = instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data) === null || _a === void 0 ? void 0 : _a.Error) === null || _b === void 0 ? void 0 : _b.Message);
+              return [2
+              /*return*/
+              ];
+            }
+
+            if (instanceIdRes && (instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data)) {
+              opsItem = _utils__WEBPACK_IMPORTED_MODULE_9__["GenerageInstanceOptions"][(_c = query === null || query === void 0 ? void 0 : query.Namespace) === null || _c === void 0 ? void 0 : _c.value].options(instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data, ((_d = query.InstanceType) === null || _d === void 0 ? void 0 : _d.value) || 'InstanceId');
+              setInstanceOptions(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(opsItem), false));
+            }
+
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  }, [query, datasource.instanceSetting, projectQueryString]); // 生成metric options
 
   var generateMetricOptions = function generateMetricOptions(metricsList) {
     metricMap.current = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["generageMetricOptions"])(metricsList);
@@ -9373,9 +9462,9 @@ var QueryEditor = function QueryEditor(_a) {
       return {
         label: item,
         value: item,
-        unit: metricMapItem["unit"],
-        interval: metricMapItem && metricMapItem["Period"] ? metricMapItem["Period"] : "60",
-        metricSubChose: metricMapItem && metricMapItem["metricSubChose"] ? metricMapItem["metricSubChose"] : undefined
+        unit: metricMapItem['unit'],
+        interval: metricMapItem && metricMapItem['Period'] ? metricMapItem['Period'] : '60',
+        metricSubChose: metricMapItem && metricMapItem['metricSubChose'] ? metricMapItem['metricSubChose'] : undefined
       };
     });
     setMetricOptions(metricsOptions);
@@ -9391,8 +9480,8 @@ var QueryEditor = function QueryEditor(_a) {
       return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_k) {
         switch (_k.label) {
           case 0:
-            instanceIdItem = ((_b = (_a = query.InstanceID) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.value) || "";
-            instanceid = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(instanceIdItem).split(",")[0];
+            instanceIdItem = ((_b = (_a = query.InstanceID) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.value) || '';
+            instanceid = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(instanceIdItem).split(',')[0];
             namespace = query.Namespace.value;
 
             if (!instanceid) {
@@ -9403,15 +9492,15 @@ var QueryEditor = function QueryEditor(_a) {
 
             defaultExtenQuery = "&InstanceID=" + instanceid + "&Namespace=" + namespace + "&PageIndex=1";
 
-            if (namespace === "KCE") {
+            if (namespace === 'KCE') {
               defaultExtenQuery = "&Dimensions.0.Name=ClusterId&Dimensions.0.Value=" + instanceid + "&Namespace=" + namespace + "&PageIndex=1";
             }
 
             return [4
             /*yield*/
             , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, "monitor", {
-              action: "ListMetrics",
-              version: "2010-05-25",
+              action: 'ListMetrics',
+              version: '2010-05-25',
               extenQuery: defaultExtenQuery,
               region: Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(query.Region.value)
             })];
@@ -9461,12 +9550,15 @@ var QueryEditor = function QueryEditor(_a) {
     defaultValue: query.InstanceID,
     value: query.InstanceID,
     onChange: onInstanceChange,
-    onOpenMenu: getInstanceIds,
+    onOpenMenu: function onOpenMenu() {
+      return getInstanceIds(extenInstanceQuery);
+    },
     onBlur: function onBlur() {
       if ((query === null || query === void 0 ? void 0 : query.MetricName) && (query === null || query === void 0 ? void 0 : query.MetricName.value)) {
         onRunQuery();
       }
     },
+    isLoading: isLoading,
     closeMenuOnSelect: false,
     allowCustomValue: true,
     isSearchable: true,
@@ -9493,7 +9585,7 @@ var QueryEditor = function QueryEditor(_a) {
     width: 180,
     options: _utils__WEBPACK_IMPORTED_MODULE_9__["ClusterTypes"],
     defaultValue: {},
-    value: query.InstanceType ? query.InstanceType : "InstanceId",
+    value: query.InstanceType ? query.InstanceType : 'InstanceId',
     onChange: function onChange(instanceType) {
       _onChange(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, query), {
         InstanceType: instanceType,
@@ -9508,7 +9600,9 @@ var QueryEditor = function QueryEditor(_a) {
     defaultValue: (_c = query.InstanceID) === null || _c === void 0 ? void 0 : _c[0],
     value: (_d = query.InstanceID) === null || _d === void 0 ? void 0 : _d[0],
     onChange: onInstanceChange,
-    onOpenMenu: getInstanceIds,
+    onOpenMenu: function onOpenMenu() {
+      return getInstanceIds(extenInstanceQuery);
+    },
     onBlur: function onBlur() {
       if ((query === null || query === void 0 ? void 0 : query.MetricName) && (query === null || query === void 0 ? void 0 : query.MetricName.value)) {
         onRunQuery();
@@ -9529,6 +9623,51 @@ var QueryEditor = function QueryEditor(_a) {
       }));
     }
   }))));
+  var KS3InstanceField = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
+    labelWidth: 18,
+    label: "Bucket"
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["MultiSelect"], {
+    width: 35,
+    options: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(instanceOptions), false), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(customOptions.current), false),
+    defaultValue: query.InstanceID,
+    value: query.InstanceID,
+    onChange: onInstanceChange,
+    onOpenMenu: function onOpenMenu() {
+      return getKs3Buckets(extenInstanceQuery);
+    },
+    onBlur: function onBlur() {
+      if ((query === null || query === void 0 ? void 0 : query.MetricName) && (query === null || query === void 0 ? void 0 : query.MetricName.value)) {
+        onRunQuery();
+      }
+    },
+    isLoading: isLoading,
+    closeMenuOnSelect: false,
+    allowCustomValue: true,
+    isSearchable: true,
+    placeholder: " ",
+    onCreateOption: function onCreateOption(v) {
+      var customValue = {
+        value: v,
+        label: v
+      };
+      customOptions.current = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(customOptions.current), false), [customValue], false);
+
+      _onChange(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, query), {
+        InstanceID: [customValue]
+      }));
+    }
+  }))); // 根据nameSpace 渲染不同InstanceID Field
+
+  var renderInstanceField = function renderInstanceField(namespace) {
+    if (namespace === 'KCE') {
+      return KecInstanceField;
+    } else if (namespace === 'KS3') {
+      return KS3InstanceField;
+    } else {
+      return NormalInstanceField;
+    }
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
     labelWidth: 18,
     label: "Namespace"
@@ -9549,7 +9688,7 @@ var QueryEditor = function QueryEditor(_a) {
     value: query.Region,
     onChange: onRegionChange,
     placeholder: " "
-  })), ((_e = query === null || query === void 0 ? void 0 : query.Namespace) === null || _e === void 0 ? void 0 : _e.value) === "KCE" ? KecInstanceField : NormalInstanceField, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
+  })), renderInstanceField((_e = query === null || query === void 0 ? void 0 : query.Namespace) === null || _e === void 0 ? void 0 : _e.value), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
     labelWidth: 18,
     label: "MetricName",
     className: "upper-flex-content"
@@ -9564,16 +9703,16 @@ var QueryEditor = function QueryEditor(_a) {
     onChange: onMetricChange,
     onOpenMenu: getMetricNames,
     placeholder: " "
-  }), ((_f = query.MetricName) === null || _f === void 0 ? void 0 : _f["metricSubChose"]) && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_MetricSubSelect__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    subChosed: query.MetricName["metricSubChose"],
+  }), ((_f = query.MetricName) === null || _f === void 0 ? void 0 : _f['metricSubChose']) && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_MetricSubSelect__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    subChosed: query.MetricName['metricSubChose'],
     onChange: onMetricSubSeletChange,
     defaultValue: (_g = query.MetricName) === null || _g === void 0 ? void 0 : _g.value
-  }), query.MetricName && query.MetricName["unit"] && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+  }), query.MetricName && query.MetricName['unit'] && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     style: {
-      marginLeft: "8px",
-      lineHeight: "32px"
+      marginLeft: '8px',
+      lineHeight: '32px'
     }
-  }, "\uFF08\u5355\u4F4D\uFF1A", query.MetricName["unit"] || "", "\uFF09"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
+  }, "\uFF08\u5355\u4F4D\uFF1A", query.MetricName['unit'] || '', "\uFF09"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
     labelWidth: 18,
     label: "Metric alias"
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["Input"], {
@@ -9622,18 +9761,18 @@ var QueryEditor = function QueryEditor(_a) {
     value: detailState,
     onChange: function onChange(v) {
       if (!v.target.checked) {
-        setExtenQuery("");
+        setExtenQuery('');
       }
 
       setDetail(v.target.checked);
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     style: {
-      marginLeft: "8px"
+      marginLeft: '8px'
     }
   }, "(\u6309\u7167\u5177\u4F53\u7684\u67E5\u8BE2\u6761\u4EF6\u641C\u7D22\u5B9E\u4F8B\uFF0C", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
     style: {
-      color: "cornflowerblue"
+      color: 'cornflowerblue'
     },
     onClick: function onClick() {
       var hrefItem = _type_monitors__WEBPACK_IMPORTED_MODULE_8__["MonitorServices"].find(function (i) {
@@ -9641,7 +9780,6 @@ var QueryEditor = function QueryEditor(_a) {
 
         return i.namespace === ((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value);
       });
-      console.log("hrefItem", hrefItem);
 
       if (hrefItem && (hrefItem === null || hrefItem === void 0 ? void 0 : hrefItem.apihref)) {
         window.open(hrefItem === null || hrefItem === void 0 ? void 0 : hrefItem.apihref);
@@ -9707,14 +9845,14 @@ var VariableQueryEditor = function VariableQueryEditor(_a) {
     value: state
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     style: {
-      padding: "6px 8px"
+      padding: '6px 8px'
     }
   }, "Query\u5E2E\u52A9\u6587\u6863\uFF1A", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
     style: {
-      color: "cornflowerblue"
+      color: 'cornflowerblue'
     },
     onClick: function onClick() {
-      window.open("https://docs.ksyun.com/documents/41740?type=3");
+      window.open('https://docs.ksyun.com/documents/41740?type=3');
     }
   }, "https://docs.ksyun.com/documents/41740?type=3")));
 };
@@ -9762,7 +9900,7 @@ var QueryBws = function QueryBws(_a) {
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: "BandWidthShareId",
     tooltip: "\u9ED8\u8BA4: \u67E5\u8BE2region\u4E0B\u6240\u6709\u7684\u5171\u4EAB\u5E26\u5BBD\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setBws(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -9773,7 +9911,7 @@ var QueryBws = function QueryBws(_a) {
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: "ProjectId",
     tooltip: "\u7F3A\u7701\u503C: \u9ED8\u8BA4\u9879\u76EE",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setBws(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -9799,13 +9937,13 @@ var QueryBws = function QueryBws(_a) {
   })), filterState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "allocation-id",
     tooltip: "\u5F39\u6027IP\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       return setBws(function (state) {
         var _a;
 
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
-          Filter: (_a = {}, _a["allocation-id"] = value, _a)
+          Filter: (_a = {}, _a['allocation-id'] = value, _a)
         });
       });
     }
@@ -9842,37 +9980,37 @@ __webpack_require__.r(__webpack_exports__);
 
 var FormField = _grafana_ui__WEBPACK_IMPORTED_MODULE_2__["LegacyForms"].FormField;
 var epcoptions = [{
-  label: "host-name",
-  key: "host-name",
-  tooltip: "裸金属服务器的名称，仅支持精确查询"
+  label: 'host-name',
+  key: 'host-name',
+  tooltip: '裸金属服务器的名称，仅支持精确查询'
 }, {
-  label: "vpc-id",
-  key: "vpc-id",
-  tooltip: "裸金属服务器的VPC ID"
+  label: 'vpc-id',
+  key: 'vpc-id',
+  tooltip: '裸金属服务器的VPC ID'
 }, {
-  label: "subnet-id",
-  key: "subnet-id",
-  tooltip: "裸金属服务器的子网ID"
+  label: 'subnet-id',
+  key: 'subnet-id',
+  tooltip: '裸金属服务器的子网ID'
 }, {
-  label: "cabinet-id",
-  key: "cabinet-id",
-  tooltip: "托管裸金属服务器的机柜ID"
+  label: 'cabinet-id',
+  key: 'cabinet-id',
+  tooltip: '托管裸金属服务器的机柜ID'
 }, {
-  label: "host-type",
-  key: "host-type",
-  tooltip: "裸金属服务器类型"
+  label: 'host-type',
+  key: 'host-type',
+  tooltip: '裸金属服务器类型'
 }, {
-  label: "epc-host-status",
-  key: "epc-host-status",
-  tooltip: "裸金属服务器状态"
+  label: 'epc-host-status',
+  key: 'epc-host-status',
+  tooltip: '裸金属服务器状态'
 }, {
-  label: "os-name",
-  key: "os-name",
-  tooltip: "操作系统名称"
+  label: 'os-name',
+  key: 'os-name',
+  tooltip: '操作系统名称'
 }, {
-  label: "product-type",
-  key: "product-type",
-  tooltip: "类型"
+  label: 'product-type',
+  key: 'product-type',
+  tooltip: '类型'
 }];
 
 var QueryEpc = function QueryEpc(_a) {
@@ -9907,7 +10045,7 @@ var QueryEpc = function QueryEpc(_a) {
         });
       });
     },
-    tooltip: "单次调用所返回的最大实例数目，取值范围： 5- 1000"
+    tooltip: '单次调用所返回的最大实例数目，取值范围： 5- 1000'
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-field"
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(FormField, {
@@ -9924,11 +10062,11 @@ var QueryEpc = function QueryEpc(_a) {
         });
       });
     },
-    tooltip: "获取另一页返回结果的 token"
+    tooltip: '获取另一页返回结果的 token'
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "HostId",
     tooltip: "\u88F8\u91D1\u5C5E\u670D\u52A1\u5668\u8D44\u6E90ID\uFF0C\u53D6\u503C\u8303\u56F4\uFF1A1-100",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setEpc(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -9938,7 +10076,7 @@ var QueryEpc = function QueryEpc(_a) {
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "ProjectId",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setEpc(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -9967,7 +10105,7 @@ var QueryEpc = function QueryEpc(_a) {
       key: item.key,
       label: item.label,
       tooltip: item.tooltip,
-      datasource: [""],
+      datasource: [''],
       onValueChange: function onValueChange(value) {
         var Filter = (epcquery === null || epcquery === void 0 ? void 0 : epcquery.Filter) || {};
 
@@ -10014,33 +10152,33 @@ __webpack_require__.r(__webpack_exports__);
 
 var FormField = _grafana_ui__WEBPACK_IMPORTED_MODULE_2__["LegacyForms"].FormField;
 var filtercondition = [{
-  label: "network-interface-id",
-  key: "network-interface-id",
-  tooltip: "主机的网卡信息"
+  label: 'network-interface-id',
+  key: 'network-interface-id',
+  tooltip: '主机的网卡信息'
 }, {
-  label: "instance-type",
-  key: "instance-type",
-  tooltip: "弹性IP绑定的实例类型，slb | ipfwd(云主机、裸金属均为ipfwd)"
+  label: 'instance-type',
+  key: 'instance-type',
+  tooltip: '弹性IP绑定的实例类型，slb | ipfwd(云主机、裸金属均为ipfwd)'
 }, {
-  label: "internet-gateway-id",
-  key: "internet-gateway-id",
-  tooltip: "互联网网关的ID"
+  label: 'internet-gateway-id',
+  key: 'internet-gateway-id',
+  tooltip: '互联网网关的ID'
 }, {
-  label: "band-width-share-id",
-  key: "band-width-share-id",
-  tooltip: "共享带宽ID"
+  label: 'band-width-share-id',
+  key: 'band-width-share-id',
+  tooltip: '共享带宽ID'
 }, {
-  label: "line-id",
-  key: "line-id",
-  tooltip: "线路的ID"
+  label: 'line-id',
+  key: 'line-id',
+  tooltip: '线路的ID'
 }, {
-  label: "public-ip",
-  key: "public-ip",
-  tooltip: "弹性IP的IP"
+  label: 'public-ip',
+  key: 'public-ip',
+  tooltip: '弹性IP的IP'
 }, {
-  label: "project-id",
-  key: "project-id",
-  tooltip: "项目的ID"
+  label: 'project-id',
+  key: 'project-id',
+  tooltip: '项目的ID'
 }];
 
 var QueryIp = function QueryIp(_a) {
@@ -10107,23 +10245,23 @@ var QueryIp = function QueryIp(_a) {
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "AllocationId",
     tooltip: "\u67E5\u8BE2region\u4E0B\u6240\u6709\u7684\u5F39\u6027IP\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setEipQuery(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["AllocationId"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['AllocationId'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "ProjectId",
     tooltip: "EIP\u6240\u5C5E\u9879\u76EE\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setEipQuery(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["ProjectId"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['ProjectId'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["InlineField"], {
@@ -10143,7 +10281,7 @@ var QueryIp = function QueryIp(_a) {
       key: item.key,
       label: item.label,
       tooltip: item.tooltip,
-      datasource: [""],
+      datasource: [''],
       onValueChange: function onValueChange(value) {
         var Filter = (eipQuery === null || eipQuery === void 0 ? void 0 : eipQuery.Filter) || {};
 
@@ -10263,60 +10401,60 @@ __webpack_require__.r(__webpack_exports__);
 
 var FormField = _grafana_ui__WEBPACK_IMPORTED_MODULE_2__["LegacyForms"].FormField;
 var KcsQueryOptions = [{
-  label: "AvailableZone",
-  key: "AvailableZone",
-  tooltip: "默认：对应机房的a区"
+  label: 'AvailableZone',
+  key: 'AvailableZone',
+  tooltip: '默认：对应机房的a区'
 }, {
-  label: "CacheId",
-  key: "CacheId",
-  tooltip: "缓存服务ID"
+  label: 'CacheId',
+  key: 'CacheId',
+  tooltip: '缓存服务ID'
 }, {
-  label: "Name",
-  key: "Name",
-  tooltip: "缓存服务名称"
+  label: 'Name',
+  key: 'Name',
+  tooltip: '缓存服务名称'
 }, {
-  label: "Vip",
-  key: "Vip",
-  tooltip: "缓存服务VIP"
+  label: 'Vip',
+  key: 'Vip',
+  tooltip: '缓存服务VIP'
 }, {
-  label: "VpcId",
-  key: "VpcId",
-  tooltip: "虚拟网络ID"
+  label: 'VpcId',
+  key: 'VpcId',
+  tooltip: '虚拟网络ID'
 }, {
-  label: "VnetId",
-  key: "VnetId",
-  tooltip: "终端子网ID"
+  label: 'VnetId',
+  key: 'VnetId',
+  tooltip: '终端子网ID'
 }, {
-  label: "Offset",
-  key: "Offset",
-  tooltip: "数据偏移量"
+  label: 'Offset',
+  key: 'Offset',
+  tooltip: '数据偏移量'
 }, {
-  label: "Limit",
-  key: "Limit",
-  tooltip: "每页数量",
-  placeholder: "取值范围为：1~100"
+  label: 'Limit',
+  key: 'Limit',
+  tooltip: '每页数量',
+  placeholder: '取值范围为：1~100'
 }, {
-  label: "IamProjectId",
-  key: "IamProjectId",
-  tooltip: "默认：查询全部项目，可传入多个的项目ID，‘,’隔开"
+  label: 'IamProjectId',
+  key: 'IamProjectId',
+  tooltip: '默认：查询全部项目，可传入多个的项目ID，‘,’隔开'
 }, {
-  label: "FuzzySearch",
-  key: "FuzzySearch",
-  tooltip: "模糊条件查询，可根据ID，IP，名称进行过滤"
+  label: 'FuzzySearch',
+  key: 'FuzzySearch',
+  tooltip: '模糊条件查询，可根据ID，IP，名称进行过滤'
 }, {
-  label: "Protocol",
-  key: "Protocol",
-  tooltip: "版本号，默认：查询所有，版本号：4.0、5.0"
+  label: 'Protocol',
+  key: 'Protocol',
+  tooltip: '版本号，默认：查询所有，版本号：4.0、5.0'
 }, {
-  label: "TagKey",
-  key: "TagKey",
-  tooltip: "标签的key",
-  placeholder: "必须同标签值一同传入"
+  label: 'TagKey',
+  key: 'TagKey',
+  tooltip: '标签的key',
+  placeholder: '必须同标签值一同传入'
 }, {
-  label: "TagValue",
-  key: "TagValue",
-  tooltip: "标签的value",
-  placeholder: "必须同标签名一同传入"
+  label: 'TagValue',
+  key: 'TagValue',
+  tooltip: '标签的value',
+  placeholder: '必须同标签名一同传入'
 }];
 
 var QueryKcs = function QueryKcs(_a) {
@@ -10339,7 +10477,7 @@ var QueryKcs = function QueryKcs(_a) {
       label: item.label,
       labelWidth: 8,
       inputWidth: 20,
-      placeholder: (item === null || item === void 0 ? void 0 : item.placeholder) || "",
+      placeholder: (item === null || item === void 0 ? void 0 : item.placeholder) || '',
       onChange: function onChange(e) {
         setKcs(function (state) {
           var _a;
@@ -10377,51 +10515,51 @@ __webpack_require__.r(__webpack_exports__);
 
 var FormField = _grafana_ui__WEBPACK_IMPORTED_MODULE_3__["LegacyForms"].FormField;
 var krdsoption = [{
-  label: "DBInstanceStatus",
-  key: "DBInstanceStatus",
-  tooltip: "实例状态：ACTIVE（运行中）/INVALID（请续费）"
+  label: 'DBInstanceStatus',
+  key: 'DBInstanceStatus',
+  tooltip: '实例状态：ACTIVE（运行中）/INVALID（请续费）'
 }, {
-  label: "DBInstanceType",
-  key: "DBInstanceType",
-  tooltip: "HRDS（高可用）,RR（只读实例）,TRDS（临时实例）,SINGLERDS(单机版)，ERDS（三节点企业版），CDS_HRDS(高可用_云盘版)、CDS_TRDS（临时云盘版）"
+  label: 'DBInstanceType',
+  key: 'DBInstanceType',
+  tooltip: 'HRDS（高可用）,RR（只读实例）,TRDS（临时实例）,SINGLERDS(单机版)，ERDS（三节点企业版），CDS_HRDS(高可用_云盘版)、CDS_TRDS（临时云盘版）'
 }, {
-  label: "Keyword",
-  key: "Keyword",
-  tooltip: "按名称/VIP模糊过滤"
+  label: 'Keyword',
+  key: 'Keyword',
+  tooltip: '按名称/VIP模糊过滤'
 }, {
-  label: "ProjectId",
-  key: "ProjectId",
-  tooltip: "项目制Id"
+  label: 'ProjectId',
+  key: 'ProjectId',
+  tooltip: '项目制Id'
 }, {
-  label: "Marker",
-  key: "Marker",
-  tooltip: "记录开始偏移量"
+  label: 'Marker',
+  key: 'Marker',
+  tooltip: '记录开始偏移量'
 }, {
-  label: "MaxRecords",
-  key: "MaxRecords",
-  placeholder: "取值范围：1-100",
-  tooltip: "每页结果中包含的最大条数"
+  label: 'MaxRecords',
+  key: 'MaxRecords',
+  placeholder: '取值范围：1-100',
+  tooltip: '每页结果中包含的最大条数'
 }];
 var krdsSwitchOption = [{
-  label: "DBInstanceIdentifierIn",
-  key: "DBInstanceIdentifierIn",
-  tooltip: "实例ids"
+  label: 'DBInstanceIdentifierIn',
+  key: 'DBInstanceIdentifierIn',
+  tooltip: '实例ids'
 }, {
-  label: "DBInstanceNameIn",
-  key: "DBInstanceNameIn",
-  tooltip: "实例名称"
+  label: 'DBInstanceNameIn',
+  key: 'DBInstanceNameIn',
+  tooltip: '实例名称'
 }, {
-  label: "VipIn",
-  key: "VipIn",
-  tooltip: "按vip过滤"
+  label: 'VipIn',
+  key: 'VipIn',
+  tooltip: '按vip过滤'
 }, {
-  label: "EIPIn",
-  key: "EIPIn",
-  tooltip: "按eip过滤"
+  label: 'EIPIn',
+  key: 'EIPIn',
+  tooltip: '按eip过滤'
 }, {
-  label: "ExpiryDateLessThan",
-  key: "ExpiryDateLessThan",
-  tooltip: "按照实例过期时间过滤，取值范围：>0"
+  label: 'ExpiryDateLessThan',
+  key: 'ExpiryDateLessThan',
+  tooltip: '按照实例过期时间过滤，取值范围：>0'
 }];
 
 var QueryKrds = function QueryKrds(_a) {
@@ -10444,7 +10582,7 @@ var QueryKrds = function QueryKrds(_a) {
       label: item.label,
       labelWidth: 10,
       inputWidth: 20,
-      placeholder: (item === null || item === void 0 ? void 0 : item.placeholder) || "",
+      placeholder: (item === null || item === void 0 ? void 0 : item.placeholder) || '',
       onChange: function onChange(e) {
         return setKrds(function (state) {
           var _a;
@@ -10452,14 +10590,14 @@ var QueryKrds = function QueryKrds(_a) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a[item.key] = e.target.value, _a));
         });
       },
-      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || ""
+      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || ''
     }));
   }), krdsSwitchOption.map(function (item, index) {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: item.key,
       label: item.key,
-      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || "",
-      datasource: [""],
+      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || '',
+      datasource: [''],
       onValueChange: function onValueChange(value) {
         return setKrds(function (state) {
           var _a;
@@ -10516,7 +10654,7 @@ var QueryListener = function QueryListener(_a) {
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "ListenerId",
     tooltip: "\u76D1\u542C\u5668\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setListenQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -10537,17 +10675,17 @@ var QueryListener = function QueryListener(_a) {
         setListenQuery(function (state) {
           var _a;
 
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["load-balancer-id"] = "", _a));
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['load-balancer-id'] = '', _a));
         });
       }
     }
   })), filterState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "load-balancer-id",
     tooltip: "\u8D1F\u8F7D\u5747\u8861\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (listenquery === null || listenquery === void 0 ? void 0 : listenquery.Filter) || {};
-      Filter["load-balancer-id"] = value;
+      Filter['load-balancer-id'] = value;
       setListenQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -10557,10 +10695,10 @@ var QueryListener = function QueryListener(_a) {
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "certificate-id",
     tooltip: "\u8BC1\u4E66\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (listenquery === null || listenquery === void 0 ? void 0 : listenquery.Filter) || {};
-      Filter["certificate-id"] = value;
+      Filter['certificate-id'] = value;
       setListenQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -10615,7 +10753,7 @@ var QueryNat = function QueryNat(_a) {
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "NatId",
     tooltip: "\u67E5\u8BE2region\u4E0B\u6240\u6709\u7684NAT\u4FE1\u606F",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setNatQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -10626,7 +10764,7 @@ var QueryNat = function QueryNat(_a) {
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "ProjectId",
     tooltip: "\u67E5\u8BE2\u9ED8\u8BA4\u9879\u76EE\u4E0B\u6240\u6709\u7684 NAT \u4FE1\u606F",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setNatQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -10646,17 +10784,17 @@ var QueryNat = function QueryNat(_a) {
         setNatQuery(function (state) {
           var _a;
 
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["vpc-id"] = "", _a));
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['vpc-id'] = '', _a));
         });
       }
     }
   })), filterState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "vpc-id",
     tooltip: "VPC\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (natQuery === null || natQuery === void 0 ? void 0 : natQuery.Filter) || {};
-      Filter["vpc-id"] = value;
+      Filter['vpc-id'] = value;
       setNatQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -10691,60 +10829,60 @@ __webpack_require__.r(__webpack_exports__);
 
 var FormField = _grafana_ui__WEBPACK_IMPORTED_MODULE_3__["LegacyForms"].FormField;
 var pgsoption = [{
-  label: "DBInstanceIdentifier",
-  key: "DBInstanceIdentifier",
-  tooltip: "实例id 传入实例ID，获取的是该实例的详情，否则则获取list"
+  label: 'DBInstanceIdentifier',
+  key: 'DBInstanceIdentifier',
+  tooltip: '实例id 传入实例ID，获取的是该实例的详情，否则则获取list'
 }, {
-  label: "DBInstanceStatus",
-  key: "DBInstanceStatus",
-  tooltip: "按实例状态过滤 ACTIVE（运行中）、INVALID（请续费）"
+  label: 'DBInstanceStatus',
+  key: 'DBInstanceStatus',
+  tooltip: '按实例状态过滤 ACTIVE（运行中）、INVALID（请续费）'
 }, {
-  label: "GroupId",
-  key: "GroupId",
-  tooltip: "实例分组id"
+  label: 'GroupId',
+  key: 'GroupId',
+  tooltip: '实例分组id'
 }, {
-  label: "DBInstanceType",
-  key: "DBInstanceType",
-  tooltip: "取值范围: HRDS_PG高可用实例  TRDS_PG临时实例  RR_PG只读实例"
+  label: 'DBInstanceType',
+  key: 'DBInstanceType',
+  tooltip: '取值范围: HRDS_PG高可用实例  TRDS_PG临时实例  RR_PG只读实例'
 }, {
-  label: "Keyword",
-  key: "Keyword",
-  tooltip: "按单个名称/单个VIP模糊过滤"
+  label: 'Keyword',
+  key: 'Keyword',
+  tooltip: '按单个名称/单个VIP模糊过滤'
 }, {
-  label: "ProjectId",
-  key: "ProjectId",
-  tooltip: "默认值为所有项目"
+  label: 'ProjectId',
+  key: 'ProjectId',
+  tooltip: '默认值为所有项目'
 }, {
-  label: "Marker",
-  key: "Marker",
-  tooltip: "记录开始偏移量"
+  label: 'Marker',
+  key: 'Marker',
+  tooltip: '记录开始偏移量'
 }, {
-  label: "MaxRecords",
-  key: "MaxRecords",
-  tooltip: "每页结果中包含的最大条数",
-  placeholder: "取值范围：1-100"
+  label: 'MaxRecords',
+  key: 'MaxRecords',
+  tooltip: '每页结果中包含的最大条数',
+  placeholder: '取值范围：1-100'
 }, {
-  label: "ExpiryDateLessThan",
-  key: "ExpiryDateLessThan",
-  tooltip: "按照实例过期时间过滤",
-  placeholder: "取值范围>0"
+  label: 'ExpiryDateLessThan',
+  key: 'ExpiryDateLessThan',
+  tooltip: '按照实例过期时间过滤',
+  placeholder: '取值范围>0'
 }, {
-  label: "Order",
-  key: "Order",
-  tooltip: "区分大小写，取值范围：DEFAULT（默认排序方式），GROUP（按复制组排序，会把只读实例排在所属主实例的后面）"
+  label: 'Order',
+  key: 'Order',
+  tooltip: '区分大小写，取值范围：DEFAULT（默认排序方式），GROUP（按复制组排序，会把只读实例排在所属主实例的后面）'
 }];
 var pgsSwitchOption = [{
-  label: "DBInstanceIdentifierIn",
-  key: "DBInstanceIdentifierIn",
-  tooltip: "实例id列表"
+  label: 'DBInstanceIdentifierIn',
+  key: 'DBInstanceIdentifierIn',
+  tooltip: '实例id列表'
 }, {
-  label: "DBInstanceNameIn",
-  key: "DBInstanceNameIn",
-  tooltip: "实例名称列表,支持模糊查询"
+  label: 'DBInstanceNameIn',
+  key: 'DBInstanceNameIn',
+  tooltip: '实例名称列表,支持模糊查询'
 }, {
-  label: "VipIn",
-  key: "VipIn",
-  tooltip: "vip列表"
+  label: 'VipIn',
+  key: 'VipIn',
+  tooltip: 'vip列表'
 }];
 
 var QueryPGS = function QueryPGS(_a) {
@@ -10767,7 +10905,7 @@ var QueryPGS = function QueryPGS(_a) {
       label: item.label,
       labelWidth: 10,
       inputWidth: 20,
-      placeholder: (item === null || item === void 0 ? void 0 : item.placeholder) || "",
+      placeholder: (item === null || item === void 0 ? void 0 : item.placeholder) || '',
       onChange: function onChange(e) {
         return setPgs(function (state) {
           var _a;
@@ -10775,14 +10913,14 @@ var QueryPGS = function QueryPGS(_a) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a[item.key] = e.target.value, _a));
         });
       },
-      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || ""
+      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || ''
     }));
   }), pgsSwitchOption.map(function (item, index) {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: item.key,
       label: item.key,
-      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || "",
-      datasource: [""],
+      tooltip: (item === null || item === void 0 ? void 0 : item.tooltip) || '',
+      datasource: [''],
       onValueChange: function onValueChange(value) {
         return setPgs(function (state) {
           var _a;
@@ -10870,7 +11008,7 @@ var QueryPeering = function QueryPeering(_a) {
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "ProjectId",
     tooltip: "\u76D1\u542C\u5668\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setPeerQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -10881,7 +11019,7 @@ var QueryPeering = function QueryPeering(_a) {
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "VpcPeeringConnectionId",
     tooltip: "\u76D1\u542C\u5668\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setPeerQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
@@ -10909,10 +11047,10 @@ var QueryPeering = function QueryPeering(_a) {
   })), filterState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "vpc-id",
     tooltip: "\u9700\u8981\u67E5\u8BE2\u7684\u53D1\u8D77\u7AEFVPC\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (peeringquery === null || peeringquery === void 0 ? void 0 : peeringquery.Filter) || {};
-      Filter["vpc-id"] = value;
+      Filter['vpc-id'] = value;
       setPeerQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -10922,10 +11060,10 @@ var QueryPeering = function QueryPeering(_a) {
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "accept-vpc-id",
     tooltip: "\u9700\u8981\u67E5\u8BE2\u7684\u63A5\u53D7\u7AEFVPC\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (peeringquery === null || peeringquery === void 0 ? void 0 : peeringquery.Filter) || {};
-      Filter["accept-vpc-id"] = value;
+      Filter['accept-vpc-id'] = value;
       setPeerQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -10935,10 +11073,10 @@ var QueryPeering = function QueryPeering(_a) {
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_4__["default"], {
     label: "state",
     tooltip: "peering\u7684\u72B6\u6001\uFF0C\u7533\u8BF7\u4E2D\uFF08pending-acceptance\uFF09\u72B6\u6001\u7684\u53EA\u80FD\u7531\u53D1\u8D77\u7AEF\u5220\u9664\uFF0C\u5DF2\u8FDE\u63A5\uFF08active \uFF09\u72B6\u6001\u7684\u53D1\u8D77\u7AEF\u548C\u63A5\u53D7\u7AEF\u90FD\u53EF\u4EE5\u5220\u9664\uFF0C\u5DF2\u62D2\u7EDD\uFF08rejected \uFF09\uFF0C\u8FDE\u63A5\u5931\u8D25\uFF08failed \uFF09\u662F\u5BF9\u7AEF\u7F51\u6BB5\u91CD\u590D\u6216\u5176\u4ED6\u5F02\u5E38\u7684\u5BFC\u81F4\u5931\u8D25\u7684\u72B6\u6001\uFF0C\u5DF2\u8FC7\u671F\uFF08expired \uFF09\uFF0C\u8FDE\u63A5\u4E2D\uFF08provisioning \uFF09\u662F\u5BF9\u65B9\u5DF2\u7ECF\u63A5\u53D7\uFF0C\u5BF9\u7B49\u8FDE\u63A5\u8054\u901A\u7684\u72B6\u6001",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (peeringquery === null || peeringquery === void 0 ? void 0 : peeringquery.Filter) || {};
-      Filter["state"] = value;
+      Filter['state'] = value;
       setPeerQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -11009,23 +11147,23 @@ var QuerySlb = function QuerySlb(_a) {
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: "LoadBalancerId",
     tooltip: "\u7F3A\u7701\u5219\u63CF\u8FF0region\u4E0B\u6240\u6709\u7684\u8D1F\u8F7D\u5747\u8861\u4FE1\u606F",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setSlb(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["LoadBalancerId"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['LoadBalancerId'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
     label: "ProjectId",
     tooltip: "\u7F3A\u7701\u9ED8\u8BA4\u9879\u76EE",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setSlb(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["ProjectId"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['ProjectId'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_4__["InlineField"], {
@@ -11048,10 +11186,10 @@ var QuerySlb = function QuerySlb(_a) {
   })), filterState ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "vpc-id",
     tooltip: "VPC\u7684ID",
-    datasource: [""],
+    datasource: [''],
     onValueChange: function onValueChange(value) {
       var Filter = (slbquery === null || slbquery === void 0 ? void 0 : slbquery.Filter) || {};
-      Filter["vpc-id"] = value;
+      Filter['vpc-id'] = value;
       setSlb(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -11158,7 +11296,7 @@ var QueryVpc = function QueryVpc(_a) {
       return setVpcQuery(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["vpc-id"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['vpc-id'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -11185,7 +11323,7 @@ var QueryVpc = function QueryVpc(_a) {
   }, "vpc-id"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onChange: function onChange(value) {
       var Filter = (vpcquery === null || vpcquery === void 0 ? void 0 : vpcquery.Filter) || {};
-      Filter["vpc-id"] = value;
+      Filter['vpc-id'] = value;
       setVpcQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -11200,7 +11338,7 @@ var QueryVpc = function QueryVpc(_a) {
   }, "accept-vpc-id"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onChange: function onChange(value) {
       var Filter = (vpcquery === null || vpcquery === void 0 ? void 0 : vpcquery.Filter) || {};
-      Filter["accept-vpc-id"] = value;
+      Filter['accept-vpc-id'] = value;
       setVpcQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -11215,7 +11353,7 @@ var QueryVpc = function QueryVpc(_a) {
   }, "state"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_CustomInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onChange: function onChange(value) {
       var Filter = (vpcquery === null || vpcquery === void 0 ? void 0 : vpcquery.Filter) || {};
-      Filter["state"] = value;
+      Filter['state'] = value;
       setVpcQuery(function (state) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
           Filter: Filter
@@ -11257,57 +11395,57 @@ __webpack_require__.r(__webpack_exports__);
 
 var FormField = _grafana_ui__WEBPACK_IMPORTED_MODULE_2__["LegacyForms"].FormField;
 var filtercondition = [{
-  label: "instance-id",
-  key: "instance-id",
-  tooltip: "实例ID"
+  label: 'instance-id',
+  key: 'instance-id',
+  tooltip: '实例ID'
 }, {
-  label: "subnet-id",
-  key: "subnet-id",
-  tooltip: "子网ID"
+  label: 'subnet-id',
+  key: 'subnet-id',
+  tooltip: '子网ID'
 }, {
-  label: "instance-name",
-  key: "instance-name",
-  tooltip: "实例名称"
+  label: 'instance-name',
+  key: 'instance-name',
+  tooltip: '实例名称'
 }, {
-  label: "instance-type",
-  key: "instance-type",
-  tooltip: "实例类型"
+  label: 'instance-type',
+  key: 'instance-type',
+  tooltip: '实例类型'
 }, {
-  label: "private-ip-address",
-  key: "private-ip-address",
-  tooltip: "内网IP"
+  label: 'private-ip-address',
+  key: 'private-ip-address',
+  tooltip: '内网IP'
 }, {
-  label: "image-id",
-  key: "image-id",
-  tooltip: "镜像ID"
+  label: 'image-id',
+  key: 'image-id',
+  tooltip: '镜像ID'
 }, {
-  label: "ProjectId",
-  key: "ProjectId",
-  tooltip: "项目的ID"
+  label: 'ProjectId',
+  key: 'ProjectId',
+  tooltip: '项目的ID'
 }, {
-  label: "charge-type",
-  key: "charge-type",
-  tooltip: "计费模式（Monthly（包年包月）、Daily（按量付费（按日月结））、HourlyInstantSettlement（按量付费）、Spot（竞价型实例））"
+  label: 'charge-type',
+  key: 'charge-type',
+  tooltip: '计费模式（Monthly（包年包月）、Daily（按量付费（按日月结））、HourlyInstantSettlement（按量付费）、Spot（竞价型实例））'
 }, {
-  label: "network.interface.subnet_id",
-  key: "network.interface.subnet_id",
-  tooltip: "网络接口关联的子网ID"
+  label: 'network.interface.subnet_id',
+  key: 'network.interface.subnet_id',
+  tooltip: '网络接口关联的子网ID'
 }, {
-  label: "network.interface.network.interface_id",
-  key: "network.interface.network.interface_id",
-  tooltip: "网卡的ID"
+  label: 'network.interface.network.interface_id',
+  key: 'network.interface.network.interface_id',
+  tooltip: '网卡的ID'
 }, {
-  label: "network-interface.group-id",
-  key: "network-interface.group-id",
-  tooltip: "网络接口关联的安全组ID"
+  label: 'network-interface.group-id',
+  key: 'network-interface.group-id',
+  tooltip: '网络接口关联的安全组ID'
 }, {
-  label: "instance-state.name",
-  key: "instance-state.name",
-  tooltip: "实例状态-链接地址https://docs.ksyun.com/documents/836"
+  label: 'instance-state.name',
+  key: 'instance-state.name',
+  tooltip: '实例状态-链接地址https://docs.ksyun.com/documents/836'
 }, {
-  label: "availability-zone-name",
-  key: "availability-zone-name",
-  tooltip: "可用区（AvailabilityZone）-链接地址https://docs.ksyun.com/documents/67"
+  label: 'availability-zone-name',
+  key: 'availability-zone-name',
+  tooltip: '可用区（AvailabilityZone）-链接地址https://docs.ksyun.com/documents/67'
 }];
 
 var Querykec = function Querykec(_a) {
@@ -11360,23 +11498,23 @@ var Querykec = function Querykec(_a) {
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "InstanceId",
     tooltip: "\u5B9E\u4F8BID",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setKecQuery(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["InstanceId"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['InstanceId'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: "ProjectId",
     tooltip: "\u5F85\u8FD4\u56DE\u5B9E\u4F8B\u4FE1\u606F\u7684\u9879\u76EEID\u5217\u8868\uFF0C\u6700\u591A\u53EF\u6DFB\u52A0100\u4E2A\u9879\u76EE",
-    datasource: [""],
+    datasource: [''],
     onChange: function onChange(value) {
       return setKecQuery(function (state) {
         var _a;
 
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a["ProjectId"] = value, _a));
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a['ProjectId'] = value, _a));
       });
     }
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_grafana_ui__WEBPACK_IMPORTED_MODULE_2__["InlineField"], {
@@ -11397,7 +11535,7 @@ var Querykec = function Querykec(_a) {
       key: item.key,
       label: item.label,
       tooltip: item.tooltip,
-      datasource: [""],
+      datasource: [''],
       onValueChange: function onValueChange(value) {
         var Filter = (kecQuery === null || kecQuery === void 0 ? void 0 : kecQuery.Filter) || {};
 
@@ -11523,14 +11661,15 @@ var moment = __webpack_require__(/*! moment */ "moment"); // quer界面需要解
 // Instancealias Query变量显示别名
 
 
-var filterQueryKeys = ["Region", "Action", "ServiceName", "Instancealias"]; // 生成get请求参数
+var filterQueryKeys = ['Region', 'Action', 'ServiceName', 'Instancealias']; // 生成get请求参数
 
 var generateExtenQuery = function generateExtenQuery(queryResult) {
-  var otherUrl = "";
+  var otherUrl = '';
 
   for (var key in queryResult) {
     if (!filterQueryKeys.includes(key)) {
-      otherUrl += "&" + key + "=" + queryResult[key];
+      var queryValue = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(queryResult[key]);
+      otherUrl += "&" + key + "=" + queryValue;
     }
   }
 
@@ -11548,11 +11687,11 @@ var generateInstanceIdList = function generateInstanceIdList(InstanceID) {
       return Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(i === null || i === void 0 ? void 0 : i.value);
     }) : [];
   } else {
-    dealId = Array.isArray(InstanceID) ? Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])((_a = InstanceID[0]) === null || _a === void 0 ? void 0 : _a.value).split(",") : [];
+    dealId = Array.isArray(InstanceID) ? Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])((_a = InstanceID[0]) === null || _a === void 0 ? void 0 : _a.value).split(',') : [];
   }
 
   dealId = dealId.filter(function (instanceItem) {
-    return instanceItem && instanceItem !== "";
+    return instanceItem && instanceItem !== '';
   });
   return dealId;
 };
@@ -11575,7 +11714,7 @@ function (_super) {
 
   DataSource.prototype.query = function (options) {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, Promise, function () {
-      var hours, range, targets, from, to, StartTime, EndTime, errorlist, requestTargets, queryResult, errorMessage;
+      var hours, range, targets, from, to, StartTime, EndTime, errorlist, requestTargets, queryResult;
 
       var _this = this;
 
@@ -11621,26 +11760,29 @@ function (_super) {
               var dealMetricName = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(MetricName === null || MetricName === void 0 ? void 0 : MetricName.value);
               var dealRegion = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(Region.value);
 
-              var _a = NameSpace === "KCE" ? _services__WEBPACK_IMPORTED_MODULE_5__["statisMetric"] : _services__WEBPACK_IMPORTED_MODULE_5__["statisMetricBatch"],
+              var _a = NameSpace === 'KCE' ? _services__WEBPACK_IMPORTED_MODULE_5__["statisMetric"] : _services__WEBPACK_IMPORTED_MODULE_5__["statisMetricBatch"],
                   action = _a.action,
                   version = _a.version,
                   method = _a.method;
 
               var queryDataparams = {
                 Namespace: NameSpace,
-                Aggregate: (aggregates === null || aggregates === void 0 ? void 0 : aggregates.length) ? aggregates : ["Average"],
+                Aggregate: (aggregates === null || aggregates === void 0 ? void 0 : aggregates.length) ? aggregates : ['Average'],
                 StartTime: StartTime,
                 EndTime: EndTime
               };
-              if (!(dealId === null || dealId === void 0 ? void 0 : dealId.length)) return {};
+
+              if (!(dealId === null || dealId === void 0 ? void 0 : dealId.length)) {
+                return {};
+              }
 
               if (Period === null || Period === void 0 ? void 0 : Period.value) {
                 var dealPeriod = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(String(Period === null || Period === void 0 ? void 0 : Period.value));
 
-                lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(queryDataparams, "Period", Number(dealPeriod));
+                lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(queryDataparams, 'Period', Number(dealPeriod));
               }
 
-              if (NameSpace === "KCE") {
+              if (NameSpace === 'KCE') {
                 var extenUrl = generateExtenQuery(queryDataparams);
                 return Object(_utils__WEBPACK_IMPORTED_MODULE_3__["request"])(_this.instanceSetting, "monitor", {
                   action: action,
@@ -11650,7 +11792,7 @@ function (_super) {
                   region: dealRegion
                 });
               } else {
-                lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(queryDataparams, "Metrics", dealId.map(function (instanceItem) {
+                lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(queryDataparams, 'Metrics', dealId.map(function (instanceItem) {
                   return {
                     InstanceID: instanceItem,
                     MetricName: dealMetricName
@@ -11667,7 +11809,7 @@ function (_super) {
               }
             })).then(function (res) {
               var fulfilledRes = res.filter(function (i) {
-                return i.status === "fulfilled";
+                return i.status === 'fulfilled';
               });
               var result = fulfilledRes.map(function (item, index) {
                 var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -11682,15 +11824,17 @@ function (_super) {
               return {
                 data: lodash__WEBPACK_IMPORTED_MODULE_4___default.a.flatten(result)
               };
+            })["catch"](function (err) {
+              return {
+                data: []
+              };
             })];
 
           case 1:
-            queryResult = _a.sent();
-
-            if (errorlist && (errorlist === null || errorlist === void 0 ? void 0 : errorlist.length) > 0) {
-              errorMessage = lodash__WEBPACK_IMPORTED_MODULE_4___default.a.flatten(errorlist).join(",");
-              Object(_utils__WEBPACK_IMPORTED_MODULE_3__["alertError"])(errorMessage);
-            }
+            queryResult = _a.sent(); // if (errorlist && errorlist?.length > 0) {
+            //   const errorMessage = _.flatten(errorlist).join(',');
+            //   alertError(errorMessage);
+            // }
 
             return [2
             /*return*/
@@ -11719,14 +11863,14 @@ function (_super) {
               return [2
               /*return*/
               , {
-                status: "success",
-                message: "test success"
+                status: 'success',
+                message: 'test success'
               }];
             } else {
               return [2
               /*return*/
               , {
-                status: "error",
+                status: 'error',
                 message: "\u6570\u636E\u6E90\u6D4B\u8BD5\u5931\u8D25" + ((_a = testRegion === null || testRegion === void 0 ? void 0 : testRegion.data) === null || _a === void 0 ? void 0 : _a.Error.Message)
               }];
             }
@@ -11774,11 +11918,11 @@ function (_super) {
   };
 
   DataSource.prototype.getVariable = function (metric) {
-    var rs = this.templateSrv.replace((metric || "").trim());
+    var rs = this.templateSrv.replace((metric || '').trim());
     var valStr = rs.match(/\{([\w-,]+)\}/); // 判断是否为多选
 
     if (valStr) {
-      return valStr[1].split(",");
+      return valStr[1].split(',');
     }
 
     return rs;
@@ -11790,9 +11934,9 @@ function (_super) {
       return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
         return [2
         /*return*/
-        , Object(_utils__WEBPACK_IMPORTED_MODULE_3__["request"])(this.instanceSetting, "kec", {
-          action: "DescribeRegions",
-          version: "2016-03-04"
+        , Object(_utils__WEBPACK_IMPORTED_MODULE_3__["request"])(this.instanceSetting, 'kec', {
+          action: 'DescribeRegions',
+          version: '2016-03-04'
         })];
       });
     });
@@ -11844,20 +11988,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "statisMetric", function() { return statisMetric; });
 // 查询指标接口
 var searchMetricApi = {
-  action: "ListMetrics",
-  version: "2010-05-25"
+  action: 'ListMetrics',
+  version: '2010-05-25'
 }; // 批量查询图表数据接口
 
 var statisMetricBatch = {
-  action: "GetMetricStatisticsBatch",
-  version: "2018-11-14",
-  method: "POST"
+  action: 'GetMetricStatisticsBatch',
+  version: '2018-11-14',
+  method: 'POST'
 }; // 单条查询图表数据接口
 
 var statisMetric = {
-  action: "GetMetricStatistics",
-  version: "2019-08-12",
-  method: "GET"
+  action: 'GetMetricStatistics',
+  version: '2019-08-12',
+  method: 'GET'
 };
 
 /***/ }),
@@ -11913,181 +12057,204 @@ __webpack_require__.r(__webpack_exports__);
  // 接口region
 
 var regionSet = [{
-  Region: "eu-east-1",
-  RegionName: "俄罗斯（莫斯科）"
+  Region: 'eu-east-1',
+  RegionName: '俄罗斯（莫斯科）'
 }, {
-  Region: "cn-hongkong-2",
-  RegionName: "香港"
+  Region: 'cn-hongkong-2',
+  RegionName: '香港'
 }, {
-  Region: "cn-qingdao-1",
-  RegionName: "自用（青岛）"
+  Region: 'cn-qingdao-1',
+  RegionName: '自用（青岛）'
 }, {
-  Region: "ap-singapore-1",
-  RegionName: "新加坡"
+  Region: 'ap-singapore-1',
+  RegionName: '新加坡'
 }, {
-  Region: "cn-beijing-6",
-  RegionName: "华北1（北京）"
+  Region: 'cn-beijing-6',
+  RegionName: '华北1（北京）'
 }, {
-  Region: "cn-guangzhou-1",
-  RegionName: "华南1（广州）"
+  Region: 'cn-guangzhou-1',
+  RegionName: '华南1（广州）'
 }, {
-  Region: "cn-shanghai-2",
-  RegionName: "华东1（上海）"
+  Region: 'cn-shanghai-2',
+  RegionName: '华东1（上海）'
+}, {
+  Region: 'cn-northwest-1',
+  RegionName: '西北1(庆阳)'
+}, {
+  Region: 'cn-northwest-2',
+  RegionName: '西北2(自用)'
+}, {
+  Region: 'cn-northwest-3',
+  RegionName: '西北3(宁夏)'
+}, {
+  Region: 'cn-north-vip1',
+  RegionName: '华北专属1区 (天津-小米)'
 }];
 var MonitorServices = [{
-  service: "kec",
-  label: "云服务器(KEC)",
-  namespace: "KEC",
-  href: "https://www.ksyun.com/nv/product/KEC.html",
-  apihref: "https://docs.ksyun.com/documents/816",
-  instanceAction: "DescribeInstances"
+  service: 'kec',
+  label: '云服务器(KEC)',
+  namespace: 'KEC',
+  href: 'https://www.ksyun.com/nv/product/KEC.html',
+  apihref: 'https://docs.ksyun.com/documents/1527?type=6',
+  instanceAction: 'DescribeInstances'
 }, {
-  service: "eip",
-  label: "弹性IP (EIP)",
-  namespace: "EIP",
-  href: "https://www.ksyun.com/nv/product/EIP.html",
-  apihref: "https://docs.ksyun.com/documents/691",
-  instanceAction: "DescribeAddresses"
+  service: 'eip',
+  label: '弹性IP (EIP)',
+  namespace: 'EIP',
+  href: 'https://www.ksyun.com/nv/product/EIP.html',
+  apihref: 'https://docs.ksyun.com/documents/691',
+  instanceAction: 'DescribeAddresses'
 }, {
-  service: "vpc",
-  label: "网络地址转换NAT",
-  namespace: "NAT",
-  href: "https://www.ksyun.com/nv/product/NAT.html",
-  apihref: "https://docs.ksyun.com/documents/115",
-  instanceAction: "DescribeNats"
+  service: 'vpc',
+  label: '网络地址转换NAT',
+  namespace: 'NAT',
+  href: 'https://www.ksyun.com/nv/product/NAT.html',
+  apihref: 'https://docs.ksyun.com/documents/115',
+  instanceAction: 'DescribeNats'
 }, {
-  service: "kcs",
-  label: "云数据库Redis",
-  namespace: "KCS",
-  href: "https://www.ksyun.com/nv/product/Redis.html",
-  apihref: "https://docs.ksyun.com/documents/1031",
-  instanceAction: "DescribeCacheClusters"
+  service: 'kcs',
+  label: '云数据库Redis',
+  namespace: 'KCS',
+  href: 'https://www.ksyun.com/nv/product/Redis.html',
+  apihref: 'https://docs.ksyun.com/documents/1031',
+  instanceAction: 'DescribeCacheClusters'
 }, {
-  service: "krds",
-  label: "关系型数据库 (KRDS)",
-  namespace: "KRDS",
-  href: "https://www.ksyun.com/nv/product/KRDS.html",
-  apihref: "https://docs.ksyun.com/documents/330",
-  instanceAction: "DescribeDBInstances"
+  service: 'krds',
+  label: '关系型数据库 (KRDS)',
+  namespace: 'KRDS',
+  href: 'https://www.ksyun.com/nv/product/KRDS.html',
+  apihref: 'https://docs.ksyun.com/documents/330',
+  instanceAction: 'DescribeDBInstances'
 }, {
-  service: "slb",
-  label: "负载均衡（SLB）",
-  namespace: "SLB",
-  href: "https://www.ksyun.com/nv/product/SLB.html",
-  apihref: "https://docs.ksyun.com/documents/1168",
-  instanceAction: "DescribeLoadBalancers"
+  service: 'slb',
+  label: '负载均衡（SLB）',
+  namespace: 'SLB',
+  href: 'https://www.ksyun.com/nv/product/SLB.html',
+  apihref: 'https://docs.ksyun.com/documents/1168',
+  instanceAction: 'DescribeLoadBalancers'
 }, {
-  service: "slb",
-  label: "监听器（Listener）",
-  namespace: "Listener",
-  href: "https://www.ksyun.com/nv/product/SLB.html",
-  apihref: "https://docs.ksyun.com/documents/1172",
-  instanceAction: "DescribeListeners"
+  service: 'slb',
+  label: '监听器（Listener）',
+  namespace: 'Listener',
+  href: 'https://www.ksyun.com/nv/product/SLB.html',
+  apihref: 'https://docs.ksyun.com/documents/1172',
+  instanceAction: 'DescribeListeners'
 }, {
-  service: "vpc",
-  label: "对等连接（Peering）",
-  namespace: "PEER",
-  href: "https://www.ksyun.com/nv/product/Peering.html",
-  apihref: "https://docs.ksyun.com/documents/2613",
-  instanceAction: "DescribeVpcPeeringConnections"
+  service: 'vpc',
+  label: '对等连接（Peering）',
+  namespace: 'PEER',
+  href: 'https://www.ksyun.com/nv/product/Peering.html',
+  apihref: 'https://docs.ksyun.com/documents/2613',
+  instanceAction: 'DescribeVpcPeeringConnections'
 }, {
-  service: "bws",
-  label: "共享带宽（BWS）",
-  namespace: "BWS",
-  apihref: "https://docs.ksyun.com/documents/432",
-  instanceAction: "DescribeBandWidthShares"
+  service: 'bws',
+  label: '共享带宽（BWS）',
+  namespace: 'BWS',
+  apihref: 'https://docs.ksyun.com/documents/432',
+  instanceAction: 'DescribeBandWidthShares'
 }, {
-  service: "epc",
-  label: "裸金属服务器（EPC）",
-  namespace: "EPC",
-  href: "https://www.ksyun.com/nv/product/EPC.html",
-  apihref: "https://docs.ksyun.com/documents/627",
-  instanceAction: "DescribeEpcs"
+  service: 'epc',
+  label: '裸金属服务器（EPC）',
+  namespace: 'EPC',
+  href: 'https://www.ksyun.com/nv/product/EPC.html',
+  apihref: 'https://docs.ksyun.com/documents/627',
+  instanceAction: 'DescribeEpcs'
 }, {
-  service: "epc",
-  label: "GPU裸金属服务器(GEPC)",
-  namespace: "GEPC",
-  href: "https://www.ksyun.com/nv/product/GPU.html",
-  apihref: "https://docs.ksyun.com/documents/627",
-  instanceAction: "DescribeEpcs"
+  service: 'epc',
+  label: 'GPU裸金属服务器(GEPC)',
+  namespace: 'EPCGPU',
+  href: 'https://www.ksyun.com/nv/product/GPU.html',
+  apihref: 'https://docs.ksyun.com/documents/627',
+  instanceAction: 'DescribeEpcs'
 }, {
-  service: "postgresql",
-  label: "云数据库PostgreSQL（PGS）",
-  namespace: "PGS",
-  href: "https://www.ksyun.com/nv/product/PostgreSQL.html",
-  apihref: "",
-  instanceAction: "DescribeDBInstances"
+  service: 'postgresql',
+  label: '云数据库PostgreSQL（PGS）',
+  namespace: 'PGS',
+  href: 'https://www.ksyun.com/nv/product/PostgreSQL.html',
+  apihref: '',
+  instanceAction: 'DescribeDBInstances'
 }, {
-  service: "kce",
-  label: "容器引擎（KCE）",
-  namespace: "KCE",
-  href: "https://www.ksyun.com/nv/product/KCE.html",
-  apihref: "https://docs.ksyun.com/documents/6715",
-  instanceAction: "DescribeCluster"
+  service: 'kce',
+  label: '容器引擎（KCE）',
+  namespace: 'KCE',
+  href: 'https://www.ksyun.com/nv/product/KCE.html',
+  apihref: 'https://docs.ksyun.com/documents/6715',
+  instanceAction: 'DescribeCluster'
+}, {
+  service: 'ks3',
+  label: '对象存储（KS3）',
+  namespace: 'KS3',
+  href: 'https://docs.ksyun.com/products/25',
+  apihref: 'https://docs.ksyun.com/documents/917?type=3',
+  instanceAction: 'ListBuckets'
 }]; // 各个产品线请求实例配置
 
 var serviceRegionConfig = {
   kec: {
-    version: "2016-03-04",
-    servicename: "kec"
+    version: '2016-03-04',
+    servicename: 'kec'
   },
   eip: {
-    version: "2016-03-04",
-    servicename: "eip"
+    version: '2016-03-04',
+    servicename: 'eip'
   },
   vpc: {
-    version: "2016-03-04",
-    servicename: "vpc"
+    version: '2016-03-04',
+    servicename: 'vpc'
   },
   kcs: {
-    version: "2016-07-01",
-    servicename: "kcs"
+    version: '2016-07-01',
+    servicename: 'kcs'
   },
   krds: {
-    version: "2016-07-01",
-    servicename: "krds"
+    version: '2016-07-01',
+    servicename: 'krds'
   },
   slb: {
-    version: "2016-03-04",
-    servicename: "slb"
+    version: '2016-03-04',
+    servicename: 'slb'
   },
   bws: {
-    version: "2016-03-04",
-    servicename: "bws"
+    version: '2016-03-04',
+    servicename: 'bws'
   },
   epc: {
-    version: "2015-11-01",
-    servicename: "epc"
+    version: '2015-11-01',
+    servicename: 'epc'
   },
   monitor: {
-    version: "2010-05-25",
-    servicename: "monitor"
+    version: '2010-05-25',
+    servicename: 'monitor'
   },
   postgresql: {
-    version: "2018-12-25",
-    servicename: "postgresql"
+    version: '2018-12-25',
+    servicename: 'postgresql'
   },
   kce: {
-    version: "2019-08-06",
-    servicename: "kce"
+    version: '2019-08-06',
+    servicename: 'kce'
+  },
+  ks3: {
+    version: '',
+    servicename: ''
   }
 }; // 非region相关配置
 
 var mormalServiceConfig = {
   kec: {
-    host: "kec.api.ksyun.com",
-    version: "2016-03-04",
-    servicename: "kec"
+    host: 'kec.api.ksyun.com',
+    version: '2016-03-04',
+    servicename: 'kec'
   },
   monitor: {
-    host: "monitor.api.ksyun.com",
-    version: "2010-05-25",
-    servicename: "monitor"
+    host: 'monitor.api.ksyun.com',
+    version: '2010-05-25',
+    servicename: 'monitor'
   },
   iam: {
-    host: "iam.api.ksyun.com",
-    version: "2015-11-01",
-    servicename: "iam"
+    host: 'iam.api.ksyun.com',
+    version: '2015-11-01',
+    servicename: 'iam'
   }
 };
 /** 根据region 生成各个产品线相关host 配置 */
@@ -12098,9 +12265,17 @@ var generageServiceConfig = function generageServiceConfig(defaultConfig, normal
   var _loop_1 = function _loop_1(key) {
     var defaultItem = defaultConfig[key];
     regionSet.forEach(function (region) {
-      lodash__WEBPACK_IMPORTED_MODULE_1___default.a.set(dealObj, key + "/" + region.Region, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, defaultItem), {
-        host: key + "." + region.Region + ".api.ksyun.com"
-      }));
+      if (key === 'ks3') {
+        lodash__WEBPACK_IMPORTED_MODULE_1___default.a.set(dealObj, key + "/" + region.Region, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, defaultItem), {
+          host: key + "-" + region.Region + ".ksyuncs.com"
+        }));
+
+        return;
+      } else {
+        lodash__WEBPACK_IMPORTED_MODULE_1___default.a.set(dealObj, key + "/" + region.Region, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, defaultItem), {
+          host: key + "." + region.Region + ".api.ksyun.com"
+        }));
+      }
     });
   };
 
@@ -12147,12 +12322,12 @@ var defaultQuery = {
     value: 60
   },
   Aggregate: [{
-    label: "均值",
-    value: "Average"
+    label: '均值',
+    value: 'Average'
   }],
   InstanceType: {
-    value: "InstanceId",
-    label: "As InstanceId"
+    value: 'InstanceId',
+    label: 'As InstanceId'
   }
 };
 
@@ -12189,69 +12364,69 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var events = Object(_grafana_runtime__WEBPACK_IMPORTED_MODULE_0__["getAppEvents"])();
-var withoutIpServices = ["Listener", "PEER", "BWS"];
+var withoutIpServices = ['Listener', 'PEER', 'BWS'];
 /**实例配置 */
 
 var config = {
   KEC: {
-    InstanceId: "InstanceId",
-    InstanceName: "InstanceName",
-    InstanceIp: "PrivateIpAddress"
+    InstanceId: 'InstanceId',
+    InstanceName: 'InstanceName',
+    InstanceIp: 'PrivateIpAddress'
   },
   EIP: {
-    InstanceId: "AllocationId",
-    InstanceName: "PublicIp",
-    InstanceIp: "PublicIp"
+    InstanceId: 'AllocationId',
+    InstanceName: 'PublicIp',
+    InstanceIp: 'PublicIp'
   },
   KCS: {
-    InstanceId: "cacheId",
-    InstanceName: "name",
-    InstanceIp: "vip"
+    InstanceId: 'cacheId',
+    InstanceName: 'name',
+    InstanceIp: 'vip'
   },
   NAT: {
-    InstanceId: "NatId",
-    InstanceName: "NatName",
-    InstanceIp: "NatIpSet[0].NatIp"
+    InstanceId: 'NatId',
+    InstanceName: 'NatName',
+    InstanceIp: 'NatIpSet[0].NatIp'
   },
   PEER: {
-    InstanceId: "VpcPeeringConnectionId",
-    InstanceName: "PeeringName",
-    InstanceIp: "VpcPeeringConnectionId"
+    InstanceId: 'VpcPeeringConnectionId',
+    InstanceName: 'PeeringName',
+    InstanceIp: 'VpcPeeringConnectionId'
   },
   KRDS: {
-    InstanceId: "DBInstanceIdentifier",
-    InstanceName: "DBInstanceName",
-    InstanceIp: "Vip"
+    InstanceId: 'DBInstanceIdentifier',
+    InstanceName: 'DBInstanceName',
+    InstanceIp: 'Vip'
   },
   SLB: {
-    InstanceId: "LoadBalancerId",
-    InstanceName: "LoadBalancerName",
-    InstanceIp: "PublicIp"
+    InstanceId: 'LoadBalancerId',
+    InstanceName: 'LoadBalancerName',
+    InstanceIp: 'PublicIp'
   },
   Listener: {
-    InstanceId: "ListenerId",
-    InstanceName: "ListenerName",
-    InstanceIp: "PublicIp"
+    InstanceId: 'ListenerId',
+    InstanceName: 'ListenerName',
+    InstanceIp: 'PublicIp'
   },
   BWS: {
-    InstanceId: "BandWidthShareId",
-    InstanceName: "BandWidthShareName",
-    InstanceIp: "PublicIp"
+    InstanceId: 'BandWidthShareId',
+    InstanceName: 'BandWidthShareName',
+    InstanceIp: 'PublicIp'
   },
   EPC: {
-    InstanceId: "HostId",
-    InstanceName: "HostName",
-    InstanceIp: "NetworkInterfaceAttributeSet[0].PrivateIpAddress"
+    InstanceId: 'HostId',
+    InstanceName: 'HostName',
+    InstanceIp: 'NetworkInterfaceAttributeSet[0].PrivateIpAddress'
   },
   PGS: {
-    InstanceId: "DBInstanceIdentifier",
-    InstanceName: "DBInstanceName",
-    InstanceIp: "Vip"
+    InstanceId: 'DBInstanceIdentifier',
+    InstanceName: 'DBInstanceName',
+    InstanceIp: 'Vip'
   },
   KCE: {
-    InstanceId: "ClusterId",
-    InstanceName: "ClusterName",
-    InstanceIp: "PrivateIpAddress"
+    InstanceId: 'ClusterId',
+    InstanceName: 'ClusterName',
+    InstanceIp: 'PrivateIpAddress'
   }
 }; // 处理不同类型service生成instance options
 
@@ -12261,7 +12436,7 @@ var GenerageInstanceOptions = {
       return data === null || data === void 0 ? void 0 : data.InstancesSet.map(function (item) {
         return {
           label: item[config.KEC[instanceType]],
-          value: item["InstanceId"]
+          value: item['InstanceId']
         };
       });
     }
@@ -12271,7 +12446,7 @@ var GenerageInstanceOptions = {
       return data === null || data === void 0 ? void 0 : data.AddressesSet.map(function (item) {
         return {
           label: item[config.EIP[instanceType]],
-          value: item["AllocationId"]
+          value: item['AllocationId']
         };
       });
     }
@@ -12283,7 +12458,7 @@ var GenerageInstanceOptions = {
       return (_a = data === null || data === void 0 ? void 0 : data.Data) === null || _a === void 0 ? void 0 : _a.list.map(function (item) {
         return {
           label: item[config.KCS[instanceType]],
-          value: item["cacheId"]
+          value: item['cacheId']
         };
       });
     }
@@ -12292,8 +12467,8 @@ var GenerageInstanceOptions = {
     options: function options(data, instanceType) {
       return data === null || data === void 0 ? void 0 : data.NatSet.map(function (item) {
         return {
-          label: instanceType === "InstanceIp" ? item === null || item === void 0 ? void 0 : item.NatIpSet[0].NatIp : item[config.NAT[instanceType]],
-          value: item["NatId"]
+          label: instanceType === 'InstanceIp' ? item === null || item === void 0 ? void 0 : item.NatIpSet[0].NatIp : item[config.NAT[instanceType]],
+          value: item['NatId']
         };
       });
     }
@@ -12303,7 +12478,7 @@ var GenerageInstanceOptions = {
       return data === null || data === void 0 ? void 0 : data.VpcPeeringConnectionSet.map(function (item) {
         return {
           label: item[config.PEER[instanceType]],
-          value: item["VpcPeeringConnectionId"]
+          value: item['VpcPeeringConnectionId']
         };
       });
     }
@@ -12315,7 +12490,7 @@ var GenerageInstanceOptions = {
       return (_a = data === null || data === void 0 ? void 0 : data.Data) === null || _a === void 0 ? void 0 : _a.Instances.map(function (item) {
         return {
           label: item[config.KRDS[instanceType]],
-          value: item["DBInstanceIdentifier"]
+          value: item['DBInstanceIdentifier']
         };
       });
     }
@@ -12325,7 +12500,7 @@ var GenerageInstanceOptions = {
       return data === null || data === void 0 ? void 0 : data.LoadBalancerDescriptions.map(function (item) {
         return {
           label: item[config.SLB[instanceType]],
-          value: item["LoadBalancerId"]
+          value: item['LoadBalancerId']
         };
       });
     }
@@ -12335,7 +12510,7 @@ var GenerageInstanceOptions = {
       return data === null || data === void 0 ? void 0 : data.ListenerSet.map(function (item) {
         return {
           label: item[config.Listener[instanceType]],
-          value: item["ListenerId"]
+          value: item['ListenerId']
         };
       });
     }
@@ -12345,7 +12520,7 @@ var GenerageInstanceOptions = {
       return data === null || data === void 0 ? void 0 : data.BandWidthShareSet.map(function (item) {
         return {
           label: item[config.BWS[instanceType]],
-          value: item["BandWidthShareId"]
+          value: item['BandWidthShareId']
         };
       });
     }
@@ -12354,18 +12529,18 @@ var GenerageInstanceOptions = {
     options: function options(data, instanceType) {
       return data === null || data === void 0 ? void 0 : data.HostSet.map(function (item) {
         return {
-          label: instanceType === "InstanceIp" ? item === null || item === void 0 ? void 0 : item.NetworkInterfaceAttributeSet[0].PrivateIpAddress : item[config.EPC[instanceType]],
-          value: item["HostId"]
+          label: instanceType === 'InstanceIp' ? item === null || item === void 0 ? void 0 : item.NetworkInterfaceAttributeSet[0].PrivateIpAddress : item[config.EPC[instanceType]],
+          value: item['HostId']
         };
       });
     }
   },
-  GEPC: {
+  EPCGPU: {
     options: function options(data, instanceType) {
       return data === null || data === void 0 ? void 0 : data.HostSet.map(function (item) {
         return {
-          label: instanceType === "InstanceIp" ? item === null || item === void 0 ? void 0 : item.NetworkInterfaceAttributeSet[0].PrivateIpAddress : item[config.EPC[instanceType]],
-          value: item["HostId"]
+          label: instanceType === 'InstanceIp' ? item === null || item === void 0 ? void 0 : item.NetworkInterfaceAttributeSet[0].PrivateIpAddress : item[config.EPC[instanceType]],
+          value: item['HostId']
         };
       });
     }
@@ -12377,7 +12552,7 @@ var GenerageInstanceOptions = {
       return (_a = data === null || data === void 0 ? void 0 : data.Data) === null || _a === void 0 ? void 0 : _a.Instances.map(function (item) {
         return {
           label: item[config.PGS[instanceType]],
-          value: item["DBInstanceIdentifier"]
+          value: item['DBInstanceIdentifier']
         };
       });
     }
@@ -12387,7 +12562,7 @@ var GenerageInstanceOptions = {
       return Array.isArray(data === null || data === void 0 ? void 0 : data.ClusterSet) ? data.ClusterSet.map(function (item) {
         return {
           label: item[config.KCE[instanceType]],
-          value: item["ClusterId"]
+          value: item['ClusterId']
         };
       }) : [];
     }
@@ -12400,8 +12575,8 @@ var InstanceMapByservice = new Map(Object.entries(config));
 var generatePeriodOptions = function generatePeriodOptions(interval) {
   // let minCount = Number(interval) / 60;
   var defaultOptions = [{
-    label: "实际粒度",
-    value: ""
+    label: '实际粒度',
+    value: ''
   }]; // if (minCount < 1) {
   //   defaultOptions.push({ label: Number(interval), value: Number(interval) });
   //   minCount = 1;
@@ -12418,22 +12593,22 @@ var generatePeriodOptions = function generatePeriodOptions(interval) {
 }; // query 面板instance ID 选择类型
 
 var InstanceTypes = [{
-  value: "InstanceId",
-  label: "As InstanceId"
+  value: 'InstanceId',
+  label: 'As InstanceId'
 }, {
-  value: "InstanceName",
-  label: "As InstanceName"
+  value: 'InstanceName',
+  label: 'As InstanceName'
 }, {
-  value: "InstanceIp",
-  label: "As InstanceIp"
+  value: 'InstanceIp',
+  label: 'As InstanceIp'
 }]; // query 面板cluster ID 选择类型
 
 var ClusterTypes = [{
-  value: "InstanceId",
-  label: "As ClusterId"
+  value: 'InstanceId',
+  label: 'As ClusterId'
 }, {
-  value: "InstanceName",
-  label: "As ClusterName"
+  value: 'InstanceName',
+  label: 'As ClusterName'
 }];
 /**
  * 获取query 变量中设置的显示text
@@ -12444,10 +12619,10 @@ var ClusterTypes = [{
 
 var getVariableItem = function getVariableItem(variables, Instance) {
   if (!variables || !(variables === null || variables === void 0 ? void 0 : variables.length)) {
-    return "";
+    return '';
   }
 
-  var variableString = "";
+  var variableString = '';
   variables.forEach(function (item) {
     var _a = item.current,
         value = _a.value,
@@ -12460,7 +12635,7 @@ var getVariableItem = function getVariableItem(variables, Instance) {
       var variableItem = options && options.find(function (vItem) {
         return vItem.value === Instance;
       });
-      variableString = variableItem ? variableItem.text : "";
+      variableString = variableItem ? variableItem.text : '';
     }
   });
   return variableString;
@@ -12480,15 +12655,15 @@ var generateTarget = function generateTarget(targetItem, variables, Instance, la
   var Alias = targetItem.Alias;
   var variableLabel = getVariableItem(variables, Instance); // 默认显示legend string
 
-  var defaultLegend = label + "{" + Instance + (variableLabel ? "," + variableLabel : "") + (aggItem ? "," + aggItem : "") + "}";
+  var defaultLegend = label + "{" + Instance + (variableLabel ? ',' + variableLabel : '') + (aggItem ? ',' + aggItem : '') + "}";
 
   if (Alias) {
     // 解析alias 生成对应targets
     var liasName = replaceRealValue(Alias, true);
-    var replaceString_1 = liasName.replace("{{agg}}", aggItem).replace("{{p0}}", Instance);
+    var replaceString_1 = liasName.replace('{{agg}}', aggItem).replace('{{p0}}', Instance);
 
     if (variableLabel) {
-      var variabelLists = variableLabel.includes(",") ? variableLabel.split(",") : [variableLabel];
+      var variabelLists = variableLabel.includes(',') ? variableLabel.split(',') : [variableLabel];
       variabelLists.forEach(function (varItem, index) {
         var replaceIndexItem = "{{p" + (index + 1) + "}}";
 
@@ -12546,9 +12721,9 @@ var dealArrayDataPoints = function dealArrayDataPoints(response, aggregate, targ
   var result = [];
   response.forEach(function (resItem) {
     var _a = resItem.Instance,
-        Instance = _a === void 0 ? "" : _a,
+        Instance = _a === void 0 ? '' : _a,
         _b = resItem.label,
-        label = _b === void 0 ? "" : _b,
+        label = _b === void 0 ? '' : _b,
         member = resItem.datapoints.member;
     aggregate.forEach(function (aggregateItem) {
       // 线值类型 min | max | average
@@ -12581,7 +12756,7 @@ var ParseQueryResult = function ParseQueryResult(response, targetItem) {
   var Aggregate = targetItem.Aggregate;
   var aggregate = Array.isArray(Aggregate) ? Aggregate.map(function (i) {
     return i.value;
-  }) : ["Average"]; // 变量类型需从variable中的current 获取 text 为实际显示值
+  }) : ['Average']; // 变量类型需从variable中的current 获取 text 为实际显示值
 
   var templateSrv = Object(_grafana_runtime__WEBPACK_IMPORTED_MODULE_0__["getTemplateSrv"])(); // 获取所有图表变量
 
@@ -12604,11 +12779,11 @@ var ParseQueryResult = function ParseQueryResult(response, targetItem) {
 var generageMetricOptions = function generageMetricOptions(metricNameList) {
   var metricMap = new Map();
   metricNameList.forEach(function (item) {
-    if (item.metricName === "proc.num") {
+    if (item.metricName === 'proc.num') {
       return;
     }
 
-    if (item && item.metricName && !item.metricName.includes("[")) {
+    if (item && item.metricName && !item.metricName.includes('[')) {
       return metricMap.set(item.metricName, {
         Period: item.interval,
         metricSubChose: null,
@@ -12616,8 +12791,8 @@ var generageMetricOptions = function generageMetricOptions(metricNameList) {
         unit: item.unit
       });
     } else if (item && item.metricName) {
-      var metricMainName = item.metricName.split("[")[0];
-      var subChoseArray = item.metricName.split("[")[1].split("]")[0].split(",");
+      var metricMainName = item.metricName.split('[')[0];
+      var subChoseArray = item.metricName.split('[')[1].split(']')[0].split(',');
       var newSetMap_1 = !metricMap.has(metricMainName) ? {
         Period: item.interval,
         fullName: item.metricName,
@@ -12627,7 +12802,9 @@ var generageMetricOptions = function generageMetricOptions(metricNameList) {
 
       if (subChoseArray === null || subChoseArray === void 0 ? void 0 : subChoseArray.length) {
         subChoseArray.forEach(function (el, index) {
-          newSetMap_1.metricSubChose[index] = (newSetMap_1.metricSubChose[index] || []).concat([el]);
+          var _a;
+
+          lodash__WEBPACK_IMPORTED_MODULE_2___default.a.isObject(newSetMap_1.metricSubChose) ? newSetMap_1.metricSubChose[index] = (((_a = newSetMap_1.metricSubChose) === null || _a === void 0 ? void 0 : _a[index]) || []).concat([el]) : newSetMap_1.metricSubChose = {};
         });
       }
 
@@ -12642,11 +12819,11 @@ var generageMetricOptions = function generageMetricOptions(metricNameList) {
 //  */
 
 var dealQueryFilter = function dealQueryFilter(filterData) {
-  var Filter = "";
+  var Filter = '';
   var N = 1;
   Object.keys(filterData).forEach(function (filterItem, itemIndex) {
     var element = [].concat(filterData[filterItem] || []).filter(function (el) {
-      return el !== "";
+      return el !== '';
     });
 
     if (!element.length) {
@@ -12665,7 +12842,7 @@ var dealQueryFilter = function dealQueryFilter(filterData) {
 
 function ParseMetricQuery(query) {
   if (query === void 0) {
-    query = "";
+    query = '';
   }
 
   if (!query) {
@@ -12674,20 +12851,20 @@ function ParseMetricQuery(query) {
 
   var result = {};
 
-  var queries = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.split(query, "&");
+  var queries = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.split(query, '&');
 
   lodash__WEBPACK_IMPORTED_MODULE_2___default.a.forEach(queries, function (item) {
-    var str = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.split(item, "=");
+    var str = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.split(item, '=');
 
-    if (lodash__WEBPACK_IMPORTED_MODULE_2___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_2___default.a.get(str, "0", ""))) {
-      var val = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_2___default.a.get(str, "1", ""));
+    if (lodash__WEBPACK_IMPORTED_MODULE_2___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_2___default.a.get(str, '0', ''))) {
+      var val = lodash__WEBPACK_IMPORTED_MODULE_2___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_2___default.a.get(str, '1', ''));
 
       try {
         val = JSON.parse(val);
       } catch (e) {// console.log({ val });
       }
 
-      result[lodash__WEBPACK_IMPORTED_MODULE_2___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_2___default.a.get(str, "0", ""))] = val;
+      result[lodash__WEBPACK_IMPORTED_MODULE_2___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_2___default.a.get(str, '0', ''))] = val;
     }
   });
 
@@ -12696,18 +12873,22 @@ function ParseMetricQuery(query) {
 /**处理变量类型数据 */
 
 var replaceRealValue = function replaceRealValue(sourceValue, onlyString) {
-  var realValue = Object(_grafana_runtime__WEBPACK_IMPORTED_MODULE_0__["getTemplateSrv"])().replace(sourceValue); // 只获取字符串
+  try {
+    var realValue = Object(_grafana_runtime__WEBPACK_IMPORTED_MODULE_0__["getTemplateSrv"])().replace(sourceValue); // 只获取字符串
 
-  if (onlyString) {
+    if (onlyString) {
+      return realValue;
+    } // 多选项返回多值{***,****....}，处理
+
+
+    if (realValue.includes('{') && realValue.includes('}')) {
+      return realValue.replace('{', '').replace('}', '');
+    }
+
     return realValue;
-  } // 多选项返回多值{***,****....}，处理
-
-
-  if (realValue.includes("{") && realValue.includes("}")) {
-    return realValue.replace("{", "").replace("}", "");
+  } catch (error) {
+    return sourceValue;
   }
-
-  return realValue;
 };
 /**处理错误信息 */
 
@@ -12725,7 +12906,7 @@ var alertError = function alertError(errorMessage, errTitle) {
 /*!***********************************!*\
   !*** ./datasource/utils/index.ts ***!
   \***********************************/
-/*! exports provided: withoutIpServices, GenerageInstanceOptions, InstanceMapByservice, generatePeriodOptions, InstanceTypes, ClusterTypes, ParseQueryResult, generageMetricOptions, dealQueryFilter, ParseMetricQuery, replaceRealValue, alertError, generateSignUrl, getSign, request, filterinit, filterDesc, kecReducerFn, variableConfig, withoutRegions */
+/*! exports provided: withoutIpServices, GenerageInstanceOptions, InstanceMapByservice, generatePeriodOptions, InstanceTypes, ClusterTypes, ParseQueryResult, generageMetricOptions, dealQueryFilter, ParseMetricQuery, replaceRealValue, alertError, generateSignUrl, getSign, request, getSignKs3, requestKs3, filterinit, filterDesc, kecReducerFn, variableConfig, withoutRegions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12762,6 +12943,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "request", function() { return _request__WEBPACK_IMPORTED_MODULE_1__["request"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSignKs3", function() { return _request__WEBPACK_IMPORTED_MODULE_1__["getSignKs3"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "requestKs3", function() { return _request__WEBPACK_IMPORTED_MODULE_1__["requestKs3"]; });
+
 /* harmony import */ var _monitor_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./monitor.reducer */ "./datasource/utils/monitor.reducer.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "filterinit", function() { return _monitor_reducer__WEBPACK_IMPORTED_MODULE_2__["filterinit"]; });
 
@@ -12797,37 +12982,37 @@ __webpack_require__.r(__webpack_exports__);
  // kec 初始化数据
 
 var filterinit = {
-  "instance-id": [""],
-  "subnet-id": [""],
-  "vpc-id": [""],
-  "instance-name": [""],
-  "instance-type": [""],
-  "private-ip-address": [""],
-  "image-id": [""],
-  ProjectId: [""],
-  "charge-type": [""],
-  "network.interface.subnet_id": [""],
-  "network.interface.network.interface_id": [""],
-  "network-interface.group-id": [""],
-  "instance-state.name": [""],
-  "availability-zone-name": [""]
+  'instance-id': [''],
+  'subnet-id': [''],
+  'vpc-id': [''],
+  'instance-name': [''],
+  'instance-type': [''],
+  'private-ip-address': [''],
+  'image-id': [''],
+  ProjectId: [''],
+  'charge-type': [''],
+  'network.interface.subnet_id': [''],
+  'network.interface.network.interface_id': [''],
+  'network-interface.group-id': [''],
+  'instance-state.name': [''],
+  'availability-zone-name': ['']
 }; // kec 描述信息
 
 var filterDesc = {
-  "instance-id": "实例ID",
-  "subnet-id": "子网ID",
-  "vpc-id": "vpc ID",
-  "instance-name": "实例名称",
-  "instance-type": "实例类型",
-  "private-ip-address": "内网IP",
-  "image-id": "镜像ID",
-  ProjectId: "所属项目",
-  "charge-type": "计费模式（Monthly（包年包月）、Daily（按量付费（按日月结））、HourlyInstantSettlement（按量付费）、Spot（竞价型实例））",
-  "network.interface.subnet_id": "网络接口关联的子网ID",
-  "network.interface.network.interface_id": "网卡的ID",
-  "network-interface.group-id": "网络接口关联的安全组ID",
-  "instance-state.name": "实例状态-链接地址https://docs.ksyun.com/documents/836",
-  "availability-zone-name": "可用区（AvailabilityZone）-链接地址https://docs.ksyun.com/documents/67"
+  'instance-id': '实例ID',
+  'subnet-id': '子网ID',
+  'vpc-id': 'vpc ID',
+  'instance-name': '实例名称',
+  'instance-type': '实例类型',
+  'private-ip-address': '内网IP',
+  'image-id': '镜像ID',
+  ProjectId: '所属项目',
+  'charge-type': '计费模式（Monthly（包年包月）、Daily（按量付费（按日月结））、HourlyInstantSettlement（按量付费）、Spot（竞价型实例））',
+  'network.interface.subnet_id': '网络接口关联的子网ID',
+  'network.interface.network.interface_id': '网卡的ID',
+  'network-interface.group-id': '网络接口关联的安全组ID',
+  'instance-state.name': '实例状态-链接地址https://docs.ksyun.com/documents/836',
+  'availability-zone-name': '可用区（AvailabilityZone）-链接地址https://docs.ksyun.com/documents/67'
 };
 var kecReducerFn = function kecReducerFn(state, action) {
   var _a, _b;
@@ -12838,10 +13023,10 @@ var kecReducerFn = function kecReducerFn(state, action) {
       value = _c.value;
 
   switch (type) {
-    case "change":
+    case 'change':
       return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), (_a = {}, _a[key] = value, _a));
 
-    case "changeFilter":
+    case 'changeFilter':
       return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
         Filter: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state.Filter), (_b = {}, _b[key] = value, _b))
       });
@@ -12857,7 +13042,7 @@ var kecReducerFn = function kecReducerFn(state, action) {
 /*!*************************************!*\
   !*** ./datasource/utils/request.ts ***!
   \*************************************/
-/*! exports provided: generateSignUrl, getSign, request */
+/*! exports provided: generateSignUrl, getSign, request, getSignKs3, requestKs3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12865,6 +13050,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generateSignUrl", function() { return generateSignUrl; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSign", function() { return getSign; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "request", function() { return request; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSignKs3", function() { return getSignKs3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestKs3", function() { return requestKs3; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _grafana_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @grafana/runtime */ "@grafana/runtime");
 /* harmony import */ var _grafana_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_grafana_runtime__WEBPACK_IMPORTED_MODULE_1__);
@@ -12884,17 +13071,17 @@ var __backendSrv = Object(_grafana_runtime__WEBPACK_IMPORTED_MODULE_1__["getBack
 
 
 var generateSignUrl = function generateSignUrl(authorization) {
-  var signSplice = authorization.split(",");
-  var dealUrl = "";
+  var signSplice = authorization.split(',');
+  var dealUrl = '';
   signSplice.forEach(function (item, index) {
     if (index === 0) {
-      item = item.split(" ");
-      dealUrl += "&X-Amz-Algorithm=" + item[0];
+      item = item.split(' ');
+      dealUrl += '&X-Amz-Algorithm=' + item[0];
       item = item[1];
     }
 
-    var spliceItem = item.split("=");
-    dealUrl += "&X-Amz-" + spliceItem[0].trim() + "=" + encodeURIComponent(spliceItem[1]);
+    var spliceItem = item.split('=');
+    dealUrl += '&X-Amz-' + spliceItem[0].trim() + '=' + encodeURIComponent(spliceItem[1]);
   });
   return dealUrl;
 };
@@ -12907,15 +13094,15 @@ var generateSignUrl = function generateSignUrl(authorization) {
 
 var getSign = function getSign(pluginId, proxyKey, _a, timestamp) {
   var _b = _a.action,
-      action = _b === void 0 ? "" : _b,
+      action = _b === void 0 ? '' : _b,
       _c = _a.version,
-      version = _c === void 0 ? "" : _c,
+      version = _c === void 0 ? '' : _c,
       _d = _a.extenQuery,
-      extenQuery = _d === void 0 ? "" : _d,
+      extenQuery = _d === void 0 ? '' : _d,
       _e = _a.region,
-      region = _e === void 0 ? "cn-beijing-6" : _e,
+      region = _e === void 0 ? 'cn-beijing-6' : _e,
       _f = _a.method,
-      method = _f === void 0 ? "GET" : _f,
+      method = _f === void 0 ? 'GET' : _f,
       _g = _a.postParams,
       postParams = _g === void 0 ? {} : _g;
   return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
@@ -12930,20 +13117,20 @@ var getSign = function getSign(pluginId, proxyKey, _a, timestamp) {
           /*yield*/
           , __backendSrv.datasourceRequest({
             url: "/api/datasources/" + pluginId + "/resources/sign_v3",
-            method: "post",
+            method: 'post',
             data: {
               Action: action,
               Version: version,
-              Body: method === "POST" ? JSON.stringify(postParams) : "",
-              Query: "Action=" + action + "&Version=" + version + (extenQuery ? "&" + extenQuery : ""),
-              Region: region ? Object(_common__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(region) : "cn-beijing-6",
+              Body: method === 'POST' ? JSON.stringify(postParams) : '',
+              Query: "Action=" + action + "&Version=" + version + (extenQuery ? "&" + extenQuery : ''),
+              Region: region ? Object(_common__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(region) : 'cn-beijing-6',
               Service: "" + servicename,
               Timestamp: timestamp,
-              Uri: "/",
+              Uri: '/',
               Host: host,
               Method: method,
               Headers: {
-                "content-type": "application/json" // host: host,
+                'content-type': 'application/json' // host: host,
 
               }
             }
@@ -12973,7 +13160,7 @@ var request = function request(instanceSetting, proxyKey, queryParams) {
       switch (_c.label) {
         case 0:
           pluginId = instanceSetting.id, url = instanceSetting.url;
-          action = queryParams.action, version = queryParams.version, extenQuery = queryParams.extenQuery, region = queryParams.region, _a = queryParams.method, method = _a === void 0 ? "GET" : _a, _b = queryParams.postParams, postParams = _b === void 0 ? undefined : _b;
+          action = queryParams.action, version = queryParams.version, extenQuery = queryParams.extenQuery, region = queryParams.region, _a = queryParams.method, method = _a === void 0 ? 'GET' : _a, _b = queryParams.postParams, postParams = _b === void 0 ? undefined : _b;
           utcTime = moment().utc();
           timestamp = utcTime.unix();
           return [4
@@ -12992,27 +13179,122 @@ var request = function request(instanceSetting, proxyKey, queryParams) {
           serviceKey = proxyKey;
 
           if (sign.data.intranet) {
-            serviceKey += "-internal";
+            serviceKey += '-internal';
           }
 
-          dealUrl = url + "/" + serviceKey + "?Action=" + action + "&Version=" + version + (extenQuery ? "" + extenQuery : "");
+          dealUrl = url + "/" + serviceKey + "?Action=" + action + "&Version=" + version + (extenQuery ? "" + extenQuery : '');
           time = utcTime.format();
-          dealTime = time.replaceAll(":", "").replaceAll("-", "");
+          dealTime = time.replaceAll(':', '').replaceAll('-', '');
           reqOptions = {
             url: dealUrl,
             method: method,
             headers: {
-              "Content-Type": "application/json",
-              "X-Amz-Date": dealTime,
+              'Content-Type': 'application/json',
+              'X-Amz-Date': dealTime,
               Authorization: sign.data.authorization,
-              Accept: "application/json"
+              Accept: 'application/json'
             }
           };
 
           if (postParams) {
-            lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(reqOptions, "data", postParams);
+            lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(reqOptions, 'data', postParams);
           }
 
+          return [2
+          /*return*/
+          , new Promise(function (resolve, reject) {
+            __backendSrv.datasourceRequest(reqOptions).then(function (res) {
+              return resolve(res);
+            })["catch"](function (err) {
+              resolve(err);
+            });
+          })];
+      }
+    });
+  });
+};
+var getSignKs3 = function getSignKs3(pluginId, proxyKey, _a, timestamp) {
+  var _b = _a.extenQuery,
+      extenQuery = _b === void 0 ? '' : _b,
+      _c = _a.region,
+      region = _c === void 0 ? 'beijing' : _c,
+      _d = _a.method,
+      method = _d === void 0 ? 'GET' : _d,
+      _e = _a.postParams,
+      postParams = _e === void 0 ? {} : _e;
+  return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
+    var signResult;
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_f) {
+      switch (_f.label) {
+        case 0:
+          return [4
+          /*yield*/
+          , __backendSrv.datasourceRequest({
+            url: "/api/datasources/" + pluginId + "/resources/sign_ks3",
+            method: 'post',
+            data: {
+              Action: '',
+              Version: '',
+              Region: 'BEIJING',
+              Host: 'ks3-cn-beijing.ksyuncs.com',
+              Method: 'GET',
+              Query: "projectIds=0",
+              Headers: {
+                Accept: 'application/json'
+              },
+              Timestamp: timestamp,
+              Service: 'ks3',
+              Uri: '/'
+            }
+          })];
+
+        case 1:
+          signResult = _f.sent();
+          return [2
+          /*return*/
+          , signResult || undefined];
+      }
+    });
+  });
+};
+var requestKs3 = function requestKs3(instanceSetting, proxyKey, queryParams) {
+  return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
+    var pluginId, url, extenQuery, region, _a, method, utcTime, time, dealTime, sign, serviceKey, dealUrl, reqOptions;
+
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
+      switch (_b.label) {
+        case 0:
+          pluginId = instanceSetting.id, url = instanceSetting.url;
+          extenQuery = queryParams.extenQuery, region = queryParams.region, _a = queryParams.method, method = _a === void 0 ? 'GET' : _a;
+          utcTime = moment().utc();
+          time = utcTime.format();
+          dealTime = time.replaceAll(':', '').replaceAll('-', '');
+          return [4
+          /*yield*/
+          , getSignKs3(pluginId, proxyKey, {
+            region: region,
+            extenQuery: extenQuery,
+            method: method
+          }, utcTime.unix())];
+
+        case 1:
+          sign = _b.sent();
+          serviceKey = proxyKey;
+
+          if (sign.data.intranet) {
+            serviceKey += '-internal';
+          }
+
+          dealUrl = url + "/" + serviceKey + "?projectIds=0";
+          reqOptions = {
+            url: dealUrl,
+            method: 'GET',
+            headers: {
+              'X-Kss-Date': dealTime,
+              Authorization: sign.data.authorization,
+              Accept: 'application/json'
+            }
+          };
           return [2
           /*return*/
           , new Promise(function (resolve, reject) {
@@ -13040,21 +13322,26 @@ var request = function request(instanceSetting, proxyKey, queryParams) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "variableConfig", function() { return variableConfig; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withoutRegions", function() { return withoutRegions; });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
 /**
  * 按别名显示变量
  * @param InstanceAlias 别名
  * @param data 接口返回每条数据
  * @returns 需要显示的字符串内容
  */
+
 var generateAliasText = function generateAliasText(InstanceAlias, data) {
-  if (!InstanceAlias.includes(",")) {
-    return data[InstanceAlias];
+  if (!InstanceAlias.includes(',')) {
+    var findValue = Object(lodash__WEBPACK_IMPORTED_MODULE_0__["get"])(data, InstanceAlias);
+    return findValue;
   }
 
-  var showText = "";
-  var aliasNames = InstanceAlias.split(",");
+  var showText = '';
+  var aliasNames = InstanceAlias.split(',');
   aliasNames.forEach(function (i) {
-    showText += showText === "" ? data === null || data === void 0 ? void 0 : data[i] : "," + (data === null || data === void 0 ? void 0 : data[i]);
+    showText += showText === '' ? Object(lodash__WEBPACK_IMPORTED_MODULE_0__["get"])(data, i) : "," + Object(lodash__WEBPACK_IMPORTED_MODULE_0__["get"])(data, i);
   });
   return showText;
 }; // namespace 维度
@@ -13062,15 +13349,15 @@ var generateAliasText = function generateAliasText(InstanceAlias, data) {
 
 var variableConfig = {
   KEC: {
-    service: "kec",
-    label: "云服务器KEC",
-    namespace: "KEC",
-    href: "https://www.ksyun.com/nv/product/KEC.html",
-    instanceAction: "DescribeInstances",
+    service: 'kec',
+    label: '云服务器KEC',
+    namespace: 'KEC',
+    href: 'https://www.ksyun.com/nv/product/KEC.html',
+    instanceAction: 'DescribeInstances',
     // kec 请求实例接口
     DescribeInstances: {
-      getDataKey: "InstancesSet",
-      version: "2016-03-04",
+      getDataKey: 'InstancesSet',
+      version: '2016-03-04',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13083,8 +13370,8 @@ var variableConfig = {
     },
     // kec请求region接口
     DescribeRegions: {
-      getDataKey: "RegionSet",
-      version: "2016-03-04",
+      getDataKey: 'RegionSet',
+      version: '2016-03-04',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13097,14 +13384,14 @@ var variableConfig = {
     }
   },
   EIP: {
-    service: "eip",
-    label: "弹性IP (EIP)",
-    namespace: "EIP",
-    href: "https://www.ksyun.com/nv/product/EIP.html",
-    instanceAction: "DescribeAddresses",
+    service: 'eip',
+    label: '弹性IP (EIP)',
+    namespace: 'EIP',
+    href: 'https://www.ksyun.com/nv/product/EIP.html',
+    instanceAction: 'DescribeAddresses',
     DescribeAddresses: {
-      version: "2016-03-04",
-      getDataKey: "AddressesSet",
+      version: '2016-03-04',
+      getDataKey: 'AddressesSet',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13117,14 +13404,14 @@ var variableConfig = {
     }
   },
   NAT: {
-    service: "vpc",
-    label: "网络地址转换NAT",
-    namespace: "NAT",
-    href: "https://www.ksyun.com/nv/product/NAT.html",
-    instanceAction: "DescribeNats",
+    service: 'vpc',
+    label: '网络地址转换NAT',
+    namespace: 'NAT',
+    href: 'https://www.ksyun.com/nv/product/NAT.html',
+    instanceAction: 'DescribeNats',
     DescribeNats: {
-      version: "2016-03-04",
-      getDataKey: "NatSet",
+      version: '2016-03-04',
+      getDataKey: 'NatSet',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13137,14 +13424,14 @@ var variableConfig = {
     }
   },
   KCS: {
-    service: "kcs",
-    namespace: "KCS",
-    label: "云数据库Redis",
-    href: "https://www.ksyun.com/nv/product/Redis.html",
-    instanceAction: "DescribeCacheClusters",
+    service: 'kcs',
+    namespace: 'KCS',
+    label: '云数据库Redis',
+    href: 'https://www.ksyun.com/nv/product/Redis.html',
+    instanceAction: 'DescribeCacheClusters',
     DescribeCacheClusters: {
-      version: "2016-07-01",
-      getDataKey: "Data",
+      version: '2016-07-01',
+      getDataKey: 'Data',
       // 取值Data.list
       backDataFn: function backDataFn(Data, InstanceAlias) {
         var list = (Data === null || Data === void 0 ? void 0 : Data.list) || [];
@@ -13159,14 +13446,14 @@ var variableConfig = {
     }
   },
   KRDS: {
-    service: "krds",
-    label: "关系型数据库 (KRDS)",
-    namespace: "KRDS",
-    href: "https://www.ksyun.com/nv/product/KRDS.html",
-    instanceAction: "DescribeDBInstances",
+    service: 'krds',
+    label: '关系型数据库 (KRDS)',
+    namespace: 'KRDS',
+    href: 'https://www.ksyun.com/nv/product/KRDS.html',
+    instanceAction: 'DescribeDBInstances',
     DescribeDBInstances: {
-      version: "2016-07-01",
-      getDataKey: "Data",
+      version: '2016-07-01',
+      getDataKey: 'Data',
       backDataFn: function backDataFn(Data, InstanceAlias) {
         var list = (Data === null || Data === void 0 ? void 0 : Data.Instances) || [];
         return list.map(function (i) {
@@ -13180,14 +13467,14 @@ var variableConfig = {
     }
   },
   SLB: {
-    service: "slb",
-    label: "负载均衡（SLB）",
-    namespace: "SLB",
-    href: "https://www.ksyun.com/nv/product/SLB.html",
-    instanceAction: "DescribeLoadBalancers",
+    service: 'slb',
+    label: '负载均衡（SLB）',
+    namespace: 'SLB',
+    href: 'https://www.ksyun.com/nv/product/SLB.html',
+    instanceAction: 'DescribeLoadBalancers',
     DescribeLoadBalancers: {
-      version: "2016-03-04",
-      getDataKey: "LoadBalancerDescriptions",
+      version: '2016-03-04',
+      getDataKey: 'LoadBalancerDescriptions',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13200,14 +13487,14 @@ var variableConfig = {
     }
   },
   Listener: {
-    service: "slb",
-    label: "监听器（Listener）",
-    namespace: "Listener",
-    href: "https://www.ksyun.com/nv/product/SLB.html",
-    instanceAction: "DescribeListeners",
+    service: 'slb',
+    label: '监听器（Listener）',
+    namespace: 'Listener',
+    href: 'https://www.ksyun.com/nv/product/SLB.html',
+    instanceAction: 'DescribeListeners',
     DescribeListeners: {
-      version: "2016-03-04",
-      getDataKey: "ListenerSet",
+      version: '2016-03-04',
+      getDataKey: 'ListenerSet',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13220,14 +13507,14 @@ var variableConfig = {
     }
   },
   PEER: {
-    service: "vpc",
-    label: "对等连接（Peering）",
-    namespace: "PEER",
-    href: "https://www.ksyun.com/nv/product/Peering.html",
-    instanceAction: "DescribeVpcPeeringConnections",
+    service: 'vpc',
+    label: '对等连接（Peering）',
+    namespace: 'PEER',
+    href: 'https://www.ksyun.com/nv/product/Peering.html',
+    instanceAction: 'DescribeVpcPeeringConnections',
     DescribeVpcPeeringConnections: {
-      version: "2016-03-04",
-      getDataKey: "VpcPeeringConnectionSet",
+      version: '2016-03-04',
+      getDataKey: 'VpcPeeringConnectionSet',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13240,13 +13527,13 @@ var variableConfig = {
     }
   },
   BWS: {
-    service: "bws",
-    label: "共享带宽（BWS）",
-    namespace: "BWS",
-    instanceAction: "DescribeBandWidthShares",
+    service: 'bws',
+    label: '共享带宽（BWS）',
+    namespace: 'BWS',
+    instanceAction: 'DescribeBandWidthShares',
     DescribeBandWidthShares: {
-      version: "2016-03-04",
-      getDataKey: "BandWidthShareSet",
+      version: '2016-03-04',
+      getDataKey: 'BandWidthShareSet',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13259,14 +13546,14 @@ var variableConfig = {
     }
   },
   EPC: {
-    service: "epc",
-    label: "裸金属服务器（EPC）",
-    namespace: "EPC",
-    href: "https://www.ksyun.com/nv/product/EPC.html",
-    instanceAction: "DescribeEpcs",
+    service: 'epc',
+    label: '裸金属服务器（EPC）',
+    namespace: 'EPC',
+    href: 'https://www.ksyun.com/nv/product/EPC.html',
+    instanceAction: 'DescribeEpcs',
     DescribeEpcs: {
-      version: "2015-11-01",
-      getDataKey: "HostSet",
+      version: '2015-11-01',
+      getDataKey: 'HostSet',
       backDataFn: function backDataFn(list, InstanceAlias) {
         return list.map(function (i) {
           return {
@@ -13279,12 +13566,12 @@ var variableConfig = {
     }
   },
   MONITOR: {
-    service: "monitor",
-    label: "GPU裸金属服务器(GEPC)",
-    instanceAction: "DescribeEpcs",
+    service: 'monitor',
+    label: 'GPU裸金属服务器(GEPC)',
+    instanceAction: 'DescribeEpcs',
     ListMetrics: {
-      version: "2010-05-25",
-      getDataKey: "listMetricsResult",
+      version: '2010-05-25',
+      getDataKey: 'listMetricsResult',
       backDataFn: function backDataFn(Data, InstanceAlias) {
         var metricList = Data.metrics.member;
         return metricList.map(function (i) {
@@ -13298,12 +13585,12 @@ var variableConfig = {
     }
   },
   IAM: {
-    service: "iam",
-    label: "",
-    instanceAction: "GetAccountAllProjectList",
+    service: 'iam',
+    label: '',
+    instanceAction: 'GetAccountAllProjectList',
     GetAccountAllProjectList: {
-      version: "2015-11-01",
-      getDataKey: "ListProjectResult",
+      version: '2015-11-01',
+      getDataKey: 'ListProjectResult',
       backDataFn: function backDataFn(Data, InstanceAlias) {
         var metricList = Data.ProjectList;
         return metricList.map(function (i) {
@@ -13317,14 +13604,14 @@ var variableConfig = {
     }
   },
   PGS: {
-    service: "postgresql",
-    label: "云数据库PostgreSQL（PGS）",
-    namespace: "PGS",
-    href: "https://www.ksyun.com/nv/product/PostgreSQL.html",
-    instanceAction: "DescribeDBInstances",
+    service: 'postgresql',
+    label: '云数据库PostgreSQL（PGS）',
+    namespace: 'PGS',
+    href: 'https://www.ksyun.com/nv/product/PostgreSQL.html',
+    instanceAction: 'DescribeDBInstances',
     DescribeDBInstances: {
-      version: "2018-12-25",
-      getDataKey: "Data",
+      version: '2018-12-25',
+      getDataKey: 'Data',
       backDataFn: function backDataFn(Data, InstanceAlias) {
         var list = (Data === null || Data === void 0 ? void 0 : Data.Instances) || [];
         return list.map(function (i) {
@@ -13338,14 +13625,14 @@ var variableConfig = {
     }
   },
   KCE: {
-    service: "kce",
-    label: "容器引擎（KCE）",
-    namespace: "KCE",
-    href: "https://www.ksyun.com/nv/product/Kce.html",
-    instanceAction: "DescribeCluster",
+    service: 'kce',
+    label: '容器引擎（KCE）',
+    namespace: 'KCE',
+    href: 'https://www.ksyun.com/nv/product/Kce.html',
+    instanceAction: 'DescribeCluster',
     DescribeCluster: {
-      version: "2019-08-06",
-      getDataKey: "ClusterSet",
+      version: '2019-08-06',
+      getDataKey: 'ClusterSet',
       backDataFn: function backDataFn(ClusterSetList, InstanceAlias) {
         return ClusterSetList.map(function (i) {
           return {
@@ -13359,7 +13646,7 @@ var variableConfig = {
   }
 }; // without region
 
-var withoutRegions = ["iam"];
+var withoutRegions = ['iam'];
 
 /***/ }),
 

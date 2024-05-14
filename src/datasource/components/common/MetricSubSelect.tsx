@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import { LegacyForms } from "@grafana/ui";
-import _ from "lodash";
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { LegacyForms } from '@grafana/ui';
+import _ from 'lodash';
 
 const { Select } = LegacyForms;
 interface SubItem {
@@ -12,27 +12,17 @@ interface OwnProps {
   onChange: (value: string) => void;
   defaultValue?: string;
 }
-const MetricSubSelect: FC<OwnProps> = ({
-  subChosed = {},
-  onChange,
-  defaultValue,
-}) => {
+const MetricSubSelect: FC<OwnProps> = ({ subChosed = {}, onChange, defaultValue }) => {
   const subSeletValues = useRef<any[]>([]);
   const [subValues, setSubValues] = useState<any[]>([]);
   useEffect(() => {
     subSeletValues.current = [];
     setSubValues([]);
-    console.log("subchosed", subChosed);
   }, [subChosed]);
 
   useEffect(() => {
-    console.log("defaultValue", defaultValue);
-    if (
-      defaultValue &&
-      defaultValue.includes("[") &&
-      defaultValue.includes("]")
-    ) {
-      const subChoseArray = defaultValue.split("[")[1].split("]")[0].split(",");
+    if (defaultValue && defaultValue.includes('[') && defaultValue.includes(']')) {
+      const subChoseArray = defaultValue.split('[')[1].split(']')[0].split(',');
       const defaultSubValue = subChoseArray.map((i: any) => ({
         label: i,
         value: i,
@@ -61,16 +51,14 @@ const MetricSubSelect: FC<OwnProps> = ({
     <>
       {Array.isArray(Object.keys(subChosed)) &&
         Object.keys(subChosed).map((item: string, index: number) => {
-          const subChosedOptions = Array.from(
-            new Set(subChosed[Number(item)] || [])
-          ).map((i) => ({
+          const subChosedOptions = Array.from(new Set(subChosed[Number(item)] || [])).map((i) => ({
             label: i,
             value: i,
           }));
           return (
             <div key={item + index + subValues[index]}>
               <Select
-                width={"auto"}
+                width={'auto'}
                 value={subValues[index]}
                 options={subChosedOptions}
                 allowCustomValue={true}

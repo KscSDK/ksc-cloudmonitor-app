@@ -9,8 +9,8 @@
       "name": "Ksyun Cloud Monitor"
     },
     "keywords": ["ksyuncloud", "ksyuncloudmonitor", "grafana", "plugins"],
-    "version": "1.1.2",
-    "updated": "2023-09-19",
+    "version": "1.1.5",
+    "updated": "2023-12-26",
     "logos": {
       "small": "img/logo.png",
       "large": "img/logo.png"
@@ -40,6 +40,16 @@
       "type": "dashboard",
       "name": "【预设】容器服务KCE-默认项目",
       "path": "dashboards/kce.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "【预设】裸金属服务器EPC",
+      "path": "dashboards/epc.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "【预设】GPU裸金属服务器EPC",
+      "path": "dashboards/gpuepc.json"
     },
     {
       "type": "datasource",
