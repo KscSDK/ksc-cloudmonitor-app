@@ -1099,7 +1099,7 @@
       ]
     },
     {
-      "path": "ks3/cn-beijing",
+      "path": "ks3/cn-beijing-internal",
       "url": "http://ks3-cn-beijing-internal.ksyuncs.com",
       "headers": [
         {
@@ -1109,7 +1109,7 @@
       ]
     },
     {
-      "path": "ks3/cn-shanghai",
+      "path": "ks3/cn-shanghai-internal",
       "url": "http://ks3-cn-shanghai-internal.ksyuncs.com",
       "headers": [
         {
@@ -1119,7 +1119,7 @@
       ]
     },
     {
-      "path": "ks3/cn-guangzhou",
+      "path": "ks3/cn-guangzhou-internal",
       "url": "http://ks3-cn-guangzhou-internal.ksyuncs.com",
       "headers": [
         {
@@ -1129,7 +1129,7 @@
       ]
     },
     {
-      "path": "ks3/cn-hk-1",
+      "path": "ks3/cn-hk-1-internal",
       "url": "http://ks3-cn-hk-1-internal.ksyuncs.com",
       "headers": [
         {
@@ -1139,7 +1139,7 @@
       ]
     },
     {
-      "path": "ks3/sgp",
+      "path": "ks3/sgp-internal",
       "url": "http://ks3-sgp-internal.ksyuncs.com",
       "headers": [
         {
@@ -1149,7 +1149,7 @@
       ]
     },
     {
-      "path": "ks3/jr-beijing",
+      "path": "ks3/jr-beijing-internal",
       "url": "http://ks3-jr-beijing-internal.ksyuncs.com",
       "headers": [
         {
@@ -1159,7 +1159,7 @@
       ]
     },
     {
-      "path": "ks3/jr-shanghai",
+      "path": "ks3/jr-shanghai-internal",
       "url": "http://ks3-jr-shanghai-internal.ksyuncs.com",
       "headers": [
         {
@@ -2274,6 +2274,10 @@
       "headers": [
         {
           "name": "Accept",
+          "content": "application/json"
+        },
+        {
+          "name": "Content-Type",
           "content": "application/json"
         }
       ]

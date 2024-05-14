@@ -13238,9 +13238,10 @@ var getSignKs3 = function getSignKs3(pluginId, proxyKey, _a, timestamp) {
               Region: 'BEIJING',
               Host: 'ks3-cn-beijing.ksyuncs.com',
               Method: 'GET',
-              Query: "projectIds=0",
+              Query: 'projectIds=0',
               Headers: {
-                Accept: 'application/json'
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
               },
               Timestamp: timestamp,
               Service: 'ks3',
@@ -13292,7 +13293,8 @@ var requestKs3 = function requestKs3(instanceSetting, proxyKey, queryParams) {
             headers: {
               'X-Kss-Date': dealTime,
               Authorization: sign.data.authorization,
-              Accept: 'application/json'
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
             }
           };
           return [2

@@ -122,9 +122,10 @@ export const getSignKs3 = async (
       Region: 'BEIJING',
       Host: 'ks3-cn-beijing.ksyuncs.com',
       Method: 'GET',
-      Query: "projectIds=0",
+      Query: 'projectIds=0',
       Headers: {
         Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       Timestamp: timestamp,
       Service: 'ks3',
@@ -154,6 +155,7 @@ export const requestKs3 = async (instanceSetting: any, proxyKey: string, queryPa
       'X-Kss-Date': dealTime,
       Authorization: sign.data.authorization,
       Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
   };
   return new Promise((resolve, reject) => {

@@ -173,7 +173,7 @@ const serviceRegionConfig = {
   monitor: { version: '2010-05-25', servicename: 'monitor' },
   postgresql: { version: '2018-12-25', servicename: 'postgresql' },
   kce: { version: '2019-08-06', servicename: 'kce' },
-  ks3: {version: '', servicename: ''}
+  ks3: { version: '', servicename: '' },
 };
 // 非region相关配置
 const mormalServiceConfig = {
@@ -196,7 +196,7 @@ const generageServiceConfig = (defaultConfig: any, normalConfig: any) => {
           ...defaultItem,
           host: `${key}-${region.Region}.ksyuncs.com`,
         });
-        return
+        return;
       } else {
         _.set(dealObj, `${key}/${region.Region}`, {
           ...defaultItem,
