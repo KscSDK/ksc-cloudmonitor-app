@@ -194,7 +194,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   async metricFindQuery(query: string, options?: any): Promise<MetricFindValue[]> {
     const queryResult = ParseMetricQuery(query);
     const { Region, Action, Instancealias = undefined, ServiceName } = queryResult;
-    if (!ServiceName || !Region) return [];
+    if (!ServiceName) return [];
     // k3自定义变量接口处理
     if (ServiceName === 'KS3') {
       const ks3Region = transferRegionToKs3(replaceRealValue(Region));

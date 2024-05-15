@@ -9237,6 +9237,11 @@ var QueryEditor = function QueryEditor(_a) {
           onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
         });
 
+      case 'KS3':
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_services__WEBPACK_IMPORTED_MODULE_10__["QueryKS3"], {
+          onChange: lodash__WEBPACK_IMPORTED_MODULE_6___default.a.debounce(handleChange, 500)
+        });
+
       default:
         return null;
     }
@@ -9468,7 +9473,7 @@ var QueryEditor = function QueryEditor(_a) {
 
   var getMetricNames = function getMetricNames() {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-      var instanceIdItem, instanceid, namespace, options, defaultExtenQuery, metricNamesData, metricsList;
+      var instanceIdItem, instanceid, namespace, defaultExtenQuery, metricNamesData, metricsList;
 
       var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
@@ -9483,11 +9488,6 @@ var QueryEditor = function QueryEditor(_a) {
               return [2
               /*return*/
               ];
-            }
-
-            if (namespace === 'KS3') {
-              options = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["GenerateKs3Metrics"])();
-              setMetricOptions(options);
             }
 
             defaultExtenQuery = "&InstanceID=" + instanceid + "&Namespace=" + namespace + "&PageIndex=1";
@@ -10298,6 +10298,53 @@ var QueryIp = function QueryIp(_a) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QueryIp);
+
+/***/ }),
+
+/***/ "./datasource/components/services/QueryKS3.tsx":
+/*!*****************************************************!*\
+  !*** ./datasource/components/services/QueryKS3.tsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/SwtichIncrement */ "./datasource/components/common/SwtichIncrement.tsx");
+
+
+
+
+var QueryKS3 = function QueryKS3(_a) {
+  var onChange = _a.onChange;
+
+  var _b = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({}), 2),
+      ks3Query = _b[0],
+      setKs3 = _b[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    onChange && onChange(ks3Query);
+  }, [ks3Query, onChange]);
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "common-content"
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_common_SwtichIncrement__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    label: "ProjectId",
+    tooltip: "\u7F3A\u7701\u503C: \u9ED8\u8BA4\u9879\u76EE",
+    datasource: [''],
+    onChange: function onChange(value) {
+      return setKs3(function (state) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, state), {
+          ProjectId: value
+        });
+      });
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QueryKS3);
 
 /***/ }),
 
@@ -11569,7 +11616,7 @@ var Querykec = function Querykec(_a) {
 /*!*************************************************!*\
   !*** ./datasource/components/services/index.ts ***!
   \*************************************************/
-/*! exports provided: QueryIp, QueryBws, QueryEpc, QueryKcs, QueryNat, QuerySlb, QueryVpc, QueryKrds, QueryListener, QueryPeering, Querykec, QueryPGS, QueryKce */
+/*! exports provided: QueryIp, QueryBws, QueryEpc, QueryKcs, QueryNat, QuerySlb, QueryVpc, QueryKrds, QueryListener, QueryPeering, Querykec, QueryPGS, QueryKce, QueryKS3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11612,6 +11659,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _QueryKce__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./QueryKce */ "./datasource/components/services/QueryKce.tsx");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "QueryKce", function() { return _QueryKce__WEBPACK_IMPORTED_MODULE_12__["default"]; });
+
+/* harmony import */ var _QueryKS3__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./QueryKS3 */ "./datasource/components/services/QueryKS3.tsx");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "QueryKS3", function() { return _QueryKS3__WEBPACK_IMPORTED_MODULE_13__["default"]; });
+
 
 
 
@@ -11908,7 +11959,7 @@ function (_super) {
           case 0:
             queryResult = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["ParseMetricQuery"])(query);
             Region = queryResult.Region, Action = queryResult.Action, _a = queryResult.Instancealias, Instancealias = _a === void 0 ? undefined : _a, ServiceName = queryResult.ServiceName;
-            if (!ServiceName || !Region) return [2
+            if (!ServiceName) return [2
             /*return*/
             , []];
             if (!(ServiceName === 'KS3')) return [3

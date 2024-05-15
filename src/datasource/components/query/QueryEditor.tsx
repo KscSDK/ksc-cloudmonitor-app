@@ -22,7 +22,6 @@ import {
   ClusterTypes,
   requestKs3,
   GenerateKs3BusketOptions,
-  GenerateKs3Metrics,
   transferRegionToKs3,
 } from '../../utils';
 import {
@@ -39,6 +38,7 @@ import {
   Querykec,
   QueryPGS,
   QueryKce,
+  QueryKS3,
 } from '../services';
 const { Select } = LegacyForms;
 const AggregateOptions = [
@@ -201,6 +201,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         return <QueryPGS onChange={_.debounce(handleChange, 500)} />;
       case 'KCE':
         return <QueryKce onChange={_.debounce(handleChange, 500)} />;
+      case 'KS3':
+        return <QueryKS3 onChange={_.debounce(handleChange, 500)} />;
       default:
         return null;
     }
@@ -346,16 +348,12 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       const ks3Region = transferRegionToKs3(dealRegion);
       // ProjectId.1=104139, 101606
       setLoading(true);
-      const bucketsRes: any = await requestKs3(
-        datasource.instanceSetting,
-        `${query.Namespace.service}/${ks3Region}`,
-        {
-          extenQuery: extendQuery
-            ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ''}`
-            : `${filterProjectQuery ? filterProjectQuery : ''}`,
-          region: ks3Region,
-        }
-      );
+      const bucketsRes: any = await requestKs3(datasource.instanceSetting, `${query.Namespace.service}/${ks3Region}`, {
+        extenQuery: extendQuery
+          ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ''}`
+          : `${filterProjectQuery ? filterProjectQuery : ''}`,
+        region: ks3Region,
+      });
       setLoading(false);
       if (bucketsRes?.status !== 200) {
         alertError(bucketsRes?.data?.Error?.Message);
