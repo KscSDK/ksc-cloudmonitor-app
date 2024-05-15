@@ -11,4 +11,4 @@ export { default as QueryPeering } from './QueryPeering';
 export { default as Querykec } from './Querykex';
 export { default as QueryPGS } from './QueryPGS';
 export { default as QueryKce } from './QueryKce';
-export { default as QueryKS3} from './QueryKS3';
+export { default as QueryKS3 } from './QueryKS3';

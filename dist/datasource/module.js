@@ -11959,9 +11959,13 @@ function (_super) {
           case 0:
             queryResult = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["ParseMetricQuery"])(query);
             Region = queryResult.Region, Action = queryResult.Action, _a = queryResult.Instancealias, Instancealias = _a === void 0 ? undefined : _a, ServiceName = queryResult.ServiceName;
-            if (!ServiceName) return [2
-            /*return*/
-            , []];
+
+            if (!ServiceName) {
+              return [2
+              /*return*/
+              , []];
+            }
+
             if (!(ServiceName === 'KS3')) return [3
             /*break*/
             , 2];

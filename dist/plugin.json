@@ -52,6 +52,11 @@
       "path": "dashboards/gpuepc.json"
     },
     {
+      "type": "dashboard",
+      "name": "【预设】对象存储（KS3）",
+      "path": "dashboards/ks3.json"
+    },
+    {
       "type": "datasource",
       "name": "Ksyun Cloud Monitor DataSource"
     }

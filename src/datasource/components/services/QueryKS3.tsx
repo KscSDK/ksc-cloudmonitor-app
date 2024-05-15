@@ -2,7 +2,6 @@ import React, { FC, useState, useEffect } from 'react';
 import SwitchIncrement from '../common/SwtichIncrement';
 
 const QueryKS3: FC<any> = ({ onChange }) => {
-
   const [ks3Query, setKs3] = useState<{ [name: string]: any }>({});
   useEffect(() => {
     onChange && onChange(ks3Query);

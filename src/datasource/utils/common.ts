@@ -238,7 +238,7 @@ export const GenerateKs3BusketOptions = (data: any) => {
   return data.buckets.bucket.map((item: any) => ({
     label: item.name,
     value: item.name,
-    text: item.name
+    text: item.name,
   }));
 };
 // TODO 模拟生成ks3 指标
@@ -249,7 +249,7 @@ export const GenerateKs3Metrics = () => {
 // 控制台region -> ks3 region
 export const transferRegionToKs3 = (monitorRegion: string) => {
   return monitorRegion.replace(/-\d+$/, '');
-}
+};
 
 export const GenerateKs3ToMonitorRegion = (ks3Region: string) => {
   if (ks3Region.includes('cn-beijing')) {
