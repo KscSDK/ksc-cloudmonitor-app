@@ -119,10 +119,10 @@ export const getSignKs3 = async (
     data: {
       Action: '',
       Version: '',
-      Region: 'BEIJING',
+      Region: region.toLocaleUpperCase(),
       Host: 'ks3-cn-beijing.ksyuncs.com',
       Method: 'GET',
-      Query: 'projectIds=0',
+      Query: extenQuery ? extenQuery : '',
       Headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ export const requestKs3 = async (instanceSetting: any, proxyKey: string, queryPa
   if (sign.data.intranet) {
     serviceKey += '-internal';
   }
-  const dealUrl = `${url}/${serviceKey}?projectIds=0`;
+  const dealUrl = `${url}/${serviceKey}?${extenQuery ? `${extenQuery}` : ''}`;
   const reqOptions = {
     url: dealUrl,
     method: 'GET',

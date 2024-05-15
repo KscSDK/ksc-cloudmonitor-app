@@ -1,6 +1,17 @@
 import { DataQueryRequest, DataQueryResponse, DataSourceApi, MetricFindValue } from '@grafana/data';
 import { MyQuery, MyDataSourceOptions, defaultQuery } from './types';
-import { request, ParseQueryResult, ParseMetricQuery, variableConfig, replaceRealValue, withoutRegions } from './utils';
+import {
+  request,
+  ParseQueryResult,
+  ParseMetricQuery,
+  variableConfig,
+  replaceRealValue,
+  withoutRegions,
+  GenerateKs3ToMonitorRegion,
+  requestKs3,
+  GenerateKs3BusketOptions,
+  transferRegionToKs3,
+} from './utils';
 import { MetricListItem } from './utils/interface';
 import _ from 'lodash';
 import { statisMetric, statisMetricBatch } from './services';
@@ -106,6 +117,22 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
             method,
             region: dealRegion,
           });
+        } else if (NameSpace === 'KS3') {
+          _.set(
+            queryDataparams,
+            'Metrics',
+            dealId.map((instanceItem: any) => ({
+              InstanceID: instanceItem,
+              MetricName: dealMetricName,
+            }))
+          );
+          return request(this.instanceSetting, `monitor`, {
+            action,
+            version,
+            postParams: { ...queryDataparams },
+            method,
+            region: GenerateKs3ToMonitorRegion(dealRegion),
+          });
         } else {
           _.set(
             queryDataparams,
@@ -167,12 +194,22 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   async metricFindQuery(query: string, options?: any): Promise<MetricFindValue[]> {
     const queryResult = ParseMetricQuery(query);
     const { Region, Action, Instancealias = undefined, ServiceName } = queryResult;
+    if (!ServiceName || !Region) return [];
+    // k3自定义变量接口处理
+    if (ServiceName === 'KS3') {
+      const ks3Region = transferRegionToKs3(replaceRealValue(Region));
+      const ks3QueryResult: any = await requestKs3(this.instanceSetting, `ks3/${ks3Region}`, {
+        region: ks3Region,
+        extenQuery: generateExtenQuery(queryResult),
+      });
+      return GenerateKs3BusketOptions(ks3QueryResult?.data);
+    }
     const service = variableConfig[ServiceName] ? variableConfig[ServiceName].service : undefined;
     const currentMap = variableConfig[ServiceName][Action];
     const proxyKey = withoutRegions.includes(service)
       ? replaceRealValue(service)
       : `${replaceRealValue(service)}/${replaceRealValue(Region)}`;
-
+    // 其他服务变量接口处理
     const doQueryResult: any = await request(this.instanceSetting, proxyKey, {
       action: Action,
       version: currentMap?.version,

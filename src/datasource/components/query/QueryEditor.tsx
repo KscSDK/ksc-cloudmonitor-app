@@ -21,6 +21,9 @@ import {
   GenerageInstanceOptions,
   ClusterTypes,
   requestKs3,
+  GenerateKs3BusketOptions,
+  GenerateKs3Metrics,
+  transferRegionToKs3,
 } from '../../utils';
 import {
   QueryPeering,
@@ -132,9 +135,6 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
 
   // 获取region
   const { value: regionOptions } = useAsync(async () => {
-    if (query?.Namespace?.value === 'KS3') {
-      return ks3Regions;
-    }
     const regionRes: any = await request(datasource.instanceSetting, 'kec', {
       action: 'DescribeRegions',
       version: '2016-03-04',
@@ -144,7 +144,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       label: `${item?.RegionName}`,
       value: item?.Region,
     }));
-  }, [query.Namespace]);
+  }, []);
 
   // 不同service change后触发，filter
   const handleChange = useCallback((queryParams: QueryType) => {
@@ -342,28 +342,27 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
           : (extraParams ? extraParams : '') + projectQuery;
       // 替换region 如果是变量
       const dealRegion = replaceRealValue(query.Region.value);
+      // ks3 region
+      const ks3Region = transferRegionToKs3(dealRegion);
       // ProjectId.1=104139, 101606
       setLoading(true);
-      const instanceIdRes: any = await requestKs3(
+      const bucketsRes: any = await requestKs3(
         datasource.instanceSetting,
-        `${query.Namespace.service}/${dealRegion}`,
+        `${query.Namespace.service}/${ks3Region}`,
         {
           extenQuery: extendQuery
             ? extendQuery + `${filterProjectQuery ? filterProjectQuery : ''}`
             : `${filterProjectQuery ? filterProjectQuery : ''}`,
-          region: dealRegion,
+          region: ks3Region,
         }
       );
       setLoading(false);
-      if (instanceIdRes?.status !== 200) {
-        alertError(instanceIdRes?.data?.Error?.Message);
+      if (bucketsRes?.status !== 200) {
+        alertError(bucketsRes?.data?.Error?.Message);
         return;
       }
-      if (instanceIdRes && instanceIdRes?.data) {
-        const opsItem = GenerageInstanceOptions[query?.Namespace?.value].options(
-          instanceIdRes?.data,
-          query.InstanceType?.value || 'InstanceId'
-        );
+      if (bucketsRes && bucketsRes?.data) {
+        const opsItem = GenerateKs3BusketOptions(bucketsRes.data);
         setInstanceOptions([...opsItem]);
       }
     },
@@ -395,6 +394,10 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     const namespace = query.Namespace.value;
     if (!instanceid) {
       return;
+    }
+    if (namespace === 'KS3') { 
+      const options = GenerateKs3Metrics();
+      setMetricOptions(options);
     }
     let defaultExtenQuery = `&InstanceID=${instanceid}&Namespace=${namespace}&PageIndex=1`;
     if (namespace === 'KCE') {

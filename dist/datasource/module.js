@@ -9110,17 +9110,11 @@ var QueryEditor = function QueryEditor(_a) {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
       var regionRes, regionSet;
 
-      var _a, _b;
+      var _a;
 
-      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_c) {
-        switch (_c.label) {
+      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
+        switch (_b.label) {
           case 0:
-            if (((_a = query === null || query === void 0 ? void 0 : query.Namespace) === null || _a === void 0 ? void 0 : _a.value) === 'KS3') {
-              return [2
-              /*return*/
-              , ks3Regions];
-            }
-
             return [4
             /*yield*/
             , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["request"])(datasource.instanceSetting, 'kec', {
@@ -9129,8 +9123,8 @@ var QueryEditor = function QueryEditor(_a) {
             })];
 
           case 1:
-            regionRes = _c.sent();
-            regionSet = ((_b = regionRes === null || regionRes === void 0 ? void 0 : regionRes.data) === null || _b === void 0 ? void 0 : _b.RegionSet) || [];
+            regionRes = _b.sent();
+            regionSet = ((_a = regionRes === null || regionRes === void 0 ? void 0 : regionRes.data) === null || _a === void 0 ? void 0 : _a.RegionSet) || [];
             return [2
             /*return*/
             , regionSet.map(function (item) {
@@ -9142,7 +9136,7 @@ var QueryEditor = function QueryEditor(_a) {
         }
       });
     });
-  }, [query.Namespace]).value; // 不同service change后触发，filter
+  }, []).value; // 不同service change后触发，filter
 
   var handleChange = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (queryParams) {
     var extenParams = '';
@@ -9401,12 +9395,12 @@ var QueryEditor = function QueryEditor(_a) {
   }, [query, datasource.instanceSetting, projectQueryString]);
   var getKs3Buckets = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (extraParams) {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-      var extendQuery, projectQuery, filterProjectQuery, dealRegion, instanceIdRes, opsItem;
+      var extendQuery, projectQuery, filterProjectQuery, dealRegion, ks3Region, bucketsRes, opsItem;
 
-      var _a, _b, _c, _d;
+      var _a, _b;
 
-      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_e) {
-        switch (_e.label) {
+      return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_c) {
+        switch (_c.label) {
           case 0:
             if (!query.Region) {
               return [2
@@ -9420,29 +9414,30 @@ var QueryEditor = function QueryEditor(_a) {
             extendQuery = !extraParams || typeof extraParams !== 'string' ? extraParams : '';
             projectQuery = "" + (projectQueryString ? projectQueryString : '');
             filterProjectQuery = extraParams && extraParams.includes('ProjectId') ? extraParams : (extraParams ? extraParams : '') + projectQuery;
-            dealRegion = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(query.Region.value); // ProjectId.1=104139, 101606
+            dealRegion = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["replaceRealValue"])(query.Region.value);
+            ks3Region = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["transferRegionToKs3"])(dealRegion); // ProjectId.1=104139, 101606
 
             setLoading(true);
             return [4
             /*yield*/
-            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["requestKs3"])(datasource.instanceSetting, query.Namespace.service + "/" + dealRegion, {
+            , Object(_utils__WEBPACK_IMPORTED_MODULE_9__["requestKs3"])(datasource.instanceSetting, query.Namespace.service + "/" + ks3Region, {
               extenQuery: extendQuery ? extendQuery + ("" + (filterProjectQuery ? filterProjectQuery : '')) : "" + (filterProjectQuery ? filterProjectQuery : ''),
-              region: dealRegion
+              region: ks3Region
             })];
 
           case 1:
-            instanceIdRes = _e.sent();
+            bucketsRes = _c.sent();
             setLoading(false);
 
-            if ((instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.status) !== 200) {
-              Object(_utils__WEBPACK_IMPORTED_MODULE_9__["alertError"])((_b = (_a = instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data) === null || _a === void 0 ? void 0 : _a.Error) === null || _b === void 0 ? void 0 : _b.Message);
+            if ((bucketsRes === null || bucketsRes === void 0 ? void 0 : bucketsRes.status) !== 200) {
+              Object(_utils__WEBPACK_IMPORTED_MODULE_9__["alertError"])((_b = (_a = bucketsRes === null || bucketsRes === void 0 ? void 0 : bucketsRes.data) === null || _a === void 0 ? void 0 : _a.Error) === null || _b === void 0 ? void 0 : _b.Message);
               return [2
               /*return*/
               ];
             }
 
-            if (instanceIdRes && (instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data)) {
-              opsItem = _utils__WEBPACK_IMPORTED_MODULE_9__["GenerageInstanceOptions"][(_c = query === null || query === void 0 ? void 0 : query.Namespace) === null || _c === void 0 ? void 0 : _c.value].options(instanceIdRes === null || instanceIdRes === void 0 ? void 0 : instanceIdRes.data, ((_d = query.InstanceType) === null || _d === void 0 ? void 0 : _d.value) || 'InstanceId');
+            if (bucketsRes && (bucketsRes === null || bucketsRes === void 0 ? void 0 : bucketsRes.data)) {
+              opsItem = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["GenerateKs3BusketOptions"])(bucketsRes.data);
               setInstanceOptions(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArray"])([], Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__read"])(opsItem), false));
             }
 
@@ -9473,7 +9468,7 @@ var QueryEditor = function QueryEditor(_a) {
 
   var getMetricNames = function getMetricNames() {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-      var instanceIdItem, instanceid, namespace, defaultExtenQuery, metricNamesData, metricsList;
+      var instanceIdItem, instanceid, namespace, options, defaultExtenQuery, metricNamesData, metricsList;
 
       var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
@@ -9488,6 +9483,11 @@ var QueryEditor = function QueryEditor(_a) {
               return [2
               /*return*/
               ];
+            }
+
+            if (namespace === 'KS3') {
+              options = Object(_utils__WEBPACK_IMPORTED_MODULE_9__["GenerateKs3Metrics"])();
+              setMetricOptions(options);
             }
 
             defaultExtenQuery = "&InstanceID=" + instanceid + "&Namespace=" + namespace + "&PageIndex=1";
@@ -11791,6 +11791,21 @@ function (_super) {
                   method: method,
                   region: dealRegion
                 });
+              } else if (NameSpace === 'KS3') {
+                lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(queryDataparams, 'Metrics', dealId.map(function (instanceItem) {
+                  return {
+                    InstanceID: instanceItem,
+                    MetricName: dealMetricName
+                  };
+                }));
+
+                return Object(_utils__WEBPACK_IMPORTED_MODULE_3__["request"])(_this.instanceSetting, "monitor", {
+                  action: action,
+                  version: version,
+                  postParams: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, queryDataparams),
+                  method: method,
+                  region: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["GenerateKs3ToMonitorRegion"])(dealRegion)
+                });
               } else {
                 lodash__WEBPACK_IMPORTED_MODULE_4___default.a.set(queryDataparams, 'Metrics', dealId.map(function (instanceItem) {
                   return {
@@ -11886,13 +11901,34 @@ function (_super) {
 
   DataSource.prototype.metricFindQuery = function (query, options) {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, Promise, function () {
-      var queryResult, Region, Action, _a, Instancealias, ServiceName, service, currentMap, proxyKey, doQueryResult, resList, dealResList;
+      var queryResult, Region, Action, _a, Instancealias, ServiceName, ks3Region, ks3QueryResult, service, currentMap, proxyKey, doQueryResult, resList, dealResList;
 
       return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
         switch (_b.label) {
           case 0:
             queryResult = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["ParseMetricQuery"])(query);
             Region = queryResult.Region, Action = queryResult.Action, _a = queryResult.Instancealias, Instancealias = _a === void 0 ? undefined : _a, ServiceName = queryResult.ServiceName;
+            if (!ServiceName || !Region) return [2
+            /*return*/
+            , []];
+            if (!(ServiceName === 'KS3')) return [3
+            /*break*/
+            , 2];
+            ks3Region = Object(_utils__WEBPACK_IMPORTED_MODULE_3__["transferRegionToKs3"])(Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(Region));
+            return [4
+            /*yield*/
+            , Object(_utils__WEBPACK_IMPORTED_MODULE_3__["requestKs3"])(this.instanceSetting, "ks3/" + ks3Region, {
+              region: ks3Region,
+              extenQuery: generateExtenQuery(queryResult)
+            })];
+
+          case 1:
+            ks3QueryResult = _b.sent();
+            return [2
+            /*return*/
+            , Object(_utils__WEBPACK_IMPORTED_MODULE_3__["GenerateKs3BusketOptions"])(ks3QueryResult === null || ks3QueryResult === void 0 ? void 0 : ks3QueryResult.data)];
+
+          case 2:
             service = _utils__WEBPACK_IMPORTED_MODULE_3__["variableConfig"][ServiceName] ? _utils__WEBPACK_IMPORTED_MODULE_3__["variableConfig"][ServiceName].service : undefined;
             currentMap = _utils__WEBPACK_IMPORTED_MODULE_3__["variableConfig"][ServiceName][Action];
             proxyKey = _utils__WEBPACK_IMPORTED_MODULE_3__["withoutRegions"].includes(service) ? Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(service) : Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(service) + "/" + Object(_utils__WEBPACK_IMPORTED_MODULE_3__["replaceRealValue"])(Region);
@@ -11905,7 +11941,7 @@ function (_super) {
               extenQuery: generateExtenQuery(queryResult)
             })];
 
-          case 1:
+          case 3:
             doQueryResult = _b.sent();
             resList = (doQueryResult === null || doQueryResult === void 0 ? void 0 : doQueryResult.data[currentMap === null || currentMap === void 0 ? void 0 : currentMap.getDataKey]) || [];
             dealResList = currentMap.backDataFn(resList, Instancealias);
@@ -12337,13 +12373,17 @@ var defaultQuery = {
 /*!************************************!*\
   !*** ./datasource/utils/common.ts ***!
   \************************************/
-/*! exports provided: withoutIpServices, GenerageInstanceOptions, InstanceMapByservice, generatePeriodOptions, InstanceTypes, ClusterTypes, ParseQueryResult, generageMetricOptions, dealQueryFilter, ParseMetricQuery, replaceRealValue, alertError */
+/*! exports provided: withoutIpServices, GenerageInstanceOptions, GenerateKs3BusketOptions, GenerateKs3Metrics, transferRegionToKs3, GenerateKs3ToMonitorRegion, InstanceMapByservice, generatePeriodOptions, InstanceTypes, ClusterTypes, ParseQueryResult, generageMetricOptions, dealQueryFilter, ParseMetricQuery, replaceRealValue, alertError */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withoutIpServices", function() { return withoutIpServices; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerageInstanceOptions", function() { return GenerageInstanceOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerateKs3BusketOptions", function() { return GenerateKs3BusketOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerateKs3Metrics", function() { return GenerateKs3Metrics; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transferRegionToKs3", function() { return transferRegionToKs3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerateKs3ToMonitorRegion", function() { return GenerateKs3ToMonitorRegion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InstanceMapByservice", function() { return InstanceMapByservice; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generatePeriodOptions", function() { return generatePeriodOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InstanceTypes", function() { return InstanceTypes; });
@@ -12364,6 +12404,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var events = Object(_grafana_runtime__WEBPACK_IMPORTED_MODULE_0__["getAppEvents"])();
+var ks3Metrics = ['ks3.bucket.capacity.total.sd', 'ks3.bucket.capacity.add.sd', 'ks3.bucket.capacity.del.sd', 'ks3.bucket.capacity.total.ia', 'ks3.bucket.capacity.add.ia', 'ks3.bucket.capacity.del.ia', 'ks3.bucket.capacity.total.ar', 'ks3.bucket.capacity.add.ar', 'ks3.bucket.capacity.del.ar', 'ks3.bucket.flow.down.sd', 'ks3.bucket.flow.onet.down.sd', 'ks3.bucket.flow.cdn.down.sd', 'ks3.bucket.flow.down.ia', 'ks3.bucket.flow.onet.down.ia', 'ks3.bucket.flow.cdn.down.ia', 'ks3.bucket.flow.down.ar', 'ks3.bucket.flow.onet.down.ar', 'ks3.bucket.flow.cdn.down.ar', 'ks3.bucket.bandwidth.down', 'ks3.bucket.getcount.sd', 'ks3.bucket.putcount.sd', 'ks3.bucket.getcount.ia', 'ks3.bucket.putcount.ia', 'ks3.bucket.getcount.ar', 'ks3.bucket.putcount.ar', 'ks3.bucket.flow.up.ia', 'ks3.bucket.flow.up.ar'];
 var withoutIpServices = ['Listener', 'PEER', 'BWS'];
 /**实例配置 */
 
@@ -12566,6 +12607,50 @@ var GenerageInstanceOptions = {
         };
       }) : [];
     }
+  }
+}; // 处理生成KS3生成的instance options
+
+var GenerateKs3BusketOptions = function GenerateKs3BusketOptions(data) {
+  var _a;
+
+  if (!((_a = data === null || data === void 0 ? void 0 : data.buckets) === null || _a === void 0 ? void 0 : _a.bucket)) {
+    return [];
+  }
+
+  return data.buckets.bucket.map(function (item) {
+    return {
+      label: item.name,
+      value: item.name,
+      text: item.name
+    };
+  });
+}; // TODO 模拟生成ks3 指标
+
+var GenerateKs3Metrics = function GenerateKs3Metrics() {
+  return ks3Metrics.map(function (i) {
+    return {
+      label: i,
+      value: i
+    };
+  });
+}; // 控制台region -> ks3 region
+
+var transferRegionToKs3 = function transferRegionToKs3(monitorRegion) {
+  return monitorRegion.replace(/-\d+$/, '');
+};
+var GenerateKs3ToMonitorRegion = function GenerateKs3ToMonitorRegion(ks3Region) {
+  if (ks3Region.includes('cn-beijing')) {
+    return 'cn-beijing-6';
+  } else if (ks3Region.includes('cn-shanghai')) {
+    return 'cn-shanghai-2';
+  } else if (ks3Region.includes('cn-guangzhou')) {
+    return 'cn-guangzhou-1';
+  } else if (ks3Region.includes('cn-hongkong')) {
+    return 'cn-hongkong-2';
+  } else if (ks3Region.includes('singapore')) {
+    return 'ap-singapore-1';
+  } else {
+    return '';
   }
 };
 var InstanceMapByservice = new Map(Object.entries(config));
@@ -12906,7 +12991,7 @@ var alertError = function alertError(errorMessage, errTitle) {
 /*!***********************************!*\
   !*** ./datasource/utils/index.ts ***!
   \***********************************/
-/*! exports provided: withoutIpServices, GenerageInstanceOptions, InstanceMapByservice, generatePeriodOptions, InstanceTypes, ClusterTypes, ParseQueryResult, generageMetricOptions, dealQueryFilter, ParseMetricQuery, replaceRealValue, alertError, generateSignUrl, getSign, request, getSignKs3, requestKs3, filterinit, filterDesc, kecReducerFn, variableConfig, withoutRegions */
+/*! exports provided: withoutIpServices, GenerageInstanceOptions, GenerateKs3BusketOptions, GenerateKs3Metrics, transferRegionToKs3, GenerateKs3ToMonitorRegion, InstanceMapByservice, generatePeriodOptions, InstanceTypes, ClusterTypes, ParseQueryResult, generageMetricOptions, dealQueryFilter, ParseMetricQuery, replaceRealValue, alertError, generateSignUrl, getSign, request, getSignKs3, requestKs3, filterinit, filterDesc, kecReducerFn, variableConfig, withoutRegions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12915,6 +13000,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withoutIpServices", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["withoutIpServices"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GenerageInstanceOptions", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["GenerageInstanceOptions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GenerateKs3BusketOptions", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["GenerateKs3BusketOptions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GenerateKs3Metrics", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["GenerateKs3Metrics"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "transferRegionToKs3", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["transferRegionToKs3"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GenerateKs3ToMonitorRegion", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["GenerateKs3ToMonitorRegion"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InstanceMapByservice", function() { return _common__WEBPACK_IMPORTED_MODULE_0__["InstanceMapByservice"]; });
 
@@ -13235,10 +13328,10 @@ var getSignKs3 = function getSignKs3(pluginId, proxyKey, _a, timestamp) {
             data: {
               Action: '',
               Version: '',
-              Region: 'BEIJING',
+              Region: region.toLocaleUpperCase(),
               Host: 'ks3-cn-beijing.ksyuncs.com',
               Method: 'GET',
-              Query: 'projectIds=0',
+              Query: extenQuery ? extenQuery : '',
               Headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -13286,7 +13379,7 @@ var requestKs3 = function requestKs3(instanceSetting, proxyKey, queryParams) {
             serviceKey += '-internal';
           }
 
-          dealUrl = url + "/" + serviceKey + "?projectIds=0";
+          dealUrl = url + "/" + serviceKey + "?" + (extenQuery ? "" + extenQuery : '');
           reqOptions = {
             url: dealUrl,
             method: 'GET',

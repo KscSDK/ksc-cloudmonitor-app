@@ -21,6 +21,35 @@ interface VariableItemProps {
 
 const events: any = getAppEvents();
 
+const ks3Metrics = [
+  'ks3.bucket.capacity.total.sd',
+  'ks3.bucket.capacity.add.sd',
+  'ks3.bucket.capacity.del.sd',
+  'ks3.bucket.capacity.total.ia',
+  'ks3.bucket.capacity.add.ia',
+  'ks3.bucket.capacity.del.ia',
+  'ks3.bucket.capacity.total.ar',
+  'ks3.bucket.capacity.add.ar',
+  'ks3.bucket.capacity.del.ar',
+  'ks3.bucket.flow.down.sd',
+  'ks3.bucket.flow.onet.down.sd',
+  'ks3.bucket.flow.cdn.down.sd',
+  'ks3.bucket.flow.down.ia',
+  'ks3.bucket.flow.onet.down.ia',
+  'ks3.bucket.flow.cdn.down.ia',
+  'ks3.bucket.flow.down.ar',
+  'ks3.bucket.flow.onet.down.ar',
+  'ks3.bucket.flow.cdn.down.ar',
+  'ks3.bucket.bandwidth.down',
+  'ks3.bucket.getcount.sd',
+  'ks3.bucket.putcount.sd',
+  'ks3.bucket.getcount.ia',
+  'ks3.bucket.putcount.ia',
+  'ks3.bucket.getcount.ar',
+  'ks3.bucket.putcount.ar',
+  'ks3.bucket.flow.up.ia',
+  'ks3.bucket.flow.up.ar',
+];
 export const withoutIpServices = ['Listener', 'PEER', 'BWS'];
 /**实例配置 */
 const config: InstanceConfig = {
@@ -199,6 +228,43 @@ export const GenerageInstanceOptions: any = {
         : [];
     },
   },
+};
+
+// 处理生成KS3生成的instance options
+export const GenerateKs3BusketOptions = (data: any) => {
+  if (!data?.buckets?.bucket) {
+    return [];
+  }
+  return data.buckets.bucket.map((item: any) => ({
+    label: item.name,
+    value: item.name,
+    text: item.name
+  }));
+};
+// TODO 模拟生成ks3 指标
+export const GenerateKs3Metrics = () => {
+  return ks3Metrics.map((i: string) => ({ label: i, value: i }));
+};
+
+// 控制台region -> ks3 region
+export const transferRegionToKs3 = (monitorRegion: string) => {
+  return monitorRegion.replace(/-\d+$/, '');
+}
+
+export const GenerateKs3ToMonitorRegion = (ks3Region: string) => {
+  if (ks3Region.includes('cn-beijing')) {
+    return 'cn-beijing-6';
+  } else if (ks3Region.includes('cn-shanghai')) {
+    return 'cn-shanghai-2';
+  } else if (ks3Region.includes('cn-guangzhou')) {
+    return 'cn-guangzhou-1';
+  } else if (ks3Region.includes('cn-hongkong')) {
+    return 'cn-hongkong-2';
+  } else if (ks3Region.includes('singapore')) {
+    return 'ap-singapore-1';
+  } else {
+    return '';
+  }
 };
 export const InstanceMapByservice = new Map(Object.entries(config));
 
