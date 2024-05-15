@@ -395,10 +395,6 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     if (!instanceid) {
       return;
     }
-    if (namespace === 'KS3') { 
-      const options = GenerateKs3Metrics();
-      setMetricOptions(options);
-    }
     let defaultExtenQuery = `&InstanceID=${instanceid}&Namespace=${namespace}&PageIndex=1`;
     if (namespace === 'KCE') {
       defaultExtenQuery = `&Dimensions.0.Name=ClusterId&Dimensions.0.Value=${instanceid}&Namespace=${namespace}&PageIndex=1`;
