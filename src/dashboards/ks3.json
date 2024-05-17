@@ -1,2856 +1,2891 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "target": {
-            "limit": 100,
-            "matchAny": false,
-            "tags": [],
-            "type": "dashboard"
-          },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
           "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": null,
-    "iteration": 1715760708680,
-    "links": [],
-    "liveNow": false,
-    "panels": [
-      {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 0
         },
-        "id": 2,
-        "panels": [],
-        "title": "状态码",
-        "type": "row"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 1
-        },
-        "id": 7,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Aggregate": [
-              {
-                "label": "均值",
-                "value": "Average"
-              }
-            ],
-            "Alias": "2XX状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.2xx",
-              "unit": "次",
-              "value": "ks3.response.2xx"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "2XX状态码",
-        "type": "timeseries"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 12,
-          "y": 1
-        },
-        "id": 6,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Alias": "3XX状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.3xx",
-              "unit": "次",
-              "value": "ks3.response.3xx"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "3XX状态码",
-        "type": "timeseries"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 9
-        },
-        "id": 11,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Alias": "4XX状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.4xx",
-              "unit": "次",
-              "value": "ks3.response.4xx"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "4XX状态码",
-        "type": "timeseries"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 12,
-          "y": 9
-        },
-        "id": 13,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Alias": "5XX状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.5xx",
-              "unit": "次",
-              "value": "ks3.response.5xx"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "5XX状态码",
-        "type": "timeseries"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 17
-        },
-        "id": 15,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Alias": "400状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.400",
-              "unit": "次",
-              "value": "ks3.response.400"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "400状态码",
-        "type": "timeseries"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 12,
-          "y": 17
-        },
-        "id": 18,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Alias": "403状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.403",
-              "unit": "次",
-              "value": "ks3.response.403"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "403状态码",
-        "type": "timeseries"
-      },
-      {
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 25
-        },
-        "id": 19,
-        "options": {
-          "legend": {
-            "calcs": [
-              "min",
-              "max",
-              "mean",
-              "lastNotNull"
-            ],
-            "displayMode": "table",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "targets": [
-          {
-            "Alias": "404状态码[{{p0}}]",
-            "InstanceID": [
-              {
-                "label": "$bucket",
-                "value": "$bucket"
-              }
-            ],
-            "MetricName": {
-              "interval": "60",
-              "label": "ks3.response.404",
-              "unit": "次",
-              "value": "ks3.response.404"
-            },
-            "Namespace": {
-              "href": "https://docs.ksyun.com/products/25",
-              "label": "对象存储（KS3）",
-              "service": "ks3",
-              "value": "KS3"
-            },
-            "Period": {
-              "__isNew__": true,
-              "label": "$period",
-              "value": "$period"
-            },
-            "Region": {
-              "__isNew__": true,
-              "label": "$region",
-              "value": "$region"
-            },
-            "datasource": {
-              "type": "ksc-cloudmonitor-datasource",
-              "uid": "SQuTTxzIk"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "404状态码",
-        "type": "timeseries"
-      },
-      {
-        "collapsed": true,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 33
-        },
-        "id": 29,
-        "panels": [
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 2
-            },
-            "id": 41,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "CDN回源流量[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.download.traffic.cdn",
-                  "unit": "B",
-                  "value": "ks3.download.traffic.cdn"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "CDN回源流量",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 2
-            },
-            "id": 31,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "跨区域复制流量[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.traffic.crr",
-                  "unit": "B",
-                  "value": "ks3.traffic.crr"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "跨区域复制流量",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 10
-            },
-            "id": 39,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "内网上行流量[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.upload.traffic.Internet",
-                  "unit": "B",
-                  "value": "ks3.upload.traffic.Internet"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "内网上行流量",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 10
-            },
-            "id": 37,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "内网下行流量[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.download.traffic.Internet",
-                  "unit": "B",
-                  "value": "ks3.download.traffic.Internet"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "内网下行流量",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 18
-            },
-            "id": 33,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "外网上行流量[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.upload.traffic.Internet",
-                  "unit": "B",
-                  "value": "ks3.upload.traffic.Internet"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "外网上行流量",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 18
-            },
-            "id": 35,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "外网下行流量[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.download.traffic.Internet",
-                  "unit": "B",
-                  "value": "ks3.download.traffic.Internet"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "外网下行流量",
-            "type": "timeseries"
-          }
-        ],
-        "title": "流量类",
-        "type": "row"
-      },
-      {
-        "collapsed": true,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 34
-        },
-        "id": 27,
-        "panels": [
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 3
-            },
-            "id": 43,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "总请求数[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.requests",
-                  "unit": "次",
-                  "value": "ks3.requests"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "总请求数",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 3
-            },
-            "id": 45,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "GET类总请求数[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.requests.get",
-                  "unit": "次",
-                  "value": "ks3.requests.get"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "GET类总请求数",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 11
-            },
-            "id": 49,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "DELETE类请求数[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.requests.delete",
-                  "unit": "次",
-                  "value": "ks3.requests.delete"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "DELETE类请求数",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 11
-            },
-            "id": 47,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "PUT类总请求数[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.requests.put",
-                  "unit": "次",
-                  "value": "ks3.requests.put"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "PUT类总请求数",
-            "type": "timeseries"
-          }
-        ],
-        "title": "请求次数",
-        "type": "row"
-      },
-      {
-        "collapsed": true,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 35
-        },
-        "id": 25,
-        "panels": [
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 4
-            },
-            "id": 51,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "内网上行带宽[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.upload.bandwidth.Internal",
-                  "unit": "bit/s",
-                  "value": "ks3.upload.bandwidth.Internal"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              },
-              {
-                "Alias": "内网下行带宽[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.download.bandwidth.Internal",
-                  "unit": "bit/s",
-                  "value": "ks3.download.bandwidth.Internal"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "hide": false,
-                "refId": "B"
-              }
-            ],
-            "title": "内网带宽",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 4
-            },
-            "id": 53,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "外网上行带宽[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.upload.bandwidth.Internet",
-                  "unit": "bit/s",
-                  "value": "ks3.upload.bandwidth.Internet"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              },
-              {
-                "Alias": "外网下行带宽[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.download.bandwidth.Internet",
-                  "unit": "bit/s",
-                  "value": "ks3.download.bandwidth.Internet"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "hide": false,
-                "refId": "B"
-              }
-            ],
-            "title": "外网带宽",
-            "type": "timeseries"
-          },
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 12
-            },
-            "id": 55,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "CDN带宽[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.download.bandwidth.cdn",
-                  "unit": "bit/s",
-                  "value": "ks3.download.bandwidth.cdn"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "CDN带宽",
-            "type": "timeseries"
-          }
-        ],
-        "title": "带宽类",
-        "type": "row"
-      },
-      {
-        "collapsed": true,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 36
-        },
-        "id": 21,
-        "panels": [
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 5
-            },
-            "id": 57,
-            "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "总请求平均时延[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.request.latency",
-                  "unit": "ms",
-                  "value": "ks3.request.latency"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              }
-            ],
-            "title": "总请求平均时延",
-            "type": "timeseries"
-          }
-        ],
-        "title": "延时类",
-        "type": "row"
-      },
-      {
-        "collapsed": true,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 37
-        },
-        "id": 23,
-        "panels": [
-          {
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": []
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 6
-            },
-            "id": 59,
-            "options": {
-              "legend": {
-                "calcs": [
-                  "min",
-                  "max",
-                  "mean",
-                  "lastNotNull"
-                ],
-                "displayMode": "table",
-                "placement": "bottom"
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
-            },
-            "targets": [
-              {
-                "Alias": "复制延时（平均值）[{{p0}}]",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.replication.latency.Avg",
-                  "unit": "s",
-                  "value": "ks3.replication.latency.Avg"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "__isNew__": true,
-                  "label": "$period",
-                  "value": "$period"
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "refId": "A"
-              },
-              {
-                "Alias": "复制延时（最大值）",
-                "InstanceID": [
-                  {
-                    "label": "$bucket",
-                    "value": "$bucket"
-                  }
-                ],
-                "MetricName": {
-                  "interval": "60",
-                  "label": "ks3.replication.latency.Max",
-                  "unit": "s",
-                  "value": "ks3.replication.latency.Max"
-                },
-                "Namespace": {
-                  "href": "https://docs.ksyun.com/products/25",
-                  "label": "对象存储（KS3）",
-                  "service": "ks3",
-                  "value": "KS3"
-                },
-                "Period": {
-                  "label": 60,
-                  "value": 60
-                },
-                "Region": {
-                  "__isNew__": true,
-                  "label": "$region",
-                  "value": "$region"
-                },
-                "datasource": {
-                  "type": "ksc-cloudmonitor-datasource",
-                  "uid": "SQuTTxzIk"
-                },
-                "hide": false,
-                "refId": "B"
-              }
-            ],
-            "title": "复制延时",
-            "type": "timeseries"
-          }
-        ],
-        "title": "复制类",
-        "type": "row"
+        "type": "dashboard"
       }
-    ],
-    "schemaVersion": 34,
-    "style": "dark",
-    "tags": [],
-    "templating": {
-      "list": [
-        {
-          "current": {
-            "selected": false,
-            "text": "默认项目",
-            "value": "0"
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1715944155959,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "panels": [],
+      "title": "状态码",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
           },
-          "definition": "ServiceName=IAM&Action=GetAccountAllProjectList",
-          "hide": 0,
-          "includeAll": false,
-          "multi": false,
-          "name": "pid",
-          "options": [],
-          "query": "ServiceName=IAM&Action=GetAccountAllProjectList",
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "type": "query"
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
+          "Alias": "2XX状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.2xx",
+            "unit": "次",
+            "value": "ks3.response.2xx"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "2XX状态码",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "3XX状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.3xx",
+            "unit": "次",
+            "value": "ks3.response.3xx"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "3XX状态码",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "4XX状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.4xx",
+            "unit": "次",
+            "value": "ks3.response.4xx"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "4XX状态码",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "5XX状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.5xx",
+            "unit": "次",
+            "value": "ks3.response.5xx"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "5XX状态码",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "400状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.400",
+            "unit": "次",
+            "value": "ks3.response.400"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "400状态码",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "403状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.403",
+            "unit": "次",
+            "value": "ks3.response.403"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "403状态码",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "404状态码[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.response.404",
+            "unit": "次",
+            "value": "ks3.response.404"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "404状态码",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 29,
+      "panels": [],
+      "title": "流量类",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "CDN回源流量[noc]"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "CDN回源流量[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.download.traffic.cdn",
+            "unit": "B",
+            "value": "ks3.download.traffic.cdn"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "CDN回源流量",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 34
+      },
+      "id": 31,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "跨区域复制流量[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.traffic.crr",
+            "unit": "B",
+            "value": "ks3.traffic.crr"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "跨区域复制流量",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 42
+      },
+      "id": 39,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "内网上行流量[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.upload.traffic.Internet",
+            "unit": "B",
+            "value": "ks3.upload.traffic.Internet"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "内网上行流量",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      },
+      "id": 37,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "内网下行流量[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.download.traffic.Internet",
+            "unit": "B",
+            "value": "ks3.download.traffic.Internet"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "内网下行流量",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 50
+      },
+      "id": 33,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "外网上行流量[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.upload.traffic.Internet",
+            "unit": "B",
+            "value": "ks3.upload.traffic.Internet"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "外网上行流量",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 50
+      },
+      "id": 35,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "外网下行流量[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.download.traffic.Internet",
+            "unit": "B",
+            "value": "ks3.download.traffic.Internet"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "外网下行流量",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 58
+      },
+      "id": 27,
+      "panels": [],
+      "title": "请求次数",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 59
+      },
+      "id": 43,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "总请求数[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.requests",
+            "unit": "次",
+            "value": "ks3.requests"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "总请求数",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 59
+      },
+      "id": 45,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "GET类总请求数[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.requests.get",
+            "unit": "次",
+            "value": "ks3.requests.get"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "GET类总请求数",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 67
+      },
+      "id": 49,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "DELETE类请求数[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.requests.delete",
+            "unit": "次",
+            "value": "ks3.requests.delete"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "DELETE类请求数",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 67
+      },
+      "id": 47,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "PUT类总请求数[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.requests.put",
+            "unit": "次",
+            "value": "ks3.requests.put"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "PUT类总请求数",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 75
+      },
+      "id": 25,
+      "panels": [],
+      "title": "带宽类",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 76
+      },
+      "id": 51,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "内网上行带宽[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.upload.bandwidth.Internal",
+            "unit": "bit/s",
+            "value": "ks3.upload.bandwidth.Internal"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
         },
         {
-          "current": {
-            "selected": false,
-            "text": "华北1（北京）",
-            "value": "cn-beijing-6"
+          "Alias": "内网下行带宽[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.download.bandwidth.Internal",
+            "unit": "bit/s",
+            "value": "ks3.download.bandwidth.Internal"
           },
-          "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
-          "hide": 0,
-          "includeAll": false,
-          "multi": false,
-          "name": "region",
-          "options": [],
-          "query": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "type": "query"
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "内网带宽",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 76
+      },
+      "id": 53,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "外网上行带宽[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.upload.bandwidth.Internet",
+            "unit": "bit/s",
+            "value": "ks3.upload.bandwidth.Internet"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
         },
         {
-          "current": {
-            "selected": true,
-            "text": "hrs",
-            "value": "hrs"
+          "Alias": "外网下行带宽[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.download.bandwidth.Internet",
+            "unit": "bit/s",
+            "value": "ks3.download.bandwidth.Internet"
           },
-          "definition": "ServiceName=KS3&Region=$region&projectIds=$pid",
-          "hide": 0,
-          "includeAll": false,
-          "multi": false,
-          "name": "bucket",
-          "options": [],
-          "query": "ServiceName=KS3&Region=$region&projectIds=$pid",
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "type": "query"
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "外网带宽",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 84
+      },
+      "id": 55,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "CDN带宽[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.download.bandwidth.cdn",
+            "unit": "bit/s",
+            "value": "ks3.download.bandwidth.cdn"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "CDN带宽",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 92
+      },
+      "id": 21,
+      "panels": [],
+      "title": "延时类",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 93
+      },
+      "id": 57,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "总请求平均时延[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.request.latency",
+            "unit": "ms",
+            "value": "ks3.request.latency"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "总请求平均时延",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 101
+      },
+      "id": 23,
+      "panels": [],
+      "title": "复制类",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 102
+      },
+      "id": 59,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "Alias": "复制延时（平均值）[{{p0}}]",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.replication.latency.Avg",
+            "unit": "s",
+            "value": "ks3.replication.latency.Avg"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "__isNew__": true,
+            "label": "$period",
+            "value": "$period"
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "refId": "A"
         },
         {
-          "current": {
+          "Alias": "复制延时（最大值）",
+          "InstanceID": [
+            {
+              "label": "$bucket",
+              "value": "$bucket"
+            }
+          ],
+          "MetricName": {
+            "interval": "60",
+            "label": "ks3.replication.latency.Max",
+            "unit": "s",
+            "value": "ks3.replication.latency.Max"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/25",
+            "label": "对象存储（KS3）",
+            "service": "ks3",
+            "value": "KS3"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": "SQuTTxzIk"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "复制延时",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "默认项目",
+          "value": "0"
+        },
+        "definition": "ServiceName=IAM&Action=GetAccountAllProjectList",
+        "hide": 0,
+        "includeAll": false,
+        "label": "项目",
+        "multi": false,
+        "name": "pid",
+        "options": [],
+        "query": "ServiceName=IAM&Action=GetAccountAllProjectList",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "华北1（北京）",
+          "value": "cn-beijing-6"
+        },
+        "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+        "hide": 0,
+        "includeAll": false,
+        "label": "区域",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "cmdb-test",
+          "value": "cmdb-test"
+        },
+        "definition": "ServiceName=KS3&Region=$region&projectIds=$pid",
+        "hide": 0,
+        "includeAll": false,
+        "label": "空间名称",
+        "multi": false,
+        "name": "bucket",
+        "options": [],
+        "query": "ServiceName=KS3&Region=$region&projectIds=$pid",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "60",
+          "value": "60"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "周期",
+        "multi": false,
+        "name": "period",
+        "options": [
+          {
             "selected": true,
             "text": "60",
             "value": "60"
           },
-          "hide": 0,
-          "includeAll": false,
-          "label": "周期",
-          "multi": false,
-          "name": "period",
-          "options": [
-            {
-              "selected": true,
-              "text": "60",
-              "value": "60"
-            },
-            {
-              "selected": false,
-              "text": "120",
-              "value": "120"
-            },
-            {
-              "selected": false,
-              "text": "240",
-              "value": "240"
-            },
-            {
-              "selected": false,
-              "text": "300",
-              "value": "300"
-            },
-            {
-              "selected": false,
-              "text": "3600",
-              "value": "3600"
-            }
-          ],
-          "query": "60,120,240,300,3600",
-          "queryValue": "",
-          "skipUrlSync": false,
-          "type": "custom"
-        }
-      ]
-    },
-    "time": {
-      "from": "now-6h",
-      "to": "now"
-    },
-    "timepicker": {},
-    "timezone": "",
-    "title": "【预设】对象存储（KS3）",
-    "uid": "",
-    "version": 2,
-    "weekStart": ""
-  }
+          {
+            "selected": false,
+            "text": "120",
+            "value": "120"
+          },
+          {
+            "selected": false,
+            "text": "240",
+            "value": "240"
+          },
+          {
+            "selected": false,
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "selected": false,
+            "text": "3600",
+            "value": "3600"
+          }
+        ],
+        "query": "60,120,240,300,3600",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "【预设】对象存储（KS3）",
+  "uid": "",
+  "version": 1,
+  "weekStart": ""
+}
