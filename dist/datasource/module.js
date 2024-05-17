@@ -13371,10 +13371,11 @@ var getSignKs3 = function getSignKs3(pluginId, proxyKey, _a, timestamp) {
       _e = _a.postParams,
       postParams = _e === void 0 ? {} : _e;
   return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(void 0, void 0, void 0, function () {
-    var signResult;
+    var hostProxy, signResult;
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_f) {
       switch (_f.label) {
         case 0:
+          hostProxy = proxyKey.replace('/', '-');
           return [4
           /*yield*/
           , __backendSrv.datasourceRequest({
@@ -13384,7 +13385,7 @@ var getSignKs3 = function getSignKs3(pluginId, proxyKey, _a, timestamp) {
               Action: '',
               Version: '',
               Region: region.toLocaleUpperCase(),
-              Host: 'ks3-cn-beijing.ksyuncs.com',
+              Host: hostProxy + ".ksyuncs.com",
               Method: 'GET',
               Query: extenQuery ? extenQuery : '',
               Headers: {

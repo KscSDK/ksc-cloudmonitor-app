@@ -113,6 +113,7 @@ export const getSignKs3 = async (
   { extenQuery = '', region = 'beijing', method = 'GET', postParams = {} },
   timestamp: number
 ) => {
+  const hostProxy = proxyKey.replace('/', '-');
   const signResult = await __backendSrv.datasourceRequest({
     url: `/api/datasources/${pluginId}/resources/sign_ks3`,
     method: 'post',
@@ -120,7 +121,7 @@ export const getSignKs3 = async (
       Action: '',
       Version: '',
       Region: region.toLocaleUpperCase(),
-      Host: 'ks3-cn-beijing.ksyuncs.com',
+      Host: `${hostProxy}.ksyuncs.com`,
       Method: 'GET',
       Query: extenQuery ? extenQuery : '',
       Headers: {
