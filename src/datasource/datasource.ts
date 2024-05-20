@@ -9,8 +9,6 @@ import {
   withoutRegions,
   GenerateKs3ToMonitorRegion,
   requestKs3,
-  GenerateKs3BusketOptions,
-  transferRegionToKs3,
 } from './utils';
 import { MetricListItem } from './utils/interface';
 import _ from 'lodash';
@@ -199,12 +197,12 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     }
     // k3自定义变量接口处理
     if (ServiceName === 'KS3') {
-      const ks3Region = transferRegionToKs3(replaceRealValue(Region));
+      const ks3Region = replaceRealValue(Region);
       const ks3QueryResult: any = await requestKs3(this.instanceSetting, `ks3/${ks3Region}`, {
         region: ks3Region,
         extenQuery: generateExtenQuery(queryResult),
       });
-      return GenerateKs3BusketOptions(ks3QueryResult?.data);
+      return ks3QueryResult;
     }
     const service = variableConfig[ServiceName] ? variableConfig[ServiceName].service : undefined;
     const currentMap = variableConfig[ServiceName][Action];

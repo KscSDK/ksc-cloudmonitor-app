@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1715944155959,
+  "iteration": 1716188170874,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1887,8 +1887,13 @@
       "id": 49,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
           "placement": "bottom"
         },
         "tooltip": {
@@ -1997,8 +2002,13 @@
       "id": 47,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
           "placement": "bottom"
         },
         "tooltip": {
@@ -2427,8 +2437,13 @@
       "id": 55,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
           "placement": "bottom"
         },
         "tooltip": {
@@ -2551,8 +2566,13 @@
       "id": 57,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
           "placement": "bottom"
         },
         "tooltip": {
@@ -2815,7 +2835,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "cmdb-test",
           "value": "cmdb-test"
         },
@@ -2886,6 +2906,6 @@
   "timezone": "",
   "title": "【预设】对象存储（KS3）",
   "uid": "",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }

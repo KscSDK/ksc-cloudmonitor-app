@@ -1,6 +1,6 @@
 import { getBackendSrv } from '@grafana/runtime';
 import { ServiceMap } from '../type_monitors';
-import { replaceRealValue } from './common';
+import { GenerateKs3BusketOptions, replaceRealValue } from './common';
 import _ from 'lodash';
 
 const moment = require('moment');
@@ -107,21 +107,15 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
   });
 };
 
-export const getSignKs3 = async (
-  pluginId: number,
-  proxyKey: string,
-  { extenQuery = '', region = 'beijing', method = 'GET', postParams = {} },
-  timestamp: number
-) => {
-  const hostProxy = proxyKey.replace('/', '-');
+export const getSignKs3 = async (pluginId: number, proxyKey: string, { extenQuery = '' }, timestamp: number) => {
   const signResult = await __backendSrv.datasourceRequest({
     url: `/api/datasources/${pluginId}/resources/sign_ks3`,
     method: 'post',
     data: {
       Action: '',
       Version: '',
-      Region: region.toLocaleUpperCase(),
-      Host: `${hostProxy}.ksyuncs.com`,
+      Region: 'BEIJING',
+      Host: `ks3-cn-beijing.ksyuncs.com`,
       Method: 'GET',
       Query: extenQuery ? extenQuery : '',
       Headers: {
@@ -138,13 +132,13 @@ export const getSignKs3 = async (
 
 export const requestKs3 = async (instanceSetting: any, proxyKey: string, queryParams: any) => {
   const { id: pluginId, url } = instanceSetting;
-  const { extenQuery, region, method = 'GET' } = queryParams;
+  const { extenQuery, region } = queryParams;
   const utcTime = moment().utc();
   const time = utcTime.format();
   const dealTime = time.replaceAll(':', '').replaceAll('-', '');
   // 获取签名
-  const sign = await getSignKs3(pluginId, proxyKey, { region, extenQuery, method }, utcTime.unix());
-  let serviceKey = proxyKey;
+  const sign = await getSignKs3(pluginId, proxyKey, { extenQuery }, utcTime.unix());
+  let serviceKey = 'ks3/cn-beijing';
   if (sign.data.intranet) {
     serviceKey += '-internal';
   }
@@ -162,7 +156,10 @@ export const requestKs3 = async (instanceSetting: any, proxyKey: string, queryPa
   return new Promise((resolve, reject) => {
     __backendSrv
       .datasourceRequest(reqOptions)
-      .then((res: any) => resolve(res))
+      .then((res: any) => {
+        const ks3Res = GenerateKs3BusketOptions(res?.data, region);
+        resolve(ks3Res);
+      })
       .catch((err: any) => {
         resolve(err);
       });

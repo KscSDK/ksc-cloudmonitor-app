@@ -21,35 +21,6 @@ interface VariableItemProps {
 
 const events: any = getAppEvents();
 
-const ks3Metrics = [
-  'ks3.bucket.capacity.total.sd',
-  'ks3.bucket.capacity.add.sd',
-  'ks3.bucket.capacity.del.sd',
-  'ks3.bucket.capacity.total.ia',
-  'ks3.bucket.capacity.add.ia',
-  'ks3.bucket.capacity.del.ia',
-  'ks3.bucket.capacity.total.ar',
-  'ks3.bucket.capacity.add.ar',
-  'ks3.bucket.capacity.del.ar',
-  'ks3.bucket.flow.down.sd',
-  'ks3.bucket.flow.onet.down.sd',
-  'ks3.bucket.flow.cdn.down.sd',
-  'ks3.bucket.flow.down.ia',
-  'ks3.bucket.flow.onet.down.ia',
-  'ks3.bucket.flow.cdn.down.ia',
-  'ks3.bucket.flow.down.ar',
-  'ks3.bucket.flow.onet.down.ar',
-  'ks3.bucket.flow.cdn.down.ar',
-  'ks3.bucket.bandwidth.down',
-  'ks3.bucket.getcount.sd',
-  'ks3.bucket.putcount.sd',
-  'ks3.bucket.getcount.ia',
-  'ks3.bucket.putcount.ia',
-  'ks3.bucket.getcount.ar',
-  'ks3.bucket.putcount.ar',
-  'ks3.bucket.flow.up.ia',
-  'ks3.bucket.flow.up.ar',
-];
 export const withoutIpServices = ['Listener', 'PEER', 'BWS'];
 /**实例配置 */
 const config: InstanceConfig = {
@@ -114,6 +85,20 @@ const config: InstanceConfig = {
     InstanceIp: 'PrivateIpAddress',
   },
 };
+
+/**
+ * KS3 Region Map
+ * https://docs.ksyun.com/documents/5867?type=3 云监控region对应关系文档
+ */
+
+const ks3RegionMap: { [monitorRegion: string]: string } = {
+  'cn-beijing-6': 'BEIJING',
+  'cn-shanghai-2': 'SHANGHAI',
+  'cn-guangzhou-1': 'GUANGZHOU',
+  'cn-hongkong-2': 'HONGKONG',
+  'ap-singapore-1': 'SINGAPORE',
+};
+
 // 处理不同类型service生成instance options
 export const GenerageInstanceOptions: any = {
   KEC: {
@@ -231,21 +216,19 @@ export const GenerageInstanceOptions: any = {
 };
 
 // 处理生成KS3生成的instance options
-export const GenerateKs3BusketOptions = (data: any) => {
-  if (!data?.buckets?.bucket) {
+export const GenerateKs3BusketOptions = (data: any, region: string) => {
+  if (!data?.buckets?.bucket || !Array.isArray(data?.buckets?.bucket)) {
     return [];
   }
-  return data.buckets.bucket.map((item: any) => ({
+  const dealData = data?.buckets?.bucket;
+  // 根据当前region 过滤
+  const filterBuckets = dealData.filter((i: any) => i.region === ks3RegionMap[region] || '');
+  return filterBuckets.map((item: any) => ({
     label: item.name,
     value: item.name,
     text: item.name,
   }));
 };
-// TODO 模拟生成ks3 指标
-export const GenerateKs3Metrics = () => {
-  return ks3Metrics.map((i: string) => ({ label: i, value: i }));
-};
-
 // 控制台region -> ks3 region
 export const transferRegionToKs3 = (monitorRegion: string) => {
   return monitorRegion.replace(/-\d+$/, '');

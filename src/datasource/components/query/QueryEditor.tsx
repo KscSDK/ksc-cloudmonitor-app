@@ -21,8 +21,6 @@ import {
   GenerageInstanceOptions,
   ClusterTypes,
   requestKs3,
-  GenerateKs3BusketOptions,
-  transferRegionToKs3,
 } from '../../utils';
 import {
   QueryPeering,
@@ -171,6 +169,13 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     setExtenQuery(extenParams ? extenParams : '');
   }, []);
 
+  // KS 额外查询条件
+  const handleChangeKs3 = useCallback((queryParams: QueryType) => {
+    const { ProjectId } = queryParams;
+    const extenIds = Array.isArray(ProjectId) && ProjectId.length ? `&projectIds=${ProjectId.join(',')}` : '';
+    setExtenQuery(extenIds);
+  }, []);
+
   // 渲染不同service的可选项
   const renderByService = (service: string) => {
     switch (service) {
@@ -202,7 +207,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       case 'KCE':
         return <QueryKce onChange={_.debounce(handleChange, 500)} />;
       case 'KS3':
-        return <QueryKS3 onChange={_.debounce(handleChange, 500)} />;
+        return <QueryKS3 onChange={_.debounce(handleChangeKs3, 500)} />;
       default:
         return null;
     }
@@ -339,14 +344,14 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       const projectQuery = `${projectQueryString ? projectQueryString : ''}`;
       // 根据filter 是否含有project 判断query string 是否将project 过滤
       const filterProjectQuery =
-        extraParams && extraParams.includes('ProjectId')
+        extraParams && extraParams.includes('projectIds')
           ? extraParams
           : (extraParams ? extraParams : '') + projectQuery;
       // 替换region 如果是变量
       const dealRegion = replaceRealValue(query.Region.value);
       // ks3 region
-      const ks3Region = transferRegionToKs3(dealRegion);
-      // ProjectId.1=104139, 101606
+      const ks3Region = dealRegion;
+      // projectIds=104139,101606
       setLoading(true);
       const bucketsRes: any = await requestKs3(datasource.instanceSetting, `${query.Namespace.service}/${ks3Region}`, {
         extenQuery: extendQuery
@@ -355,13 +360,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         region: ks3Region,
       });
       setLoading(false);
-      if (bucketsRes?.status !== 200) {
-        alertError(bucketsRes?.data?.Error?.Message);
-        return;
-      }
-      if (bucketsRes && bucketsRes?.data) {
-        const opsItem = GenerateKs3BusketOptions(bucketsRes.data);
-        setInstanceOptions([...opsItem]);
+      if (bucketsRes && bucketsRes?.length) {
+        setInstanceOptions([...bucketsRes]);
       }
     },
     [query, datasource.instanceSetting, projectQueryString]
