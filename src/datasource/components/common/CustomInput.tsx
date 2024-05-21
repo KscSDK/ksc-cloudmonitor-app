@@ -1,6 +1,6 @@
-import React, { FC, useState, useEffect, useContext } from "react";
-import { Input, InlineLabel, Select } from "@grafana/ui";
-import { DatasourceContext } from "../../components/query/QueryEditor";
+import React, { FC, useState, useEffect, useContext } from 'react';
+import { Input, InlineLabel, Select } from '@grafana/ui';
+import { DatasourceContext } from '../../components/query/QueryEditor';
 
 interface OwnProps {
   label?: string;
@@ -9,18 +9,10 @@ interface OwnProps {
   tooltip?: any;
 }
 
-const CustomInput: FC<OwnProps> = ({
-  label,
-  defaultValue,
-  onChange,
-  tooltip,
-}) => {
+const CustomInput: FC<OwnProps> = ({ label, defaultValue, onChange, tooltip }) => {
   const [innerValue, setInnerValue] = useState<string>();
   const dataSourceData = useContext(DatasourceContext);
-  const list =
-    dataSourceData && dataSourceData?.projectOptions
-      ? dataSourceData?.projectOptions
-      : [];
+  const list = dataSourceData && dataSourceData?.projectOptions ? dataSourceData?.projectOptions : [];
   useEffect(() => {
     setInnerValue(defaultValue);
   }, [defaultValue]);
@@ -33,11 +25,11 @@ const CustomInput: FC<OwnProps> = ({
   return (
     <>
       {label ? (
-        <InlineLabel width={24} tooltip={tooltip ? tooltip : ""}>
+        <InlineLabel width={24} tooltip={tooltip ? tooltip : ''}>
           {label}
         </InlineLabel>
       ) : null}
-      {label === "ProjectId" ? (
+      {label === 'ProjectId' ? (
         <Select
           width={30}
           value={list
@@ -52,13 +44,7 @@ const CustomInput: FC<OwnProps> = ({
           }}
         ></Select>
       ) : (
-        <Input
-          className="inline-input"
-          value={innerValue}
-          width={20}
-          placeholder=" "
-          onChange={dealInputChange}
-        />
+        <Input className="inline-input" value={innerValue} width={20} placeholder=" " onChange={dealInputChange} />
       )}
     </>
   );

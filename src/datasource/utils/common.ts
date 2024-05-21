@@ -1,7 +1,7 @@
-import { MetricType, InstanceConfig } from "./interface";
-import { getTemplateSrv, getAppEvents } from "@grafana/runtime";
-import { AppEvents } from "@grafana/data";
-import _ from "lodash";
+import { MetricType, InstanceConfig } from './interface';
+import { getTemplateSrv, getAppEvents } from '@grafana/runtime';
+import { AppEvents } from '@grafana/data';
+import _ from 'lodash';
 
 interface QueryResultItem {
   target: string;
@@ -21,77 +21,91 @@ interface VariableItemProps {
 
 const events: any = getAppEvents();
 
-export const withoutIpServices = ["Listener", "PEER", "BWS"];
+export const withoutIpServices = ['Listener', 'PEER', 'BWS'];
 /**实例配置 */
 const config: InstanceConfig = {
   KEC: {
-    InstanceId: "InstanceId",
-    InstanceName: "InstanceName",
-    InstanceIp: "PrivateIpAddress",
+    InstanceId: 'InstanceId',
+    InstanceName: 'InstanceName',
+    InstanceIp: 'PrivateIpAddress',
   },
   EIP: {
-    InstanceId: "AllocationId",
-    InstanceName: "PublicIp",
-    InstanceIp: "PublicIp",
+    InstanceId: 'AllocationId',
+    InstanceName: 'PublicIp',
+    InstanceIp: 'PublicIp',
   },
   KCS: {
-    InstanceId: "cacheId",
-    InstanceName: "name",
-    InstanceIp: "vip",
+    InstanceId: 'cacheId',
+    InstanceName: 'name',
+    InstanceIp: 'vip',
   },
   NAT: {
-    InstanceId: "NatId",
-    InstanceName: "NatName",
-    InstanceIp: "NatIpSet[0].NatIp",
+    InstanceId: 'NatId',
+    InstanceName: 'NatName',
+    InstanceIp: 'NatIpSet[0].NatIp',
   },
   PEER: {
-    InstanceId: "VpcPeeringConnectionId",
-    InstanceName: "PeeringName",
-    InstanceIp: "VpcPeeringConnectionId",
+    InstanceId: 'VpcPeeringConnectionId',
+    InstanceName: 'PeeringName',
+    InstanceIp: 'VpcPeeringConnectionId',
   },
   KRDS: {
-    InstanceId: "DBInstanceIdentifier",
-    InstanceName: "DBInstanceName",
-    InstanceIp: "Vip",
+    InstanceId: 'DBInstanceIdentifier',
+    InstanceName: 'DBInstanceName',
+    InstanceIp: 'Vip',
   },
   SLB: {
-    InstanceId: "LoadBalancerId",
-    InstanceName: "LoadBalancerName",
-    InstanceIp: "PublicIp",
+    InstanceId: 'LoadBalancerId',
+    InstanceName: 'LoadBalancerName',
+    InstanceIp: 'PublicIp',
   },
   Listener: {
-    InstanceId: "ListenerId",
-    InstanceName: "ListenerName",
-    InstanceIp: "PublicIp",
+    InstanceId: 'ListenerId',
+    InstanceName: 'ListenerName',
+    InstanceIp: 'PublicIp',
   },
   BWS: {
-    InstanceId: "BandWidthShareId",
-    InstanceName: "BandWidthShareName",
-    InstanceIp: "PublicIp",
+    InstanceId: 'BandWidthShareId',
+    InstanceName: 'BandWidthShareName',
+    InstanceIp: 'PublicIp',
   },
   EPC: {
-    InstanceId: "HostId",
-    InstanceName: "HostName",
-    InstanceIp: "NetworkInterfaceAttributeSet[0].PrivateIpAddress",
+    InstanceId: 'HostId',
+    InstanceName: 'HostName',
+    InstanceIp: 'NetworkInterfaceAttributeSet[0].PrivateIpAddress',
   },
   PGS: {
-    InstanceId: "DBInstanceIdentifier",
-    InstanceName: "DBInstanceName",
-    InstanceIp: "Vip",
+    InstanceId: 'DBInstanceIdentifier',
+    InstanceName: 'DBInstanceName',
+    InstanceIp: 'Vip',
   },
   KCE: {
-    InstanceId: "ClusterId",
-    InstanceName: "ClusterName",
-    InstanceIp: "PrivateIpAddress",
+    InstanceId: 'ClusterId',
+    InstanceName: 'ClusterName',
+    InstanceIp: 'PrivateIpAddress',
   },
 };
+
+/**
+ * KS3 Region Map
+ * https://docs.ksyun.com/documents/5867?type=3 云监控region对应关系文档
+ */
+
+const ks3RegionMap: { [monitorRegion: string]: string } = {
+  'cn-beijing-6': 'BEIJING',
+  'cn-shanghai-2': 'SHANGHAI',
+  'cn-guangzhou-1': 'GUANGZHOU',
+  'cn-hongkong-2': 'HONGKONG',
+  'ap-singapore-1': 'SINGAPORE',
+};
+
 // 处理不同类型service生成instance options
 export const GenerageInstanceOptions: any = {
   KEC: {
     options: (data: any, instanceType: string) => {
       return data?.InstancesSet.map((item: any) => ({
         label: item[config.KEC[instanceType]],
-        value: item["InstanceId"],
+        value: item['InstanceId'],
       }));
     },
   },
@@ -99,7 +113,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.AddressesSet.map((item: any) => ({
         label: item[config.EIP[instanceType]],
-        value: item["AllocationId"],
+        value: item['AllocationId'],
       }));
     },
   },
@@ -107,18 +121,15 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.Data?.list.map((item: any) => ({
         label: item[config.KCS[instanceType]],
-        value: item["cacheId"],
+        value: item['cacheId'],
       }));
     },
   },
   NAT: {
     options: (data: any, instanceType: string) => {
       return data?.NatSet.map((item: any) => ({
-        label:
-          instanceType === "InstanceIp"
-            ? item?.NatIpSet[0].NatIp
-            : item[config.NAT[instanceType]],
-        value: item["NatId"],
+        label: instanceType === 'InstanceIp' ? item?.NatIpSet[0].NatIp : item[config.NAT[instanceType]],
+        value: item['NatId'],
       }));
     },
   },
@@ -126,7 +137,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.VpcPeeringConnectionSet.map((item: any) => ({
         label: item[config.PEER[instanceType]],
-        value: item["VpcPeeringConnectionId"],
+        value: item['VpcPeeringConnectionId'],
       }));
     },
   },
@@ -134,7 +145,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.Data?.Instances.map((item: any) => ({
         label: item[config.KRDS[instanceType]],
-        value: item["DBInstanceIdentifier"],
+        value: item['DBInstanceIdentifier'],
       }));
     },
   },
@@ -142,7 +153,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.LoadBalancerDescriptions.map((item: any) => ({
         label: item[config.SLB[instanceType]],
-        value: item["LoadBalancerId"],
+        value: item['LoadBalancerId'],
       }));
     },
   },
@@ -150,7 +161,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.ListenerSet.map((item: any) => ({
         label: item[config.Listener[instanceType]],
-        value: item["ListenerId"],
+        value: item['ListenerId'],
       }));
     },
   },
@@ -158,7 +169,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.BandWidthShareSet.map((item: any) => ({
         label: item[config.BWS[instanceType]],
-        value: item["BandWidthShareId"],
+        value: item['BandWidthShareId'],
       }));
     },
   },
@@ -166,10 +177,10 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.HostSet.map((item: any) => ({
         label:
-          instanceType === "InstanceIp"
+          instanceType === 'InstanceIp'
             ? item?.NetworkInterfaceAttributeSet[0].PrivateIpAddress
             : item[config.EPC[instanceType]],
-        value: item["HostId"],
+        value: item['HostId'],
       }));
     },
   },
@@ -177,10 +188,10 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.HostSet.map((item: any) => ({
         label:
-          instanceType === "InstanceIp"
+          instanceType === 'InstanceIp'
             ? item?.NetworkInterfaceAttributeSet[0].PrivateIpAddress
             : item[config.EPC[instanceType]],
-        value: item["HostId"],
+        value: item['HostId'],
       }));
     },
   },
@@ -188,7 +199,7 @@ export const GenerageInstanceOptions: any = {
     options: (data: any, instanceType: string) => {
       return data?.Data?.Instances.map((item: any) => ({
         label: item[config.PGS[instanceType]],
-        value: item["DBInstanceIdentifier"],
+        value: item['DBInstanceIdentifier'],
       }));
     },
   },
@@ -197,11 +208,46 @@ export const GenerageInstanceOptions: any = {
       return Array.isArray(data?.ClusterSet)
         ? data.ClusterSet.map((item: any) => ({
             label: item[config.KCE[instanceType]],
-            value: item["ClusterId"],
+            value: item['ClusterId'],
           }))
         : [];
     },
   },
+};
+
+// 处理生成KS3生成的instance options
+export const GenerateKs3BusketOptions = (data: any, region: string) => {
+  if (!data?.buckets?.bucket || !Array.isArray(data?.buckets?.bucket)) {
+    return [];
+  }
+  const dealData = data?.buckets?.bucket;
+  // 根据当前region 过滤
+  const filterBuckets = dealData.filter((i: any) => i.region === ks3RegionMap[region] || '');
+  return filterBuckets.map((item: any) => ({
+    label: item.name,
+    value: item.name,
+    text: item.name,
+  }));
+};
+// 控制台region -> ks3 region
+export const transferRegionToKs3 = (monitorRegion: string) => {
+  return monitorRegion.replace(/-\d+$/, '');
+};
+
+export const GenerateKs3ToMonitorRegion = (ks3Region: string) => {
+  if (ks3Region.includes('cn-beijing')) {
+    return 'cn-beijing-6';
+  } else if (ks3Region.includes('cn-shanghai')) {
+    return 'cn-shanghai-2';
+  } else if (ks3Region.includes('cn-guangzhou')) {
+    return 'cn-guangzhou-1';
+  } else if (ks3Region.includes('cn-hongkong')) {
+    return 'cn-hongkong-2';
+  } else if (ks3Region.includes('singapore')) {
+    return 'ap-singapore-1';
+  } else {
+    return '';
+  }
 };
 export const InstanceMapByservice = new Map(Object.entries(config));
 
@@ -209,7 +255,7 @@ export const InstanceMapByservice = new Map(Object.entries(config));
 // 修改： 设置options为60的整数倍
 export const generatePeriodOptions = (interval: string) => {
   // let minCount = Number(interval) / 60;
-  let defaultOptions: any = [{ label: "实际粒度", value: "" }];
+  let defaultOptions: any = [{ label: '实际粒度', value: '' }];
   // if (minCount < 1) {
   //   defaultOptions.push({ label: Number(interval), value: Number(interval) });
   //   minCount = 1;
@@ -221,15 +267,15 @@ export const generatePeriodOptions = (interval: string) => {
 };
 // query 面板instance ID 选择类型
 export const InstanceTypes = [
-  { value: "InstanceId", label: "As InstanceId" },
-  { value: "InstanceName", label: "As InstanceName" },
-  { value: "InstanceIp", label: "As InstanceIp" },
+  { value: 'InstanceId', label: 'As InstanceId' },
+  { value: 'InstanceName', label: 'As InstanceName' },
+  { value: 'InstanceIp', label: 'As InstanceIp' },
 ];
 
 // query 面板cluster ID 选择类型
 export const ClusterTypes = [
-  { value: "InstanceId", label: "As ClusterId" },
-  { value: "InstanceName", label: "As ClusterName" },
+  { value: 'InstanceId', label: 'As ClusterId' },
+  { value: 'InstanceName', label: 'As ClusterName' },
 ];
 
 /**
@@ -240,9 +286,9 @@ export const ClusterTypes = [
  */
 const getVariableItem = (variables: VariableItemProps[], Instance: string) => {
   if (!variables || !variables?.length) {
-    return "";
+    return '';
   }
-  let variableString = "";
+  let variableString = '';
   variables.forEach((item: VariableItemProps) => {
     const {
       current: { value, text },
@@ -251,9 +297,8 @@ const getVariableItem = (variables: VariableItemProps[], Instance: string) => {
     if (value === Instance) {
       variableString = text;
     } else if (Array.isArray(value) && value.includes(Instance)) {
-      const variableItem =
-        options && options.find((vItem: any) => vItem.value === Instance);
-      variableString = variableItem ? variableItem.text : "";
+      const variableItem = options && options.find((vItem: any) => vItem.value === Instance);
+      variableString = variableItem ? variableItem.text : '';
     }
   });
   return variableString;
@@ -278,19 +323,13 @@ const generateTarget = (
   const { Alias } = targetItem;
   const variableLabel = getVariableItem(variables, Instance);
   // 默认显示legend string
-  let defaultLegend = `${label}{${Instance}${
-    variableLabel ? "," + variableLabel : ""
-  }${aggItem ? "," + aggItem : ""}}`;
+  let defaultLegend = `${label}{${Instance}${variableLabel ? ',' + variableLabel : ''}${aggItem ? ',' + aggItem : ''}}`;
   if (Alias) {
     // 解析alias 生成对应targets
     const liasName = replaceRealValue(Alias, true);
-    let replaceString = liasName
-      .replace("{{agg}}", aggItem)
-      .replace("{{p0}}", Instance);
+    let replaceString = liasName.replace('{{agg}}', aggItem).replace('{{p0}}', Instance);
     if (variableLabel) {
-      const variabelLists = variableLabel.includes(",")
-        ? variableLabel.split(",")
-        : [variableLabel];
+      const variabelLists = variableLabel.includes(',') ? variableLabel.split(',') : [variableLabel];
       variabelLists.forEach((varItem: string, index: number) => {
         const replaceIndexItem = `{{p${index + 1}}}`;
         if (replaceString.includes(replaceIndexItem)) {
@@ -306,34 +345,19 @@ const generateTarget = (
 /**
  * 处理对象类型数据
  */
-const dealObjectItemDataPoints = (
-  response: any,
-  aggregate: string[],
-  targetItem: any,
-  variables: any
-) => {
+const dealObjectItemDataPoints = (response: any, aggregate: string[], targetItem: any, variables: any) => {
   let result: QueryResultItem[] = [];
   const member = response?.datapoints?.member;
   const label = response?.label;
-  const InstanceID =
-    response?.datapoints?.Instance || targetItem?.InstanceID[0].value;
+  const InstanceID = response?.datapoints?.Instance || targetItem?.InstanceID[0].value;
   const Instance = replaceRealValue(InstanceID);
   aggregate.forEach((aggregateItem: any) => {
     // 线值类型 min | max | average
     const aggItem = aggregateItem.toLowerCase();
     // 线数据
-    const pointsData = member.map((item: any) => [
-      Number(item[aggItem]),
-      item.unixTimestamp,
-    ]);
+    const pointsData = member.map((item: any) => [Number(item[aggItem]), item.unixTimestamp]);
     // 处理生成target -> dashboard 显示图例
-    const targetItemText = generateTarget(
-      targetItem,
-      variables,
-      Instance,
-      label,
-      aggItem
-    );
+    const targetItemText = generateTarget(targetItem, variables, Instance, label, aggItem);
     result.push({
       target: `${targetItemText}`,
       datapoints: pointsData,
@@ -350,35 +374,21 @@ const dealObjectItemDataPoints = (
  * @param variables
  * @returns 图表[]
  */
-const dealArrayDataPoints = (
-  response: any,
-  aggregate: string[],
-  targetItem: TargetItemProps,
-  variables: any
-) => {
+const dealArrayDataPoints = (response: any, aggregate: string[], targetItem: TargetItemProps, variables: any) => {
   let result: QueryResultItem[] = [];
   response.forEach((resItem: any) => {
     const {
-      Instance = "",
-      label = "",
+      Instance = '',
+      label = '',
       datapoints: { member },
     } = resItem;
     aggregate.forEach((aggregateItem: any) => {
       // 线值类型 min | max | average
       const aggItem = aggregateItem.toLowerCase();
       // 线数据
-      const pointsData = member.map((item: any) => [
-        Number(item[aggItem]),
-        item.unixTimestamp,
-      ]);
+      const pointsData = member.map((item: any) => [Number(item[aggItem]), item.unixTimestamp]);
       // 处理生成target -> dashboard 显示图例
-      const targetItemText = generateTarget(
-        targetItem,
-        variables,
-        Instance,
-        label,
-        aggItem
-      );
+      const targetItemText = generateTarget(targetItem, variables, Instance, label, aggItem);
       result.push({
         target: `${targetItemText}`,
         datapoints: pointsData,
@@ -394,14 +404,9 @@ const dealArrayDataPoints = (
  * @param targetItem
  * @returns
  */
-export const ParseQueryResult = (
-  response: any,
-  targetItem: TargetItemProps
-): QueryResultItem[] => {
+export const ParseQueryResult = (response: any, targetItem: TargetItemProps): QueryResultItem[] => {
   const { Aggregate } = targetItem;
-  const aggregate = Array.isArray(Aggregate)
-    ? Aggregate.map((i: any) => i.value)
-    : ["Average"];
+  const aggregate = Array.isArray(Aggregate) ? Aggregate.map((i: any) => i.value) : ['Average'];
   // 变量类型需从variable中的current 获取 text 为实际显示值
   const templateSrv: any = getTemplateSrv();
   // 获取所有图表变量
@@ -410,12 +415,7 @@ export const ParseQueryResult = (
   if (Array.isArray(response) && response.length) {
     result = dealArrayDataPoints(response, aggregate, targetItem, variables);
   } else if (Array.isArray(response?.datapoints?.member)) {
-    result = dealObjectItemDataPoints(
-      response,
-      aggregate,
-      targetItem,
-      variables
-    );
+    result = dealObjectItemDataPoints(response, aggregate, targetItem, variables);
   }
   return result;
 };
@@ -427,10 +427,10 @@ export const ParseQueryResult = (
 export const generageMetricOptions = (metricNameList: MetricType[]) => {
   const metricMap = new Map();
   metricNameList.forEach((item: MetricType) => {
-    if (item.metricName === "proc.num") {
+    if (item.metricName === 'proc.num') {
       return;
     }
-    if (item && item.metricName && !item.metricName.includes("[")) {
+    if (item && item.metricName && !item.metricName.includes('[')) {
       return metricMap.set(item.metricName, {
         Period: item.interval,
         metricSubChose: null,
@@ -438,11 +438,8 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
         unit: item.unit,
       });
     } else if (item && item.metricName) {
-      const metricMainName = item.metricName.split("[")[0];
-      const subChoseArray = item.metricName
-        .split("[")[1]
-        .split("]")[0]
-        .split(",");
+      const metricMainName = item.metricName.split('[')[0];
+      const subChoseArray = item.metricName.split('[')[1].split(']')[0].split(',');
       let newSetMap = !metricMap.has(metricMainName)
         ? {
             Period: item.interval,
@@ -454,10 +451,9 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
 
       if (subChoseArray?.length) {
         subChoseArray.forEach((el, index) => {
-          _.isObject(newSetMap.metricSubChose) ? 
-          newSetMap.metricSubChose[index] = (
-            newSetMap.metricSubChose?.[index] || []
-          ).concat([el]) : newSetMap.metricSubChose = {};
+          _.isObject(newSetMap.metricSubChose)
+            ? (newSetMap.metricSubChose[index] = (newSetMap.metricSubChose?.[index] || []).concat([el]))
+            : (newSetMap.metricSubChose = {});
         });
       }
       metricMap.set(metricMainName, newSetMap);
@@ -471,12 +467,10 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
 //  * @return Filter.N.name=XXX&Filter.N.Value.Index=VVVV
 //  */
 export const dealQueryFilter = (filterData: any) => {
-  let Filter = "";
+  let Filter = '';
   let N = 1;
   Object.keys(filterData).forEach((filterItem: any, itemIndex: number) => {
-    const element = []
-      .concat(filterData[filterItem] || [])
-      .filter((el: any) => el !== "");
+    const element = [].concat(filterData[filterItem] || []).filter((el: any) => el !== '');
     if (!element.length) {
       return;
     }
@@ -490,22 +484,22 @@ export const dealQueryFilter = (filterData: any) => {
 };
 
 /**处理解析Query */
-export function ParseMetricQuery(query = "") {
+export function ParseMetricQuery(query = '') {
   if (!query) {
     return {};
   }
   const result: any = {};
-  const queries = _.split(query, "&");
+  const queries = _.split(query, '&');
   _.forEach(queries, (item) => {
-    const str = _.split(item, "=");
-    if (_.trim(_.get(str, "0", ""))) {
-      let val = _.trim(_.get(str, "1", ""));
+    const str = _.split(item, '=');
+    if (_.trim(_.get(str, '0', ''))) {
+      let val = _.trim(_.get(str, '1', ''));
       try {
         val = JSON.parse(val);
       } catch (e) {
         // console.log({ val });
       }
-      result[_.trim(_.get(str, "0", ""))] = val;
+      result[_.trim(_.get(str, '0', ''))] = val;
     }
   });
   return result;
@@ -520,14 +514,13 @@ export const replaceRealValue = (sourceValue: string, onlyString?: boolean) => {
       return realValue;
     }
     // 多选项返回多值{***,****....}，处理
-    if (realValue.includes("{") && realValue.includes("}")) {
-      return realValue.replace("{", "").replace("}", "");
+    if (realValue.includes('{') && realValue.includes('}')) {
+      return realValue.replace('{', '').replace('}', '');
     }
     return realValue;
   } catch (error) {
-    return sourceValue
+    return sourceValue;
   }
- 
 };
 
 /**处理错误信息 */

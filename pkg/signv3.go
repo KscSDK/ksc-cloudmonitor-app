@@ -231,13 +231,18 @@ func signV3(opts signOpts, apiOpts apiOpts) string {
 
 	authorization := buildAuthHeaderV4(signature, meta, keys)
 
-	curl := fmt.Sprintf(`curl -X POST "https://%s%s?%s"\
+	curl := fmt.Sprintf(`curl -X %s "https://%s%s?%s"\
  -H "Authorization: %s"\
- -H "Content-Type: %s"\
  -H "Host: %s" \
- -H "X-Amz-Date: %s"\
- -d '%s'`, host, opts.Uri, opts.Query, authorization, opts.Headers["content-type"],
-		host, requestTs, opts.Body)
+ -H "X-Amz-Date: %s"`, opts.Method, host, opts.Uri, opts.Query, authorization,
+		host, requestTs)
+
+	for k, v := range opts.Headers {
+		curl += " \\\n" + fmt.Sprintf(` -H "%s: %s"`, k, v)
+	}
+	if opts.Body != "" {
+		curl += " \\\n" + fmt.Sprintf(`-d '%s'`, opts.Body)
+	}
 
 	logger.Info("v3 string to curl: \n", curl+"\n")
 

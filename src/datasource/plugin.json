@@ -1099,6 +1099,20 @@
       ]
     },
     {
+      "path": "ks3/cn-beijing-internal",
+      "url": "http://ks3-cn-beijing-internal.ksyuncs.com",
+      "headers": [
+        {
+          "name": "Accept",
+          "content": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "iam-internal",
       "url": "https://iam.internal.api.ksyun.com",
       "headers": [
@@ -2192,6 +2206,20 @@
       "path": "kce/cn-northwest-1",
       "url": "http://kce.cn-northwest-1.api.ksyun.com",
       "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ks3/cn-beijing",
+      "url": "http://ks3-cn-beijing.ksyuncs.com",
+      "headers": [
+        {
+          "name": "Accept",
+          "content": "application/json"
+        },
         {
           "name": "Content-Type",
           "content": "application/json"
