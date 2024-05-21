@@ -3,6 +3,7 @@ node_modules/
 *.zip
 .idea
 dist/*
+/dist
 .DS_Store
 
 coverage/
