@@ -55,6 +55,12 @@ export const ks3Regions = [
   { label: '金融专区（上海）', value: 'jr-shanghai' },
 ];
 
+const ks3DefaultMetrics = [
+  { metricName: 'ks3.bucket.capacity.total.sd', namespace: 'KS3' },
+  { metricName: 'ks3.bucket.capacity.total.ia', namespace: 'KS3' },
+  { metricName: 'ks3.bucket.capacity.total.ar', namespace: 'KS3' },
+]
+
 type Props = QueryEditorProps<DataSource, MyQuery, MyDataSourceOptions>;
 
 export const DatasourceContext = React.createContext({ projectOptions: [] });
@@ -407,7 +413,10 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       alertError(metricNamesData?.data?.Error?.Message || metricNamesData?.data?.error?.message);
       return;
     }
-    const metricsList = metricNamesData?.data?.listMetricsResult?.metrics?.member;
+    let metricsList = metricNamesData?.data?.listMetricsResult?.metrics?.member;
+    if (namespace === 'KS3' && metricsList && metricsList.length) {
+      metricsList = metricsList.concat(ks3DefaultMetrics);
+    }
     generateMetricOptions(metricsList);
   };
 
