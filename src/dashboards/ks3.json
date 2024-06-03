@@ -142,7 +142,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "SQuTTxzIk"
+                "uid": ""
               },
               "refId": "A"
             },
@@ -176,7 +176,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "SQuTTxzIk"
+                "uid": ""
               },
               "hide": false,
               "refId": "B"
@@ -211,7 +211,7 @@
               },
               "datasource": {
                 "type": "ksc-cloudmonitor-datasource",
-                "uid": "SQuTTxzIk"
+                "uid": ""
               },
               "hide": false,
               "refId": "C"
@@ -350,7 +350,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -465,7 +465,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -580,7 +580,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -695,7 +695,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -810,7 +810,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -925,7 +925,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1040,7 +1040,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1194,7 +1194,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1310,7 +1310,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1426,7 +1426,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1542,7 +1542,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1658,7 +1658,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1774,7 +1774,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -1902,7 +1902,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2017,7 +2017,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2132,7 +2132,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2247,7 +2247,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2376,7 +2376,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2412,7 +2412,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -2529,7 +2529,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2565,7 +2565,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
@@ -2682,7 +2682,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2811,7 +2811,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         }
@@ -2940,7 +2940,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "refId": "A"
         },
@@ -2975,7 +2975,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": "SQuTTxzIk"
+            "uid": ""
           },
           "hide": false,
           "refId": "B"
