@@ -219,8 +219,8 @@ export const GenerageInstanceOptions: any = {
   },
   EBS: {
     options: (data: any, instanceType: string) => {
-      return Array.isArray(data?.VolumeSet)
-        ? data.VolumeSet.map((item: any) => ({
+      return Array.isArray(data?.Volumes)
+        ? data.Volumes.map((item: any) => ({
             label: item[config.EBS[instanceType]],
             value: item['VolumeId'],
             ...item,
