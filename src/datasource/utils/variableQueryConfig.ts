@@ -293,7 +293,7 @@ export const variableConfig: any = {
     href: 'https://www.ksyun.com/nv/product/EBS.html',
     instanceAction: 'DescribeVolumes',
     DescribeVolumes: {
-      Version: '2016-03-04',
+      version: '2016-03-04',
       getDataKey: 'Volumes',
       backDataFn: (list: any[], InstanceAlias?: string) => {
         return list.map((i) => ({

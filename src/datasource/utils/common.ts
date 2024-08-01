@@ -87,7 +87,7 @@ const config: InstanceConfig = {
   EBS: {
     InstanceId: 'VolumeId',
     InstanceName: 'VolumeName',
-  }
+  },
 };
 
 /**
@@ -213,6 +213,17 @@ export const GenerageInstanceOptions: any = {
         ? data.ClusterSet.map((item: any) => ({
             label: item[config.KCE[instanceType]],
             value: item['ClusterId'],
+          }))
+        : [];
+    },
+  },
+  EBS: {
+    options: (data: any, instanceType: string) => {
+      return Array.isArray(data?.VolumeSet)
+        ? data.VolumeSet.map((item: any) => ({
+            label: item[config.EBS[instanceType]],
+            value: item['VolumeId'],
+            ...item,
           }))
         : [];
     },

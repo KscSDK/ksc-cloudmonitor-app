@@ -402,6 +402,9 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     let defaultExtenQuery = `&InstanceID=${instanceid}&Namespace=${namespace}&PageIndex=1`;
     if (namespace === 'KCE') {
       defaultExtenQuery = `&Dimensions.0.Name=ClusterId&Dimensions.0.Value=${instanceid}&Namespace=${namespace}&PageIndex=1`;
+    } else if (namespace === 'EBS') {
+      const kecInstance = instanceOptions.find((item) => item.value === instanceid)?.InstanceId;
+      defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${instanceid}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${kecInstance}`;
     }
     const metricNamesData: any = await request(datasource.instanceSetting, `monitor`, {
       action: 'ListMetrics',
