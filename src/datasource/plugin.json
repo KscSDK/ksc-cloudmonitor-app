@@ -129,6 +129,126 @@
       ]
     },
     {
+      "path": "ebs-internal",
+      "url": "https://ebs.internal.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/eu-east-1",
+      "url": "http://ebs.eu-east-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-north-vip1",
+      "url": "http://ebs.cn-north-vip1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-northwest-3",
+      "url": "http://ebs.cn-northwest-3.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-northwest-2",
+      "url": "http://ebs.cn-northwest-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-northwest-1",
+      "url": "http://ebs.cn-northwest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-hongkong-2",
+      "url": "http://ebs.cn-hongkong-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-qingdao-1",
+      "url": "http://ebs.cn-qingdao-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/ap-singapore-1",
+      "url": "http://ebs.ap-singapore-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-beijing-6",
+      "url": "http://ebs.cn-beijing-6.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-guangzhou-1",
+      "url": "http://ebs.cn-guangzhou-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-shanghai-2",
+      "url": "http://ebs.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "eip/eu-east-1-internal",
       "url": "http://eip.eu-east-1.internal.api.ksyun.com",
       "headers": [

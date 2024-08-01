@@ -84,6 +84,10 @@ const config: InstanceConfig = {
     InstanceName: 'ClusterName',
     InstanceIp: 'PrivateIpAddress',
   },
+  EBS: {
+    InstanceId: 'VolumeId',
+    InstanceName: 'VolumeName',
+  }
 };
 
 /**

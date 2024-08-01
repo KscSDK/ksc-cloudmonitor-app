@@ -286,6 +286,24 @@ export const variableConfig: any = {
       },
     },
   },
+  EBS: {
+    service: 'ebs',
+    label: '云硬盘（EBS）',
+    namespace: 'EBS',
+    href: 'https://www.ksyun.com/nv/product/EBS.html',
+    instanceAction: 'DescribeVolumes',
+    DescribeVolumes: {
+      Version: '2016-03-04',
+      getDataKey: 'Volumes',
+      backDataFn: (list: any[], InstanceAlias?: string) => {
+        return list.map((i) => ({
+          label: i.VolumeName,
+          value: i.VolumeId,
+          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.VolumeName,
+        }));
+      },
+    },
+  },
 };
 
 // without region
