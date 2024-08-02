@@ -46,6 +46,10 @@ const generateInstanceIdList = (InstanceID: any[]) => {
   return dealId;
 };
 
+// 生成ebs 对应虚机 实例 id
+const generateInstanceEbsList = (InstanceID: any[], dealId: string[]) => {
+  return InstanceID.filter((i) => dealId.includes(i.VolumeId)).map((i) => i.InstanceId);
+};
 export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   instanceSetting: any;
   backendSrv: any;
@@ -86,7 +90,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     const queryResult = await Promise.allSettled(
       requestTargets.map((item) => {
         const { InstanceID, MetricName, Namespace, Period, Aggregate, Region } = item;
-        const NameSpace = Namespace?.value;
+        const NameSpace = Namespace?.value === 'EBS' ? 'KEC/EBS' : Namespace?.value;
         const aggregateValues = Aggregate ? Aggregate : defaultQuery.Aggregate;
         const aggregates = aggregateValues.map((i: any) => i.value);
         const dealId = generateInstanceIdList(InstanceID);
@@ -132,10 +136,14 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
             region: GenerateKs3ToMonitorRegion(dealRegion),
           });
         } else {
+          let mapDealId = dealId;
+          if (NameSpace === 'KEC/EBS') {
+            mapDealId = generateInstanceEbsList(InstanceID, dealId);
+          }
           _.set(
             queryDataparams,
             'Metrics',
-            dealId.map((instanceItem: any) => ({
+            mapDealId.map((instanceItem: any) => ({
               InstanceID: instanceItem,
               MetricName: dealMetricName,
             }))

@@ -298,7 +298,6 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       setMetricOptions([]);
       setInstanceOptions([]);
       customOptions.current = [];
-
       // const namespace = query.Namespace.value;
       const extendQuery = !extraParams || typeof extraParams !== 'string' ? extraParams : '';
       const projectQuery = `${projectQueryString ? projectQueryString : ''}`;

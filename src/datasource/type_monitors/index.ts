@@ -45,6 +45,10 @@ const regionSet = [
     Region: 'cn-north-vip1',
     RegionName: '华北专属1区 (天津-小米)',
   },
+  {
+    Region: 'cn-qingyangtest-1',
+    RegionName: '庆阳1区（测试）'
+  }
 ];
 
 export const MonitorServices = [

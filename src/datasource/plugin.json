@@ -159,6 +159,16 @@
       ]
     },
     {
+      "path": "ebs/cn-qingyangtest-1",
+      "url": "http://ebs/cn-qingyangtest-1.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "ebs/cn-northwest-3",
       "url": "http://ebs.cn-northwest-3.api.ksyun.com",
       "headers": [
@@ -2348,7 +2358,7 @@
     },
     {
       "path": "monitor",
-      "url": "https://monitor.api.ksyun.com",
+      "url": "http://monitor.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -2358,7 +2368,7 @@
     },
     {
       "path": "iam",
-      "url": "https://iam.api.ksyun.com",
+      "url": "http://iam.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
@@ -2368,7 +2378,7 @@
     },
     {
       "path": "kec",
-      "url": "https://kec.api.ksyun.com",
+      "url": "http://kec.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",
