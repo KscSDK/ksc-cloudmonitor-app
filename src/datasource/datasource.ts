@@ -10,7 +10,7 @@ import {
   GenerateKs3ToMonitorRegion,
   requestKs3,
 } from './utils';
-import { MetricListItem } from './utils/interface';
+import { EbsInstanceItem, MetricListItem } from './utils/interface';
 import _ from 'lodash';
 import { statisMetric, statisMetricBatch } from './services';
 const moment = require('moment');
@@ -35,7 +35,7 @@ const generateExtenQuery = (queryResult: { [key: string]: any }) => {
 };
 
 // 生成请求实例ID
-const generateInstanceIdList = (InstanceID: any[]) => {
+const generateInstanceIdList = (InstanceID: { label: string; value: string; [keyname: string]: any }[]) => {
   let dealId = [];
   if (InstanceID?.length > 1) {
     dealId = Array.isArray(InstanceID) ? InstanceID.map((i: any) => replaceRealValue(i?.value)) : [];
@@ -46,10 +46,19 @@ const generateInstanceIdList = (InstanceID: any[]) => {
   return dealId;
 };
 
-// 生成ebs 对应虚机 实例 id
-const generateInstanceEbsList = (InstanceID: any[], dealId: string[]) => {
-  return InstanceID.filter((i) => dealId.includes(i.VolumeId)).map((i) => i.InstanceId);
+// 生成EBS 请求实例
+const generateEbsInstance = (
+  InstanceID: { label: string; value: string; [keyname: string]: any }[]
+): EbsInstanceItem[] => {
+  const realInstance = Array.isArray(InstanceID)
+    ? InstanceID.map((i: any) => {
+        const realI = replaceRealValue(i?.value);
+        return JSON.parse(`{${realI}}`);
+      })
+    : [];
+  return realInstance;
 };
+
 export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   instanceSetting: any;
   backendSrv: any;
@@ -90,10 +99,10 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     const queryResult = await Promise.allSettled(
       requestTargets.map((item) => {
         const { InstanceID, MetricName, Namespace, Period, Aggregate, Region } = item;
-        const NameSpace = Namespace?.value === 'EBS' ? 'KEC/EBS' : Namespace?.value;
+        const NameSpace = Namespace?.value;
         const aggregateValues = Aggregate ? Aggregate : defaultQuery.Aggregate;
         const aggregates = aggregateValues.map((i: any) => i.value);
-        const dealId = generateInstanceIdList(InstanceID);
+        const dealId: string[] = generateInstanceIdList(InstanceID);
         const dealMetricName = replaceRealValue(MetricName?.value);
         const dealRegion = replaceRealValue(Region.value);
         const { action, version, method } = NameSpace === 'KCE' ? statisMetric : statisMetricBatch;
@@ -135,15 +144,29 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
             method,
             region: GenerateKs3ToMonitorRegion(dealRegion),
           });
-        } else {
-          let mapDealId = dealId;
-          if (NameSpace === 'KEC/EBS') {
-            mapDealId = generateInstanceEbsList(InstanceID, dealId);
-          }
+        } else if (NameSpace === 'EBS') {
+          const dealEbsIds = generateEbsInstance(InstanceID);
           _.set(
             queryDataparams,
             'Metrics',
-            mapDealId.map((instanceItem: any) => ({
+            dealEbsIds.map((instanceItem: EbsInstanceItem) => ({
+              InstanceID: instanceItem.InstanceId,
+              MetricName: dealMetricName,
+            }))
+          );
+          _.set(queryDataparams, 'Namespace', 'KEC/EBS');
+          return request(this.instanceSetting, `monitor`, {
+            action,
+            version,
+            postParams: { ...queryDataparams },
+            method,
+            region: dealRegion,
+          });
+        } else {
+          _.set(
+            queryDataparams,
+            'Metrics',
+            dealId.map((instanceItem: any) => ({
               InstanceID: instanceItem,
               MetricName: dealMetricName,
             }))
@@ -226,6 +249,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     });
     const resList: any[] = doQueryResult?.data[currentMap?.getDataKey] || [];
     const dealResList: MetricListItem[] = currentMap.backDataFn(resList, Instancealias);
+    console.log('dealResList===', dealResList);
     return dealResList;
   }
 

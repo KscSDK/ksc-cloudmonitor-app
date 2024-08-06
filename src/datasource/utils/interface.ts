@@ -71,3 +71,9 @@ export interface MetricListItem {
   text: string;
   [otherKey: string]: any;
 }
+
+export interface EbsInstanceItem {
+  InstanceId: string;
+  MountPoint: string;
+  VolumeId: string;
+}

@@ -219,10 +219,15 @@ export const GenerageInstanceOptions: any = {
   },
   EBS: {
     options: (data: any, instanceType: string) => {
+      // 过滤掉没有InstanceId的数据
       return Array.isArray(data?.Volumes)
-        ? data.Volumes.map((item: any) => ({
+        ? data.Volumes.filter((i: any) => i.InstanceId).map((item: any) => ({
             label: item[config.EBS[instanceType]],
-            value: item['VolumeId'],
+            value: JSON.stringify({
+              InstanceId: item.InstanceId,
+              VolumeId: item.VolumeId,
+              MountPoint: item.Attachment[0].MountPoint,
+            }),
             ...item,
           }))
         : [];
@@ -291,6 +296,11 @@ export const InstanceTypes = [
 export const ClusterTypes = [
   { value: 'InstanceId', label: 'As ClusterId' },
   { value: 'InstanceName', label: 'As ClusterName' },
+];
+
+export const EbsInstanceTypes = [
+  { value: 'InstanceId', label: 'As VolumeId' },
+  { value: 'InstanceName', label: 'As VolumeName' },
 ];
 
 /**

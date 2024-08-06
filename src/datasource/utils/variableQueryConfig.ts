@@ -6,6 +6,7 @@ import { get } from 'lodash';
  * @returns 需要显示的字符串内容
  */
 const generateAliasText = (InstanceAlias: string, data: { [keyName: string]: any }) => {
+  console.log('InstanceAlias', InstanceAlias)
   if (!InstanceAlias.includes(',')) {
     const findValue = get(data, InstanceAlias);
     return findValue;
@@ -297,11 +298,18 @@ export const variableConfig: any = {
       version: '2016-03-04',
       getDataKey: 'Volumes',
       backDataFn: (list: any[], InstanceAlias?: string) => {
-        return list.map((i) => ({
-          label: i.VolumeName,
-          value: i.VolumeId,
-          text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.VolumeName,
-        }));
+        // 过滤掉没有InstanceId的数据
+        return list
+          .filter((i) => i.InstanceId)
+          .map((i) => ({
+            label: i.VolumeName,
+            value: JSON.stringify({
+              InstanceId: i.InstanceId,
+              VolumeId: i.VolumeId,
+              MountPoint: i.Attachment[0].MountPoint,
+            }),
+            text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.VolumeName,
+          }));
       },
     },
   },
