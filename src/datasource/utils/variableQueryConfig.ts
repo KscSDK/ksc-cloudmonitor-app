@@ -6,7 +6,6 @@ import { get } from 'lodash';
  * @returns 需要显示的字符串内容
  */
 const generateAliasText = (InstanceAlias: string, data: { [keyName: string]: any }) => {
-  console.log('InstanceAlias', InstanceAlias)
   if (!InstanceAlias.includes(',')) {
     const findValue = get(data, InstanceAlias);
     return findValue;

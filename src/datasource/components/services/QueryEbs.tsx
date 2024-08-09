@@ -4,7 +4,7 @@ import SwitchIncrement from '../common/SwtichIncrement';
 
 const { FormField, Select } = LegacyForms;
 
-const VolumeStatusOptions: { label: string; value: string }[] = [
+const VolumeStatusOptions: Array<{ label: string; value: string }> = [
   { label: '创建中', value: 'creating' },
   { label: '待挂载', value: 'available' },
   { label: '挂载中', value: 'attaching' },
@@ -17,7 +17,7 @@ const VolumeStatusOptions: { label: string; value: string }[] = [
   { label: '类型变更中', value: 'type_changing' },
 ];
 
-const VolumeTypeOptions: { label: string; value: string }[] = [
+const VolumeTypeOptions: Array<{ label: string; value: string }> = [
   { label: 'ESSD_PL1', value: 'ESSD_PL1' },
   { label: 'ESSD_PL2', value: 'ESSD_PL2' },
   { label: 'ESSD_PL3', value: 'ESSD_PL3' },

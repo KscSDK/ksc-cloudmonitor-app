@@ -169,6 +169,16 @@
       ]
     },
     {
+      "path": "ebs/cn-qingyangdev-2",
+      "url": "http://ebs/cn-qingyangdev-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
       "path": "ebs/cn-northwest-3",
       "url": "http://ebs.cn-northwest-3.api.ksyun.com",
       "headers": [
@@ -251,6 +261,16 @@
     {
       "path": "ebs/cn-shanghai-2",
       "url": "http://ebs.cn-shanghai-2.api.ksyun.com",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "content": "application/json"
+        }
+      ]
+    },
+    {
+      "path": "ebs/cn-shanghai-3",
+      "url": "http://ebs.cn-shanghai-3.api.ksyun.com",
       "headers": [
         {
           "name": "Content-Type",

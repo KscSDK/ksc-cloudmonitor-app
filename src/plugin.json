@@ -9,7 +9,7 @@
       "name": "Ksyun Cloud Monitor"
     },
     "keywords": ["ksyuncloud", "ksyuncloudmonitor", "grafana", "plugins"],
-    "version": "1.2.3.4",
+    "version": "1.2.3.5",
     "updated": "2023-12-26",
     "logos": {
       "small": "img/logo.png",
@@ -55,6 +55,11 @@
       "type": "dashboard",
       "name": "【预设】对象存储（KS3）",
       "path": "dashboards/ks3.json"
+    },
+    {
+      "type": "dashboard",
+      "name": "【预设】云硬盘EBS",
+      "path": "dashboards/ebs.json"
     },
     {
       "type": "datasource",

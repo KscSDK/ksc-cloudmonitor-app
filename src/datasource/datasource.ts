@@ -35,7 +35,7 @@ const generateExtenQuery = (queryResult: { [key: string]: any }) => {
 };
 
 // 生成请求实例ID
-const generateInstanceIdList = (InstanceID: { label: string; value: string; [keyname: string]: any }[]) => {
+const generateInstanceIdList = (InstanceID: Array<{ label: string; value: string; [keyname: string]: any }>) => {
   let dealId = [];
   if (InstanceID?.length > 1) {
     dealId = Array.isArray(InstanceID) ? InstanceID.map((i: any) => replaceRealValue(i?.value)) : [];
@@ -48,7 +48,7 @@ const generateInstanceIdList = (InstanceID: { label: string; value: string; [key
 
 // 生成EBS 请求实例
 const generateEbsInstance = (
-  InstanceID: { label: string; value: string; [keyname: string]: any }[]
+  InstanceID: Array<{ label: string; value: string; [keyname: string]: any }>
 ): EbsInstanceItem[] => {
   const realInstance = Array.isArray(InstanceID)
     ? InstanceID.map((i: any) => {

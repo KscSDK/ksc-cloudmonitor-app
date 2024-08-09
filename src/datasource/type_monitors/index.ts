@@ -47,8 +47,8 @@ const regionSet = [
   },
   {
     Region: 'cn-qingyangtest-1',
-    RegionName: '庆阳1区（测试）'
-  }
+    RegionName: '庆阳1区（测试）',
+  },
 ];
 
 export const MonitorServices = [
