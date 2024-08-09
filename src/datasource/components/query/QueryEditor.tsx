@@ -376,7 +376,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
 
   // 生成metric options
   const generateMetricOptions = (metricsList: any[]) => {
-    metricMap.current = generageMetricOptions(metricsList);
+    metricMap.current = generageMetricOptions(metricsList, query.Namespace.value);
     const metricMapKeys = Array.from(metricMap.current.keys());
     const metricsOptions = metricMapKeys.map((item: any) => {
       const metricMapItem = metricMap.current && metricMap.current.get(item);
