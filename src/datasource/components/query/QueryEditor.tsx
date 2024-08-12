@@ -393,7 +393,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
 
   const getEbsMetricNames = async (instanceIdItem: string) => {
     const { InstanceId, VolumeId, MountPoint } = JSON.parse(`{${instanceIdItem}}`) || {};
-    let defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${VolumeId}&Dimensions.1.Name=Device&Dimensions.0.Value=${MountPoint}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${InstanceId}`;
+    let defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${VolumeId}&Dimensions.1.Name=Device&Dimensions.1.Value=${MountPoint}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${InstanceId}`;
     const metricNamesData: any = await request(datasource.instanceSetting, `monitor`, {
       action: 'ListMetrics',
       version: '2010-05-25',

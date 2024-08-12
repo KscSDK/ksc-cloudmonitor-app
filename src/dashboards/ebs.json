@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1723194448218,
+  "iteration": 1723455887623,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -88,7 +88,12 @@
       "id": 8,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -114,8 +119,12 @@
             "interval": "10",
             "label": "vfs.fs.size",
             "metricSubChose": {
-              "0": ["/"],
-              "1": ["pused"]
+              "0": [
+                "/"
+              ],
+              "1": [
+                "pused"
+              ]
             },
             "unit": "%",
             "value": "vfs.fs.size[/,pused]"
@@ -131,8 +140,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -206,7 +216,12 @@
       "id": 11,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -232,7 +247,9 @@
             "interval": "10",
             "label": "vfs.fs.total",
             "metricSubChose": {
-              "0": ["/"]
+              "0": [
+                "/"
+              ]
             },
             "unit": "B",
             "value": "vfs.fs.total[/]"
@@ -248,8 +265,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -321,7 +339,12 @@
       "id": 2,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -347,7 +370,12 @@
             "interval": "10",
             "label": "disk.write.Bps",
             "metricSubChose": {
-              "0": ["vda", "vda1", "vdb", "loop0"]
+              "0": [
+                "vda",
+                "vda1",
+                "vdb",
+                "loop0"
+              ]
             },
             "unit": "Bps",
             "value": "disk.write.Bps[vda]"
@@ -363,8 +391,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -388,7 +417,12 @@
             "interval": "10",
             "label": "disk.read.Bps",
             "metricSubChose": {
-              "0": ["vdb", "loop0", "vda", "vda1"]
+              "0": [
+                "vdb",
+                "loop0",
+                "vda",
+                "vda1"
+              ]
             },
             "unit": "Bps",
             "value": "disk.read.Bps[vda]"
@@ -478,7 +512,12 @@
       "id": 4,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -504,7 +543,12 @@
             "interval": "10",
             "label": "disk.read.ops",
             "metricSubChose": {
-              "0": ["vdb", "vda", "vda1", "loop0"]
+              "0": [
+                "vdb",
+                "vda",
+                "vda1",
+                "loop0"
+              ]
             },
             "unit": "Ops",
             "value": "disk.read.ops[vda]"
@@ -520,8 +564,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -545,7 +590,12 @@
             "interval": "10",
             "label": "disk.write.ops",
             "metricSubChose": {
-              "0": ["loop0", "vda1", "vda", "vdb"]
+              "0": [
+                "loop0",
+                "vda1",
+                "vda",
+                "vdb"
+              ]
             },
             "unit": "Ops",
             "value": "disk.write.ops[vda]"
@@ -561,8 +611,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -637,7 +688,12 @@
       "id": 6,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -663,7 +719,12 @@
             "interval": "10",
             "label": "disk.read.await",
             "metricSubChose": {
-              "0": ["loop0", "vda1", "vda", "vdb"]
+              "0": [
+                "loop0",
+                "vda1",
+                "vda",
+                "vdb"
+              ]
             },
             "unit": "ms",
             "value": "disk.read.await[vda]"
@@ -679,8 +740,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -710,7 +772,12 @@
             "interval": "10",
             "label": "disk.write.await",
             "metricSubChose": {
-              "0": ["loop0", "vdb", "vda", "vda1"]
+              "0": [
+                "loop0",
+                "vdb",
+                "vda",
+                "vda1"
+              ]
             },
             "unit": "ms",
             "value": "disk.write.await[vda]"
@@ -726,8 +793,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -801,7 +869,12 @@
       "id": 12,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -827,7 +900,12 @@
             "interval": "10",
             "label": "disk.io.svctm",
             "metricSubChose": {
-              "0": ["vda", "loop0", "vda1", "vdb"]
+              "0": [
+                "vda",
+                "loop0",
+                "vda1",
+                "vdb"
+              ]
             },
             "unit": "ms",
             "value": "disk.io.svctm[vda]"
@@ -843,8 +921,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -916,7 +995,12 @@
       "id": 22,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -942,7 +1026,12 @@
             "interval": "10",
             "label": "disk.io.avgqu",
             "metricSubChose": {
-              "0": ["vdb", "vda1", "vda", "loop0"]
+              "0": [
+                "vdb",
+                "vda1",
+                "vda",
+                "loop0"
+              ]
             },
             "unit": "",
             "value": "disk.io.avgqu[vda]"
@@ -958,8 +1047,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -1031,7 +1121,12 @@
       "id": 16,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -1057,7 +1152,12 @@
             "interval": "10",
             "label": "disk.io.await",
             "metricSubChose": {
-              "0": ["vda", "loop0", "vda1", "vdb"]
+              "0": [
+                "vda",
+                "loop0",
+                "vda1",
+                "vdb"
+              ]
             },
             "unit": "ms",
             "value": "disk.io.await[vda]"
@@ -1073,8 +1173,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -1146,7 +1247,12 @@
       "id": 20,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -1172,7 +1278,12 @@
             "interval": "10",
             "label": "disk.io.avgrq",
             "metricSubChose": {
-              "0": ["vda1", "vda", "vdb", "loop0"]
+              "0": [
+                "vda1",
+                "vda",
+                "vdb",
+                "loop0"
+              ]
             },
             "unit": "sectors",
             "value": "disk.io.avgrq[vda]"
@@ -1188,8 +1299,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -1261,7 +1373,12 @@
       "id": 14,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -1287,7 +1404,12 @@
             "interval": "10",
             "label": "disk.io.util",
             "metricSubChose": {
-              "0": ["loop0", "vda", "vdb", "vda1"]
+              "0": [
+                "loop0",
+                "vda",
+                "vdb",
+                "vda1"
+              ]
             },
             "unit": "%",
             "value": "disk.io.util[vda]"
@@ -1303,8 +1425,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -1377,7 +1500,12 @@
       "id": 18,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -1403,7 +1531,12 @@
             "interval": "10",
             "label": "disk.io.svctm",
             "metricSubChose": {
-              "0": ["vda", "loop0", "vda1", "vdb"]
+              "0": [
+                "vda",
+                "loop0",
+                "vda1",
+                "vdb"
+              ]
             },
             "unit": "ms",
             "value": "disk.io.svctm[vda]"
@@ -1419,8 +1552,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -1440,18 +1574,18 @@
     "list": [
       {
         "current": {
-          "selected": true,
-          "text": "ksc_ebs_20240805191930",
-          "value": "{\"InstanceId\":\"d3600b60-9a28-4792-9c55-c9b498f270c2\",\"VolumeId\":\"ae4459bc-cb5c-40e3-b398-9a127296c289\",\"MountPoint\":\"/dev/vdb\"}"
+          "selected": false,
+          "text": "华北专属1区（天津-小米）",
+          "value": "cn-north-vip1"
         },
-        "definition": "ServiceName=EBS&Action= DescribeVolumes&Region=cn-qingyangtest-1",
+        "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
         "includeAll": false,
-        "label": "EBS实例ID",
+        "label": "region",
         "multi": false,
-        "name": "ebsId",
+        "name": "region",
         "options": [],
-        "query": "ServiceName=EBS&Action= DescribeVolumes&Region=cn-qingyangtest-1",
+        "query": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1460,19 +1594,18 @@
       },
       {
         "current": {
-          "isNone": true,
           "selected": false,
-          "text": "None",
-          "value": ""
+          "text": "336fe468-6013-4bca-8f1c-7f3620feaf07",
+          "value": "{\"InstanceId\":\"6495a86c-67d7-471b-92d7-8b47b2d22ab8\",\"VolumeId\":\"336fe468-6013-4bca-8f1c-7f3620feaf07\",\"MountPoint\":\"/dev/vda\"}"
         },
-        "definition": "ServiceName=KEC&Action=DescribeRegions",
+        "definition": "ServiceName=EBS&Action= DescribeVolumes&Region=$region&Instancealias=VolumeId",
         "hide": 0,
         "includeAll": false,
-        "label": "region",
+        "label": "EBS实例ID",
         "multi": false,
-        "name": "region",
+        "name": "ebsId",
         "options": [],
-        "query": "ServiceName=KEC&Action=DescribeRegions",
+        "query": "ServiceName=EBS&Action= DescribeVolumes&Region=$region&Instancealias=VolumeId",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1487,8 +1620,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "【预设】云硬盘(EBS)",
+  "title": "【预设】云硬盘EBS",
   "uid": "",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
