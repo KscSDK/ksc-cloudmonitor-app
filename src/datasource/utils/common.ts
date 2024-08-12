@@ -449,13 +449,13 @@ export const ParseQueryResult = (response: any, targetItem: TargetItemProps): Qu
  * 生成指标选择维度数据
  * metricNameList：接口返回metricName列表数据
  */
-export const generageMetricOptions = (metricNameList: MetricType[], Namespace: string) => {
+export const generageMetricOptions = (metricNameList: MetricType[]) => {
   const metricMap = new Map();
   metricNameList.forEach((item: MetricType) => {
     if (item.metricName === 'proc.num') {
       return;
     }
-    if ((item && item.metricName && !item.metricName.includes('[')) || Namespace === 'EBS') {
+    if ((item && item.metricName && !item.metricName.includes('['))) {
       return metricMap.set(item.metricName, {
         Period: item.interval,
         metricSubChose: null,

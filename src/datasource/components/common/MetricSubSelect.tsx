@@ -59,7 +59,7 @@ const MetricSubSelect: FC<OwnProps> = ({ subChosed = {}, onChange, defaultValue 
             <div key={item + index + subValues[index]}>
               <Select
                 width={'auto'}
-                value={subValues[index]}
+                value={subValues[index] || subChosedOptions[0]}
                 options={subChosedOptions}
                 allowCustomValue={true}
                 isSearchable={true}

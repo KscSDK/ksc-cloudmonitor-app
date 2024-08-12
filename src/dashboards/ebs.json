@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1723460877107,
+  "iteration": 1723470172323,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -88,12 +88,7 @@
       "id": 8,
       "options": {
         "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
+          "calcs": ["max", "min", "mean", "lastNotNull"],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -117,9 +112,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.write.Bps[vda1]",
+            "label": "disk.write.Bps",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "Bps",
-            "value": "disk.write.Bps[vda1]"
+            "value": "disk.write.Bps[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -143,6 +141,12 @@
           "refId": "A"
         },
         {
+          "Aggregate": [
+            {
+              "label": "均值",
+              "value": "Average"
+            }
+          ],
           "InstanceID": [
             {
               "__isNew__": true,
@@ -156,9 +160,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.read.Bps[vda1]",
+            "label": "disk.read.Bps",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "Bps",
-            "value": "disk.read.Bps[vda1]"
+            "value": "disk.read.Bps[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -247,12 +254,7 @@
       "id": 4,
       "options": {
         "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
+          "calcs": ["max", "min", "mean", "lastNotNull"],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -276,9 +278,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.read.ops[vda1]",
+            "label": "disk.read.ops",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "Ops",
-            "value": "disk.read.ops[vda1]"
+            "value": "disk.read.ops[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -315,9 +320,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.write.ops[vda1]",
+            "label": "disk.write.ops",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "Ops",
-            "value": "disk.write.ops[vda1]"
+            "value": "disk.write.ops[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -406,12 +414,7 @@
       "id": 2,
       "options": {
         "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
+          "calcs": ["max", "min", "mean", "lastNotNull"],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -435,9 +438,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.read.await[vda1]",
+            "label": "disk.read.await",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "ms",
-            "value": "disk.read.await[vda1]"
+            "value": "disk.read.await[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -474,9 +480,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.write.await[vda1]",
+            "label": "disk.write.await",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "ms",
-            "value": "disk.write.await[vda1]"
+            "value": "disk.write.await[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -565,12 +574,7 @@
       "id": 12,
       "options": {
         "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
+          "calcs": ["max", "min", "mean", "lastNotNull"],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -594,9 +598,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.io.await[vda1]",
+            "label": "disk.io.await",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "ms",
-            "value": "disk.io.await[vda1]"
+            "value": "disk.io.await[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -685,12 +692,7 @@
       "id": 6,
       "options": {
         "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
+          "calcs": ["max", "min", "mean", "lastNotNull"],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -714,9 +716,12 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.io.svctm[vda1]",
+            "label": "disk.io.svctm",
+            "metricSubChose": {
+              "0": ["vda1", "vda"]
+            },
             "unit": "ms",
-            "value": "disk.io.svctm[vda1]"
+            "value": "disk.io.svctm[vda]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -751,7 +756,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "西北3区（宁夏）",
           "value": "cn-northwest-3"
         },
@@ -799,6 +804,6 @@
   "timezone": "",
   "title": "【预设】云硬盘EBS",
   "uid": "",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
