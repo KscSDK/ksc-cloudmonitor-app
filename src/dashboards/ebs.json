@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1723455887623,
+  "iteration": 1723460877107,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -75,7 +75,7 @@
               }
             ]
           },
-          "unit": "%"
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -117,268 +117,9 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "vfs.fs.size",
-            "metricSubChose": {
-              "0": [
-                "/"
-              ],
-              "1": [
-                "pused"
-              ]
-            },
-            "unit": "%",
-            "value": "vfs.fs.size[/,pused]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "磁盘使用率",
-      "type": "timeseries"
-    },
-    {
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "decbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 11,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "vfs.fs.total",
-            "metricSubChose": {
-              "0": [
-                "/"
-              ]
-            },
-            "unit": "B",
-            "value": "vfs.fs.total[/]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "磁盘的使用量",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 9
-      },
-      "id": 2,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.write.Bps",
-            "metricSubChose": {
-              "0": [
-                "vda",
-                "vda1",
-                "vdb",
-                "loop0"
-              ]
-            },
+            "label": "disk.write.Bps[vda1]",
             "unit": "Bps",
-            "value": "disk.write.Bps[vda]"
+            "value": "disk.write.Bps[vda1]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -415,17 +156,9 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.read.Bps",
-            "metricSubChose": {
-              "0": [
-                "vdb",
-                "loop0",
-                "vda",
-                "vda1"
-              ]
-            },
+            "label": "disk.read.Bps[vda1]",
             "unit": "Bps",
-            "value": "disk.read.Bps[vda]"
+            "value": "disk.read.Bps[vda1]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -438,8 +171,9 @@
             "value": 60
           },
           "Region": {
-            "label": "庆阳1区（测试）",
-            "value": "cn-qingyangtest-1"
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
@@ -499,7 +233,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ops"
         },
         "overrides": []
       },
@@ -507,7 +242,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 0
       },
       "id": 4,
       "options": {
@@ -541,17 +276,9 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.read.ops",
-            "metricSubChose": {
-              "0": [
-                "vdb",
-                "vda",
-                "vda1",
-                "loop0"
-              ]
-            },
+            "label": "disk.read.ops[vda1]",
             "unit": "Ops",
-            "value": "disk.read.ops[vda]"
+            "value": "disk.read.ops[vda1]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -588,17 +315,9 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.write.ops",
-            "metricSubChose": {
-              "0": [
-                "loop0",
-                "vda1",
-                "vda",
-                "vdb"
-              ]
-            },
+            "label": "disk.write.ops[vda1]",
             "unit": "Ops",
-            "value": "disk.write.ops[vda]"
+            "value": "disk.write.ops[vda1]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -623,7 +342,285 @@
           "refId": "B"
         }
       ],
-      "title": "磁盘每秒读写次数",
+      "title": "磁盘每秒读次数盘符",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "InstanceID": [
+            {
+              "__isNew__": true,
+              "label": "$ebsId",
+              "value": "$ebsId"
+            }
+          ],
+          "InstanceType": {
+            "label": "As VolumeId",
+            "value": "InstanceId"
+          },
+          "MetricName": {
+            "interval": "10",
+            "label": "disk.read.await[vda1]",
+            "unit": "ms",
+            "value": "disk.read.await[vda1]"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/29",
+            "label": "云硬盘（EBS）",
+            "service": "ebs",
+            "value": "EBS"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        },
+        {
+          "InstanceID": [
+            {
+              "__isNew__": true,
+              "label": "$ebsId",
+              "value": "$ebsId"
+            }
+          ],
+          "InstanceType": {
+            "label": "As VolumeId",
+            "value": "InstanceId"
+          },
+          "MetricName": {
+            "interval": "10",
+            "label": "disk.write.await[vda1]",
+            "unit": "ms",
+            "value": "disk.write.await[vda1]"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/29",
+            "label": "云硬盘（EBS）",
+            "service": "ebs",
+            "value": "EBS"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "每个读写操作平均耗时",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "InstanceID": [
+            {
+              "__isNew__": true,
+              "label": "$ebsId",
+              "value": "$ebsId"
+            }
+          ],
+          "InstanceType": {
+            "label": "As VolumeId",
+            "value": "InstanceId"
+          },
+          "MetricName": {
+            "interval": "10",
+            "label": "disk.io.await[vda1]",
+            "unit": "ms",
+            "value": "disk.io.await[vda1]"
+          },
+          "Namespace": {
+            "href": "https://docs.ksyun.com/products/29",
+            "label": "云硬盘（EBS）",
+            "service": "ebs",
+            "value": "EBS"
+          },
+          "Period": {
+            "label": 60,
+            "value": 60
+          },
+          "Region": {
+            "__isNew__": true,
+            "label": "$region",
+            "value": "$region"
+          },
+          "datasource": {
+            "type": "ksc-cloudmonitor-datasource",
+            "uid": ""
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "磁盘分区IO平均每次操作等待时间",
       "type": "timeseries"
     },
     {
@@ -717,829 +714,9 @@
           },
           "MetricName": {
             "interval": "10",
-            "label": "disk.read.await",
-            "metricSubChose": {
-              "0": [
-                "loop0",
-                "vda1",
-                "vda",
-                "vdb"
-              ]
-            },
+            "label": "disk.io.svctm[vda1]",
             "unit": "ms",
-            "value": "disk.read.await[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        },
-        {
-          "Aggregate": [
-            {
-              "label": "均值",
-              "value": "Average"
-            }
-          ],
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.write.await",
-            "metricSubChose": {
-              "0": [
-                "loop0",
-                "vdb",
-                "vda",
-                "vda1"
-              ]
-            },
-            "unit": "ms",
-            "value": "disk.write.await[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "hide": false,
-          "refId": "B"
-        }
-      ],
-      "title": "读写平均耗时",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 18
-      },
-      "id": 12,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.io.svctm",
-            "metricSubChose": {
-              "0": [
-                "vda",
-                "loop0",
-                "vda1",
-                "vdb"
-              ]
-            },
-            "unit": "ms",
-            "value": "disk.io.svctm[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "处理IO平均时间",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 27
-      },
-      "id": 22,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.io.avgqu",
-            "metricSubChose": {
-              "0": [
-                "vdb",
-                "vda1",
-                "vda",
-                "loop0"
-              ]
-            },
-            "unit": "",
-            "value": "disk.io.avgqu[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "I/O请求队列平均长度",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 27
-      },
-      "id": 16,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.io.await",
-            "metricSubChose": {
-              "0": [
-                "vda",
-                "loop0",
-                "vda1",
-                "vdb"
-              ]
-            },
-            "unit": "ms",
-            "value": "disk.io.await[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "磁盘分区IO平均每次操作等待时间",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 35
-      },
-      "id": 20,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.io.avgrq",
-            "metricSubChose": {
-              "0": [
-                "vda1",
-                "vda",
-                "vdb",
-                "loop0"
-              ]
-            },
-            "unit": "sectors",
-            "value": "disk.io.avgrq[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "I/O请求平均大小",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 35
-      },
-      "id": 14,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.io.util",
-            "metricSubChose": {
-              "0": [
-                "loop0",
-                "vda",
-                "vdb",
-                "vda1"
-              ]
-            },
-            "unit": "%",
-            "value": "disk.io.util[vda]"
-          },
-          "Namespace": {
-            "href": "https://docs.ksyun.com/products/29",
-            "label": "云硬盘（EBS）",
-            "service": "ebs",
-            "value": "EBS"
-          },
-          "Period": {
-            "label": 60,
-            "value": 60
-          },
-          "Region": {
-            "__isNew__": true,
-            "label": "$region",
-            "value": "$region"
-          },
-          "datasource": {
-            "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "磁盘IO使用率",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 43
-      },
-      "id": 18,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "min",
-            "mean",
-            "lastNotNull"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "InstanceID": [
-            {
-              "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
-            }
-          ],
-          "InstanceType": {
-            "label": "As VolumeId",
-            "value": "InstanceId"
-          },
-          "MetricName": {
-            "interval": "10",
-            "label": "disk.io.svctm",
-            "metricSubChose": {
-              "0": [
-                "vda",
-                "loop0",
-                "vda1",
-                "vdb"
-              ]
-            },
-            "unit": "ms",
-            "value": "disk.io.svctm[vda]"
+            "value": "disk.io.svctm[vda1]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -1574,9 +751,9 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "华北专属1区（天津-小米）",
-          "value": "cn-north-vip1"
+          "selected": true,
+          "text": "西北3区（宁夏）",
+          "value": "cn-northwest-3"
         },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
@@ -1595,8 +772,8 @@
       {
         "current": {
           "selected": false,
-          "text": "336fe468-6013-4bca-8f1c-7f3620feaf07",
-          "value": "{\"InstanceId\":\"6495a86c-67d7-471b-92d7-8b47b2d22ab8\",\"VolumeId\":\"336fe468-6013-4bca-8f1c-7f3620feaf07\",\"MountPoint\":\"/dev/vda\"}"
+          "text": "ac9e34d6-9274-46b5-8b97-3ea71fbc2b66",
+          "value": "{\"InstanceId\":\"9dbc30ac-7c69-4d43-8189-322241c74174\",\"VolumeId\":\"ac9e34d6-9274-46b5-8b97-3ea71fbc2b66\",\"MountPoint\":\"/dev/vda\"}"
         },
         "definition": "ServiceName=EBS&Action= DescribeVolumes&Region=$region&Instancealias=VolumeId",
         "hide": 0,
@@ -1622,6 +799,6 @@
   "timezone": "",
   "title": "【预设】云硬盘EBS",
   "uid": "",
-  "version": 4,
+  "version": 1,
   "weekStart": ""
 }
