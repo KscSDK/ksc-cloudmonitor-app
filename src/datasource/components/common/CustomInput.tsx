@@ -44,7 +44,7 @@ const CustomInput: FC<OwnProps> = ({ label, defaultValue, onChange, tooltip }) =
           }}
         ></Select>
       ) : (
-        <Input className="inline-input" value={innerValue} width={20} placeholder=" " onChange={dealInputChange} />
+        <Input className="inline-input" value={innerValue} width={30} placeholder=" " onChange={dealInputChange} />
       )}
     </>
   );

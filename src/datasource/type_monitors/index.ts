@@ -45,6 +45,10 @@ const regionSet = [
     Region: 'cn-north-vip1',
     RegionName: '华北专属1区 (天津-小米)',
   },
+  {
+    Region: 'cn-qingyangtest-1',
+    RegionName: '庆阳1区（测试）',
+  },
 ];
 
 export const MonitorServices = [
@@ -159,6 +163,14 @@ export const MonitorServices = [
     apihref: 'https://docs.ksyun.com/documents/917?type=3',
     instanceAction: 'ListBuckets',
   },
+  {
+    service: 'ebs',
+    label: '云硬盘（EBS）',
+    namespace: 'EBS',
+    href: 'https://docs.ksyun.com/products/29',
+    apihref: 'https://docs.ksyun.com/documents/5456?type=3',
+    instanceAction: 'DescribeVolumes',
+  },
 ];
 // 各个产品线请求实例配置
 const serviceRegionConfig = {
@@ -174,6 +186,7 @@ const serviceRegionConfig = {
   postgresql: { version: '2018-12-25', servicename: 'postgresql' },
   kce: { version: '2019-08-06', servicename: 'kce' },
   ks3: { version: '', servicename: '' },
+  ebs: { version: '2016-03-04', servicename: 'ebs' },
 };
 // 非region相关配置
 const mormalServiceConfig = {

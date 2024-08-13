@@ -6,7 +6,7 @@ import { RegionSet, QueryType } from '../../utils/interface';
 import { QueryEditorProps } from '@grafana/data';
 import { DataSource } from '../../datasource';
 import MetricSubSelect from '../common/MetricSubSelect';
-import _ from 'lodash';
+import _, { orderBy } from 'lodash';
 import '../../styles/common.css';
 import { ServiceMap, generageCheckedNamespace, MonitorServices } from '../../type_monitors';
 import {
@@ -21,6 +21,7 @@ import {
   GenerageInstanceOptions,
   ClusterTypes,
   requestKs3,
+  EbsInstanceTypes,
 } from '../../utils';
 import {
   QueryPeering,
@@ -37,6 +38,7 @@ import {
   QueryPGS,
   QueryKce,
   QueryKS3,
+  QueryEbs,
 } from '../services';
 const { Select } = LegacyForms;
 const AggregateOptions = [
@@ -59,7 +61,7 @@ const ks3DefaultMetrics = [
   { metricName: 'ks3.bucket.capacity.total.sd', namespace: 'KS3' },
   { metricName: 'ks3.bucket.capacity.total.ia', namespace: 'KS3' },
   { metricName: 'ks3.bucket.capacity.total.ar', namespace: 'KS3' },
-]
+];
 
 type Props = QueryEditorProps<DataSource, MyQuery, MyDataSourceOptions>;
 
@@ -144,7 +146,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       version: '2016-03-04',
     });
     const regionSet = regionRes?.data?.RegionSet || [];
-    return regionSet.map((item: RegionSet) => ({
+    return orderBy(regionSet, ['RegionName'], ['asc']).map((item: RegionSet) => ({
       label: `${item?.RegionName}`,
       value: item?.Region,
     }));
@@ -214,6 +216,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         return <QueryKce onChange={_.debounce(handleChange, 500)} />;
       case 'KS3':
         return <QueryKS3 onChange={_.debounce(handleChangeKs3, 500)} />;
+      case 'EBS':
+        return <QueryEbs onChange={_.debounce(handleChange, 500)} />;
       default:
         return null;
     }
@@ -298,10 +302,9 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       setMetricOptions([]);
       setInstanceOptions([]);
       customOptions.current = [];
-
       // const namespace = query.Namespace.value;
       const extendQuery = !extraParams || typeof extraParams !== 'string' ? extraParams : '';
-      const projectQuery = `${projectQueryString ? projectQueryString : ''}`;
+      const projectQuery = service === 'ebs' ? '' : `${projectQueryString ? projectQueryString : ''}`;
       // 根据filter 是否含有project 判断query string 是否将project 过滤
       const filterProjectQuery =
         extraParams && extraParams.includes('ProjectId')
@@ -326,12 +329,10 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         return;
       }
       if (instanceIdRes && instanceIdRes?.data) {
-        const opsItem = GenerageInstanceOptions[query?.Namespace?.value].options(
+        let opsItem = GenerageInstanceOptions[query?.Namespace?.value].options(
           instanceIdRes?.data,
           query.InstanceType?.value || 'InstanceId'
         );
-        // const instanceData = dealInstanceRequest(service, instanceIdRes?.data);
-        // const instanceOptions = dealInstanceByService(namespace, instanceData, query.InstanceType?.value);
         setInstanceOptions([...opsItem]);
       }
     },
@@ -390,6 +391,18 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     setMetricOptions(metricsOptions);
   };
 
+  const getEbsMetricNames = async (instanceIdItem: string) => {
+    const { InstanceId, VolumeId, MountPoint } = JSON.parse(`{${instanceIdItem}}`) || {};
+    let defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${VolumeId}&Dimensions.1.Name=MountPoint&Dimensions.1.Value=${MountPoint}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${InstanceId}`;
+    const metricNamesData: any = await request(datasource.instanceSetting, `monitor`, {
+      action: 'ListMetrics',
+      version: '2010-05-25',
+      extenQuery: defaultExtenQuery,
+      region: replaceRealValue(query.Region.value),
+    });
+    return metricNamesData?.data?.listMetricsResult?.metrics?.member;
+  };
+
   // 请求指标接口
   const getMetricNames = async () => {
     // 变量多选值，获取需根据，分割
@@ -402,6 +415,12 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     let defaultExtenQuery = `&InstanceID=${instanceid}&Namespace=${namespace}&PageIndex=1`;
     if (namespace === 'KCE') {
       defaultExtenQuery = `&Dimensions.0.Name=ClusterId&Dimensions.0.Value=${instanceid}&Namespace=${namespace}&PageIndex=1`;
+    } else if (namespace === 'EBS') {
+      const realInstanceItem = replaceRealValue(instanceIdItem);
+      if (typeof realInstanceItem === 'string') {
+        const { InstanceId, VolumeId } = JSON.parse(`{${realInstanceItem}}`) || {};
+        defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${VolumeId}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${InstanceId}`;
+      }
     }
     const metricNamesData: any = await request(datasource.instanceSetting, `monitor`, {
       action: 'ListMetrics',
@@ -416,6 +435,9 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     let metricsList = metricNamesData?.data?.listMetricsResult?.metrics?.member;
     if (namespace === 'KS3' && metricsList && metricsList.length) {
       metricsList = metricsList.concat(ks3DefaultMetrics);
+    } else if (namespace === 'EBS' && !metricsList?.length) {
+      // ebs 默认监控查询为空，进行二次查询，添加盘符信息参数
+      metricsList = await getEbsMetricNames(replaceRealValue(instanceIdItem));
     }
     generateMetricOptions(metricsList);
   };
@@ -468,7 +490,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
     </>
   );
   // KCE 获取集群表单项
-  const KecInstanceField = (
+  const KceInstanceField = (
     <>
       <InlineField labelWidth={18} label="ClusterID">
         <div className="flex-content">
@@ -488,6 +510,52 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
             placeholder=" "
           />
           <Select
+            width={40}
+            options={[...instanceOptions]}
+            defaultValue={query.InstanceID?.[0]}
+            value={query.InstanceID?.[0]}
+            onChange={onInstanceChange}
+            onOpenMenu={() => getInstanceIds(extenInstanceQuery)}
+            onBlur={() => {
+              if (query?.MetricName && query?.MetricName.value) {
+                onRunQuery();
+              }
+            }}
+            closeMenuOnSelect={false}
+            allowCustomValue={true}
+            isSearchable={true}
+            placeholder=" "
+            onCreateOption={(v: any) => {
+              const customValue = { value: v, label: v };
+              onChange({ ...query, InstanceID: [customValue] });
+            }}
+          />
+        </div>
+      </InlineField>
+    </>
+  );
+  // EBS 实例查询
+  const EbsInstanceField = (
+    <>
+      <InlineField labelWidth={18} label="VolumeId">
+        <div className="flex-content">
+          <Select
+            width={180}
+            options={EbsInstanceTypes}
+            defaultValue={{}}
+            value={query.InstanceType ? query.InstanceType : 'InstanceId'}
+            onChange={(instanceType) => {
+              onChange({
+                ...query,
+                InstanceType: instanceType,
+                InstanceID: [],
+              });
+            }}
+            isSearchable={true}
+            placeholder=" "
+          />
+          <Select
+            isLoading={isLoading}
             width={40}
             options={[...instanceOptions]}
             defaultValue={query.InstanceID?.[0]}
@@ -544,9 +612,11 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
   // 根据nameSpace 渲染不同InstanceID Field
   const renderInstanceField = (namespace: string) => {
     if (namespace === 'KCE') {
-      return KecInstanceField;
+      return KceInstanceField;
     } else if (namespace === 'KS3') {
       return KS3InstanceField;
+    } else if (namespace === 'EBS') {
+      return EbsInstanceField;
     } else {
       return NormalInstanceField;
     }

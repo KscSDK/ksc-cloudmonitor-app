@@ -9,6 +9,7 @@ export interface MyQuery extends DataQuery {
   Aggregate?: any;
   InstanceType?: any;
   Alias?: string;
+  InstanceOptions?: any[];
 }
 
 export const defaultQuery: Partial<MyQuery> = {

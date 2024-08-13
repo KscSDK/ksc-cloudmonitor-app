@@ -84,6 +84,10 @@ const config: InstanceConfig = {
     InstanceName: 'ClusterName',
     InstanceIp: 'PrivateIpAddress',
   },
+  EBS: {
+    InstanceId: 'VolumeId',
+    InstanceName: 'VolumeName',
+  },
 };
 
 /**
@@ -213,6 +217,22 @@ export const GenerageInstanceOptions: any = {
         : [];
     },
   },
+  EBS: {
+    options: (data: any, instanceType: string) => {
+      // 过滤掉没有InstanceId的数据
+      return Array.isArray(data?.Volumes)
+        ? data.Volumes.filter((i: any) => i.InstanceId).map((item: any) => ({
+            label: item[config.EBS[instanceType]],
+            value: JSON.stringify({
+              InstanceId: item.InstanceId,
+              VolumeId: item.VolumeId,
+              MountPoint: item.Attachment[0].MountPoint,
+            }),
+            ...item,
+          }))
+        : [];
+    },
+  },
 };
 
 // 处理生成KS3生成的instance options
@@ -278,6 +298,11 @@ export const ClusterTypes = [
   { value: 'InstanceName', label: 'As ClusterName' },
 ];
 
+export const EbsInstanceTypes = [
+  { value: 'InstanceId', label: 'As VolumeId' },
+  { value: 'InstanceName', label: 'As VolumeName' },
+];
+
 /**
  * 获取query 变量中设置的显示text
  * @param variables query 变量数组
@@ -336,6 +361,9 @@ const generateTarget = (
           replaceString = replaceString.replace(replaceIndexItem, varItem);
         }
       });
+    }
+    if (replaceString.includes('{{label}}')) {
+      replaceString = replaceString.replace('{{label}}', label);
     }
     defaultLegend = replaceString;
   }
@@ -430,7 +458,7 @@ export const generageMetricOptions = (metricNameList: MetricType[]) => {
     if (item.metricName === 'proc.num') {
       return;
     }
-    if (item && item.metricName && !item.metricName.includes('[')) {
+    if ((item && item.metricName && !item.metricName.includes('['))) {
       return metricMap.set(item.metricName, {
         Period: item.interval,
         metricSubChose: null,
