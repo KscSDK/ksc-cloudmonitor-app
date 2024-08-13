@@ -203,7 +203,7 @@
           "refId": "B"
         }
       ],
-      "title": "磁盘读写",
+      "title": "磁盘读写带宽",
       "type": "timeseries"
     },
     {
@@ -376,7 +376,7 @@
           "refId": "B"
         }
       ],
-      "title": "磁盘每秒读次数盘符",
+      "title": "磁盘每秒读写次数",
       "type": "timeseries"
     },
     {

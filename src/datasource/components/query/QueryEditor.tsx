@@ -6,7 +6,7 @@ import { RegionSet, QueryType } from '../../utils/interface';
 import { QueryEditorProps } from '@grafana/data';
 import { DataSource } from '../../datasource';
 import MetricSubSelect from '../common/MetricSubSelect';
-import _ from 'lodash';
+import _, { orderBy } from 'lodash';
 import '../../styles/common.css';
 import { ServiceMap, generageCheckedNamespace, MonitorServices } from '../../type_monitors';
 import {
@@ -146,7 +146,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       version: '2016-03-04',
     });
     const regionSet = regionRes?.data?.RegionSet || [];
-    return regionSet.map((item: RegionSet) => ({
+    return orderBy(regionSet, ['RegionName'], ['asc']).map((item: RegionSet) => ({
       label: `${item?.RegionName}`,
       value: item?.Region,
     }));

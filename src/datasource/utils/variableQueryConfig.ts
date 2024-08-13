@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { get, orderBy } from 'lodash';
 /**
  * 按别名显示变量
  * @param InstanceAlias 别名
@@ -43,7 +43,7 @@ export const variableConfig: any = {
       getDataKey: 'RegionSet',
       version: '2016-03-04',
       backDataFn: (list: any[], InstanceAlias?: string) => {
-        return list.map((i) => ({
+        return orderBy(list, ['RegionName'], ['asc']).map((i) => ({
           label: i?.RegionName,
           value: i?.Region,
           text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.RegionName,
