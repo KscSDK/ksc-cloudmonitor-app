@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { get, orderBy } from 'lodash';
 /**
  * 按别名显示变量
  * @param InstanceAlias 别名
@@ -43,7 +43,7 @@ export const variableConfig: any = {
       getDataKey: 'RegionSet',
       version: '2016-03-04',
       backDataFn: (list: any[], InstanceAlias?: string) => {
-        return list.map((i) => ({
+        return orderBy(list, ['RegionName'], ['asc']).map((i) => ({
           label: i?.RegionName,
           value: i?.Region,
           text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.RegionName,
@@ -283,6 +283,32 @@ export const variableConfig: any = {
           value: i.ClusterId,
           text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.ClusterName,
         }));
+      },
+    },
+  },
+  EBS: {
+    service: 'ebs',
+    label: '云硬盘（EBS）',
+    namespace: 'EBS',
+    href: 'https://www.ksyun.com/nv/product/EBS.html',
+    instanceAction: 'DescribeVolumes',
+    DescribeVolumes: {
+      service: 'ebs',
+      version: '2016-03-04',
+      getDataKey: 'Volumes',
+      backDataFn: (list: any[], InstanceAlias?: string) => {
+        // 过滤掉没有InstanceId的数据
+        return list
+          .filter((i) => i.InstanceId)
+          .map((i) => ({
+            label: i.VolumeName,
+            value: JSON.stringify({
+              InstanceId: i.InstanceId,
+              VolumeId: i.VolumeId,
+              MountPoint: i.Attachment[0].MountPoint,
+            }),
+            text: InstanceAlias ? generateAliasText(InstanceAlias, i) : i.VolumeName,
+          }));
       },
     },
   },
