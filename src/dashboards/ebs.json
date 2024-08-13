@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1723470172323,
+  "iteration": 1723521391577,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -88,7 +88,12 @@
       "id": 8,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -99,6 +104,7 @@
       },
       "targets": [
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -114,10 +120,13 @@
             "interval": "10",
             "label": "disk.write.Bps",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "Bps",
-            "value": "disk.write.Bps[vda]"
+            "value": "disk.write.Bps[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -147,6 +156,7 @@
               "value": "Average"
             }
           ],
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -162,10 +172,13 @@
             "interval": "10",
             "label": "disk.read.Bps",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "Bps",
-            "value": "disk.read.Bps[vda]"
+            "value": "disk.read.Bps[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -254,7 +267,12 @@
       "id": 4,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -265,6 +283,7 @@
       },
       "targets": [
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -280,10 +299,13 @@
             "interval": "10",
             "label": "disk.read.ops",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "Ops",
-            "value": "disk.read.ops[vda]"
+            "value": "disk.read.ops[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -307,6 +329,7 @@
           "refId": "A"
         },
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -322,10 +345,13 @@
             "interval": "10",
             "label": "disk.write.ops",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "Ops",
-            "value": "disk.write.ops[vda]"
+            "value": "disk.write.ops[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -414,7 +440,12 @@
       "id": 2,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -425,6 +456,7 @@
       },
       "targets": [
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -440,10 +472,13 @@
             "interval": "10",
             "label": "disk.read.await",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "ms",
-            "value": "disk.read.await[vda]"
+            "value": "disk.read.await[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -467,6 +502,7 @@
           "refId": "A"
         },
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -482,10 +518,13 @@
             "interval": "10",
             "label": "disk.write.await",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "ms",
-            "value": "disk.write.await[vda]"
+            "value": "disk.write.await[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -574,7 +613,12 @@
       "id": 12,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -585,6 +629,7 @@
       },
       "targets": [
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -600,10 +645,13 @@
             "interval": "10",
             "label": "disk.io.await",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "ms",
-            "value": "disk.io.await[vda]"
+            "value": "disk.io.await[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -692,7 +740,12 @@
       "id": 6,
       "options": {
         "legend": {
-          "calcs": ["max", "min", "mean", "lastNotNull"],
+          "calcs": [
+            "max",
+            "min",
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom"
         },
@@ -703,6 +756,7 @@
       },
       "targets": [
         {
+          "Alias": "{{label}} host={{p0}} {{agg}}",
           "InstanceID": [
             {
               "__isNew__": true,
@@ -718,10 +772,13 @@
             "interval": "10",
             "label": "disk.io.svctm",
             "metricSubChose": {
-              "0": ["vda1", "vda"]
+              "0": [
+                "vda1",
+                "vda"
+              ]
             },
             "unit": "ms",
-            "value": "disk.io.svctm[vda]"
+            "value": "disk.io.svctm[$device]"
           },
           "Namespace": {
             "href": "https://docs.ksyun.com/products/29",
@@ -776,9 +833,9 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "ac9e34d6-9274-46b5-8b97-3ea71fbc2b66",
-          "value": "{\"InstanceId\":\"9dbc30ac-7c69-4d43-8189-322241c74174\",\"VolumeId\":\"ac9e34d6-9274-46b5-8b97-3ea71fbc2b66\",\"MountPoint\":\"/dev/vda\"}"
+          "selected": true,
+          "text": "64ac524e-f4a1-4c6a-a706-cbde17f335c8",
+          "value": "{\"InstanceId\":\"c4cd586d-9a1b-4834-8216-ca3735ae04bf\",\"VolumeId\":\"64ac524e-f4a1-4c6a-a706-cbde17f335c8\",\"MountPoint\":\"/dev/vdb\"}"
         },
         "definition": "ServiceName=EBS&Action= DescribeVolumes&Region=$region&Instancealias=VolumeId",
         "hide": 0,
@@ -788,6 +845,26 @@
         "name": "ebsId",
         "options": [],
         "query": "ServiceName=EBS&Action= DescribeVolumes&Region=$region&Instancealias=VolumeId",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "vdb",
+          "value": "vdb"
+        },
+        "definition": "ServiceName=Monitor&Action=ListMetrics&InstanceItem=${ebsId}&Region={$region}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "device",
+        "multi": false,
+        "name": "device",
+        "options": [],
+        "query": "ServiceName=Monitor&Action=ListMetrics&InstanceItem=${ebsId}&Region={$region}",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -804,6 +881,6 @@
   "timezone": "",
   "title": "【预设】云硬盘EBS",
   "uid": "",
-  "version": 2,
+  "version": 4,
   "weekStart": ""
 }

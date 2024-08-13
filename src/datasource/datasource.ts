@@ -15,6 +15,14 @@ import _ from 'lodash';
 import { statisMetric, statisMetricBatch } from './services';
 const moment = require('moment');
 
+function isValidJSON(text: string): boolean {
+  try {
+    JSON.parse(text);
+    return true; // 解析成功，是有效的JSON字符串
+  } catch {
+    return false; // 解析失败，不是有效的JSON字符串
+  }
+}
 // quer界面需要解析的参数
 // Region 区域
 // Action 产品线接口参数
@@ -32,6 +40,17 @@ const generateExtenQuery = (queryResult: { [key: string]: any }) => {
     }
   }
   return otherUrl;
+};
+
+const generateEbsInstanceExtenQuery = (queryResult: { [key: string]: any }) => {
+  let obj: { [key: string]: any } = {};
+  for (const key in queryResult) {
+    if (!filterQueryKeys.includes(key)) {
+      const queryValue = replaceRealValue(queryResult[key]);
+      obj[key] = queryValue;
+    }
+  }
+  return obj;
 };
 
 // 生成请求实例ID
@@ -57,6 +76,16 @@ const generateEbsInstance = (
       })
     : [];
   return realInstance;
+};
+
+export const getEbsMetricNames = async (defaultExtenQuery: string, instanceSetting: any, Region: string) => {
+  const metricNamesData: any = await request(instanceSetting, `monitor`, {
+    action: 'ListMetrics',
+    version: '2010-05-25',
+    extenQuery: defaultExtenQuery,
+    region: replaceRealValue(Region),
+  });
+  return metricNamesData?.data?.listMetricsResult?.metrics?.member;
 };
 
 export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
@@ -226,6 +255,31 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     if (!ServiceName) {
       return [];
     }
+    // 查询指标接口
+    if (Action === 'ListMetrics' && ServiceName === 'Monitor') {
+      const { InstanceItem, Region } = generateEbsInstanceExtenQuery(queryResult);
+      if (!isValidJSON(InstanceItem)) {
+        console.error('选择实例后为获取到JSON数据');
+      }
+      const { InstanceId, VolumeId, MountPoint } = JSON.parse(`{${InstanceItem}}`) || {};
+      let defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${VolumeId}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${InstanceId}`;
+      let metricList = await getEbsMetricNames(defaultExtenQuery, this.instanceSetting, Region);
+      if (!metricList || !metricList?.length) {
+        defaultExtenQuery += `&Dimensions.1.Name=MountPoint&Dimensions.1.Value=${MountPoint}`;
+        metricList = await getEbsMetricNames(defaultExtenQuery, this.instanceSetting, Region);
+      }
+      if (metricList && metricList?.length) {
+        const deviceList = metricList
+          .filter((i: any) => !i.metricName.includes('system.hw.diskuuid'))
+          .map((i: any) => ({
+            label: i.metricName.match(/\[(.*?)\]/)[1],
+            value: i.metricName.match(/\[(.*?)\]/)[1],
+          }));
+        return deviceList;
+      }
+      return [];
+    }
+
     // k3自定义变量接口处理
     if (ServiceName === 'KS3') {
       const ks3Region = replaceRealValue(Region);
@@ -249,7 +303,6 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     });
     const resList: any[] = doQueryResult?.data[currentMap?.getDataKey] || [];
     const dealResList: MetricListItem[] = currentMap.backDataFn(resList, Instancealias);
-    console.log('dealResList===', dealResList);
     return dealResList;
   }
 

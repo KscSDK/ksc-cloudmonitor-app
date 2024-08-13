@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { LegacyForms } from '@grafana/ui';
 import _ from 'lodash';
+import { replaceRealValue } from 'datasource/utils';
 
 const { Select } = LegacyForms;
 interface SubItem {
@@ -24,8 +25,8 @@ const MetricSubSelect: FC<OwnProps> = ({ subChosed = {}, onChange, defaultValue 
     if (defaultValue && defaultValue.includes('[') && defaultValue.includes(']')) {
       const subChoseArray = defaultValue.split('[')[1].split(']')[0].split(',');
       const defaultSubValue = subChoseArray.map((i: any) => ({
-        label: i,
-        value: i,
+        label: replaceRealValue(i),
+        value: replaceRealValue(i),
       }));
       setSubValues(defaultSubValue);
       subSeletValues.current = defaultSubValue;

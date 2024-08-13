@@ -362,6 +362,9 @@ const generateTarget = (
         }
       });
     }
+    if (replaceString.includes('{{label}}')) {
+      replaceString = replaceString.replace('{{label}}', label);
+    }
     defaultLegend = replaceString;
   }
   return defaultLegend;
