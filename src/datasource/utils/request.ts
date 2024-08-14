@@ -82,6 +82,7 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
   }
   // https://api*****/proxy/30/kec/path/?Action****
   const dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}${extenQuery ? `${extenQuery}` : ''}`;
+  console.log('test dealUrl', dealUrl);
   const time = utcTime.format();
   const dealTime = time.replaceAll(':', '').replaceAll('-', '');
   const reqOptions = {
