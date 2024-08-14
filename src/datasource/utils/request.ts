@@ -78,7 +78,7 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
   );
   let serviceKey = proxyKey;
   if (sign.data.intranet) {
-    serviceKey += 'internal-' + serviceKey;
+    serviceKey = 'internal-' + serviceKey;
   }
   // https://api*****/proxy/30/kec/path/?Action****
   const dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}${extenQuery ? `${extenQuery}` : ''}`;
