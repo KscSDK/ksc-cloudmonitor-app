@@ -35,6 +35,10 @@ export const getSign = async (
 ) => {
   const proxyConfig: any = ServiceMap.get(proxyKey);
   const { host, servicename } = proxyConfig || {};
+  const QueryString =
+    action === 'DescribeVolumes'
+      ? `Action=${action}&Version=${version}&IsAbbreviated=true${extenQuery ? `&${extenQuery}` : ''}`
+      : `Action=${action}&Version=${version}${extenQuery ? `&${extenQuery}` : ''}`;
   const signResult = await __backendSrv.datasourceRequest({
     url: `/api/datasources/${pluginId}/resources/sign_v3`,
     method: 'post',
@@ -42,7 +46,7 @@ export const getSign = async (
       Action: action,
       Version: version,
       Body: method === 'POST' ? JSON.stringify(postParams) : '',
-      Query: `Action=${action}&Version=${version}${extenQuery ? `&${extenQuery}` : ''}`,
+      Query: QueryString,
       Region: region ? replaceRealValue(region) : 'cn-beijing-6',
       Service: `${servicename}`,
       Timestamp: timestamp,
@@ -81,7 +85,12 @@ export const request = async (instanceSetting: any, proxyKey: string, queryParam
     serviceKey = 'internal-' + serviceKey;
   }
   // https://api*****/proxy/30/kec/path/?Action****
-  const dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}${extenQuery ? `${extenQuery}` : ''}`;
+  let dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}${extenQuery ? `${extenQuery}` : ''}`;
+  if (action === 'DescribeVolumes') {
+    dealUrl = `${url}/${serviceKey}?Action=${action}&Version=${version}&IsAbbreviated=true${
+      extenQuery ? `${extenQuery}` : ''
+    }`;
+  }
   const time = utcTime.format();
   const dealTime = time.replaceAll(':', '').replaceAll('-', '');
   const reqOptions = {

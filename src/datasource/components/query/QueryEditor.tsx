@@ -388,6 +388,10 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         metricSubChose: metricMapItem && metricMapItem['metricSubChose'] ? metricMapItem['metricSubChose'] : undefined,
       };
     });
+    onChange({
+      ...query,
+      MetricName: {},
+    });
     setMetricOptions(metricsOptions);
   };
 
@@ -400,7 +404,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       extenQuery: defaultExtenQuery,
       region: replaceRealValue(query.Region.value),
     });
-    return metricNamesData?.data?.listMetricsResult?.metrics?.member;
+    return metricNamesData?.data?.listMetricsResult?.metrics?.member || [];
   };
 
   // 请求指标接口
