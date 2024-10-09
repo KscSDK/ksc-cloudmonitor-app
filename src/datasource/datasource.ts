@@ -175,12 +175,13 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
           });
         } else if (NameSpace === 'EBS') {
           const dealEbsIds = generateEbsInstance(InstanceID);
+          const metricList = _.get(MetricName?.metricSubChose, 0);
           _.set(
             queryDataparams,
             'Metrics',
-            dealEbsIds.map((instanceItem: EbsInstanceItem) => ({
-              InstanceID: instanceItem.InstanceId,
-              MetricName: dealMetricName,
+            metricList.map((device: string) => ({
+              InstanceID: dealEbsIds[0].InstanceId,
+              MetricName: `${dealMetricName}[${device}]`,
             }))
           );
           _.set(queryDataparams, 'Namespace', 'KEC/EBS');

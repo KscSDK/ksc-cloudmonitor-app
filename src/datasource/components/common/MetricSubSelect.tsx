@@ -12,8 +12,9 @@ interface OwnProps {
   subChosed: SubItem;
   onChange: (value: string) => void;
   defaultValue?: string;
+  style?: any;
 }
-const MetricSubSelect: FC<OwnProps> = ({ subChosed = {}, onChange, defaultValue }) => {
+const MetricSubSelect: FC<OwnProps> = ({ subChosed = {}, onChange, defaultValue, style }) => {
   const subSeletValues = useRef<any[]>([]);
   const [subValues, setSubValues] = useState<any[]>([]);
   useEffect(() => {
@@ -57,7 +58,7 @@ const MetricSubSelect: FC<OwnProps> = ({ subChosed = {}, onChange, defaultValue 
             value: i,
           }));
           return (
-            <div key={item + index + subValues[index]}>
+            <div key={item + index + subValues[index]} style={{ ...style }}>
               <Select
                 width={'auto'}
                 value={subValues[index] || subChosedOptions[0]}
