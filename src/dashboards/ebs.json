@@ -108,8 +108,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -160,8 +160,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -287,8 +287,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -333,8 +333,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -461,8 +461,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -587,8 +587,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -713,8 +713,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -759,8 +759,8 @@
           "InstanceID": [
             {
               "__isNew__": true,
-              "label": "$ebsId",
-              "value": "$ebsId"
+              "label": "$InstanceId",
+              "value": "$InstanceId"
             }
           ],
           "InstanceType": {
@@ -843,7 +843,7 @@
         "includeAll": false,
         "label": "EBS实例ID",
         "multi": false,
-        "name": "ebsId",
+        "name": "InstanceId",
         "options": [],
         "query": "ServiceName=EBS&Action=DescribeVolumes&Region=$region&Instancealias=VolumeId",
         "refresh": 1,
