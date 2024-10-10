@@ -77,6 +77,14 @@ const generateEbsInstance = (
     : [];
   return realInstance;
 };
+// 根据获取的指标列表，获取指标的盘符列表
+const generateDevices = (metricList: any[]) => {
+  if (!metricList || !metricList?.length) return [];
+  const deviceList = metricList
+    .filter((i: any) => !i.metricName.includes('system.hw.diskuuid'))
+    .map((i: any) => i.metricName.match(/\[(.*?)\]/)[1]);
+  return deviceList;
+};
 
 export const getEbsMetricNames = async (defaultExtenQuery: string, instanceSetting: any, Region: string) => {
   const metricNamesData: any = await request(instanceSetting, `monitor`, {
@@ -126,7 +134,7 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
       return { data: [] };
     }
     const queryResult = await Promise.allSettled(
-      requestTargets.map((item) => {
+      requestTargets.map(async (item) => {
         const { InstanceID, MetricName, Namespace, Period, Aggregate, Region } = item;
         const NameSpace = Namespace?.value;
         const aggregateValues = Aggregate ? Aggregate : defaultQuery.Aggregate;
@@ -175,11 +183,19 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
           });
         } else if (NameSpace === 'EBS') {
           const dealEbsIds = generateEbsInstance(InstanceID);
-          const metricList = _.get(MetricName?.metricSubChose, 0);
+          const realInstanceItem = replaceRealValue(InstanceID?.[0]?.value);
+          const { InstanceId, VolumeId, MountPoint } = JSON.parse(`{${realInstanceItem}}`) || {};
+          let defaultExtenQuery = `&Dimensions.0.Name=VolumeId&Dimensions.0.Value=${VolumeId}&Namespace=KEC/EBS&PageIndex=1&InstanceId=${InstanceId}`;
+          let metricList = await getEbsMetricNames(defaultExtenQuery, this.instanceSetting, dealRegion);
+          if (!metricList || !metricList?.length) {
+            defaultExtenQuery += `&Dimensions.1.Name=MountPoint&Dimensions.1.Value=${MountPoint}`;
+            metricList = await getEbsMetricNames(defaultExtenQuery, this.instanceSetting, dealRegion);
+          }
+          const deviceList = _.uniq(generateDevices(metricList));
           _.set(
             queryDataparams,
             'Metrics',
-            metricList.map((device: string) => ({
+            deviceList.map((device: string) => ({
               InstanceID: dealEbsIds[0].InstanceId,
               MetricName: `${dealMetricName}[${device}]`,
             }))
