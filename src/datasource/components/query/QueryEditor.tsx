@@ -266,7 +266,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       setPerionOptions(periodOptions);
     }
     // 如果metric含有sub Select，暂不请求接口
-    if (metric.metricSubChose) {
+    if (metric.metricSubChose && query?.Namespace?.value !== 'EBS') {
       return;
     }
     onRunQuery();
