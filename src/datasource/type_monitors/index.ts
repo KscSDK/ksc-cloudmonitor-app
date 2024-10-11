@@ -49,6 +49,14 @@ const regionSet = [
     Region: 'cn-qingyangtest-1',
     RegionName: '庆阳1区（测试）',
   },
+  {
+    Region: 'cn-ningbo-1',
+    RegionName: '华东2(宁波)',
+  },
+  {
+    Region: 'cn-northwest-4',
+    RegionName: '西北4(海东)',
+  },
 ];
 
 export const MonitorServices = [
