@@ -266,7 +266,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       setPerionOptions(periodOptions);
     }
     // 如果metric含有sub Select，暂不请求接口
-    if (metric.metricSubChose) {
+    if (metric.metricSubChose && query?.Namespace?.value !== 'EBS') {
       return;
     }
     onRunQuery();
@@ -388,6 +388,12 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
         metricSubChose: metricMapItem && metricMapItem['metricSubChose'] ? metricMapItem['metricSubChose'] : undefined,
       };
     });
+    if (query?.MetricName && query?.MetricName.value && !metricMapKeys.includes(query.MetricName.value)) {
+      onChange({
+        ...query,
+        MetricName: {},
+      });
+    }
     setMetricOptions(metricsOptions);
   };
 
@@ -400,7 +406,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
       extenQuery: defaultExtenQuery,
       region: replaceRealValue(query.Region.value),
     });
-    return metricNamesData?.data?.listMetricsResult?.metrics?.member;
+    return metricNamesData?.data?.listMetricsResult?.metrics?.member || [];
   };
 
   // 请求指标接口
@@ -498,7 +504,7 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
             width={180}
             options={ClusterTypes}
             defaultValue={{}}
-            value={query.InstanceType ? query.InstanceType : 'InstanceId'}
+            value={query.InstanceType ? query.InstanceType : ClusterTypes[0]}
             onChange={(instanceType) => {
               onChange({
                 ...query,
@@ -542,8 +548,8 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
           <Select
             width={180}
             options={EbsInstanceTypes}
-            defaultValue={{}}
-            value={query.InstanceType ? query.InstanceType : 'InstanceId'}
+            defaultValue="InstanceId"
+            value={query.InstanceType ? query.InstanceType : EbsInstanceTypes[0]}
             onChange={(instanceType) => {
               onChange({
                 ...query,
@@ -654,13 +660,22 @@ const QueryEditor: FC<Props> = ({ onRunQuery, onChange, query, datasource, queri
           />
           {query.MetricName?.['metricSubChose'] && (
             <MetricSubSelect
+              style={{ visibility: query?.Namespace?.value === 'EBS' ? 'hidden' : 'visible' }}
               subChosed={query.MetricName['metricSubChose']}
               onChange={onMetricSubSeletChange}
               defaultValue={query.MetricName?.value}
             />
           )}
           {query.MetricName && query.MetricName['unit'] && (
-            <span style={{ marginLeft: '8px', lineHeight: '32px' }}>（单位：{query.MetricName['unit'] || ''}）</span>
+            <span
+              style={{
+                marginLeft: '8px',
+                lineHeight: '32px',
+                visibility: query?.Namespace?.value === 'EBS' ? 'hidden' : 'visible',
+              }}
+            >
+              （单位：{query.MetricName['unit'] || ''}）
+            </span>
           )}
         </div>
       </InlineField>
