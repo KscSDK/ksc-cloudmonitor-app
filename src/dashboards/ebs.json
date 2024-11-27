@@ -28,6 +28,10 @@
   "panels": [
     {
       "description": "",
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -145,7 +149,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -197,7 +201,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -207,6 +211,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -324,7 +332,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -370,7 +378,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -381,6 +389,10 @@
     },
     {
       "description": "",
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -498,7 +510,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -507,6 +519,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -624,7 +640,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -633,6 +649,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -750,7 +770,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -796,7 +816,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -814,9 +834,31 @@
     "list": [
       {
         "current": {
+          "selected": false,
+          "text": "DataSource-test",
+          "value": "DataSource-test"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "label": "datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "ksc-cloudmonitor-datasource",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
           "selected": true,
           "text": "西北4（海东）",
           "value": "cn-northwest-4"
+        },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
         },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
@@ -837,6 +879,10 @@
           "selected": false,
           "text": "1960a7d4-6ccd-40e3-82bd-246b5acef13b",
           "value": "{\"InstanceId\":\"de192d2d-620d-4556-b47e-aaed2528aa86\",\"VolumeId\":\"1960a7d4-6ccd-40e3-82bd-246b5acef13b\",\"MountPoint\":\"/dev/vda\"}"
+        },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
         },
         "definition": "ServiceName=EBS&Action=DescribeVolumes&Region=$region&Instancealias=VolumeId",
         "hide": 0,
