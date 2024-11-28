@@ -9,7 +9,7 @@
       "name": "Ksyun Cloud Monitor"
     },
     "keywords": ["ksyuncloud", "ksyuncloudmonitor", "grafana", "plugins"],
-    "version": "1.2.6.0",
+    "version": "1.2.7",
     "updated": "2023-12-26",
     "logos": {
       "small": "img/logo.png",
