@@ -29,7 +29,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": ""
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -132,7 +132,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -167,7 +167,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -179,7 +179,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": ""
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -282,7 +282,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -317,7 +317,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -329,7 +329,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": ""
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -432,7 +432,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -467,7 +467,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -503,7 +503,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -515,7 +515,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": ""
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -618,7 +618,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -653,7 +653,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -689,7 +689,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -701,7 +701,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": ""
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -803,7 +803,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -838,7 +838,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -874,7 +874,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -910,7 +910,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -922,7 +922,7 @@
     {
       "datasource": {
         "type": "ksc-cloudmonitor-datasource",
-        "uid": ""
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1024,7 +1024,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -1059,7 +1059,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -1095,7 +1095,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -1131,7 +1131,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -1149,8 +1149,30 @@
       {
         "current": {
           "selected": false,
+          "text": "DataSource-test",
+          "value": "DataSource-test"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "label": "datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "ksc-cloudmonitor-datasource",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": false,
           "text": "华北1（北京）",
           "value": "cn-beijing-6"
+        },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
         },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
@@ -1171,6 +1193,10 @@
           "selected": true,
           "text": ["kmr-pool,47788a81-8c14-492a-abd4-aaa0271604ca"],
           "value": ["47788a81-8c14-492a-abd4-aaa0271604ca"]
+        },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
         },
         "definition": "ServiceName=SLB&Action=DescribeLoadBalancers&Region=$region&State=associate&ProjectId.1=0&Instancealias=LoadBalancerName,LoadBalancerId",
         "hide": 0,
@@ -1195,7 +1221,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "【预设】负载均衡SLB-默认项目",
-  "uid": "Mgo_dLzSz",
+  "uid": "",
   "version": 1,
   "weekStart": ""
 }

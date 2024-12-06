@@ -41,6 +41,10 @@
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -124,7 +128,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -133,6 +137,10 @@
       "type": "gauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -215,7 +223,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -224,6 +232,10 @@
       "type": "gauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -306,7 +318,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -316,6 +328,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -399,7 +415,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -408,6 +424,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -491,7 +511,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -500,6 +520,10 @@
       "type": "gauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -583,7 +607,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -592,6 +616,10 @@
       "type": "gauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -675,7 +703,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -684,6 +712,10 @@
       "type": "gauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -768,7 +800,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -813,7 +845,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -859,7 +891,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -905,7 +937,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -951,7 +983,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -997,7 +1029,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -1043,7 +1075,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -1089,7 +1121,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -1099,6 +1131,10 @@
       "type": "bargauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1179,7 +1215,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -1224,7 +1260,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -1270,7 +1306,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -1316,7 +1352,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -1362,7 +1398,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -1408,7 +1444,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -1454,7 +1490,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -1500,7 +1536,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -1510,6 +1546,10 @@
       "type": "bargauge"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1593,7 +1633,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -1638,7 +1678,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -1684,7 +1724,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -1730,7 +1770,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -1776,7 +1816,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -1822,7 +1862,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -1868,7 +1908,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -1914,7 +1954,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -1937,6 +1977,10 @@
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2068,7 +2112,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -2077,6 +2121,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2185,7 +2233,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -2227,7 +2275,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -2250,6 +2298,10 @@
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2361,7 +2413,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -2406,7 +2458,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -2452,7 +2504,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -2498,7 +2550,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -2544,7 +2596,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -2590,7 +2642,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -2636,7 +2688,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -2682,7 +2734,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -2692,6 +2744,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2805,7 +2861,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -2850,7 +2906,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -2896,7 +2952,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -2942,7 +2998,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -2988,7 +3044,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -3034,7 +3090,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -3080,7 +3136,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -3126,7 +3182,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -3136,6 +3192,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3247,7 +3307,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -3292,7 +3352,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -3338,7 +3398,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -3384,7 +3444,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -3430,7 +3490,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -3476,7 +3536,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -3522,7 +3582,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -3568,7 +3628,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -3578,6 +3638,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3689,7 +3753,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -3735,7 +3799,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -3781,7 +3845,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "A"
@@ -3827,7 +3891,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -3873,7 +3937,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -3919,7 +3983,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -3965,7 +4029,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -4011,7 +4075,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -4021,6 +4085,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4132,7 +4200,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -4177,7 +4245,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -4223,7 +4291,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -4269,7 +4337,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -4315,7 +4383,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -4361,7 +4429,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -4407,7 +4475,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -4453,7 +4521,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -4463,6 +4531,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4574,7 +4646,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -4619,7 +4691,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -4665,7 +4737,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -4711,7 +4783,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -4757,7 +4829,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -4803,7 +4875,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -4849,7 +4921,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -4895,7 +4967,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -4905,6 +4977,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -5016,7 +5092,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -5061,7 +5137,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -5107,7 +5183,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -5153,7 +5229,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -5199,7 +5275,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -5245,7 +5321,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -5291,7 +5367,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -5337,7 +5413,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -5347,6 +5423,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -5458,7 +5538,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -5503,7 +5583,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -5549,7 +5629,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -5595,7 +5675,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -5641,7 +5721,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -5687,7 +5767,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -5733,7 +5813,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -5779,7 +5859,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -5789,6 +5869,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -5900,7 +5984,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -5945,7 +6029,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -5991,7 +6075,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -6037,7 +6121,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -6083,7 +6167,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -6129,7 +6213,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -6175,7 +6259,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -6221,7 +6305,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -6231,6 +6315,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6342,7 +6430,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -6387,7 +6475,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -6433,7 +6521,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "C"
@@ -6479,7 +6567,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "D"
@@ -6525,7 +6613,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "E"
@@ -6571,7 +6659,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "F"
@@ -6617,7 +6705,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "G"
@@ -6663,7 +6751,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "H"
@@ -6686,6 +6774,10 @@
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6797,7 +6889,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -6842,7 +6934,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -6852,6 +6944,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6963,7 +7059,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -7009,7 +7105,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "A"
@@ -7130,7 +7226,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -7175,7 +7271,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -7185,6 +7281,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7296,7 +7396,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -7342,7 +7442,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "A"
@@ -7365,6 +7465,10 @@
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7476,7 +7580,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -7521,7 +7625,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -7531,6 +7635,10 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "ksc-cloudmonitor-datasource",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7642,7 +7750,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "refId": "A"
         },
@@ -7687,7 +7795,7 @@
           },
           "datasource": {
             "type": "ksc-cloudmonitor-datasource",
-            "uid": ""
+            "uid": "${datasource}"
           },
           "hide": false,
           "refId": "B"
@@ -7706,8 +7814,30 @@
       {
         "current": {
           "selected": false,
+          "text": "DataSource-test",
+          "value": "DataSource-test"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "label": "datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "ksc-cloudmonitor-datasource",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": false,
           "text": "测试专用项目",
           "value": "104139"
+        },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
         },
         "definition": "ServiceName=IAM&Action=GetAccountAllProjectList",
         "hide": 0,
@@ -7729,6 +7859,10 @@
           "text": "华北1（北京）",
           "value": "cn-beijing-6"
         },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
+        },
         "definition": "ServiceName=KEC&Action=DescribeRegions&Region=cn-beijing-6",
         "hide": 0,
         "includeAll": false,
@@ -7748,6 +7882,10 @@
           "selected": true,
           "text": ["monitor-test,5fa6809c-369a-4e33-9a70-ab271374ee72"],
           "value": ["5fa6809c-369a-4e33-9a70-ab271374ee72"]
+        },
+        "datasource": {
+          "type": "ksc-cloudmonitor-datasource",
+          "uid": "${datasource}"
         },
         "definition": "ServiceName=EPC&Action= DescribeEpcs&Region=$region&MaxResults=1000&ProjectId.1=$pid&Instancealias=HostName,HostId",
         "hide": 0,
